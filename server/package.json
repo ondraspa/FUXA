@@ -47,7 +47,8 @@
     "socket.io": "2.5.0",
     "sqlite3": "5.1.5",
     "winston": "3.7.2",
-    "ws": "8.18.0"
+    "ws": "8.18.0",
+    "st-ethernet-ip": "github:greg9504/ST-node-ethernet-ip#Fuxa"
   },
   "devDependencies": {
     "@mapbox/node-pre-gyp": "^1.0.0",

@@ -29,20 +29,17 @@ export class Device {
     /** Polling interval, check changed value after ask value, by OPCUA there is a monitor  */
     polling: number;
     /** Tags list of Tag */
-    tags: DictionaryTag;
-    /** Memory IO Modules for Ethern/IP, list of type EthernetIPModule indexed by id */
-    modules: any;
+    tags: any;
 
     constructor(_id: string) {
         this.id = _id;
-        this.modules = {};
     }
 
     static descriptor = {
         id: 'Device id, GUID',
         name: 'Device name',
         enabled: 'Enabled',
-        type: 'Device Type: FuxaServer | SiemensS7 | OPCUA | BACnet | ModbusRTU | ModbusTCP | WebAPI | MQTTclient | internal | EthernetIP |Gpio',
+        type: 'Device Type: FuxaServer | SiemensS7 | OPCUA | BACnet | ModbusRTU | ModbusTCP | WebAPI | MQTTclient | internal | EthernetIP',
         polling: 'Polling interval in millisec., check changed value after ask value, by OPCUA there is a monitor',
         property: 'Connection property depending of type',
         tags: 'Tags list of Tag',
@@ -53,34 +50,6 @@ export class Device {
     }
 }
 
-interface DictionaryTag {
-    [id: string]: Tag;
-}
-
-export class EnipTagOptions {
-    tagType: EnipTagDataSourceType;
-    /** buffer size in bytes */
-    bufferSize: number;
-    /** for getAttributeSingle, optional array of bytes to include that the device requires to identify the requested tag */
-    sendBuffer: string;
-    explicitOpt: {class: number; instance: number; attribute: number};
-     symbolicOpt: {
-        // name: string; use address field
-        program: string;
-        dataType: string;
-     };
-     ioOpt: {
-        ioModuleId: string;
-        ioType: EnipIODataType;
-        ioByteOffset: number; /** byte offset to read for ioType of integer16, byte offset  to start read for bitoffset */
-        ioBitOffset: number; /** 0-7, for ioType bit */
-        ioOutput: boolean; /** if true tag is used to send data, if false (default) tag is for read of input table */
-     };
-     calculatedOpt: {
-        parentId: string;
-        offset: number;
-    };
- };
 export class Tag {
     /** Tag id, GUID */
     id: string;
@@ -94,7 +63,7 @@ export class Tag {
     type: string;
     /** Address of Tag, combine with address by Modbus, some property for WebAPI */
     memaddress: string;
-    /** Tag address, for OPCUA like the id , for GPIO the io number */
+    /** Tag address, for OPCUA like the id */
     address: string;
     /** Value divisor, used by Modbus */
     divisor: number;
@@ -110,27 +79,10 @@ export class Tag {
     init: string;
     /** Value scaling properties */
     scale: TagScale;
-    /** Scale function to use when reading tag */
-    scaleReadFunction?: string;
-    /** Optional JSON encoded params and values for above script */
-    scaleReadParams?: string;
-    /** Scale function to use when writing tag */
-    scaleWriteFunction?: string;
-    /** Optional JSON encoded params and values for above script */
-    scaleWriteParams?: string;
     /** System Tag used in FUXA Server, example device status connection */
     sysType: TagSystemType;
     /** Description */
     description?: string;
-    /** Deadband to set changed value */
-    deadband?: TagDeadband;
-    /**
-     * Optional GPIO direction,edge
-     */
-    direction?: string;
-    edge?: string;
-
-    enipOptions: EnipTagOptions;
 
     constructor(_id: string) {
         this.id = _id;
@@ -151,18 +103,10 @@ export class Tag {
             enabled: 'Daq enabled storage',
             interval: 'min storage interval (without change value)'
         },
-        format: 'Number of digits to appear after the decimal point',
-        direction: 'A string specifying whether the GPIO should be configured as an input or output. The valid values are: \'in\', \'out\', \'high\', and \'low\'. If \'out\' is specified the GPIO will be configured as an output and the value of the GPIO will be set to 0. \'high\' and \'low\' are variants of \'out\' that configure the GPIO as an output with an initial level of 1 or 0 respectively.',
-        edge: 'An optional string specifying the interrupt generating edge or edges for an input GPIO. The valid values are: \'none\', \'rising\', \'falling\' or \'both\'. The default value is \'none\' indicating that the GPIO will not generate interrupts. Whether or not interrupts are supported by an input GPIO is GPIO specific. If interrupts are not supported by a GPIO the edge argument should not be specified. The edge argument is ignored for output GPIOs.',
-        enipOptions: 'EthernetIP options, JSON object.  { tagType: "symbolic|explicit|assembly", symbolPath: string, explClass: number, explInstance: number, explAttr: number'
+        format: 'Number of digits to appear after the decimal point'
     };
 }
 
-export interface TagDevice extends Tag {
-    deviceId?: string;
-    deviceName?: string;
-    deviceType?: DeviceType;
-}
 export class TagDaq {
     /** DAQ data acquisition is enabled */
     enabled: boolean;
@@ -179,15 +123,6 @@ export class TagDaq {
         this.interval = _interval;
         this.restored = _restored;
     }
-}
-
-export interface TagDeadband {
-    value: number;
-    mode: TagDeadbandModeType;
-}
-
-export enum TagDeadbandModeType {
-    absolute = 'absolute'
 }
 
 export class DeviceNetProperty {
@@ -217,10 +152,6 @@ export class DeviceNetProperty {
     format: string;
     /** Connection option used for Modbus RTU/TCP */
     connectionOption: string;
-    /** Delay used for Modbus RTU/TCP delay between frame*/
-    delay: number = 10;
-    /** Modbus TCP socket reuse flag */
-    socketReuse?: string;
 
     static descriptor = {
         address: 'Device address (IP)',
@@ -255,32 +186,7 @@ export class DeviceSecurity {
     privateKeyFileName: string;
     caCertificateFileName: string;
 }
-/** Used to hold the configuration for EthernetIP  IO Module */
-export class EthernetIPModule {
-    /** module id guid */
-    id: string;
-    /** module name */
-    name: string;
-    /** description */
-    description: string;
-    /** request packet interval */
-    rpi: number;
-    /** input instance number */
-    inputInstance: number;
-    /** input instance size in bytes */
-    inputSize: number;
-    /** output instance number */
-    outputInstance: number;
-    /** output instance size in bytes */
-    outputSize: number;
-    /** configuration instance number */
-    configurationInstance: number;
-    /** configuration instance size in bytes */
-    configurationSize: number;
-    constructor(_id: string) {
-        this.id = _id;
-    }
-}
+
 export enum DeviceType {
     FuxaServer = 'FuxaServer',
     SiemensS7 = 'SiemensS7',
@@ -292,9 +198,7 @@ export enum DeviceType {
     MQTTclient = 'MQTTclient',
     internal = 'internal',
     EthernetIP = 'EthernetIP',
-    ODBC = 'ODBC',
-    GPIO = 'GPIO',
-    GenericEthernetIP = 'GenericEthernetIP',
+    ODBC = 'ODBC'
     // Template: 'template'
 }
 
@@ -306,18 +210,6 @@ export enum TagType {
     DInt = 'DInt',
     DWord = 'DWord',
     Real = 'Real'
-}
-
-export enum EnipTagDataSourceType {
-    symbolic,
-    explicit,
-    assemblyIO,
-    calculated
-}
-
-export enum EnipIODataType {
-    bit,
-    integer16
 }
 
 export enum ModbusTagType {
@@ -342,24 +234,6 @@ export enum ModbusTagType {
     // String = 'String'
 }
 
-export enum OpcUaTagType {
-    Boolean = 'Boolean',
-    SByte = 'SByte',
-    Byte = 'Byte',
-    Int16 = 'Int16',
-    UInt16 = 'UInt16',
-    Int32 = 'Int32',
-    UInt32 = 'UInt32',
-    Int64 = 'Int64',
-    UInt64 = 'UInt64',
-    Float = 'Float',
-    Double = 'Double',
-    String = 'String',
-    DateTime = 'DateTime',
-    Guid = 'Guid',
-    ByteString = 'ByteString'
-}
-
 export enum ModbusOptionType {
     SerialPort = 'SerialPort',
     RTUBufferedPort = 'RTUBufferedPort',
@@ -368,31 +242,6 @@ export enum ModbusOptionType {
     UdpPort = 'UdpPort',
     TcpRTUBufferedPort = 'TcpRTUBufferedPort',
     TelnetPort = 'TelnetPort'
-}
-
-export enum ModbusReuseModeType {
-    Reuse = 'Reuse',
-    ReuseSerial = 'ReuseSerial',
-}
-
-/**
- * A string specifying whether the GPIO should be configured as an input or output. The valid values are: 'in', 'out', 'high', and 'low'. If 'out' is specified the GPIO will be configured as an output and the value of the GPIO will be set to 0. 'high' and 'low' are variants of 'out' that configure the GPIO as an output with an initial level of 1 or 0 respectively.
- */
-export enum GpioDirectionType {
-    in = 'in',
-    out = 'out',
-    high = ' - high',
-    low = ' - low',
-}
-
-/**
- * An optional string specifying the interrupt generating edge or edges for an input GPIO. The valid values are: 'none', 'rising', 'falling' or 'both'. The default value is 'none' indicating that the GPIO will not generate interrupts. Whether or not interrupts are supported by an input GPIO is GPIO specific. If interrupts are not supported by a GPIO the edge argument should not be specified. The edge argument is ignored for output GPIOs.
- */
-export enum GpioEdgeType {
-    none = 'none',
-    rising = 'rising',
-    falling = 'falling',
-    both = 'both',
 }
 
 export enum MessageSecurityMode {
@@ -443,7 +292,6 @@ export enum BACnetObjectType {
 
 export const DEVICE_PREFIX = 'd_';
 export const TAG_PREFIX = 't_';
-export const ETHERNETIPMODULE_PREFIX = 'm_';
 
 export class DevicesUtils {
     static getDeviceTagText(devices: Device[], id: string): string {
