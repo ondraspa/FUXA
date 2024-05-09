@@ -17,6 +17,7 @@ import { TopicPropertyComponent, TopicPropertyData } from '../topic-property/top
 import { TranslateService } from '@ngx-translate/core';
 import { ToastrService } from 'ngx-toastr';
 import { TagPropertyEditGpioComponent, TagPropertyGpioData } from './tag-property-edit-gpio/tag-property-edit-gpio.component';
+import { TagPropertyEditEnipComponent } from './tag-property-edit-enip/tag-property-edit-enip.component';
 
 @Injectable({
     providedIn: 'root'
@@ -371,6 +372,43 @@ export class TagPropertyService {
                     if (checkToAdd) {
                         this.checkToAdd(tag, device);
                     }else if (tag.id !== oldTagId) {
+                        //remove old tag device reference
+                        delete device.tags[oldTagId];
+                        this.checkToAdd(tag, device);
+                    }
+                    this.projectService.setDeviceTags(device);
+                }
+                dialogRef.close();
+                return result;
+            })
+        );
+    }
+    public editTagPropertyEnIP(device: Device, tag: Tag, checkToAdd: boolean): Observable<any> {
+        let oldTagId = tag.id;
+        let tagToEdit: Tag = Utils.clone(tag);
+        let dialogRef = this.dialog.open(TagPropertyEditEnipComponent, {
+            disableClose: true,
+            data: {
+                device: device,
+                tag: tagToEdit
+            },
+            position: { top: '60px' }
+        });
+
+        return dialogRef.componentInstance.result.pipe(
+            map(result => {
+                if (result) {
+                    tag.name = result.name;
+                    tag.type = result.type;
+                    tag.address = result.address;
+                    tag.memaddress = result.memaddress;
+                    tag.divisor = result.divisor;
+                    tag.enipOptions = result.enipOptions;
+                    tag.divisor = result.tagDivisor;
+                    tag.description = result.tagDescription;
+                    if (checkToAdd) {
+                        this.checkToAdd(tag, device);
+                    } else if (tag.id !== oldTagId) {
                         //remove old tag device reference
                         delete device.tags[oldTagId];
                         this.checkToAdd(tag, device);

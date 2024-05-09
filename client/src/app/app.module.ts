@@ -219,6 +219,7 @@ import { LanguageTextPropertyComponent } from './language/language-text-property
 import { LanguageService } from './_services/language.service';
 import { KioskWidgetsComponent } from './resources/kiosk-widgets/kiosk-widgets.component';
 import { ClientScriptAccessComponent } from './editor/client-script-access/client-script-access.component';
+import { TagPropertyEditEnipComponent } from './device/tag-property/tag-property-edit-enip/tag-property-edit-enip.component';
 
 export function createTranslateLoader(http: HttpClient) {
     return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -250,6 +251,7 @@ export const myCustomTooltipDefaults: MatTooltipDefaultOptions = {
         TagPropertyEditWebapiComponent,
         TagPropertyEditEthernetipComponent,
         TagPropertyEditGpioComponent,
+        TagPropertyEditEnipComponent,
         TagOptionsComponent,
         TopicPropertyComponent,
         DevicePropertyComponent,
