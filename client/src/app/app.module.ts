@@ -7,6 +7,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { MaterialModule } from './material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ColorPickerModule } from 'ngx-color-picker';
+import {MatTreeModule} from '@angular/material/tree';
 
 import { ToastrModule } from 'ngx-toastr';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
@@ -400,6 +401,7 @@ export const myCustomTooltipDefaults: MatTooltipDefaultOptions = {
         HttpClientModule,
         routing,
         MaterialModule,
+        MatTreeModule,
         BrowserAnimationsModule,
         ColorPickerModule,
         AngularDraggableModule,
