@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { MatLegacyDialog as MatDialog } from '@angular/material/legacy-dialog';
-import { Device, TAG_PREFIX, Tag } from '../../_models/device';
+import { Device, TAG_PREFIX, Tag, EnipTagOptions } from '../../_models/device';
 import { Utils } from '../../_helpers/utils';
 import { TagPropertyEditS7Component } from './tag-property-edit-s7/tag-property-edit-s7.component';
 import { Observable, map } from 'rxjs';
@@ -398,12 +398,30 @@ export class TagPropertyService {
         return dialogRef.componentInstance.result.pipe(
             map(result => {
                 if (result) {
-                    tag.name = result.name;
-                    tag.type = result.type;
-                    tag.address = result.address;
-                    tag.memaddress = result.memaddress;
-                    tag.divisor = result.divisor;
-                    tag.enipOptions = result.enipOptions;
+                    tag.name = result.tagName;
+                    //tag.type = result.type;
+                    tag.address = result.Symbolic.tagSymAddress;
+                    const enipOpt: EnipTagOptions = {
+                        tagType: result.tagType,
+                        explicitOpt: {
+                            class: result.Explicit.tagExpClass,
+                            instance: result.Explicit.tagExpInstance,
+                            attribute: result.Explicit.tagExpAttribute,
+                            sendBuffer: result.Explicit.tagExpSendBuffer
+                        },
+                        symbolicOpt: {
+                            program: result.Symbolic.tagSymProgram,
+                            dataType: result.Symbolic.tagSymDataType
+                         },
+                         ioOpt: {
+                            ioModuleId: result.IO.tagIOModule,
+                            ioType: result.IO.tagIOType,
+                            ioByteOffset: result.IO.tagIOByteOffset,
+                            ioBitOffset: result.IO.tagIOBitOffset,
+                            ioOutput: result.IO.tagIOOutput
+                         }
+                    };
+                    tag.enipOptions = enipOpt;
                     tag.divisor = result.tagDivisor;
                     tag.description = result.tagDescription;
                     if (checkToAdd) {
