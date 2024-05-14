@@ -29,6 +29,7 @@ export class HmiService {
     @Output() onScriptConsole: EventEmitter<any> = new EventEmitter();
     @Output() onGoTo: EventEmitter<ScriptSetView> = new EventEmitter();
     @Output() onOpen: EventEmitter<ScriptOpenCard> = new EventEmitter();
+    @Output() onBrowseForDevices: EventEmitter<any> = new EventEmitter();
 
     onServerConnection$ = new BehaviorSubject<boolean>(false);
 
@@ -219,6 +220,10 @@ export class HmiService {
         this.socket.on(IoEventTypes.DEVICE_BROWSE, (message) => {
             this.onDeviceBrowse.emit(message);
         });
+        // device browse
+        this.socket.on(IoEventTypes.DEVICE_BROWSE_FOR_DEVICES, (message) => {
+            this.onBrowseForDevices.emit(message);
+        });
         // device node attribute
         this.socket.on(IoEventTypes.DEVICE_NODE_ATTRIBUTE, (message) => {
             this.onDeviceNodeAttribute.emit(message);
@@ -338,6 +343,16 @@ export class HmiService {
         if (this.socket) {
             let msg = { device: deviceId, node: node };
             this.socket.emit(IoEventTypes.DEVICE_BROWSE, msg);
+        }
+    }
+
+    /**
+     * Ask device browse to backend
+     */
+    public askBrowseForDevices(deviceId: string, node: any) {
+        if (this.socket) {
+            let msg = { device: deviceId, node: node };
+            this.socket.emit(IoEventTypes.DEVICE_BROWSE_FOR_DEVICES, msg);
         }
     }
 
@@ -652,7 +667,8 @@ export enum IoEventTypes {
     HOST_INTERFACES = 'host-interfaces',
     SCRIPT_CONSOLE = 'script-console',
     SCRIPT_COMMAND = 'script-command',
-    ALIVE = 'heartbeat'
+    ALIVE = 'heartbeat',
+    DEVICE_BROWSE_FOR_DEVICES = 'device-find-devices',
 }
 
 export const ScriptCommandEnum = {

@@ -440,6 +440,23 @@ function setDeviceConnectionStatus(deviceId, status) {
     activeDevices[FuxaServerId].setDeviceConnectionStatus(deviceId, status);
 }
 
+function browseForDevices(deviceid, node, callback) {
+    return new Promise(function (resolve, reject) {
+        //runtime.plugins.manager
+        const tempDevice = {id:'5984cb5c-05f7-45a2-a7f2-05aa72a553b1', 
+        name: 'tempDeviceForEthernetIpSearch', 
+        type: 'GenericEthernetIP',
+        tags: {}};
+        const tdev = Device.create(tempDevice, runtime);
+             
+            tdev.browseForDevices('getDevices', callback).then(function (result) {
+                resolve(result);
+            }).catch(function (err) {
+                reject(err);
+            });
+        
+    });
+}
 /**
  * Return the Device browser result Tags/Nodes
  * @param {*} deviceid
@@ -564,4 +581,5 @@ var devices = module.exports = {
     getDeviceProperty: getDeviceProperty,
     setDeviceProperty: setDeviceProperty,
     getHistoricalTags: getHistoricalTags,
+    browseForDevices: browseForDevices,
 }
