@@ -407,6 +407,7 @@ export class TagPropertyService {
                             class: result.Explicit.tagExpClass,
                             instance: result.Explicit.tagExpInstance,
                             attribute: result.Explicit.tagExpAttribute,
+                            getOrSend: result.Explicit.tagExpGetAttribute,
                             sendBuffer: result.Explicit.tagExpSendBuffer
                         },
                         symbolicOpt: {
