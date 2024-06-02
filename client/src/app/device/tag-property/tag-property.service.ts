@@ -423,7 +423,6 @@ export class TagPropertyService {
                          }
                     };
                     tag.enipOptions = enipOpt;
-                    tag.divisor = result.tagDivisor;
                     tag.description = result.tagDescription;
                     if (checkToAdd) {
                         this.checkToAdd(tag, device);
