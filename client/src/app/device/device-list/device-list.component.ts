@@ -325,42 +325,6 @@ export class DeviceListComponent implements OnInit, AfterViewInit {
             });
             return;
         }
-//         let oldtag = tag.id;
-//         let temptag: Tag = JSON.parse(JSON.stringify(tag));
-//         let dialogRef = this.dialog.open(TagPropertyComponent, {
-//             disableClose: true,
-//             panelClass: 'dialog-property',
-//             data: { device: this.deviceSelected, tag: temptag, devices: this.devices },
-//             position: { top: '60px' }
-//         });
-//         dialogRef.afterClosed().subscribe(result => {
-//             if (result) {
-//                 if (this.deviceSelected.type === DeviceType.MQTTclient) {
-//                     result.nodes.forEach((ta: Tag) => {
-//                         this.checkToAdd(tag, result.device);
-//                     });
-//                     this.projectService.setDeviceTags(this.deviceSelected);
-//                 } else {
-//                     tag.name = temptag.name;
-//                     tag.type = temptag.type;
-//                     tag.address = temptag.address;
-//                     tag.memaddress = temptag.memaddress;
-//                     tag.divisor = temptag.divisor;
-// tag.enipOptions = temptag.enipOptions;
-//                     if (this.deviceSelected.type === DeviceType.internal) {
-//                         tag.value = '0';
-//                     }
-//                     if (checkToAdd) {
-//                         this.checkToAdd(tag, result.device);
-//                     } else if (tag.id !== oldtag) {
-//                         //remove old tag device reference
-//                         delete result.device.tags[oldtag];
-//                         this.checkToAdd(tag, result.device);
-//                     }
-//                     this.projectService.setDeviceTags(this.deviceSelected);
-//                 }
-//             }
-//         });
     }
 
     editTagOptions(tags: Tag[]) {
