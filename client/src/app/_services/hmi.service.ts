@@ -29,6 +29,7 @@ export class HmiService {
     @Output() onScriptConsole: EventEmitter<any> = new EventEmitter();
     @Output() onGoTo: EventEmitter<ScriptSetView> = new EventEmitter();
     @Output() onOpen: EventEmitter<ScriptOpenCard> = new EventEmitter();
+    @Output() onBrowseForDevices: EventEmitter<any> = new EventEmitter();
 
     onServerConnection$ = new BehaviorSubject<boolean>(false);
 
@@ -174,9 +175,14 @@ export class HmiService {
         this.socket = io(`${this.endPointConfig}/?token=${token}`);
         this.socket.on('connect', () => {
             this.onServerConnection$.next(true);
+            this.tagsSubscribe();
         });
-        this.socket.on('disconnect', () => {
+        this.socket.on('disconnect', (reason) => {
             this.onServerConnection$.next(false);
+            console.log('socket disconnected: ', reason);
+        });
+        this.socket.io.on('reconnect_attempt', () => {
+            console.log('socket.io try to reconnect...');
         });
         // devicse status
         this.socket.on(IoEventTypes.DEVICE_STATUS, (message) => {
@@ -213,6 +219,10 @@ export class HmiService {
         // device browse
         this.socket.on(IoEventTypes.DEVICE_BROWSE, (message) => {
             this.onDeviceBrowse.emit(message);
+        });
+        // device browse
+        this.socket.on(IoEventTypes.DEVICE_BROWSE_FOR_DEVICES, (message) => {
+            this.onBrowseForDevices.emit(message);
         });
         // device node attribute
         this.socket.on(IoEventTypes.DEVICE_NODE_ATTRIBUTE, (message) => {
@@ -333,6 +343,16 @@ export class HmiService {
         if (this.socket) {
             let msg = { device: deviceId, node: node };
             this.socket.emit(IoEventTypes.DEVICE_BROWSE, msg);
+        }
+    }
+
+    /**
+     * Ask device browse to backend
+     */
+    public askBrowseForDevices(deviceId: string, node: any) {
+        if (this.socket) {
+            let msg = { device: deviceId, node: node };
+            this.socket.emit(IoEventTypes.DEVICE_BROWSE_FOR_DEVICES, msg);
         }
     }
 
@@ -574,9 +594,12 @@ export class HmiService {
             switch (message.command) {
                 case ScriptCommandEnum.SETVIEW:
                     this.onGoTo.emit(<ScriptSetView>{ viewName: message.params[0], force: message.params[1] });
+                    break;
                 case ScriptCommandEnum.OPENCARD:
                     this.onOpen.emit(<ScriptOpenCard>{ viewName: message.params[0], options: message.params[1] });
-                break;
+                    break;
+                default:
+                    break;
             }
         }
     }
@@ -644,7 +667,8 @@ export enum IoEventTypes {
     HOST_INTERFACES = 'host-interfaces',
     SCRIPT_CONSOLE = 'script-console',
     SCRIPT_COMMAND = 'script-command',
-    ALIVE = 'heartbeat'
+    ALIVE = 'heartbeat',
+    DEVICE_BROWSE_FOR_DEVICES = 'device-find-devices',
 }
 
 export const ScriptCommandEnum = {

@@ -55,3 +55,14 @@
         margin-top: 5px;
     }
 }
+.button-container {
+    display: flex;
+    justify-content: flex-end;
+}
+.module-list-item {
+    display: flex;
+    & .remove-item {margin-left: auto;}
+}
+.module-add-button {
+    margin-left:auto;
+}

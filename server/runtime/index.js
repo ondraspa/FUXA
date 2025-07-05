@@ -105,6 +105,11 @@ function init(_io, _api, _settings, _log, eventsMain) {
                 }
             }
         }
+
+        socket.on('disconnect', (reason) => {
+            logger.info('socket.io disconnection:', socket.id, 'reason', reason);
+        });
+
         // client ask device status
         socket.on(Events.IoEventTypes.DEVICE_STATUS, (message) => {
             if (message === 'get') {
@@ -315,6 +320,27 @@ function init(_io, _api, _settings, _log, eventsMain) {
                 devices.enableDevice(message.deviceName, message.enable);
             } catch (err) {
                 logger.error(`${Events.IoEventTypes.DEVICE_ENABLE}: ${err}`);
+            }
+        });
+        // client ask browse for devices
+        socket.on(Events.IoEventTypes.DEVICE_BROWSE_FOR_DEVICES, (message) => {
+            try {
+                if (message) {
+                    if (message.device) {
+                        devices.browseForDevices(message.device, message.node, function (nodes) { 
+                            io.emit(Events.IoEventTypes.DEVICE_BROWSE_FOR_DEVICES, nodes);
+                        }).then(result => {
+                            message.result = result;
+                            io.emit(Events.IoEventTypes.DEVICE_BROWSE_FOR_DEVICES, message);
+                        }).catch(function (err) {
+                            logger.error(`${Events.IoEventTypes.DEVICE_BROWSE_FOR_DEVICES}: ${err}`);
+                            message.error = err;
+                            io.emit(Events.IoEventTypes.DEVICE_BROWSE_FOR_DEVICES, message);
+                        });
+                    }
+                }
+            } catch (err) {
+                logger.error(`${Events.IoEventTypes.DEVICE_BROWSE_FOR_DEVICES}: ${err}`);
             }
         });
     });
@@ -586,9 +612,10 @@ function checkPermissionEnabled(userPermission, contextPermission, type) {
  * @param {*} userPermission
  * @param {*} contextPermission permission could be permission or permissionRoles
  * @param {*} forceUndefined return true if params are undefined/null/0
+ * @param {*} onlyWithPermission return true if context.permissionRoles or context.permission are undefined/null/0
  * @returns { show: true/false, enabled: true/false }
  */
-function checkPermission(userPermission, context, forceUndefined = false) {
+function checkPermission(userPermission, context, forceUndefined = false, onlyWithPermission = false) {
     if (!userPermission && !context) {
         // No user and No context
         return { show: forceUndefined || !settings.secureEnabled, enabled: forceUndefined || !settings.secureEnabled };
@@ -598,6 +625,10 @@ function checkPermission(userPermission, context, forceUndefined = false) {
         return { show: true, enabled: true };
     }
     const contextPermission = settings.userRole ? context.permissionRoles : context.permission;
+    if (onlyWithPermission && contextPermission === undefined) {
+        // No context permission, should be used only to check items
+        return { show: true, enabled: true };
+    }
     if (settings.userRole) {
         if (userPermission && !contextPermission) {
             return { show: true, enabled: false };

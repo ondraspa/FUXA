@@ -1,0 +1,59 @@
+:host {
+    .container {
+        width: 400px;
+    }
+    .item-block {
+        display: block;
+        mat-select, input, span {
+            width:calc(100% - 5px);
+        }
+    }
+}
+
+.background-highlight{
+    background: rgba(10, 118, 168, 0.268);
+  }
+
+  .tag-tree {
+    overflow: auto;
+    max-height: 10em;
+    background-color: var(--formInputBackground);
+  }
+  .tag-tree-progress-bar {
+    margin-left: 30px;
+  }
+
+.tag-tree-invisible {
+    display: none;
+  }
+  
+  .tag-tree ul,
+  .tag-tree li {
+    margin-top: 0;
+    margin-bottom: 0;
+    list-style-type: none;
+  }
+  
+  /*
+   * This padding sets alignment of the nested nodes.
+   */
+  .tag-tree .mat-nested-tree-node div[role=group] {
+    padding-left: 20px;
+  }
+  
+  /*
+   * Padding for leaf nodes.
+   * Leaf nodes need to have padding so as to align with other non-leaf nodes
+   * under the same parent.
+   */
+  .tag-tree div[role=group] > .mat-tree-node {
+    padding-left: 20px;
+  }
+  .tags-error {
+    display: block;
+    line-height: 20px;
+    width: 315px;
+    color: red;
+    background-color: cadetblue;
+    font-size: 13px;
+}

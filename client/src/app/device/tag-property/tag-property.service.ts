@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { MatLegacyDialog as MatDialog } from '@angular/material/legacy-dialog';
-import { Device, TAG_PREFIX, Tag } from '../../_models/device';
+import { Device, TAG_PREFIX, Tag, EnipTagOptions } from '../../_models/device';
 import { Utils } from '../../_helpers/utils';
 import { TagPropertyEditS7Component } from './tag-property-edit-s7/tag-property-edit-s7.component';
 import { Observable, map } from 'rxjs';
@@ -16,6 +16,8 @@ import { TagPropertyEditEthernetipComponent, TagPropertyEthernetIpData } from '.
 import { TopicPropertyComponent, TopicPropertyData } from '../topic-property/topic-property.component';
 import { TranslateService } from '@ngx-translate/core';
 import { ToastrService } from 'ngx-toastr';
+import { TagPropertyEditGpioComponent, TagPropertyGpioData } from './tag-property-edit-gpio/tag-property-edit-gpio.component';
+import { TagPropertyEditEnipComponent } from './tag-property-edit-enip/tag-property-edit-enip.component';
 
 @Injectable({
     providedIn: 'root'
@@ -341,6 +343,100 @@ export class TagPropertyService {
         dialogRef.componentInstance.invokeSubscribe = (oldtopic, newtopics) => this.addTopicSubscription(device, oldtopic, newtopics, tagsMap, callbackModify);
         dialogRef.componentInstance.invokePublish = (oldtopic, newtopic) => this.addTopicToPublish(device, oldtopic, newtopic, tagsMap, callbackModify);
         dialogRef.afterClosed().subscribe();
+    }
+
+    editTagPropertyGpio(device: Device, tag: Tag, checkToAdd: boolean) {
+        let oldTagId = tag.id;
+        let tagToEdit: Tag = Utils.clone(tag);
+
+        let dialogRef = this.dialog.open(TagPropertyEditGpioComponent, {
+            disableClose: true,
+            position: { top: '60px' },
+            data: <TagPropertyGpioData> {
+                device: device,
+                tag: tagToEdit,
+            },
+        });
+
+        return dialogRef.componentInstance.result.pipe(
+            map(result => {
+                if (result) {
+                    tag.name = result.tagName;
+                    tag.type = result.tagType;
+                    tag.init = result.tagInit;
+                    tag.value = result.tagInit;
+                    tag.description = result.tagDescription;
+                    tag.address = result.tagAddress;
+                    tag.direction = result.tagDirection;
+                    tag.edge = result.tagEdge;
+                    if (checkToAdd) {
+                        this.checkToAdd(tag, device);
+                    }else if (tag.id !== oldTagId) {
+                        //remove old tag device reference
+                        delete device.tags[oldTagId];
+                        this.checkToAdd(tag, device);
+                    }
+                    this.projectService.setDeviceTags(device);
+                }
+                dialogRef.close();
+                return result;
+            })
+        );
+    }
+    public editTagPropertyEnIP(device: Device, tag: Tag, checkToAdd: boolean): Observable<any> {
+        let oldTagId = tag.id;
+        let tagToEdit: Tag = Utils.clone(tag);
+        let dialogRef = this.dialog.open(TagPropertyEditEnipComponent, {
+            disableClose: true,
+            data: {
+                device: device,
+                tag: tagToEdit
+            },
+            position: { top: '60px' }
+        });
+
+        return dialogRef.componentInstance.result.pipe(
+            map(result => {
+                if (result) {
+                    tag.name = result.tagName;
+                    //tag.type = result.type;
+                    tag.address = result.Symbolic.tagSymAddress;
+                    const enipOpt: EnipTagOptions = {
+                        tagType: result.tagType,
+                        explicitOpt: {
+                            class: result.Explicit.tagExpClass,
+                            instance: result.Explicit.tagExpInstance,
+                            attribute: result.Explicit.tagExpAttribute,
+                            getOrSend: result.Explicit.tagExpGetAttribute,
+                            sendBuffer: result.Explicit.tagExpSendBuffer
+                        },
+                        symbolicOpt: {
+                            program: result.Symbolic.tagSymProgram,
+                            dataType: result.Symbolic.tagSymDataType
+                         },
+                         ioOpt: {
+                            ioModuleId: result.IO.tagIOModule,
+                            ioType: result.IO.tagIOType,
+                            ioByteOffset: result.IO.tagIOByteOffset,
+                            ioBitOffset: result.IO.tagIOBitOffset,
+                            ioOutput: result.IO.tagIOOutput
+                         }
+                    };
+                    tag.enipOptions = enipOpt;
+                    tag.description = result.tagDescription;
+                    if (checkToAdd) {
+                        this.checkToAdd(tag, device);
+                    } else if (tag.id !== oldTagId) {
+                        //remove old tag device reference
+                        delete device.tags[oldTagId];
+                        this.checkToAdd(tag, device);
+                    }
+                    this.projectService.setDeviceTags(device);
+                }
+                dialogRef.close();
+                return result;
+            })
+        );
     }
 
     checkToAdd(tag: Tag, device: Device, overwrite: boolean = false) {

@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject, OnDestroy, ViewChild } from '@angular/core';
-import { MatLegacyDialogRef as MatDialogRef, MAT_LEGACY_DIALOG_DATA as MAT_DIALOG_DATA } from '@angular/material/legacy-dialog';
+import { MatLegacyDialogRef as MatDialogRef, MAT_LEGACY_DIALOG_DATA as MAT_DIALOG_DATA,MatLegacyDialog as MatDialog } from '@angular/material/legacy-dialog';
 import { MatExpansionPanel } from '@angular/material/expansion';
 import { Subscription, delay } from 'rxjs';
 import { TranslateService } from '@ngx-translate/core';
@@ -7,7 +7,10 @@ import { TranslateService } from '@ngx-translate/core';
 import { EndPointSettings, HmiService } from '../../_services/hmi.service';
 import { AppService } from '../../_services/app.service';
 import { ProjectService } from '../../_services/project.service';
-import { DeviceType, DeviceSecurity, MessageSecurityMode, SecurityPolicy, ModbusOptionType, ModbusReuseModeType } from './../../_models/device';
+import { DeviceType, DeviceSecurity, MessageSecurityMode, SecurityPolicy, ModbusOptionType, ModbusReuseModeType, EthernetIPModule, ETHERNETIPMODULE_PREFIX, Device } from './../../_models/device';
+import { DeviceEnipmoduleComponent } from '../device-enipmodule/device-enipmodule.component';
+import { Utils } from '../../_helpers/utils';
+import { DeviceEnipselectdeviceComponent } from '../device-enipselectdevice/device-enipselectdevice.component';
 
 @Component({
 	selector: 'app-device-property',
@@ -84,6 +87,7 @@ export class DevicePropertyComponent implements OnInit, OnDestroy {
     private projectService: ProjectService;
 
 	constructor(
+		private dialog: MatDialog,
 		private hmiService: HmiService,
         private translateService: TranslateService,
         private appService: AppService,
@@ -351,6 +355,96 @@ export class DevicePropertyComponent implements OnInit, OnDestroy {
         event.stopPropagation();
     }
 
+	onRemoveEpModule(toRemove) {
+		this.editModule(toRemove, false, true);
+		//this.data?.device?.modules?.filter(module => module.id === toRemove.id);
+	}
+	removeEpModule(module) {
+		delete this.data.device.modules[module.id];
+		//call service to update loaded modules for device here
+	}
+
+	onAddEpModule() {
+		let module = new EthernetIPModule(Utils.getGUID(ETHERNETIPMODULE_PREFIX));
+		this.editModule(module, true);
+	}
+	onEditModule(module) {
+		this.editModule(module, false);
+
+	}
+	editModule(module: EthernetIPModule, checkToAdd: boolean, toremove: boolean = false) {
+		let oldModule = module.id;
+        let tempModule: EthernetIPModule = JSON.parse(JSON.stringify(module));
+		let dialogRef = this.dialog.open(DeviceEnipmoduleComponent, {
+            disableClose: true,
+            panelClass: 'app-device-enipmodule',
+            data: {device: this.data.device, remove: toremove, module: tempModule},
+            position: { top: '60px' }
+        });
+
+        dialogRef.afterClosed().subscribe(result => {
+            if (result) {
+				if (toremove) {
+                    this.removeEpModule(module);
+                    //this.projectService.removeDevice(device);
+                } else {
+				module.configurationInstance = tempModule.configurationInstance;
+				module.configurationSize = tempModule.configurationSize;
+				module.description = tempModule.description;
+				module.inputInstance = tempModule.inputInstance;
+				module.inputSize = tempModule.inputSize;
+				module.name = tempModule.name;
+				module.outputInstance = tempModule.outputInstance;
+				module.outputSize = tempModule.outputSize;
+				module.rpi = tempModule.rpi;
+
+				if (checkToAdd) {
+					this.checkToAdd(module, result.device);
+				} else if (module.id !== oldModule) {
+					//remove old tag device reference
+					delete result.device.modules[oldModule];
+					this.checkToAdd(module, result.device);
+				}
+			}
+			}
+        });
+	}
+	checkToAdd(module: EthernetIPModule, device: Device, overwrite: boolean = false) {
+        let exist = false;
+		if (device.modules === undefined || device.modules instanceof Array) {
+			device.modules = {};
+		}
+        Object.keys(device.modules).forEach((key) => {
+            if (device.modules[key].id) {
+                if (device.modules[key].id === module.id) {
+                    exist = true;
+                }
+            } else if (device.modules[key].name === module.name) { //VERIFY if needed!!!
+                exist = true;
+            }
+        });
+        if (!exist || overwrite) {
+            device.modules[module.id] = module;
+        }
+    }
+	ethernetIpModules(): EthernetIPModule[] {
+        return <EthernetIPModule[]>Object.values(this.data.device.modules);
+    }
+	browseForEthernetIpDevices() {
+		let dialogRef = this.dialog.open(DeviceEnipselectdeviceComponent, {
+            disableClose: true,
+            panelClass: 'app-device-enipselectdevice',
+            data: {},
+            position: { top: '60px' }
+        });
+
+        dialogRef.afterClosed().subscribe(result => {
+            if (result) {
+				this.data.device.property.address = result.socketAddress.sin_addr;
+				this.data.device.name = result.productName;
+			}
+        });
+	}
 	private securityModeToString(mode): string {
 		let secMode = MessageSecurityMode;
 		let result = '';

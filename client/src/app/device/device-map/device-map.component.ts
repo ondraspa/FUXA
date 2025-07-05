@@ -490,6 +490,8 @@ export class DeviceMapComponent implements OnInit, OnDestroy, AfterViewInit {
                     device.type = tempdevice.type;
                     device.enabled = tempdevice.enabled;
                     device.polling = tempdevice.polling;
+                    device.modules = tempdevice.modules;
+                    device.property.ioport = tempdevice.property.ioport;
                     if (this.appService.isClientApp || this.appService.isDemoApp) {
                         delete device.property;
                     }
