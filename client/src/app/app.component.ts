@@ -13,6 +13,7 @@ import { AppService } from './_services/app.service';
 import { HeartbeatService } from './_services/heartbeat.service';
 import { AuthService } from './_services/auth.service';
 import { HmiService } from './_services/hmi.service';
+import { ConnectionService } from './_services/connection.service';
 
 @Component({
 	selector: 'app-root',
@@ -44,6 +45,7 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
 		private cdr: ChangeDetectorRef,
 		private hmiService: HmiService,
 		private authService: AuthService,
+		private connectionService: ConnectionService,
 		location: Location
 	) {
 		this.location = location;
@@ -51,6 +53,7 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
 
 	ngOnInit() {
 		console.log(`FUXA v${environment.version}`);
+		ConnectionService.setInstance(this.connectionService);
 		this.heartbeatService.startHeartbeatPolling();
 
 		// capture events for the token refresh

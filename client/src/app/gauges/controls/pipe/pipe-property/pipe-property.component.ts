@@ -8,6 +8,8 @@ import { FlexEventComponent } from '../../../gauge-property/flex-event/flex-even
 import { FlexActionComponent } from '../../../gauge-property/flex-action/flex-action.component';
 import { Utils } from '../../../../_helpers/utils';
 import { PipeOptions } from '../pipe.component';
+import { LIQUID_COLORS, ConnectionService } from '../../../../_services/connection.service';
+import { LiquidType } from '../../../../_models/hmi';
 import { GaugeDialogType } from '../../../gauge-property/gauge-property.component';
 import { ActionPropertiesData, ActionPropertiesDialogComponent } from '../../../gauge-property/action-properties-dialog/action-properties-dialog.component';
 import { ProjectService } from '../../../../_services/project.service';
@@ -115,8 +117,20 @@ export class PipePropertyComponent implements OnInit  {
             this.options.content = value;
         } else if (type == 'contentSpace') {
             this.options.contentSpace = value;
+        } else if (type == 'liquidType') {
+            this.options.liquidType = value;
+            this.applyLiquidColors(value);
         }
         this.onPipeChanged();
+    }
+
+    private applyLiquidColors(liquidType: string) {
+        const c = LIQUID_COLORS[liquidType as LiquidType];
+        if (c) {
+            this.options.pipe = c.pipe;
+            this.options.content = c.content;
+            this.options.border = c.border;
+        }
     }
 
     onAddEvent() {

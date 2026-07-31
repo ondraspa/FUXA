@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 
-import { GaugeSettings, GaugeAction, Variable, GaugeStatus, GaugeActionStatus, GaugeActionsType, GaugePropertyColor } from '../../../_models/hmi';
+import { GaugeSettings, GaugeAction, GaugeActionsType, Variable, GaugeStatus, GaugeActionStatus, GaugePropertyColor, View } from '../../../_models/hmi';
 import { GaugeBaseComponent } from '../../gauge-base/gauge-base.component';
 import { GaugeDialogType } from '../../gauge-property/gauge-property.component';
 import { Utils } from '../../../_helpers/utils';
+import { ConnectionService } from '../../../_services/connection.service';
 
 declare var SVG: any;
 declare var Raphael: any;
@@ -55,7 +56,7 @@ export class PipeComponent {
         return true;
     }
 
-    static processValue(gaugeSettings: GaugeSettings, svgElement: any, signal: Variable, gaugeStatus: PipeStatus | GaugeStatus) {
+    static processValue(gaugeSettings: GaugeSettings, svgElement: any, signal: Variable, gaugeStatus: PipeStatus | GaugeStatus, view?: View) {
         try {
             if (svgElement.node) {
                 let value = parseFloat(signal.value);
@@ -81,10 +82,30 @@ export class PipeComponent {
                             }
                         });
                     }
+
+                    // wire flowDirection from connections into animation
+                    if (view && view.connections?.length) {
+                        const flowDirection = ConnectionService.instance.getFlowDirection(view.connections, gaugeSettings.id);
+                        PipeComponent.applyFlowDirection(svgElement.node, gaugeStatus, flowDirection);
+                    }
                 }
             }
         } catch (err) {
             console.error(err);
+        }
+    }
+
+    static applyFlowDirection(svgElement: SVGElement, gaugeStatus: PipeStatus | GaugeStatus, flowDirection: number) {
+        const statusRef = (gaugeStatus as any).actionRef;
+        if (!statusRef?.animr) return;
+        const animr = statusRef.animr;
+        if (flowDirection === 0) {
+            animr.stop();
+        } else {
+            animr.setDirection(flowDirection === 1 ? 'forward' : 'reverse');
+            if (!animr.isRunning) {
+                animr.start();
+            }
         }
     }
 
@@ -318,6 +339,8 @@ export class PipeOptions {
     contentWidth: number = 6;
     contentSpace: number = 20;
     imageAnimation?: PipeImageAnimation;
+    /** Liquid/process medium type for color and animation */
+    liquidType?: string;
 }
 
 export interface PipeImageAnimation {

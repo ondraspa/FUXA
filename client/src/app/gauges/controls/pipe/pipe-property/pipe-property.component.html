@@ -90,6 +90,22 @@
                     </div>
                 </div>
                 <div class="element-property-header">
+                    <span>{{'pipe.property-liquid-type' | translate}}</span>
+                </div>
+                <div class="block mt5">
+                    <mat-form-field>
+                        <mat-select [(ngModel)]="options.liquidType" (selectionChange)="onChangeValue('liquidType', options.liquidType)">
+                            <mat-option value="">{{'pipe.property-liquid-none' | translate}}</mat-option>
+                            <mat-option value="water">{{'pipe.property-liquid-water' | translate}}</mat-option>
+                            <mat-option value="steam">{{'pipe.property-liquid-steam' | translate}}</mat-option>
+                            <mat-option value="oil">{{'pipe.property-liquid-oil' | translate}}</mat-option>
+                            <mat-option value="gas">{{'pipe.property-liquid-gas' | translate}}</mat-option>
+                            <mat-option value="chemical">{{'pipe.property-liquid-chemical' | translate}}</mat-option>
+                            <mat-option value="air">{{'pipe.property-liquid-air' | translate}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="element-property-header">
                     <span>{{'pipe.property-style-animation' | translate}}</span>
                 </div>
                 <ng-container *ngIf="options.imageAnimation; else imageAnimVoid">

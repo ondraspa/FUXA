@@ -27,6 +27,8 @@ export class View {
     type: ViewType;
     /** Property with events of view like Open or Close */
     property: ViewProperty;
+    /** Connections between widgets for snap-to-connect system */
+    connections: ViewConnection[] = [];
 
     constructor(id?: string, type?: ViewType, name?: string) {
         this.id = id;
@@ -209,8 +211,41 @@ export class GaugeSettings {
     label = '';             // Gauge type label
     hide = false;
     lock = false;
+    /** Connection ports for snap-to-connect system */
+    ports?: ConnectionPort[];
+    /** Inherited liquid/process type from connected widgets */
+    liquidType?: LiquidType;
     constructor(public id: string, public type: string) {
     }
+}
+
+export enum LiquidType {
+    water = 'water',
+    steam = 'steam',
+    oil = 'oil',
+    gas = 'gas',
+    chemical = 'chemical',
+    air = 'air',
+}
+
+export interface ConnectionPort {
+    id: string;
+    x: number;
+    y: number;
+    direction: 'left' | 'right' | 'top' | 'bottom';
+    portType: 'pipe' | 'duct' | 'wire' | 'cable';
+    connectedTo?: string;  // ElementID:PortID of the connected port
+}
+
+export interface ViewConnection {
+    id: string;
+    fromElementId: string;
+    fromPortId: string;
+    toElementId: string;
+    toPortId: string;
+    liquidType?: LiquidType;
+    /** Flow direction: 1 = forward, -1 = reverse, 0 = stopped */
+    flowDirection?: number;
 }
 
 export class ViewProperty {

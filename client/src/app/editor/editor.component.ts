@@ -37,6 +37,8 @@ import { ViewPropertyComponent, ViewPropertyType } from './view-property/view-pr
 import { HtmlImageComponent } from '../gauges/controls/html-image/html-image.component';
 import { LibWidgetsService } from '../resources/lib-widgets/lib-widgets.service';
 import { PipePropertyData } from '../gauges/controls/pipe/pipe-property/pipe-property.component';
+import { ConnectionEditorService } from '../_services/connection-editor.service';
+import { ViewConnection } from '../_models/hmi';
 import { MapsViewComponent } from '../maps/maps-view/maps-view.component';
 import { KioskWidgetsComponent } from '../resources/kiosk-widgets/kiosk-widgets.component';
 import { ResourcesService } from '../_services/resources.service';
@@ -128,6 +130,8 @@ export class EditorComponent implements OnInit, AfterViewInit, OnDestroy {
     private onboardingWizardHandled = false;
     private onboardingWizardOpened = false;
 
+    private connectionEditor: ConnectionEditorService;
+
     constructor(private projectService: ProjectService,
         private winRef: WindowRef,
         public dialog: MatDialog,
@@ -138,7 +142,9 @@ export class EditorComponent implements OnInit, AfterViewInit, OnDestroy {
         private resolver: ComponentFactoryResolver,
         private resourcesService: ResourcesService,
         private libWidgetsService: LibWidgetsService,
-        private settingsService: SettingsService) {
+        private settingsService: SettingsService,
+        connectionEditor: ConnectionEditorService) {
+        this.connectionEditor = connectionEditor;
     }
 
     //#region Implemented onInit / onAfterInit event
@@ -200,6 +206,26 @@ export class EditorComponent implements OnInit, AfterViewInit, OnDestroy {
             console.error('Error loadHMI');
         });
         this.changeDetector.detectChanges();
+        setTimeout(() => this.initConnectionEditor(), 1000);
+    }
+
+    private initConnectionEditor() {
+        const canvas = document.getElementById('svgcanvas') as unknown as SVGElement;
+        if (canvas) {
+            this.connectionEditor.init(canvas, (fromId, fromPort, toId, toPort) => {
+                if (this.currentView) {
+                    const conn: ViewConnection = {
+                        id: `conn_${Date.now()}`,
+                        fromElementId: fromId,
+                        fromPortId: fromPort,
+                        toElementId: toId,
+                        toPortId: toPort,
+                    };
+                    this.currentView.connections.push(conn);
+                    this.saveView(this.currentView);
+                }
+            });
+        }
     }
 
     ngOnDestroy() {
@@ -213,6 +239,7 @@ export class EditorComponent implements OnInit, AfterViewInit, OnDestroy {
         } catch (e) {
             console.error(e);
         }
+        this.connectionEditor.destroy();
         this.onSaveProject();
         this.destroy$.next(null);
         this.destroy$.complete();
@@ -261,6 +288,7 @@ export class EditorComponent implements OnInit, AfterViewInit, OnDestroy {
                     let ga: GaugeSettings = this.getGaugeSettings(eleadded, this.ctrlInitParams);
                     this.checkGaugeAdded(ga);
                     setTimeout(() => {
+                        this.connectionEditor.autoConnectOnAdd(eleadded.id);
                         this.setMode('select', false);
                     }, 700);
                     this.checkSvgElementsMap(true);
@@ -675,6 +703,7 @@ export class EditorComponent implements OnInit, AfterViewInit, OnDestroy {
      */
     private onSelectedElement(elems) {
         this.selectedElement = null;
+        this.connectionEditor.hidePortHighlights();
         try {
             // to remove some strange effects
             if (document.activeElement !== document.body) {(document.activeElement as HTMLElement).blur();}
@@ -685,6 +714,9 @@ export class EditorComponent implements OnInit, AfterViewInit, OnDestroy {
                 this.selectedElement.type = elems[0].type || 'svg-ext-shapes-' + (this.currentMode || 'default');
                 this.checkColors(this.selectedElement);
                 this.checkGaugeInView(this.selectedElement);
+                if (this.selectedElement?.id) {
+                    setTimeout(() => this.connectionEditor.highlightPorts(this.selectedElement.id), 200);
+                }
             }
         }
         this.checkSvgElementsMap(false);
