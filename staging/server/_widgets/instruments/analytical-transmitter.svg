@@ -1,0 +1,24 @@
+<svg id="fuxa-at" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%"><defs>
+<linearGradient id="gs" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#f1f5f9"/><stop offset="30%" stop-color="#cbd5e1"/><stop offset="70%" stop-color="#94a3b8"/><stop offset="100%" stop-color="#64748b"/></linearGradient>
+<linearGradient id="gi" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#94a3b8"/><stop offset="50%" stop-color="#64748b"/><stop offset="100%" stop-color="#475569"/></linearGradient>
+<linearGradient id="gc" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#fca5a5"/><stop offset="40%" stop-color="#dc2626"/><stop offset="100%" stop-color="#991b1b"/></linearGradient>
+<linearGradient id="gb" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#7dd3fc"/><stop offset="40%" stop-color="#0284c7"/><stop offset="100%" stop-color="#0369a1"/></linearGradient>
+<filter id="s"><feDropShadow dx="3" dy="5" stdDeviation="4" flood-color="#0f172a" flood-opacity="0.35"/></filter>
+<style>.b{fill:#dbeafe}.f{fill:url(#gs);stroke:#475569;stroke-width:1.5;rx:12;filter:url(#s)}.st{fill:url(#gs);stroke:#475569;stroke-width:1.5}.ir{fill:url(#gi);stroke:#334155;stroke-width:1.5}.cp{fill:url(#gc);stroke:#7f1d1d;stroke-width:1.5}.bl{fill:url(#gb);stroke:#075985;stroke-width:1.5}.tg{font:9px/1 sans-serif;fill:#64748b;text-anchor:middle;font-weight:600;letter-spacing:0.5px}
+@keyframes ff{from{stroke-dashoffset:40}to{stroke-dashoffset:0}}@keyframes fa{0%,100%{opacity:1}50%{opacity:0.2}}@keyframes fr{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+.fl{animation:ff .8s linear infinite}.ala{animation:fa 1s infinite}.rot{animation:fr 3s linear infinite}
+</style></defs><rect width="400" height="400" class="b"/><rect x="12" y="12" width="376" height="376" class="f"/><g transform="translate(200,180)"><circle cx="-82" cy="15" r="0" data-port-id="process" data-port-dir="left" data-port-type="pipe"/>
+<rect x="-65" y="-80" width="130" height="160" rx="10" class="st" filter="url(#s)"/><rect x="-58" y="-73" width="116" height="146" rx="8" fill="#1e293b" stroke="#334155"/>
+<rect x="-45" y="-50" width="90" height="80" rx="8" fill="#0f172a" stroke="#475569"/>
+<circle cx="0" cy="-15" r="24" fill="#0f172a" stroke="#38bdf8" stroke-width="2.5"/>
+<text x="0" y="-10" class="tg" font-size="16" fill="#38bdf8" font-weight="bold">pH</text>
+<rect x="-35" y="25" width="70" height="12" rx="6" fill="#22c55e" opacity="0.5"/>
+<path d="M-65,15 L-80,15" class="bl" stroke-width="3" fill="none"/><circle cx="-82" cy="15" r="6" class="st"/>
+<text x="0" y="85" class="tg">ANALYTICAL TX</text></g><script><![CDATA[//!export-start
+var _pn_ph=7.2;var _pb_alarm=false;
+//!export-end
+function postValue(id,v){console.log('FUXA post:',id,'=',v);}
+function putValue(id,v){v=Number(v);switch(id){case "_pn_ph":break;}}
+
+var o=new MutationObserver(function(m){m.forEach(function(mu){mu.removedNodes.forEach(function(n){if(n.id==='fuxa-at'){o.disconnect();}});});});o.observe(document.body,{childList:true,subtree:true});
+]]></script></svg>

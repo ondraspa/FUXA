@@ -1,0 +1,104 @@
+<svg id="fuxa-atex-humidity-sensor-3d" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="g-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#bbf7d0"/><stop offset="100%" stop-color="#86efac"/>
+    </linearGradient>
+    <linearGradient id="g-panel" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#334155"/><stop offset="30%" stop-color="#1e293b"/><stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="g-water-3d" x1="20%" y1="0%" x2="80%" y2="100%">
+      <stop offset="0%" stop-color="#7dd3fc"/><stop offset="40%" stop-color="#38bdf8"/><stop offset="100%" stop-color="#0284c7"/>
+    </linearGradient>
+    <radialGradient id="g-glass" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.15"/><stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="s3d" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="4" dy="6" stdDeviation="5" flood-color="#0f172a" flood-opacity="0.45"/>
+    </filter>
+    <filter id="glow-b">
+      <feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <style>
+      .bg{fill:url(#g-bg)}.panel{fill:url(#g-panel);stroke:#475569;stroke-width:2;rx:10;filter:url(#s3d)}
+      .lbl{font-family:'Segoe UI',sans-serif;font-size:11px;fill:#94a3b8;font-weight:600;letter-spacing:1px}
+      .val{font-family:Consolas,monospace;font-size:26px;fill:#38bdf8;font-weight:bold;filter:url(#glow-b)}
+      .unit{font-family:sans-serif;font-size:13px;fill:#64748b}
+      .atex-badge{fill:#f59e0b;stroke:#b45309;stroke-width:1.5}
+      .alarm-on{fill:#ef4444;filter:url(#glow-b);animation:flash 0.8s infinite}
+      .alarm-off{fill:#475569}
+      @keyframes flash{0%,100%{opacity:1}50%{opacity:0.2}}
+      .glass{fill:url(#g-glass)}
+      .tube{fill:#1e293b;stroke:#475569;stroke-width:2.5;filter:url(#s3d)}
+    </style>
+  </defs>
+  <rect width="400" height="400" class="bg"/>
+  <rect x="10" y="10" width="380" height="380" class="panel"/>
+  <rect x="18" y="18" width="364" height="32" rx="6" class="atex-badge"/>
+  <rect x="18" y="18" width="364" height="16" rx="6" fill="#ffffff" opacity="0.15"/>
+  <text x="26" y="38" font-family="sans-serif" font-size="9" fill="#1c1917" font-weight="bold">Ex II 2G</text>
+  <text x="90" y="38" font-family="sans-serif" font-size="9" fill="#1c1917" font-weight="bold">HUMIDITY TRANSMITTER</text>
+  <text x="340" y="38" font-family="sans-serif" font-size="9" fill="#92400e" text-anchor="end">ATEX</text>
+  <g transform="translate(200, 170)">
+    <circle cx="-155" cy="0" r="0" data-port-id="in" data-port-dir="left" data-port-type="pipe"/><circle cx="155" cy="0" r="0" data-port-id="out" data-port-dir="right" data-port-type="pipe"/>
+    <rect x="-65" y="-80" width="130" height="160" rx="65" class="tube"/>
+    <rect x="-65" y="-80" width="130" height="160" rx="65" class="glass"/>
+    <rect x="-50" y="-65" width="100" height="130" rx="50" fill="url(#g-water-3d)" opacity="0.25"/>
+    <rect x="-40" y="-55" width="80" height="110" rx="40" fill="url(#g-water-3d)" opacity="0.45" id="water-level-3d"/>
+    <rect x="-30" y="-45" width="60" height="90" rx="30" fill="url(#g-water-3d)" opacity="0.65"/>
+    <ellipse cx="0" cy="-65" rx="50" ry="8" fill="#38bdf8" opacity="0.3"/>
+    <text x="0" y="8" class="val" text-anchor="middle" font-size="30" id="val-hum-3d">68.4</text>
+    <text x="0" y="32" class="unit" text-anchor="middle" fill="#38bdf8">% RH</text>
+  </g>
+  <g transform="translate(25, 285)">
+    <rect width="165" height="55" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1.5" filter="url(#s3d)"/>
+    <text x="12" y="22" class="lbl">RANGE / OUTPUT</text>
+    <text x="82" y="44" class="unit" text-anchor="middle">0-100% / 4-20 mA</text>
+  </g>
+  <g transform="translate(210, 285)">
+    <rect width="165" height="55" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1.5" filter="url(#s3d)"/>
+    <text x="12" y="22" class="lbl">ACCURACY</text>
+    <text x="82" y="44" class="unit" text-anchor="middle">± 1.5 % RH</text>
+  </g>
+  <g transform="translate(25, 350)">
+    <rect width="165" height="35" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1.5" filter="url(#s3d)"/>
+    <text x="12" y="15" class="lbl">DEW POINT</text>
+    <text id="val-dew-3d" x="140" y="15" class="val" font-size="14" fill="#38bdf8" text-anchor="end">12.3</text>
+    <text x="150" y="15" class="unit">°C</text>
+  </g>
+  <g transform="translate(210, 350)">
+    <rect width="165" height="35" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1.5" filter="url(#s3d)"/>
+    <circle cx="22" cy="17" r="7" id="status-hum-3d" class="alarm-off"/>
+    <text x="40" y="22" class="lbl" fill="#94a3b8">STATUS: OK</text>
+  </g>
+  <script><![CDATA[
+    var _pn_humidity = 68.4;
+    var _pn_dewpoint = 12.3;
+    var _pb_alarm = false;
+    function postValue(id, v) { console.log('FUXA post:', id, '=', v); }
+    function putValue(id, v) {
+      v = Number(v);
+      switch(id) {
+        case '_pn_humidity':
+          _pn_humidity = Math.max(0, Math.min(100, v));
+          document.getElementById('val-hum-3d').textContent = _pn_humidity.toFixed(1);
+          var h = (100 - _pn_humidity) * 1.1;
+          document.getElementById('water-level-3d').setAttribute('y', -55 + h);
+          document.getElementById('water-level-3d').setAttribute('height', 110 - h);
+          break;
+        case '_pn_dewpoint':
+          _pn_dewpoint = v;
+          document.getElementById('val-dew-3d').textContent = v.toFixed(1);
+          break;
+        case '_pb_alarm':
+          _pb_alarm = v !== 0;
+          var s = document.getElementById('status-hum-3d');
+          s.setAttribute('class', _pb_alarm ? 'alarm-on' : 'alarm-off');
+          break;
+      }
+    }
+    var obs = new MutationObserver(function(m) {
+      m.forEach(function(mut) { mut.removedNodes.forEach(function(n) { if(n.id === 'fuxa-atex-humidity-sensor-3d') { obs.disconnect(); }}); });
+    });
+    obs.observe(document.body, {childList:true,subtree:true});
+  ]]></script>
+</svg>

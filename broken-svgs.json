@@ -1,0 +1,38 @@
+[
+  {
+    "file": "atex/atex-duct-3d.svg",
+    "error": "line 16 col 82"
+  },
+  {
+    "file": "hvac/air-handler.svg",
+    "error": "line 14 col 82"
+  },
+  {
+    "file": "hvac/cooling-tower.svg",
+    "error": "line 10 col 964"
+  },
+  {
+    "file": "hvac/heat-pump.svg",
+    "error": "line 10 col 1264"
+  },
+  {
+    "file": "piping/pipe-check-valve.svg",
+    "error": "line 14 col 116"
+  },
+  {
+    "file": "piping/pipe-elbow.svg",
+    "error": "line 15 col 127"
+  },
+  {
+    "file": "piping/pipe-reducer.svg",
+    "error": "line 20 col 120"
+  },
+  {
+    "file": "piping/pipe-tee.svg",
+    "error": "line 13 col 117"
+  },
+  {
+    "file": "piping/pipe-valve.svg",
+    "error": "line 15 col 116"
+  }
+]

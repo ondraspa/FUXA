@@ -1,0 +1,29 @@
+<svg id="fuxa-pelbow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%"><defs>
+<linearGradient id="gs" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#e2e8f0"/><stop offset="25%" stop-color="#f8fafc"/><stop offset="50%" stop-color="#94a3b8"/><stop offset="75%" stop-color="#64748b"/><stop offset="100%" stop-color="#475569"/></linearGradient>
+<linearGradient id="gi" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#94a3b8"/><stop offset="50%" stop-color="#64748b"/><stop offset="100%" stop-color="#334155"/></linearGradient>
+<linearGradient id="gc" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#fca5a5"/><stop offset="40%" stop-color="#dc2626"/><stop offset="100%" stop-color="#991b1b"/></linearGradient>
+<linearGradient id="gb" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#7dd3fc"/><stop offset="40%" stop-color="#0284c7"/><stop offset="100%" stop-color="#0369a1"/></linearGradient>
+<linearGradient id="gf" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#f8fafc"/><stop offset="50%" stop-color="#cbd5e1"/><stop offset="100%" stop-color="#94a3b8"/></linearGradient>
+<filter id="s"><feDropShadow dx="3" dy="5" stdDeviation="4" flood-color="#0f172a" flood-opacity="0.35"/></filter>
+<style>.b{fill:#dbeafe}.fr{fill:#0f172a;rx:12;filter:url(#s)}.st{fill:url(#gs);stroke:#334155;stroke-width:1}.ir{fill:url(#gi)}.cp{fill:url(#gc)}.bl{fill:url(#gb)}.fl{fill:url(#gf)}.tg{font:9px/1 sans-serif;fill:#64748b;text-anchor:middle;font-weight:600;letter-spacing:.5px}
+@keyframes ff{from{stroke-dashoffset:40}to{stroke-dashoffset:0}}.fo{animation:ff .8s linear infinite}</style></defs><rect width="400" height="400" class="b"/><rect x="10" y="10" width="380" height="380" class="fr"/><g transform="translate(200,195)"><circle cx="-175" cy="-40" r="0" data-port-id="in" data-port-dir="left" data-port-type="pipe"/><circle cx="40" cy="70" r="0" data-port-id="out" data-port-dir="bottom" data-port-type="pipe"/>
+  <!-- Pipe wall -->
+  <path d="M-175,-40 Q-175,70 40,70" fill="none" class="st" stroke-width="38" stroke-linecap="round"/>
+  <!-- Pipe inner bore highlight -->
+  <path d="M-175,-40 Q-175,70 40,70" fill="none" stroke="#1e293b" stroke-width="28" stroke-linecap="round"/>
+  <!-- Flow indicator -->
+  <path d="M-175,-40 Q-175,70 40,70" fill="none" class="bl" stroke-width="12" stroke-dasharray="10 10" opacity=".5" class="fo"/>
+  <!-- Flange at inlet -->
+  <rect x="-185" y="-54" width="16" height="28" rx="2" class="fl" stroke="#94a3b8" stroke-width="1"/>
+  <circle cx="-177" cy="-48" r="3" fill="#64748b"/><circle cx="-177" cy="-32" r="3" fill="#64748b"/>
+  <!-- Flange at outlet -->
+  <rect x="32" y="58" width="16" height="28" rx="2" class="fl" stroke="#94a3b8" stroke-width="1"/>
+  <circle cx="40" cy="65" r="3" fill="#64748b"/><circle cx="40" cy="81" r="3" fill="#64748b"/>
+  <text x="0" y="-85" class="tg">90° PIPE ELBOW DN100</text></g><script><![CDATA[//!export-start
+var _pn_flow=50;var _pb_active=true;
+//!export-end
+function postValue(id,v){console.log('FUXA post:',id,'=',v);}
+function putValue(id,v){v=Number(v);switch(id){case "_pn_flow":break;}}
+
+var o=new MutationObserver(function(m){m.forEach(function(mu){mu.removedNodes.forEach(function(n){if(n.id==='fuxa-pelbow'){o.disconnect();}});});});o.observe(document.body,{childList:true,subtree:true});
+]]></script></svg>

@@ -1,0 +1,371 @@
+<svg id="fuxa-industrial-pipe-system" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" width="100%" height="100%">
+  <defs>
+    <!-- Modern 3D Gradients -->
+    <linearGradient id="metal-3d" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="15%" stop-color="#f1f5f9" />
+      <stop offset="40%" stop-color="#cbd5e1" />
+      <stop offset="70%" stop-color="#94a3b8" />
+      <stop offset="100%" stop-color="#64748b" />
+    </linearGradient>
+
+    <linearGradient id="pipe-steel" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#64748b" />
+      <stop offset="25%" stop-color="#cbd5e1" />
+      <stop offset="50%" stop-color="#f8fafc" />
+      <stop offset="75%" stop-color="#94a3b8" />
+      <stop offset="100%" stop-color="#475569" />
+    </linearGradient>
+
+    <linearGradient id="pipe-copper" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#b45309" />
+      <stop offset="25%" stop-color="#fbbf24" />
+      <stop offset="50%" stop-color="#fef3c7" />
+      <stop offset="75%" stop-color="#d97706" />
+      <stop offset="100%" stop-color="#92400e" />
+    </linearGradient>
+
+    <linearGradient id="pipe-blue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e40af" />
+      <stop offset="25%" stop-color="#60a5fa" />
+      <stop offset="50%" stop-color="#dbeafe" />
+      <stop offset="75%" stop-color="#3b82f6" />
+      <stop offset="100%" stop-color="#1e3a8a" />
+    </linearGradient>
+
+    <linearGradient id="pipe-green" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#047857" />
+      <stop offset="25%" stop-color="#34d399" />
+      <stop offset="50%" stop-color="#a7f3d0" />
+      <stop offset="75%" stop-color="#10b981" />
+      <stop offset="100%" stop-color="#065f46" />
+    </linearGradient>
+
+    <linearGradient id="liquid-flow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#3b82f6" />
+      <stop offset="50%" stop-color="#60a5fa" />
+      <stop offset="100%" stop-color="#3b82f6" />
+    </linearGradient>
+
+    <linearGradient id="liquid-hot" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ef4444" />
+      <stop offset="50%" stop-color="#f87171" />
+      <stop offset="100%" stop-color="#ef4444" />
+    </linearGradient>
+
+    <radialGradient id="flange-3d" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#f8fafc" />
+      <stop offset="50%" stop-color="#cbd5e1" />
+      <stop offset="100%" stop-color="#64748b" />
+    </radialGradient>
+
+    <filter id="shadow-3d" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="3" dy="5" stdDeviation="4" flood-color="#0f172a" flood-opacity="0.35" />
+    </filter>
+
+    <filter id="glow-blue" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <filter id="glow-red" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <filter id="inner-shadow">
+      <feOffset dx="0" dy="2" />
+      <feGaussianBlur stdDeviation="3" result="offset-blur" />
+      <feComposite operator="out" in="SourceGraphic" in2="offset-blur" result="inverse" />
+      <feFlood flood-color="#0f172a" flood-opacity="0.3" result="color" />
+      <feComposite operator="in" in="color" in2="inverse" result="shadow" />
+      <feComposite operator="over" in="shadow" in2="SourceGraphic" />
+    </filter>
+
+    <pattern id="grid-pattern" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#e2e8f0" stroke-width="0.5" />
+    </pattern>
+
+    <style>
+      .pipe-main { fill: none; stroke-width: 18; stroke-linejoin: round; stroke-linecap: round; }
+      .pipe-steel { stroke: url(#pipe-steel); }
+      .pipe-copper { stroke: url(#pipe-copper); }
+      .pipe-blue { stroke: url(#pipe-blue); }
+      .pipe-green { stroke: url(#pipe-green); }
+      
+      .flow-line {
+        fill: none;
+        stroke-width: 8;
+        stroke-dasharray: 16 16;
+        animation: flow-anim 0.8s linear infinite;
+      }
+      .flow-blue { stroke: url(#liquid-flow); opacity: 0.8; }
+      .flow-hot { stroke: url(#liquid-hot); opacity: 0.8; }
+      
+      @keyframes flow-anim {
+        from { stroke-dashoffset: 32; }
+        to { stroke-dashoffset: 0; }
+      }
+
+      .flange-body { fill: url(#flange-3d); stroke: #475569; stroke-width: 2; }
+      .flange-bolt { fill: #475569; stroke: #334155; stroke-width: 1; }
+      
+      .hmi-panel { fill: #0f172a; stroke: #334155; stroke-width: 2; rx: 8; filter: url(#shadow-3d); }
+      .hmi-panel-glass { fill: #1e293b; stroke: #475569; stroke-width: 1.5; rx: 6; }
+      
+      .hmi-label { font-family: 'Segoe UI', sans-serif; font-size: 11px; fill: #94a3b8; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; }
+      .hmi-value { font-family: 'Consolas', monospace; font-size: 18px; fill: #10b981; font-weight: bold; }
+      .hmi-unit { font-family: sans-serif; font-size: 12px; fill: #64748b; }
+      .hmi-setpoint { font-family: monospace; font-size: 13px; fill: #38bdf8; font-weight: bold; }
+      
+      .indicator-on { fill: #22c55e; filter: url(#glow-blue); }
+      .indicator-off { fill: #475569; }
+      .alarm-on { fill: #ef4444; filter: url(#glow-red); animation: alarm-flash 1s infinite; }
+      
+      @keyframes alarm-flash {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.4; }
+      }
+
+      .interactive:hover { filter: url(#shadow-3d) brightness(1.2); cursor: pointer; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="400" fill="#f1f5f9" />
+  <rect width="800" height="400" fill="url(#grid-pattern)" opacity="0.5" />
+
+  <!-- Main Pipe Run -->
+  <g id="pipe-system">
+    <!-- Horizontal main pipe (steel) -->
+    <path d="M 80 200 L 350 200" class="pipe-main pipe-steel" filter="url(#shadow-3d)" />
+    <path d="M 80 200 L 350 200" class="flow-line flow-blue" id="flow-1" />
+    
+    <!-- Vertical riser (copper) -->
+    <path d="M 350 200 L 350 100" class="pipe-main pipe-copper" filter="url(#shadow-3d)" />
+    <path d="M 350 200 L 350 100" class="flow-line flow-blue" id="flow-2" />
+    
+    <!-- Horizontal branch (blue water) -->
+    <path d="M 350 100 L 600 100" class="pipe-main pipe-blue" filter="url(#shadow-3d)" />
+    <path d="M 350 100 L 600 100" class="flow-line flow-blue" id="flow-3" />
+    
+    <!-- Hot water line (red) -->
+    <path d="M 150 280 L 350 280 L 350 100" class="pipe-main pipe-green" filter="url(#shadow-3d)" opacity="0.9" />
+    <path d="M 150 280 L 350 280 L 350 100" class="flow-line flow-hot" id="flow-4" opacity="0.7" />
+  </g>
+
+  <!-- Flanges and Connections -->
+  <g id="flanges">
+    <!-- Flange at (80, 200) -->
+    <circle cx="80" cy="200" r="16" class="flange-body" filter="url(#shadow-3d)" />
+    <circle cx="72" cy="192" r="3" class="flange-bolt" />
+    <circle cx="88" cy="192" r="3" class="flange-bolt" />
+    <circle cx="72" cy="208" r="3" class="flange-bolt" />
+    <circle cx="88" cy="208" r="3" class="flange-bolt" />
+    
+    <!-- Flange at (600, 100) -->
+    <circle cx="600" cy="100" r="14" class="flange-body" filter="url(#shadow-3d)" />
+    <circle cx="592" cy="92" r="3" class="flange-bolt" />
+    <circle cx="608" cy="92" r="3" class="flange-bolt" />
+    <circle cx="592" cy="108" r="3" class="flange-bolt" />
+    <circle cx="608" cy="108" r="3" class="flange-bolt" />
+  </g>
+
+  <!-- Equipment on Pipes -->
+  <g id="equipment">
+    <!-- Control Valve -->
+    <g transform="translate(220, 200)" class="interactive">
+      <rect x="-25" y="-18" width="50" height="36" rx="4" class="flange-body" filter="url(#shadow-3d)" />
+      <path d="M -15 -18 L 0 -35 L 15 -18 Z" fill="#ef4444" stroke="#991b1b" stroke-width="1.5" />
+      <rect x="-6" y="-40" width="12" height="8" rx="2" fill="#dc2626" />
+      <circle cx="0" cy="-42" r="10" fill="#b91c1c" stroke="#7f1d1d" stroke-width="2" />
+      <text x="0" y="5" font-family="sans-serif" font-size="9" fill="#475569" text-anchor="middle">CV-101</text>
+    </g>
+
+    <!-- Flow Meter -->
+    <g transform="translate(450, 200)">
+    <circle cx="-155" cy="0" r="0" data-port-id="in" data-port-dir="left" data-port-type="pipe"/><circle cx="155" cy="0" r="0" data-port-id="out" data-port-dir="right" data-port-type="pipe"/>
+      <circle cx="0" cy="0" r="22" class="flange-body" filter="url(#shadow-3d)" />
+      <circle cx="0" cy="0" r="16" fill="#0f172a" stroke="#334155" stroke-width="1.5" />
+      <text x="0" y="4" font-family="monospace" font-size="10" fill="#10b981" text-anchor="middle">FLOW</text>
+      <text x="0" y="-8" font-family="sans-serif" font-size="8" fill="#64748b" text-anchor="middle">FT-201</text>
+    </g>
+
+    <!-- Temperature Sensor -->
+    <g transform="translate(520, 100)">
+      <circle cx="0" cy="0" r="18" class="flange-body" filter="url(#shadow-3d)" />
+      <circle cx="0" cy="0" r="12" fill="#0f172a" stroke="#334155" stroke-width="1.5" />
+      <text x="0" y="3" font-family="monospace" font-size="9" fill="#f59e0b" text-anchor="middle">TEMP</text>
+    </g>
+  </g>
+
+  <!-- HMI Panels -->
+  <g id="hmi-panels">
+    <!-- Flow Panel -->
+    <g transform="translate(20, 20)">
+      <rect width="180" height="90" class="hmi-panel" />
+      <rect width="180" height="20" rx="6" fill="#ffffff" opacity="0.1" />
+      <text x="15" y="38" class="hmi-label">MAIN FLOW</text>
+      <text id="val_flow" x="90" y="65" class="hmi-value" text-anchor="middle">125.4</text>
+      <text x="90" y="80" class="hmi-unit" text-anchor="middle">L/min</text>
+      <text x="90" y="85" class="hmi-setpoint" text-anchor="middle">SP: 120.0</text>
+    </g>
+
+    <!-- Temperature Panel -->
+    <g transform="translate(20, 130)">
+      <rect width="180" height="90" class="hmi-panel" />
+      <rect width="180" height="20" rx="6" fill="#ffffff" opacity="0.1" />
+      <text x="15" y="38" class="hmi-label">PIPE TEMP</text>
+      <text id="val_temp" x="90" y="65" class="hmi-value" text-anchor="middle">72.8</text>
+      <text x="90" y="80" class="hmi-unit" text-anchor="middle">°C</text>
+    </g>
+
+    <!-- Pressure Panel -->
+    <g transform="translate(20, 240)">
+      <rect width="180" height="90" class="hmi-panel" />
+      <rect width="180" height="20" rx="6" fill="#ffffff" opacity="0.1" />
+      <text x="15" y="38" class="hmi-label">PIPE PRESSURE</text>
+      <text id="val_pressure" x="90" y="65" class="hmi-value" text-anchor="middle">4.2</text>
+      <text x="90" y="80" class="hmi-unit" text-anchor="middle">bar</text>
+    </g>
+
+    <!-- Status Panel -->
+    <g transform="translate(620, 20)">
+      <rect width="160" height="150" class="hmi-panel" />
+      <rect width="160" height="20" rx="6" fill="#ffffff" opacity="0.1" />
+      <text x="80" y="35" class="hmi-label" text-anchor="middle">SYSTEM STATUS</text>
+      
+      <circle id="status_flow" cx="30" cy="65" r="10" class="indicator-on" />
+      <text x="50" y="69" font-family="sans-serif" font-size="12" fill="#cbd5e1">FLOW ACTIVE</text>
+      
+      <circle id="status_temp" cx="30" cy="95" r="10" class="indicator-on" />
+      <text x="50" y="99" font-family="sans-serif" font-size="12" fill="#cbd5e1">TEMP NOMINAL</text>
+      
+      <circle id="status_pressure" cx="30" cy="125" r="10" class="indicator-on" />
+      <text x="50" y="129" font-family="sans-serif" font-size="12" fill="#cbd5e1">PRESSURE OK</text>
+    </g>
+
+    <!-- Valve Control Panel -->
+    <g transform="translate(620, 190)" class="interactive">
+      <rect width="160" height="190" class="hmi-panel-glass" />
+      <text x="80" y="30" class="hmi-label" text-anchor="middle">VALVE CONTROL</text>
+      
+      <rect x="20" y="50" width="120" height="60" rx="4" fill="#1e293b" stroke="#334155" stroke-width="1.5" />
+      <text x="60" y="72" class="hmi-label" text-anchor="middle">POSITION</text>
+      <text id="valve_pos" x="60" y="105" class="hmi-value" text-anchor="middle">75%</text>
+      
+      <g transform="translate(60, 145)">
+        <rect x="-30" y="-8" width="60" height="16" rx="8" fill="#334155" />
+        <rect x="-30" y="-8" width="45" height="16" rx="8" fill="#22c55e" id="valve_bar" />
+      </g>
+    </g>
+
+    <!-- Alarm Panel -->
+    <g transform="translate(620, 400)" opacity="0">
+      <rect width="160" height="50" rx="4" fill="#7f1d1d" stroke="#ef4444" stroke-width="2" />
+      <text x="80" y="30" font-family="sans-serif" font-size="12" fill="#fca5a5" text-anchor="middle">⚠ ALARM ACTIVE</text>
+    </g>
+  </g>
+
+  <script>
+    <![CDATA[
+    //!export-start
+    var _pn_flow = 125.4;
+    var _pn_setFlow = 120.0;
+    
+    var _pn_temp = 72.8;
+    var _pc_tempColor = '#10b981';
+    
+    var _pn_pressure = 4.2;
+    var _pc_pressureColor = '#10b981';
+    
+    var _pn_valvePosition = 75;
+    var _pb_valveOpen = true;
+    
+    var _pb_flowActive = true;
+    var _pb_alarm = false;
+    //!export-end
+
+    function postValue(id, value) {
+      console.log('FUXA post:', id, '=', value);
+    }
+
+    function putValue(id, value) {
+      var v = Number(value);
+      switch(id) {
+        case '_pn_flow':
+          _pn_flow = v;
+          document.getElementById('val_flow').textContent = v.toFixed(1);
+          break;
+        case '_pn_setFlow':
+          _pn_setFlow = v;
+          document.querySelector('.hmi-setpoint').textContent = 'SP: ' + v.toFixed(1);
+          break;
+        case '_pn_temp':
+          _pn_temp = v;
+          document.getElementById('val_temp').textContent = v.toFixed(1);
+          break;
+        case '_pn_pressure':
+          _pn_pressure = v;
+          document.getElementById('val_pressure').textContent = v.toFixed(1);
+          break;
+        case '_pn_valvePosition':
+          _pn_valvePosition = Math.max(0, Math.min(100, v));
+          document.getElementById('valve_pos').textContent = Math.round(_pn_valvePosition) + '%';
+          document.getElementById('valve_bar').setAttribute('width', (_pn_valvePosition / 100) * 60);
+          break;
+        case '_pb_valveOpen':
+          _pb_valveOpen = (v !== 0);
+          break;
+        case '_pb_flowActive':
+          _pn_valveOpen = (v !== 0);
+          var flowLines = document.querySelectorAll('.flow-line');
+          flowLines.forEach(function(fl) {
+            fl.style.opacity = v ? '0.8' : '0.1';
+          });
+          document.getElementById('status_flow').setAttribute('class', v ? 'indicator-on' : 'indicator-off');
+          break;
+        case '_pb_alarm':
+          _pn_valveOpen = (v !== 0);
+          var alarmPanel = document.querySelector('[transform="translate(620, 400)"]');
+          if (alarmPanel) alarmPanel.setAttribute('opacity', v ? '1' : '0');
+          break;
+      }
+    }
+
+    // Click valve to toggle position
+    document.querySelector('[transform="translate(620, 190)"]').addEventListener('click', function() {
+      var newVal = prompt('Set valve position (0-100%):', _pn_valvePosition);
+      if (newVal !== null &amp;&amp; !isNaN(newVal)) {
+        postValue('_pn_valvePosition', Number(newVal));
+      }
+    });
+
+    // Animate flow
+    var animFrame;
+    function animate() {
+      animFrame = requestAnimationFrame(animate);
+    }
+    animFrame = requestAnimationFrame(animate);
+
+    // Cleanup on removal
+    var observer = new MutationObserver(function(mutations) {
+      mutations.forEach(function(mutation) {
+        mutation.removedNodes.forEach(function(node) {
+          if (node.id === 'fuxa-industrial-pipe-system') {
+            cancelAnimationFrame(animFrame);
+            observer.disconnect();
+          }
+        });
+      });
+    });
+    observer.observe(document.body, { childList: true, subtree: true });
+    ]]>
+  </script>
+</svg>

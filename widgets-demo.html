@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FUXA SCADA Widget Library Demo</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,-apple-system,sans-serif;background:#f1f5f9;color:#1e293b;padding:2rem}
+h1{font-size:1.5rem;font-weight:700;margin-bottom:.25rem;color:#0f172a}
+.sub{color:#64748b;font-size:.9rem;margin-bottom:2rem}
+p{color:#64748b;margin-bottom:2rem;font-size:.9rem;line-height:1.5}
+.controls{display:flex;gap:1rem;margin-bottom:2rem;flex-wrap:wrap;align-items:center}
+select{padding:.5rem 1rem;border:1px solid #cbd5e1;border-radius:6px;background:#fff;font-size:.9rem;cursor:pointer}
+.btn{padding:.5rem 1.25rem;border:none;border-radius:6px;cursor:pointer;font-size:.9rem;font-weight:500;transition:all .15s}
+.btn-primary{background:#3b82f6;color:#fff}.btn-primary:hover{background:#2563eb}
+.btn-outline{background:transparent;border:1px solid #cbd5e1;color:#475569}.btn-outline:hover{background:#f1f5f9}
+.stats{display:flex;gap:1.5rem;margin-bottom:2rem;flex-wrap:wrap}
+.stat{background:#fff;border-radius:8px;padding:1rem 1.5rem;box-shadow:0 1px 3px rgba(0,0,0,.06);min-width:120px}
+.stat-label{font-size:.75rem;color:#64748b;text-transform:uppercase;letter-spacing:.5px}
+.stat-value{font-size:1.5rem;font-weight:700;color:#0f172a;margin-top:.25rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1rem}
+.card{background:#fff;border-radius:10px;box-shadow:0 1px 3px rgba(0,0,0,.06);overflow:hidden;transition:box-shadow .2s;cursor:pointer}
+.card:hover{box-shadow:0 4px 12px rgba(0,0,0,.1)}
+.card-header{padding:1rem;border-bottom:1px solid #f1f5f9}
+.card-name{font-size:.85rem;font-weight:600;color:#0f172a}
+.card-cat{font-size:.75rem;color:#64748b;margin-top:2px}
+.card-svg{display:flex;align-items:center;justify-content:center;padding:1rem;min-height:260px;background:#f8fafc}
+.card-svg svg{max-width:200px;max-height:200px}
+.card-footer{padding:.75rem 1rem;border-top:1px solid #f1f5f9;font-size:.75rem;color:#94a3b8}
+.modal-overlay{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.5);z-index:1000;align-items:center;justify-content:center}
+.modal-overlay.open{display:flex}
+.modal{background:#fff;border-radius:12px;max-width:90vw;max-height:90vh;overflow:auto;box-shadow:0 25px 50px rgba(0,0,0,.25)}
+.modal-body{padding:2rem}
+.modal-close{float:right;border:none;background:none;font-size:1.5rem;cursor:pointer;color:#94a3b8;line-height:1}
+.modal-close:hover{color:#475569}
+.modal h2{font-size:1.1rem;margin-bottom:.5rem}
+.modal .meta{color:#64748b;font-size:.85rem;margin-bottom:1rem}
+.modal svg{max-width:400px;max-height:400px;margin:1rem 0}
+pre{background:#0f172a;color:#e2e8f0;padding:1rem;border-radius:6px;font-size:.8rem;overflow:auto;max-height:300px}
+code{font-family:ui-monospace,monospace}
+.loading{text-align:center;padding:4rem;color:#64748b}
+.error{color:#ef4444;text-align:center;padding:2rem}
+@media(max-width:640px){.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<h1>FUXA SCADA Widget Library</h1>
+<p class="sub">ISA-101 / ISA-5.1 Compliant — Interactive widget browser</p>
+
+<div class="controls">
+  <select id="catFilter">
+    <option value="">All Categories</option>
+  </select>
+  <input type="text" id="search" placeholder="Search widgets..." style="padding:.5rem 1rem;border:1px solid #cbd5e1;border-radius:6px;font-size:.9rem;flex:1;max-width:300px">
+  <button class="btn btn-primary" onclick="fetchWidgets()">Refresh</button>
+</div>
+
+<div class="stats" id="stats"></div>
+<div class="grid" id="grid"><div class="loading">Loading widget library...</div></div>
+
+<div class="modal-overlay" id="modal">
+  <div class="modal">
+    <div class="modal-body">
+      <button class="modal-close" onclick="closeModal()">&times;</button>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+const BASE = window.location.origin;
+let allWidgets = [];
+
+async function fetchWidgets() {
+  document.getElementById('grid').innerHTML = '<div class="loading">Loading...</div>';
+  try {
+    const resp = await fetch(BASE + '/api/resources/widgets');
+    const data = await resp.json();
+    allWidgets = [];
+    const catSelect = document.getElementById('catFilter');
+    catSelect.innerHTML = '<option value="">All Categories</option>';
+    const seen = new Set();
+    data.groups.forEach(g => {
+      if (!seen.has(g.name)) {
+        seen.add(g.name);
+        const opt = document.createElement('option');
+        opt.value = g.name;
+        opt.textContent = g.name + ' (' + g.items.length + ')';
+        catSelect.appendChild(opt);
+      }
+      g.items.forEach(item => {
+        allWidgets.push({ name: item.name, path: item.path, category: g.name });
+      });
+    });
+    renderWidgets();
+  } catch (e) {
+    document.getElementById('grid').innerHTML = '<div class="error">API Error: ' + e.message + '<br><br>Make sure the FUXA server is running (cd server && node main.js --port 3001)</div>';
+  }
+}
+
+function renderWidgets() {
+  const cat = document.getElementById('catFilter').value;
+  const q = document.getElementById('search').value.toLowerCase();
+  const filtered = allWidgets.filter(w => {
+    if (cat && w.category !== cat) return false;
+    if (q && !w.name.toLowerCase().includes(q) && !w.category.toLowerCase().includes(q)) return false;
+    return true;
+  });
+
+  document.getElementById('stats').innerHTML = `
+    <div class="stat"><div class="stat-label">Total Widgets</div><div class="stat-value">${allWidgets.length}</div></div>
+    <div class="stat"><div class="stat-label">Filtered</div><div class="stat-value">${filtered.length}</div></div>
+    <div class="stat"><div class="stat-label">Categories</div><div class="stat-value">${new Set(allWidgets.map(w=>w.category)).size}</div></div>
+  `;
+
+  if (filtered.length === 0) {
+    document.getElementById('grid').innerHTML = '<div class="loading" style="grid-column:1/-1">No widgets match your filter.</div>';
+    return;
+  }
+
+  let html = '';
+  filtered.forEach(w => {
+    const url = BASE + '/' + w.path;
+    const escapedUrl = encodeURI(w.path);
+    html += `
+      <div class="card" onclick="showWidget('${escapedUrl}','${w.name.replace(/'/g,"\\'")}','${w.category}')">
+        <div class="card-header">
+          <div class="card-name">${w.name.replace('.svg','')}</div>
+          <div class="card-cat">${w.category}</div>
+        </div>
+        <div class="card-svg" id="preview-${escapedUrl.replace(/[^a-zA-Z0-9]/g,'-')}">
+          <object type="image/svg+xml" data="${url}" width="200" height="200" style="max-width:200px;max-height:200px">
+            <span style="color:#94a3b8;font-size:.8rem">Loading...</span>
+          </object>
+        </div>
+        <div class="card-footer">${(w.path.match(/\//g)||[]).length > 1 ? w.path : 'root level'}</div>
+      </div>`;
+  });
+  document.getElementById('grid').innerHTML = html;
+}
+
+async function showWidget(encPath, name, category) {
+  const path = decodeURIComponent(encPath);
+  const url = BASE + '/' + path;
+  const modal = document.getElementById('modal');
+  const content = document.getElementById('modalContent');
+
+  let svgText = '';
+  try {
+    const resp = await fetch(url);
+    svgText = await resp.text();
+  } catch(e) { svgText = 'Could not load SVG'; }
+
+  const varSection = svgText.match(/\/\/!export-start[\s\S]*?\/\/!export-end/);
+  const hasAnim = svgText.includes('requestAnimationFrame') || svgText.includes('@keyframes');
+  const hasPorts = svgText.includes('data-port-id');
+  const hasScript = svgText.includes('putValue');
+  const hasObserver = svgText.includes('MutationObserver');
+
+  // Strip script from SVG for clean inline preview
+  const cleanSvg = svgText.replace(/<script[\s\S]*?<\/script>/g, '');
+  content.innerHTML = `
+    <div style="display:flex;align-items:flex-start;gap:2rem;flex-wrap:wrap">
+      <div style="flex:1;min-width:200px">
+        <h2>${name.replace('.svg','')}</h2>
+        <div class="meta">Category: ${category}</div>
+        <div style="margin:1rem 0;display:flex;gap:.5rem;flex-wrap:wrap">
+          <span style="padding:2px 8px;border-radius:4px;font-size:.75rem;background:${hasScript?'#dcfce7':'#fee2e2'};color:${hasScript?'#166534':'#991b1b'}">${hasScript?'✓ Script':'✗ No Script'}</span>
+          <span style="padding:2px 8px;border-radius:4px;font-size:.75rem;background:${hasObserver?'#dcfce7':'#fee2e2'};color:${hasObserver?'#166534':'#991b1b'}">${hasObserver?'✓ MutationObserver':'✗ No Observer'}</span>
+          <span style="padding:2px 8px;border-radius:4px;font-size:.75rem;background:${hasPorts?'#dcfce7':'#f1f5f9'};color:${hasPorts?'#166534':'#64748b'}">${hasPorts?'✓ Snap Ports':'No Ports'}</span>
+          <span style="padding:2px 8px;border-radius:4px;font-size:.75rem;background:${hasAnim?'#dcfce7':'#f1f5f9'};color:${hasAnim?'#166534':'#64748b'}">${hasAnim?'✓ Animation':'Static'}</span>
+        </div>
+        ${varSection ? '<pre><code>' + escapeHtml(varSection[0]) + '</code></pre>' : '<pre><code>No exported variables</code></pre>'}
+      </div>
+      <div style="flex:0 0 auto;background:#f8fafc;padding:.5rem;border-radius:8px;border:1px solid #e2e8f0;max-width:420px;overflow:hidden">
+        <div style="width:200px;height:200px;margin:0 auto">${cleanSvg}</div>
+      </div>
+    </div>
+  `;
+  modal.classList.add('open');
+}
+
+function closeModal() { document.getElementById('modal').classList.remove('open'); }
+
+function escapeHtml(s) {
+  const d = document.createElement('div');
+  d.textContent = s;
+  return d.innerHTML;
+}
+
+document.getElementById('catFilter').addEventListener('change', renderWidgets);
+document.getElementById('search').addEventListener('input', renderWidgets);
+document.getElementById('modal').addEventListener('click', e => { if (e.target === e.currentTarget) closeModal(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+fetchWidgets();
+</script>
+</body>
+</html>

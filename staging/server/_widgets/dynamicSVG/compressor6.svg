@@ -1,0 +1,65 @@
+<svg id="fuxa-dyn-compressor6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%"><defs>
+<linearGradient id="gs" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#f1f5f9"/><stop offset="30%" stop-color="#cbd5e1"/><stop offset="70%" stop-color="#94a3b8"/><stop offset="100%" stop-color="#64748b"/></linearGradient>
+<linearGradient id="gi" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#94a3b8"/><stop offset="50%" stop-color="#64748b"/><stop offset="100%" stop-color="#334155"/></linearGradient>
+<linearGradient id="gc" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#fca5a5"/><stop offset="40%" stop-color="#dc2626"/><stop offset="100%" stop-color="#991b1b"/></linearGradient>
+<linearGradient id="gb" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#7dd3fc"/><stop offset="40%" stop-color="#0284c7"/><stop offset="100%" stop-color="#0369a1"/></linearGradient>
+<filter id="s"><feDropShadow dx="2" dy="3" stdDeviation="3" flood-color="#0f172a" flood-opacity="0.35"/></filter>
+<style>.bkg{fill:#dbeafe}.frm{fill:#0f172a;rx:10;filter:url(#s)}</style></defs><rect width="200" height="200" class="bkg"/><rect x="6" y="6" width="188" height="188" class="frm"/>
+<g transform="translate(50,50)"><circle cx="50" cy="30" r="0" data-port-id="pipe" data-port-dir="left" data-port-type="pipe"/>
+<g id="shape">
+	<path fill="#006837" d="M80.313,84.905c-0.211,0-0.425-0.02-0.639-0.061L3.432,70.203c-1.784-0.342-3.182-2.032-3.182-3.85V33.649
+		c0-1.817,1.398-3.508,3.182-3.851l76.241-14.64c0.957-0.188,1.913,0.048,2.625,0.637c0.713,0.589,1.122,1.484,1.122,2.458v63.494
+		c0,0.973-0.409,1.869-1.121,2.458C81.746,84.663,81.046,84.905,80.313,84.905z"></path>
+</g>
+<g id="dark">
+	<polygon fill="#006837" points="22.723,65.352 32.534,67.236 32.534,32.764 22.723,34.648 	"></polygon>
+	<polygon fill="#006837" points="46.174,30.145 36.363,32.029 36.363,67.971 46.174,69.855 	"></polygon>
+	<polygon fill="#006837" points="74.58,41.83 74.58,24.69 63.644,26.79 63.644,73.21 74.58,75.31 74.58,58.17 100.25,58.17 
+		100.25,41.83 	"></polygon>
+	<polygon fill="#006837" points="18.894,35.383 9.213,37.242 9.213,62.757 18.894,64.616 	"></polygon>
+	<polygon fill="#006837" points="59.814,27.526 50.004,29.409 50.004,70.591 59.814,72.475 	"></polygon>
+</g>
+<g id="light">
+	<path fill="#F2F2F2" d="M80.319,18.095c-0.021,0-0.047,0.002-0.08,0.008L3.997,32.744C3.62,32.816,3.25,33.264,3.25,33.648v32.704
+		c0,0.384,0.37,0.832,0.747,0.903l76.242,14.642c0.094,0.017,0.142,0.001,0.149-0.005c0.007-0.006,0.032-0.047,0.032-0.146V18.253
+		c0-0.098-0.025-0.14-0.032-0.145C80.384,18.104,80.362,18.095,80.319,18.095z"></path>
+</g>
+<g id="hlight" display="none">
+</g>
+<g id="shadow" display="none">
+</g>
+<g id="linear">
+</g>
+</g>
+<script><![CDATA[
+//!export-start
+var _pn_setState=0;
+var _pb_boolState=false;
+var _pn_setInterval=500;
+var _pc_state0Colour='#808080';
+var _pc_state1Colour='#22c55e';
+var _pc_state2Colour='#eab308';
+var _pc_state3Colour='#ef4444';
+var _pc_state4Colour='#a855f7';
+var _pc_state5Colour='#3b82f6';
+//!export-end
+function postValue(id,v){console.log('FUXA post:',id,'=',v);}
+function putValue(id,v){v=Number(v);switch(id){
+  case '_pn_setState':
+    _pn_setState=v;
+    var colors=[_pc_state0Colour,_pc_state1Colour,_pc_state2Colour,_pc_state3Colour,_pc_state4Colour,_pc_state5Colour];
+    var c=colors[Math.min(v,5)]||'#808080';
+    var els=document.querySelectorAll('#shape path,#shape circle,#shape rect');
+    for(var k=0;k<els.length;k++){els[k].setAttribute('fill',c);}
+    break;
+  case '_pb_boolState':
+    _pb_boolState=v!==0;
+    var c2=_pb_boolState?_pc_state1Colour:_pc_state0Colour;
+    var els2=document.querySelectorAll('#shape path,#shape circle,#shape rect');
+    for(var j=0;j<els2.length;j++){els2[j].setAttribute('fill',c2);}
+    break;
+}}
+var o=new MutationObserver(function(m){m.forEach(function(mu){mu.removedNodes.forEach(function(n){if(n.id==='fuxa-dyn-compressor6'){o.disconnect();}});});});
+o.observe(document.body,{childList:true,subtree:true});
+]]></script>
+</svg>

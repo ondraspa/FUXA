@@ -1,0 +1,31 @@
+<svg id="fuxa-atex-duct-3d" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+<defs>
+<linearGradient id="gs" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#f1f5f9"/><stop offset="30%" stop-color="#cbd5e1"/><stop offset="70%" stop-color="#94a3b8"/><stop offset="100%" stop-color="#64748b"/></linearGradient>
+<linearGradient id="gi" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#94a3b8"/><stop offset="50%" stop-color="#64748b"/><stop offset="100%" stop-color="#334155"/></linearGradient>
+<linearGradient id="gb" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#7dd3fc"/><stop offset="40%" stop-color="#0284c7"/><stop offset="100%" stop-color="#0369a1"/></linearGradient>
+<linearGradient id="gy" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#fbbf24"/><stop offset="40%" stop-color="#f59e0b"/><stop offset="100%" stop-color="#b45309"/></linearGradient>
+<filter id="s"><feDropShadow dx="3" dy="5" stdDeviation="4" flood-color="#0f172a" flood-opacity="0.45"/></filter>
+<style>.bg{fill:#dbeafe}.fm{fill:url(#gi);rx:12;filter:url(#s)}.st{fill:url(#gs);stroke:#475569;stroke-width:1.5}.bl{fill:url(#gb)}.ir{fill:url(#gi)}.yw{fill:url(#gy)}.tg{font:9px/1 sans-serif;fill:#64748b;text-anchor:middle;font-weight:600}@keyframes ff{from{stroke-dashoffset:24}to{stroke-dashoffset:0}}.fl{animation:ff .8s linear infinite}
+</style></defs>
+<rect width="400" height="400" class="bg"/><rect x="12" y="12" width="376" height="376" class="fm"/>
+<g transform="translate(200,180)">
+<rect x="-80" y="-50" width="160" height="100" rx="8" class="st" filter="url(#s)"/>
+<rect x="-75" y="-45" width="150" height="90" rx="5" fill="#1e293b" stroke="#334155"/>
+<rect x="-70" y="-35" width="60" height="70" rx="3" fill="#0f172a" stroke="#475569"/>
+<rect x="-5" y="-35" width="75" height="70" rx="3" fill="#0f172a" stroke="#475569"/>
+<path d="M5,-20 L35,0 L5,20" class="bl" stroke-width="2.5" fill="none" class="fl"/>
+<path d="M20,-20 L50,0 L20,20" class="bl" stroke-width="2" fill="none" opacity="0.5" class="fl"/>
+<rect x="-10" y="-55" width="20" height="10" rx="3" class="yw"/>
+<text x="0" y="-60" class="tg" font-size="8" fill="#f59e0b">ATEX DUCT</text>
+<circle cx="15" cy="0" r="6" class="bl"/><circle cx="0" cy="-80" r="0" data-port-id="inlet" data-port-dir="top" data-port-type="duct"/>
+<line x1="-85" y1="-20" x2="-80" y2="-20" class="ir" stroke-width="6"/><line x1="80" y1="-20" x2="85" y2="-20" class="ir" stroke-width="6"/>
+<text x="0" y="62" class="tg">ATEX DUCT SECTION</text></g>
+<script><![CDATA[
+//!export-start
+var _pn_flow=50;var _pb_status=true;
+//!export-end
+function postValue(id,v){console.log('FUXA post:',id,'=',v);}
+function putValue(id,v){v=Number(v);switch(id){case '_pn_flow':break;}}
+var o=new MutationObserver(function(m){m.forEach(function(mu){mu.removedNodes.forEach(function(n){if(n.id==='fuxa-atex-duct-3d'){o.disconnect();}});});});
+o.observe(document.body,{childList:true,subtree:true});
+]]></script></svg>

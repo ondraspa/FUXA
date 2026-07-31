@@ -1,0 +1,95 @@
+<svg id="fuxa-dyn-heatexchanger_shelltube" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%"><defs>
+<linearGradient id="gs" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#f1f5f9"/><stop offset="30%" stop-color="#cbd5e1"/><stop offset="70%" stop-color="#94a3b8"/><stop offset="100%" stop-color="#64748b"/></linearGradient>
+<linearGradient id="gi" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#94a3b8"/><stop offset="50%" stop-color="#64748b"/><stop offset="100%" stop-color="#334155"/></linearGradient>
+<linearGradient id="gc" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#fca5a5"/><stop offset="40%" stop-color="#dc2626"/><stop offset="100%" stop-color="#991b1b"/></linearGradient>
+<linearGradient id="gb" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#7dd3fc"/><stop offset="40%" stop-color="#0284c7"/><stop offset="100%" stop-color="#0369a1"/></linearGradient>
+<filter id="s"><feDropShadow dx="2" dy="3" stdDeviation="3" flood-color="#0f172a" flood-opacity="0.35"/></filter>
+<style>.bkg{fill:#dbeafe}.frm{fill:#0f172a;rx:10;filter:url(#s)}</style></defs><rect width="200" height="200" class="bkg"/><rect x="6" y="6" width="188" height="188" class="frm"/>
+<g transform="translate(50,50)"><circle cx="15" cy="100" r="0" data-port-id="pipe" data-port-dir="left" data-port-type="pipe"/><circle cx="185" cy="100" r="0" data-port-id="pipe" data-port-dir="right" data-port-type="pipe"/>
+<g id="shape">
+	<path fill="#006837" d="M31.67,66.908h-9v-2h1.083v-4.663H13.595v4.663h0.96v2h-9v-2h1.206v-4.663H5.085l-0.146-0.146
+		c-5.455-5.455-5.455-14.331,0-19.786l0.146-0.146h1.676v-5.074H5.555v-2h9v2h-0.96v5.074h60.096v-5.074h-1.083v-2h9v2h-1.083v5.074
+		h14.39l0.146,0.146c5.455,5.455,5.455,14.331,0,19.786l-0.146,0.146H30.587v4.663h1.083V66.908z"></path>
+</g>
+<g id="dark">
+	<rect x="16.037" y="43.009" fill="#96D48D" width="70.177" height="0.898"></rect>
+	<rect x="16.037" y="45.635" fill="#96D48D" width="70.177" height="0.898"></rect>
+	<rect x="16.037" y="48.26" fill="#96D48D" width="70.177" height="0.898"></rect>
+	<rect x="16.037" y="51.229" fill="#96D48D" width="70.177" height="0.898"></rect>
+	<rect x="16.037" y="53.854" fill="#96D48D" width="70.177" height="0.898"></rect>
+	<rect x="16.037" y="56.479" fill="#96D48D" width="70.177" height="0.898"></rect>
+</g>
+<g id="light">
+
+		<rect x="56.914" y="55.021" fill="#29ABE2" width="25.026" height="1.189"></rect>
+		<rect x="44.401" y="44.176" fill="#29ABE2" width="23.276" height="1.19"></rect>
+		<polygon fill="#29ABE2" points="69.427,49.427 69.427,50.209 67.676,50.209 67.676,49.427 44.401,49.427 44.401,50.432 
+			42.65,50.432 42.65,49.427 20.125,49.427 20.125,50.96 30.137,50.96 30.137,49.95 31.888,49.95 31.888,50.96 55.163,50.96 
+			55.163,49.95 56.914,49.95 56.914,50.96 81.939,50.96 81.939,49.427 		"></polygon>
+		<rect x="56.914" y="52.396" fill="#29ABE2" width="25.026" height="1.189"></rect>
+		<rect x="31.888" y="55.021" fill="#29ABE2" width="23.276" height="1.189"></rect>
+		<rect x="20.125" y="52.396" fill="#29ABE2" width="10.013" height="1.189"></rect>
+		<polygon fill="#29ABE2" points="81.939,42.74 81.939,41.166 79.525,41.166 79.525,33.092 74.691,33.092 74.691,41.166 
+			69.427,41.166 69.427,42.74 		"></polygon>
+		<rect x="31.888" y="52.396" fill="#29ABE2" width="23.276" height="1.189"></rect>
+		<rect x="20.125" y="55.021" fill="#29ABE2" width="10.013" height="1.189"></rect>
+		<rect x="69.427" y="44.176" fill="#29ABE2" width="12.513" height="1.19"></rect>
+		<rect x="31.888" y="57.646" fill="#29ABE2" width="23.276" height="1.6"></rect>
+		<rect x="20.125" y="41.166" fill="#29ABE2" width="22.526" height="1.574"></rect>
+		<polygon fill="#29ABE2" points="20.125,57.646 20.125,59.245 24.753,59.245 24.753,66.908 29.587,66.908 29.587,59.245 
+			30.137,59.245 30.137,57.646 		"></polygon>
+		<rect x="56.914" y="57.646" fill="#29ABE2" width="25.026" height="1.6"></rect>
+		<rect x="20.125" y="46.802" fill="#29ABE2" width="22.526" height="1.189"></rect>
+		<rect x="20.125" y="44.176" fill="#29ABE2" width="22.526" height="1.19"></rect>
+		<rect x="44.401" y="46.802" fill="#29ABE2" width="23.276" height="1.189"></rect>
+		<rect x="69.427" y="46.802" fill="#29ABE2" width="12.513" height="1.189"></rect>
+		<rect x="44.401" y="41.166" fill="#29ABE2" width="23.276" height="1.574"></rect>
+
+</g>
+<g id="hlight">
+	<path fill="#FFFFFF" d="M16.037,49.427v-1.436h1.588v-1.189h-1.588v-1.436h1.588v-1.19h-1.588V42.74h1.588v-1.574h-5.03v-8.074
+		H7.761v8.074H5.501c-2.311,2.384-3.512,5.442-3.631,8.535h15.754v-0.274H16.037z"></path>
+	<path fill="#FFFFFF" d="M16.037,57.646V56.21h1.588v-1.189h-1.588v-1.436h1.588v-1.189h-1.588V50.96h1.588v-0.243H1.871
+		c0.121,3.09,1.322,6.146,3.631,8.528h2.259v7.663h4.834v-7.663h5.03v-1.6H16.037z"></path>
+	<path fill="#FFFFFF" d="M94.499,41.166H84.44v1.574h1.774v1.436H84.44v1.19h1.774v1.436H84.44v1.189h1.774v1.436H84.44v1.533h1.774
+		v1.436H84.44v1.189h1.774v1.436H84.44v1.189h1.774v1.436H84.44v1.6h10.059C99.372,54.218,99.372,46.193,94.499,41.166z"></path>
+	<rect x="16.037" y="43.144" fill="#FFFFFF" width="70.177" height="0.629"></rect>
+	<rect x="16.037" y="45.77" fill="#FFFFFF" width="70.177" height="0.629"></rect>
+	<rect x="16.037" y="48.395" fill="#FFFFFF" width="70.177" height="0.629"></rect>
+	<rect x="16.037" y="51.363" fill="#FFFFFF" width="70.177" height="0.629"></rect>
+	<rect x="16.037" y="53.988" fill="#FFFFFF" width="70.177" height="0.629"></rect>
+	<rect x="16.037" y="56.613" fill="#FFFFFF" width="70.177" height="0.629"></rect>
+</g>
+</g>
+<script><![CDATA[
+//!export-start
+var _pn_setState=0;
+var _pb_boolState=false;
+var _pn_setInterval=500;
+var _pc_state0Colour='#808080';
+var _pc_state1Colour='#22c55e';
+var _pc_state2Colour='#eab308';
+var _pc_state3Colour='#ef4444';
+var _pc_state4Colour='#a855f7';
+var _pc_state5Colour='#3b82f6';
+//!export-end
+function postValue(id,v){console.log('FUXA post:',id,'=',v);}
+function putValue(id,v){v=Number(v);switch(id){
+  case '_pn_setState':
+    _pn_setState=v;
+    var colors=[_pc_state0Colour,_pc_state1Colour,_pc_state2Colour,_pc_state3Colour,_pc_state4Colour,_pc_state5Colour];
+    var c=colors[Math.min(v,5)]||'#808080';
+    var els=document.querySelectorAll('#shape path,#shape circle,#shape rect');
+    for(var k=0;k<els.length;k++){els[k].setAttribute('fill',c);}
+    break;
+  case '_pb_boolState':
+    _pb_boolState=v!==0;
+    var c2=_pb_boolState?_pc_state1Colour:_pc_state0Colour;
+    var els2=document.querySelectorAll('#shape path,#shape circle,#shape rect');
+    for(var j=0;j<els2.length;j++){els2[j].setAttribute('fill',c2);}
+    break;
+}}
+var o=new MutationObserver(function(m){m.forEach(function(mu){mu.removedNodes.forEach(function(n){if(n.id==='fuxa-dyn-heatexchanger_shelltube'){o.disconnect();}});});});
+o.observe(document.body,{childList:true,subtree:true});
+]]></script>
+</svg>

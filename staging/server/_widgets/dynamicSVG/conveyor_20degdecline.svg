@@ -1,0 +1,107 @@
+<svg id="fuxa-dyn-conveyor_20degdecline" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%"><defs>
+<linearGradient id="gs" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#f1f5f9"/><stop offset="30%" stop-color="#cbd5e1"/><stop offset="70%" stop-color="#94a3b8"/><stop offset="100%" stop-color="#64748b"/></linearGradient>
+<linearGradient id="gi" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#94a3b8"/><stop offset="50%" stop-color="#64748b"/><stop offset="100%" stop-color="#334155"/></linearGradient>
+<linearGradient id="gc" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#fca5a5"/><stop offset="40%" stop-color="#dc2626"/><stop offset="100%" stop-color="#991b1b"/></linearGradient>
+<linearGradient id="gb" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#7dd3fc"/><stop offset="40%" stop-color="#0284c7"/><stop offset="100%" stop-color="#0369a1"/></linearGradient>
+<filter id="s"><feDropShadow dx="2" dy="3" stdDeviation="3" flood-color="#0f172a" flood-opacity="0.35"/></filter>
+<style>.bkg{fill:#dbeafe}.frm{fill:#0f172a;rx:10;filter:url(#s)}</style></defs><rect width="200" height="200" class="bkg"/><rect x="6" y="6" width="188" height="188" class="frm"/>
+<g transform="translate(50,50)"><circle cx="100" cy="30" r="0" data-port-id="belt" data-port-dir="top" data-port-type="belt"/>
+<g id="shape">
+	<path fill="#808080" d="M0.666,32.044c1.509-4.145,6.109-6.29,10.254-4.781l83.633,30.44c4.145,1.509,6.29,6.109,4.781,10.254
+		s-6.109,6.29-10.254,4.781L5.448,42.298C1.303,40.789-0.843,36.189,0.666,32.044z M10.236,29.142
+		c-3.109-1.132-6.559,0.477-7.69,3.586c-1.132,3.109,0.477,6.559,3.586,7.69l83.633,30.44c3.109,1.132,6.559-0.477,7.69-3.586
+		s-0.477-6.559-3.586-7.69L10.236,29.142z"></path>
+</g>
+<g id="dark">
+	<circle cx="91.816" cy="65.22" r="5.775"></circle>
+	<circle cx="8.184" cy="34.78" r="5.775"></circle>
+</g>
+<g id="light">
+	<circle fill="#CCCCCC" cx="91.816" cy="65.22" r="3.675"></circle>
+	<circle fill="#CCCCCC" cx="8.184" cy="34.78" r="3.675"></circle>
+	<circle fill="#CCCCCC" cx="21.383" cy="36.525" r="2.375"></circle>
+	<circle fill="#CCCCCC" cx="28.812" cy="39.229" r="2.375"></circle>
+	<circle fill="#CCCCCC" cx="36.241" cy="41.933" r="2.375"></circle>
+	<circle fill="#CCCCCC" cx="43.672" cy="44.637" r="2.375"></circle>
+	<circle fill="#CCCCCC" cx="51.101" cy="47.341" r="2.375"></circle>
+	<circle fill="#CCCCCC" cx="58.53" cy="50.045" r="2.375"></circle>
+	<circle fill="#CCCCCC" cx="65.959" cy="52.749" r="2.375"></circle>
+	<circle fill="#CCCCCC" cx="73.389" cy="55.454" r="2.375"></circle>
+	<circle fill="#CCCCCC" cx="80.819" cy="58.158" r="2.375"></circle>
+	<circle fill="#CCCCCC" cx="21.383" cy="36.525" r="2.375"></circle>
+	<circle fill="#CCCCCC" cx="28.812" cy="39.229" r="2.375"></circle>
+	<circle fill="#CCCCCC" cx="36.241" cy="41.933" r="2.375"></circle>
+	<circle fill="#CCCCCC" cx="43.672" cy="44.637" r="2.375"></circle>
+	<circle fill="#CCCCCC" cx="51.101" cy="47.341" r="2.375"></circle>
+	<circle fill="#CCCCCC" cx="58.53" cy="50.045" r="2.375"></circle>
+	<circle fill="#CCCCCC" cx="65.959" cy="52.749" r="2.375"></circle>
+	<circle fill="#CCCCCC" cx="73.389" cy="55.454" r="2.375"></circle>
+	<circle fill="#CCCCCC" cx="80.819" cy="58.158" r="2.375"></circle>
+	
+		<rect x="97.726" y="66.553" transform="matrix(0.342 -0.9397 0.9397 0.342 1.2765 136.9294)" fill="#CCCCCC" width="1.375" height="2"></rect>
+	
+		<rect x="0.94" y="31.326" transform="matrix(0.342 -0.9397 0.9397 0.342 -29.3061 22.7998)" fill="#CCCCCC" width="1.375" height="2"></rect>
+	
+		<rect x="92.562" y="57.718" transform="matrix(0.342 -0.9397 0.9397 0.342 6.6806 126.3514)" fill="#CCCCCC" width="2" height="1.375"></rect>
+	
+		<rect x="73.934" y="50.937" transform="matrix(0.342 -0.9397 0.9397 0.342 0.7947 104.3846)" fill="#CCCCCC" width="2" height="1.375"></rect>
+	
+		<rect x="58.829" y="45.44" transform="matrix(0.342 -0.9397 0.9397 0.342 -3.9787 86.5728)" fill="#CCCCCC" width="2" height="1.375"></rect>
+	
+		<rect x="43.723" y="39.942" transform="matrix(0.342 -0.9397 0.9397 0.342 -8.7513 68.7606)" fill="#CCCCCC" width="2" height="1.375"></rect>
+	
+		<rect x="28.618" y="34.444" transform="matrix(0.342 -0.9397 0.9397 0.342 -13.5248 50.9488)" fill="#CCCCCC" width="2" height="1.375"></rect>
+	
+		<rect x="9.989" y="27.664" transform="matrix(0.342 -0.9397 0.9397 0.342 -19.411 28.9809)" fill="#CCCCCC" width="2" height="1.375"></rect>
+	
+		<rect x="87.775" y="70.873" transform="matrix(0.342 -0.9397 0.9397 0.342 -8.8317 130.5085)" fill="#CCCCCC" width="2" height="1.375"></rect>
+	
+		<rect x="69.146" y="64.093" transform="matrix(0.342 -0.9397 0.9397 0.342 -14.7177 108.5418)" fill="#CCCCCC" width="2" height="1.375"></rect>
+	
+		<rect x="54.041" y="58.595" transform="matrix(0.342 -0.9397 0.9397 0.342 -19.4911 90.73)" fill="#CCCCCC" width="2" height="1.375"></rect>
+	
+		<rect x="38.936" y="53.097" transform="matrix(0.342 -0.9397 0.9397 0.342 -24.2636 72.9178)" fill="#CCCCCC" width="2" height="1.375"></rect>
+	
+		<rect x="23.83" y="47.6" transform="matrix(0.342 -0.9397 0.9397 0.342 -29.0371 55.1059)" fill="#CCCCCC" width="2" height="1.375"></rect>
+	
+		<rect x="5.201" y="40.819" transform="matrix(0.342 -0.9397 0.9397 0.342 -34.9234 33.1381)" fill="#CCCCCC" width="2" height="1.375"></rect>
+</g>
+<g id="hlight">
+</g>
+<g id="shadow">
+</g>
+<g id="linear">
+</g>
+</g>
+<script><![CDATA[
+//!export-start
+var _pn_setState=0;
+var _pb_boolState=false;
+var _pn_setInterval=500;
+var _pc_state0Colour='#808080';
+var _pc_state1Colour='#22c55e';
+var _pc_state2Colour='#eab308';
+var _pc_state3Colour='#ef4444';
+var _pc_state4Colour='#a855f7';
+var _pc_state5Colour='#3b82f6';
+//!export-end
+function postValue(id,v){console.log('FUXA post:',id,'=',v);}
+function putValue(id,v){v=Number(v);switch(id){
+  case '_pn_setState':
+    _pn_setState=v;
+    var colors=[_pc_state0Colour,_pc_state1Colour,_pc_state2Colour,_pc_state3Colour,_pc_state4Colour,_pc_state5Colour];
+    var c=colors[Math.min(v,5)]||'#808080';
+    var els=document.querySelectorAll('#shape path,#shape circle,#shape rect');
+    for(var k=0;k<els.length;k++){els[k].setAttribute('fill',c);}
+    break;
+  case '_pb_boolState':
+    _pb_boolState=v!==0;
+    var c2=_pb_boolState?_pc_state1Colour:_pc_state0Colour;
+    var els2=document.querySelectorAll('#shape path,#shape circle,#shape rect');
+    for(var j=0;j<els2.length;j++){els2[j].setAttribute('fill',c2);}
+    break;
+}}
+var o=new MutationObserver(function(m){m.forEach(function(mu){mu.removedNodes.forEach(function(n){if(n.id==='fuxa-dyn-conveyor_20degdecline'){o.disconnect();}});});});
+o.observe(document.body,{childList:true,subtree:true});
+]]></script>
+</svg>

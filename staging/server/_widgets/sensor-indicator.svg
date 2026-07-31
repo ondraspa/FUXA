@@ -1,0 +1,183 @@
+<svg id="fuxa-sensor-indicator" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 150" width="100%" height="100%">
+  <defs>
+    <linearGradient id="sensor-metal" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f8fafc" />
+      <stop offset="30%" stop-color="#e2e8f0" />
+      <stop offset="70%" stop-color="#94a3b8" />
+      <stop offset="100%" stop-color="#64748b" />
+    </linearGradient>
+    
+    <radialGradient id="led-green" cx="50%" cy="30%" r="50%">
+      <stop offset="0%" stop-color="#86efac" />
+      <stop offset="50%" stop-color="#22c55e" />
+      <stop offset="100%" stop-color="#14532d" />
+    </radialGradient>
+    
+    <radialGradient id="led-red" cx="50%" cy="30%" r="50%">
+      <stop offset="0%" stop-color="#fca5a5" />
+      <stop offset="50%" stop-color="#ef4444" />
+      <stop offset="100%" stop-color="#7f1d1d" />
+    </radialGradient>
+    
+    <radialGradient id="led-blue" cx="50%" cy="30%" r="50%">
+      <stop offset="0%" stop-color="#93c5fd" />
+      <stop offset="50%" stop-color="#3b82f6" />
+      <stop offset="100%" stop-color="#1e3a8a" />
+    </radialGradient>
+    
+    <radialGradient id="led-yellow" cx="50%" cy="30%" r="50%">
+      <stop offset="0%" stop-color="#fde047" />
+      <stop offset="50%" stop-color="#eab308" />
+      <stop offset="100%" stop-color="#713f12" />
+    </radialGradient>
+    
+    <filter id="glow-green" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+    
+    <filter id="glow-red" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+    
+    <filter id="glow-blue" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+    
+    <filter id="glow-yellow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+    
+    <style>
+      .sensor-body { fill: url(#sensor-metal); stroke: #475569; stroke-width: 2; }
+      .sensor-thread { fill: #64748b; stroke: #475569; stroke-width: 1; }
+      .hmi-bg { fill: #0f172a; stroke: #334155; stroke-width: 1.5; rx: 4; }
+      .hmi-label { font-family: sans-serif; font-size: 10px; fill: #94a3b8; font-weight: 600; }
+      .hmi-value { font-family: monospace; font-size: 14px; fill: #10b981; font-weight: bold; }
+    </style>
+  <filter id="s"><feDropShadow dx="2" dy="3" stdDeviation="3" flood-color="#0f172a" flood-opacity="0.35"/></filter>
+<style>
+@keyframes fa{0%,100%{opacity:1}50%{opacity:0.3}}.ala{animation:fa 1s infinite}
+</style>
+</defs>
+
+  <!-- Background -->
+  <rect width="200" height="150" fill="#f1f5f9" rx="8" />
+  
+  <!-- Sensor Body -->
+    <circle cx="-155" cy="0" r="0" data-port-id="in" data-port-dir="left" data-port-type="pipe"/><circle cx="155" cy="0" r="0" data-port-id="out" data-port-dir="right" data-port-type="pipe"/>
+  <g id="sensor_body">
+    <!-- Mounting thread -->
+    <rect x="85" y="10" width="30" height="30" class="sensor-thread" rx="3" />
+    <line x1="88" y1="15" x2="88" y2="35" stroke="#475569" stroke-width="1" />
+    <line x1="95" y1="15" x2="95" y2="35" stroke="#475569" stroke-width="1" />
+    <line x1="102" y1="15" x2="102" y2="35" stroke="#475569" stroke-width="1" />
+    <line x1="109" y1="15" x2="109" y2="35" stroke="#475569" stroke-width="1" />
+    
+    <!-- Main body -->
+    <rect x="75" y="40" width="50" height="60" rx="5" class="sensor-body" />
+    
+    <!-- Sensor face -->
+    <circle cx="100" cy="70" r="18" class="sensor-body" />
+    <circle cx="100" cy="70" r="12" fill="#0f172a" />
+    
+    <!-- LED Indicator -->
+    <circle id="sensor_led" cx="100" cy="70" r="8" fill="#475569" filter="url(#glow-green)" />
+    
+    <!-- Cable -->
+    <path d="M100 100 L100 130 L130 130" fill="none" stroke="#334155" stroke-width="4" stroke-linecap="round" />
+    <circle cx="130" cy="130" r="5" fill="#1e293b" />
+  </g>
+  
+  <!-- Status Panel -->
+  <g id="status_panel" transform="translate(10, 10)">
+    <rect width="60" height="50" class="hmi-bg" />
+    <text x="30" y="18" class="hmi-label" text-anchor="middle">STATUS</text>
+    <circle id="status_led" cx="30" cy="35" r="10" fill="#22c55e" filter="url(#glow-green)" />
+  </g>
+  
+  <!-- Value Panel -->
+  <g id="value_panel" transform="translate(130, 10)">
+    <rect width="60" height="50" class="hmi-bg" />
+    <text x="30" y="18" class="hmi-label" text-anchor="middle">VALUE</text>
+    <text id="value_text" x="30" y="38" class="hmi-value" text-anchor="middle" font-size="12">0.0</text>
+  </g>
+
+  <script>
+    <![CDATA[
+    //!export-start
+    var _pn_sensorValue = 0.0;
+    var _pb_sensorActive = false;
+    var _pc_sensorColor = '#22c55e';
+    //!export-end
+
+    function postValue(id, value) {
+      console.log('Post value:', id, value);
+    }
+
+    function putValue(id, value) {
+      var v = Number(value);
+      switch(id) {
+        case '_pn_sensorValue':
+          _pn_sensorValue = v;
+          document.getElementById('value_text').textContent = v.toFixed(1);
+          break;
+        case '_pb_sensorActive':
+          _pb_sensorActive = (v !== 0);
+          var led = document.getElementById('sensor_led');
+          var status = document.getElementById('status_led');
+          if (_pb_sensorActive) {
+            led.setAttribute('fill', '#22c55e');
+            led.setAttribute('filter', 'url(#glow-green)');
+            status.setAttribute('fill', '#22c55e');
+            status.setAttribute('filter', 'url(#glow-green)');
+          } else {
+            led.setAttribute('fill', '#475569');
+            led.removeAttribute('filter');
+            status.setAttribute('fill', '#ef4444');
+            status.setAttribute('filter', 'url(#glow-red)');
+          }
+          break;
+        case '_pc_sensorColor':
+          var colors = {
+            '#22c55e': { fill: '#22c55e', filter: 'url(#glow-green)' },
+            '#ef4444': { fill: '#ef4444', filter: 'url(#glow-red)' },
+            '#3b82f6': { fill: '#3b82f6', filter: 'url(#glow-blue)' },
+            '#eab308': { fill: '#eab308', filter: 'url(#glow-yellow)' }
+          };
+          var led = document.getElementById('sensor_led');
+          var status = document.getElementById('status_led');
+          if (colors[value]) {
+            led.setAttribute('fill', colors[value].fill);
+            led.setAttribute('filter', colors[value].filter);
+            status.setAttribute('fill', colors[value].fill);
+            status.setAttribute('filter', colors[value].filter);
+          }
+          break;
+      }
+    }
+
+    // Click to toggle sensor
+    document.getElementById('sensor_body').addEventListener('click', function() {
+      var newVal = !_pb_sensorActive;
+      postValue('_pb_sensorActive', newVal ? 1 : 0);
+    });
+    var _obs = new MutationObserver(function(m) { m.forEach(function(mu) { mu.removedNodes.forEach(function(n) { if(n.id === "fuxa-sensor-indicator") { _obs.disconnect(); }}); }); }); _obs.observe(document.body, {childList:true,subtree:true});
+    ]]>
+  </script>
+</svg>

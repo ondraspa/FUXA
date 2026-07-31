@@ -1,0 +1,73 @@
+<svg id="fuxa-drying" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="db-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f1f5f9"/><stop offset="100%" stop-color="#cbd5e1"/>
+    </linearGradient>
+    <linearGradient id="db-tank" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#334155"/><stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <filter id="db-shadow"><feDropShadow dx="3" dy="5" stdDeviation="4" flood-color="#0f172a" flood-opacity="0.35"/></filter>
+    <style>.bg{fill:url(#db-bg)}.tank{fill:url(#db-tank);stroke:#475569;stroke-width:2;rx:8;filter:url(#db-shadow)}.metal{fill:#e2e8f0;stroke:#475569;stroke-width:1.5}.heat{fill:#f97316;opacity:0.4}.lbl{font:600 10px/1 'Segoe UI',sans-serif;fill:#94a3b8}.unit{font:11px/1 sans-serif;fill:#64748b}</style>
+  </defs>
+  <rect width="400" height="400" class="bg"/>
+  <rect x="15" y="15" width="370" height="370" class="tank"/>
+  <g transform="translate(200,160)">
+    <circle cx="-155" cy="0" r="0" data-port-id="in" data-port-dir="left" data-port-type="pipe"/>
+    <circle cx="155" cy="0" r="0" data-port-id="out" data-port-dir="right" data-port-type="pipe"/>
+    <!-- Booth body -->
+    <rect x="-60" y="-55" width="120" height="110" rx="6" class="metal" filter="url(#db-shadow)"/>
+    <rect x="-55" y="-50" width="110" height="100" rx="4" fill="#1e293b"/>
+    <!-- Heating elements -->
+    <rect x="-45" y="-40" width="90" height="70" rx="3" fill="#0f172a"/>
+    <rect id="db-heat1" x="-35" y="-30" width="70" height="8" rx="4" class="heat"/>
+    <rect id="db-heat2" x="-35" y="-15" width="70" height="8" rx="4" class="heat"/>
+    <rect id="db-heat3" x="-35" y="0" width="70" height="8" rx="4" class="heat"/>
+    <!-- Platter -->
+    <circle cx="0" cy="25" r="20" fill="#334155" stroke="#475569"/>
+    <circle cx="0" cy="25" r="14" fill="#1e293b"/>
+    <!-- Air outlet -->
+    <rect x="-20" y="-65" width="40" height="10" rx="3" class="metal"/>
+    <!-- Labels -->
+    <text x="0" y="75" class="lbl" text-anchor="middle">DRYING BOOTH</text>
+    <text x="0" y="88" class="unit" text-anchor="middle">Karl Bleimehl — Heating + Air Filtration</text>
+  </g>
+  <g transform="translate(25,340)">
+    <rect width="165" height="35" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+    <circle cx="22" cy="17" r="6" id="db-status" class="alarm-on"/>
+    <text x="40" y="22" class="lbl" fill="#94a3b8">STATUS: HEATING</text>
+  </g>
+  <g transform="translate(210,340)">
+    <rect width="165" height="35" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+    <text x="82" y="22" class="unit" text-anchor="middle">230V 16A</text>
+  </g>
+  <script><![CDATA[
+    var _pn_temp = 60;
+    var _pb_heating = true;
+    function postValue(id, v) { console.log('FUXA post:', id, '=', v); }
+    function putValue(id, v) {
+      v = Number(v);
+      switch(id) {
+        case '_pn_temp':
+          _pn_temp = Math.max(20, Math.min(100, v));
+          var intensity = (_pn_temp - 20) / 80;
+          document.getElementById('db-heat1').setAttribute('opacity', 0.2 + intensity * 0.6);
+          document.getElementById('db-heat2').setAttribute('opacity', 0.2 + intensity * 0.6);
+          document.getElementById('db-heat3').setAttribute('opacity', 0.2 + intensity * 0.6);
+          break;
+        case '_pb_heating':
+          _pb_heating = v !== 0;
+          var opacity = _pb_heating ? 0.7 : 0.2;
+          document.getElementById('db-heat1').setAttribute('opacity', opacity);
+          document.getElementById('db-heat2').setAttribute('opacity', opacity);
+          document.getElementById('db-heat3').setAttribute('opacity', opacity);
+          document.getElementById('db-status').setAttribute('class', _pb_heating ? 'alarm-on' : 'alarm-off');
+          break;
+      }
+    }
+    var obs = new MutationObserver(function(m) {
+      m.forEach(function(mu) { mu.removedNodes.forEach(function(n) { if(n.id==='fuxa-drying') obs.disconnect(); }); });
+    });
+    obs.observe(document.body, {childList:true,subtree:true});
+  ]]></script>
+</svg>
+echo "Created drying-booth.svg"

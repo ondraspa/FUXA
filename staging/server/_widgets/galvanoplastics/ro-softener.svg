@@ -1,0 +1,76 @@
+<svg id="fuxa-water-treat" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="wt-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f1f5f9"/><stop offset="100%" stop-color="#cbd5e1"/>
+    </linearGradient>
+    <linearGradient id="wt-tank" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#334155"/><stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <filter id="wt-shadow"><feDropShadow dx="3" dy="5" stdDeviation="4" flood-color="#0f172a" flood-opacity="0.35"/></filter>
+    <style>.bg{fill:url(#wt-bg)}.tank{fill:url(#wt-tank);stroke:#475569;stroke-width:2;rx:8;filter:url(#wt-shadow)}.metal{fill:#e2e8f0;stroke:#475569;stroke-width:1.5}.water{fill:#3b82f6;opacity:0.6}.lbl{font:600 10px/1 'Segoe UI',sans-serif;fill:#94a3b8}.unit{font:11px/1 sans-serif;fill:#64748b}</style>
+  </defs>
+  <rect width="400" height="400" class="bg"/>
+  <rect x="15" y="15" width="370" height="370" class="tank"/>
+  <g transform="translate(200,160)">
+    <circle cx="-155" cy="0" r="0" data-port-id="in" data-port-dir="left" data-port-type="pipe"/>
+    <circle cx="155" cy="0" r="0" data-port-id="out" data-port-dir="right" data-port-type="pipe"/>
+    <!-- Softener tank -->
+    <rect x="-100" y="-50" width="70" height="100" rx="6" class="metal" filter="url(#wt-shadow)"/>
+    <rect x="-95" y="-45" width="60" height="90" rx="4" fill="#1e293b"/>
+    <rect id="wt-softener-level" x="-93" y="45" width="56" height="0" rx="2" class="water"/>
+    <!-- RO unit -->
+    <rect x="-20" y="-60" width="40" height="120" rx="4" class="metal"/>
+    <rect x="-16" y="-56" width="32" height="112" rx="2" fill="#1e293b"/>
+    <!-- Brine tank -->
+    <rect x="50" y="-50" width="70" height="100" rx="6" class="metal"/>
+    <rect x="55" y="-45" width="60" height="90" rx="4" fill="#1e293b"/>
+    <rect id="wt-brine-level" x="57" y="45" width="56" height="0" rx="2" class="water"/>
+    <!-- Pipes -->
+    <rect x="-130" y="-10" width="30" height="6" rx="3" class="metal"/>
+    <rect x="100" y="-10" width="30" height="6" rx="3" class="metal"/>
+    <!-- Labels -->
+    <text x="-65" y="75" class="lbl" text-anchor="middle">SOFTENER</text>
+    <text x="0" y="75" class="lbl" text-anchor="middle">RO</text>
+    <text x="85" y="75" class="lbl" text-anchor="middle">BRINE</text>
+    <text x="0" y="95" class="lbl" text-anchor="middle">WATER TREATMENT</text>
+    <text x="0" y="108" class="unit" text-anchor="middle">Pentair-Pentek-Clack — 1000GPD</text>
+  </g>
+  <g transform="translate(25,340)">
+    <rect width="165" height="35" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+    <circle cx="22" cy="17" r="6" id="wt-status" class="alarm-on"/>
+    <text x="40" y="22" class="lbl" fill="#94a3b8">STATUS: ACTIVE</text>
+  </g>
+  <g transform="translate(210,340)">
+    <rect width="165" height="35" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+    <text x="82" y="22" class="unit" text-anchor="middle">230V 16A</text>
+  </g>
+  <script><![CDATA[
+    var _pn_soft = 80, _pn_brine = 60;
+    var _pb_active = true;
+    function postValue(id, v) { console.log('FUXA post:', id, '=', v); }
+    function putValue(id, v) {
+      v = Number(v);
+      switch(id) {
+        case '_pn_soft':
+          _pn_soft = Math.max(0, Math.min(90, v));
+          document.getElementById('wt-softener-level').setAttribute('height', _pn_soft);
+          document.getElementById('wt-softener-level').setAttribute('y', 45 - _pn_soft);
+          break;
+        case '_pn_brine':
+          _pn_brine = Math.max(0, Math.min(90, v));
+          document.getElementById('wt-brine-level').setAttribute('height', _pn_brine);
+          document.getElementById('wt-brine-level').setAttribute('y', 45 - _pn_brine);
+          break;
+        case '_pb_active':
+          _pb_active = v !== 0;
+          document.getElementById('wt-status').setAttribute('class', _pb_active ? 'alarm-on' : 'alarm-off');
+          break;
+      }
+    }
+    var obs = new MutationObserver(function(m) {
+      m.forEach(function(mu) { mu.removedNodes.forEach(function(n) { if(n.id==='fuxa-water-treat') obs.disconnect(); }); });
+    });
+    obs.observe(document.body, {childList:true,subtree:true});
+  ]]></script>
+</svg>
+echo "Created water-treatment.svg"

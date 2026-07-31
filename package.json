@@ -1,0 +1,14 @@
+{
+  "name": "fuxa-workspace",
+  "private": true,
+  "scripts": {
+    "test": "npx playwright test",
+    "test:ui": "npx playwright test --ui",
+    "test:widgets": "npx playwright test tests/widgets-api.spec.js",
+    "screenshots": "node scripts/screenshot-widgets.js",
+    "analyze": "node scripts/analyze-widget.js"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.62.0"
+  }
+}

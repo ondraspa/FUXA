@@ -1,0 +1,94 @@
+<svg id="fuxa-atex-temp-sensor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="g-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f8fafc"/><stop offset="100%" stop-color="#e2e8f0"/>
+    </linearGradient>
+    <linearGradient id="g-atex" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f59e0b"/><stop offset="100%" stop-color="#d97706"/>
+    </linearGradient>
+    <linearGradient id="g-panel" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b"/><stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <filter id="s">
+      <feDropShadow dx="2" dy="3" stdDeviation="3" flood-color="#0f172a" flood-opacity="0.25"/>
+    </filter>
+    <style>
+      .bg{fill:url(#g-bg)}.panel{fill:url(#g-panel);stroke:#334155;stroke-width:1.5;rx:8;filter:url(#s)}
+      .lbl{font-family:'Segoe UI',sans-serif;font-size:11px;fill:#94a3b8;font-weight:600;letter-spacing:1px}
+      .val{font-family:Consolas,monospace;font-size:22px;fill:#10b981;font-weight:bold}
+      .unit{font-family:sans-serif;font-size:12px;fill:#64748b}
+      .atex-tag{font-family:sans-serif;font-size:9px;fill:#fbbf24;font-weight:bold}
+      .alarm-on{fill:#ef4444;animation:flash 1s infinite}
+      .alarm-off{fill:#475569}
+      @keyframes flash{0%,100%{opacity:1}50%{opacity:0.3}}
+    </style>
+  </defs>
+  <rect width="400" height="400" class="bg"/>
+  <rect x="15" y="15" width="370" height="370" class="panel"/>
+  <rect x="20" y="20" width="360" height="30" rx="4" fill="#f59e0b" opacity="0.15"/>
+  <rect x="25" y="24" width="14" height="22" rx="3" class="atex-tag" fill="#f59e0b"/>
+  <text x="45" y="40" class="atex-tag" fill="#fbbf24">ATEX ZONE 1</text>
+  <text x="330" y="40" font-family="sans-serif" font-size="10" fill="#64748b" text-anchor="end">IECEx</text>
+  <g transform="translate(200, 180)">
+    <circle cx="-155" cy="0" r="0" data-port-id="in" data-port-dir="left" data-port-type="pipe"/><circle cx="155" cy="0" r="0" data-port-id="out" data-port-dir="right" data-port-type="pipe"/>
+    <circle cx="0" cy="0" r="75" fill="#1e293b" stroke="#334155" stroke-width="2"/>
+    <circle cx="0" cy="0" r="65" fill="none" stroke="#334155" stroke-width="1" stroke-dasharray="4 4"/>
+    <circle cx="0" cy="0" r="55" fill="none" stroke="#10b981" stroke-width="6" stroke-dasharray="260" stroke-dashoffset="65" id="temp-arc" transform="rotate(-90)"/>
+    <circle cx="0" cy="0" r="12" fill="#10b981"/>
+    <line x1="0" y1="0" x2="0" y2="-45" stroke="#10b981" stroke-width="3" stroke-linecap="round" id="temp-needle" transform="rotate(-45)"/>
+    <circle cx="0" cy="0" r="4" fill="#0f172a"/>
+    <text x="0" y="8" class="val" text-anchor="middle" font-size="28" id="val-temp">42.6</text>
+    <text x="0" y="28" class="unit" text-anchor="middle">°C</text>
+  </g>
+  <g transform="translate(30, 290)">
+    <rect width="160" height="50" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+    <text x="15" y="20" class="lbl">MEASURING RANGE</text>
+    <text x="80" y="40" class="unit" text-anchor="middle">-20 ... +80 °C</text>
+  </g>
+  <g transform="translate(210, 290)">
+    <rect width="160" height="50" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+    <text x="15" y="20" class="lbl">OUTPUT</text>
+    <text x="80" y="40" class="unit" text-anchor="middle">4-20 mA / HART</text>
+  </g>
+  <g transform="translate(30, 350)">
+    <rect width="160" height="35" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+    <circle cx="25" cy="17" r="6" id="status-temp" class="alarm-on"/>
+    <text x="45" y="22" class="lbl" fill="#94a3b8">ok</text>
+  </g>
+  <g transform="translate(210, 350)">
+    <rect width="160" height="35" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+    <text x="80" y="22" class="unit" text-anchor="middle">Serial: AT-TS-0422</text>
+  </g>
+  <script><![CDATA[
+    var _pn_temp = 42.6;
+    var _pb_alarm = false;
+    function postValue(id, v) { console.log('FUXA post:', id, '=', v); }
+    function putValue(id, v) {
+      v = Number(v);
+      switch(id) {
+        case '_pn_temp':
+          _pn_temp = v;
+          document.getElementById('val-temp').textContent = v.toFixed(1);
+          var angle = ((v + 20) / 100) * 180 - 90;
+          if (angle < -90) angle = -90; if (angle > 90) angle = 90;
+          document.getElementById('temp-needle').setAttribute('transform', 'rotate(' + angle + ')');
+          break;
+        case '_pb_alarm':
+          _pb_alarm = v !== 0;
+          var s = document.getElementById('status-temp');
+          s.setAttribute('class', _pb_alarm ? 'alarm-on' : 'alarm-off');
+          break;
+      }
+    }
+    var af;
+    function animate() {
+      document.getElementById('temp-arc').setAttribute('stroke-dashoffset', 65 - (_pn_temp / 80) * 130);
+      af = requestAnimationFrame(animate);
+    }
+    af = requestAnimationFrame(animate);
+    var obs = new MutationObserver(function(m) {
+      m.forEach(function(mut) { mut.removedNodes.forEach(function(n) { if(n.id === 'fuxa-atex-temp-sensor') { cancelAnimationFrame(af); obs.disconnect(); }}); });
+    });
+    obs.observe(document.body, {childList:true,subtree:true});
+  ]]></script>
+</svg>

@@ -1,0 +1,80 @@
+<svg id="fuxa-atex-voc-sensor-3d" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="g-bg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#fecaca"/><stop offset="100%" stop-color="#fca5a5"/></linearGradient>
+    <linearGradient id="g-panel" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#334155"/><stop offset="30%" stop-color="#1e293b"/><stop offset="100%" stop-color="#0f172a"/></linearGradient>
+    <linearGradient id="g-panel-glow" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#ffffff" stop-opacity="0.1"/><stop offset="100%" stop-color="#ffffff" stop-opacity="0"/></linearGradient>
+    <filter id="s3d"><feDropShadow dx="4" dy="6" stdDeviation="5" flood-color="#0f172a" flood-opacity="0.45"/></filter>
+    <filter id="glow"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <style>
+      .bg{fill:url(#g-bg)}.panel{fill:url(#g-panel);stroke:#475569;stroke-width:2;rx:10;filter:url(#s3d)}
+      .pg{fill:url(#g-panel-glow);rx:10}
+      .lbl{font-family:'Segoe UI',sans-serif;font-size:11px;fill:#94a3b8;font-weight:600;letter-spacing:1px}
+      .val{font-family:Consolas,monospace;font-size:26px;fill:#f59e0b;font-weight:bold;filter:url(#glow)}
+      .unit{font-family:sans-serif;font-size:13px;fill:#64748b}
+      .badge{fill:url(#g-badge);stroke:#92400e;stroke-width:1.5}
+      .alarm-on{fill:#ef4444;filter:url(#glow);animation:flash 0.8s infinite}
+      .alarm-off{fill:#475569}
+      .ok{fill:#22c55e;filter:url(#glow)}
+      .warn{fill:#f59e0b;filter:url(#glow)}
+      @keyframes flash{0%,100%{opacity:1}50%{opacity:0.2}}
+    </style>
+  </defs>
+  <linearGradient id="g-badge" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#fbbf24"/><stop offset="40%" stop-color="#f59e0b"/><stop offset="100%" stop-color="#b45309"/></linearGradient>
+  <rect width="400" height="400" class="bg"/>
+  <rect x="10" y="10" width="380" height="380" class="panel"/><rect x="10" y="10" width="380" height="380" class="pg"/>
+  <rect x="18" y="18" width="364" height="32" rx="6" class="badge"/><rect x="18" y="18" width="364" height="16" rx="6" fill="#ffffff" opacity="0.15"/>
+  <text x="26" y="38" font-family="sans-serif" font-size="9" fill="#1c1917" font-weight="bold">Ex</text>
+  <text x="42" y="38" font-family="sans-serif" font-size="8" fill="#1c1917" font-weight="bold">II 2G Ex ib IIC T4</text>
+  <text x="340" y="38" font-family="sans-serif" font-size="9" fill="#92400e" text-anchor="end">VOC / LEL</text>
+  <g transform="translate(200,170)">
+    <circle cx="-155" cy="0" r="0" data-port-id="in" data-port-dir="left" data-port-type="pipe"/><circle cx="155" cy="0" r="0" data-port-id="out" data-port-dir="right" data-port-type="pipe"/>
+    <circle cx="0" cy="0" r="80" fill="#0f172a" stroke="#475569" stroke-width="2.5" filter="url(#s3d)"/>
+    <circle cx="0" cy="0" r="80" fill="none" stroke="#ffffff" stroke-width="0.5" opacity="0.05"/>
+    <circle cx="0" cy="0" r="68" fill="none" stroke="#334155" stroke-width="1" stroke-dasharray="5 5"/>
+    <circle cx="0" cy="0" r="58" fill="none" stroke="#f59e0b" stroke-width="8" stroke-dasharray="280" stroke-dashoffset="70" id="voc-arc-3d" transform="rotate(-90)" opacity="0.8" filter="url(#glow)"/>
+    <text x="0" y="-15" class="lbl" text-anchor="middle" fill="#f59e0b">VOC</text>
+    <text id="val-voc-3d" x="0" y="12" class="val" text-anchor="middle" font-size="30">0.8</text>
+    <text x="0" y="32" class="unit" text-anchor="middle">ppm</text>
+    <rect x="-55" y="48" width="110" height="14" rx="7" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+    <rect id="voc-bar-3d" x="-55" y="48" width="35" height="14" rx="7" fill="#f59e0b" filter="url(#glow)"/>
+  </g>
+  <g transform="translate(25,285)">
+    <rect width="165" height="55" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1.5" filter="url(#s3d)"/>
+    <rect width="165" height="14" rx="6" fill="#ffffff" opacity="0.05"/>
+    <text x="12" y="22" class="lbl">RANGE / OUTPUT</text>
+    <text x="82" y="44" class="unit" text-anchor="middle">0-100% LEL / 4-20mA</text>
+  </g>
+  <g transform="translate(210,285)">
+    <rect width="165" height="55" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1.5" filter="url(#s3d)"/>
+    <rect width="165" height="14" rx="6" fill="#ffffff" opacity="0.05"/>
+    <text x="12" y="22" class="lbl">DETECTION</text>
+    <text x="82" y="44" class="unit" text-anchor="middle">PID / Semiconductor</text>
+  </g>
+  <g transform="translate(25,350)">
+    <rect width="165" height="35" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1.5" filter="url(#s3d)"/>
+    <circle cx="22" cy="17" r="7" id="voc-status-3d" class="ok"/>
+    <text x="40" y="22" class="lbl" fill="#94a3b8">LEVEL: NORMAL</text>
+  </g>
+  <g transform="translate(210,350)">
+    <rect width="165" height="35" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1.5" filter="url(#s3d)"/>
+    <text x="82" y="22" class="lbl" text-anchor="middle" fill="#94a3b8">ALARM: 2.0 ppm</text>
+  </g>
+  <script><![CDATA[
+    var _pn_voc=0.8;var _pb_alarm=false;
+    function postValue(id,v){console.log('FUXA post:',id,'=',v);}
+    function putValue(id,v){
+      v=Number(v);
+      switch(id){
+        case '_pn_voc':
+          _pn_voc=v;document.getElementById('val-voc-3d').textContent=v.toFixed(1);
+          var pct=Math.min(100,Math.max(0,(v/5)*100));document.getElementById('voc-bar-3d').setAttribute('width',pct*1.1);
+          var st=document.getElementById('voc-status-3d');
+          if(v>2){st.setAttribute('class','alarm-on');}else if(v>1){st.setAttribute('class','warn');}else{st.setAttribute('class','ok');}
+          break;
+        case '_pb_alarm':_pb_alarm=v!==0;break;
+      }
+    }
+    var obs=new MutationObserver(function(m){m.forEach(function(mut){mut.removedNodes.forEach(function(n){if(n.id==='fuxa-atex-voc-sensor-3d'){obs.disconnect();}});});});
+    obs.observe(document.body,{childList:true,subtree:true});
+  ]]></script>
+</svg>

@@ -1,0 +1,32 @@
+<svg id="fuxa-pred" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%"><defs>
+<linearGradient id="gs" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#e2e8f0"/><stop offset="25%" stop-color="#f8fafc"/><stop offset="50%" stop-color="#94a3b8"/><stop offset="75%" stop-color="#64748b"/><stop offset="100%" stop-color="#475569"/></linearGradient>
+<linearGradient id="gi" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#94a3b8"/><stop offset="50%" stop-color="#64748b"/><stop offset="100%" stop-color="#334155"/></linearGradient>
+<linearGradient id="gc" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#fca5a5"/><stop offset="40%" stop-color="#dc2626"/><stop offset="100%" stop-color="#991b1b"/></linearGradient>
+<linearGradient id="gb" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#7dd3fc"/><stop offset="40%" stop-color="#0284c7"/><stop offset="100%" stop-color="#0369a1"/></linearGradient>
+<linearGradient id="gf" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#f8fafc"/><stop offset="50%" stop-color="#cbd5e1"/><stop offset="100%" stop-color="#94a3b8"/></linearGradient>
+<filter id="s"><feDropShadow dx="3" dy="5" stdDeviation="4" flood-color="#0f172a" flood-opacity="0.35"/></filter>
+<style>.b{fill:#dbeafe}.fr{fill:#0f172a;rx:12;filter:url(#s)}.st{fill:url(#gs);stroke:#334155;stroke-width:1}.ir{fill:url(#gi)}.cp{fill:url(#gc)}.bl{fill:url(#gb)}.fl{fill:url(#gf)}.tg{font:9px/1 sans-serif;fill:#64748b;text-anchor:middle;font-weight:600;letter-spacing:.5px}
+@keyframes ff{from{stroke-dashoffset:40}to{stroke-dashoffset:0}}.fo{animation:ff .8s linear infinite}</style></defs><rect width="400" height="400" class="b"/><rect x="10" y="10" width="380" height="380" class="fr"/><g transform="translate(200,195)"><circle cx="-175" cy="-25" r="0" data-port-id="in" data-port-dir="left" data-port-type="pipe"/><circle cx="175" cy="25" r="0" data-port-id="out" data-port-dir="right" data-port-type="pipe"/>
+  <!-- Large pipe left -->
+  <rect x="-175" y="-44" width="115" height="38" rx="19" class="st"/>
+  <rect x="-175" y="-39" width="115" height="28" rx="14" fill="#1e293b"/>
+  <!-- Small pipe right -->
+  <rect x="60" y="-19" width="115" height="38" rx="19" class="st"/>
+  <rect x="60" y="-14" width="115" height="28" rx="14" fill="#1e293b"/>
+  <!-- Reducer cone -->
+  <path d="M-60,-25 L-60,-25 L60,-15 L60,15 L-60,25 Z" class="st"/>
+  <path d="M-60,-20 L60,-10 L60,10 L-60,20 Z" fill="#1e293b"/>
+  <!-- Flow lines -->
+  <line x1="-160" y1="-25" x2="-80" y2="-25" class="bl" stroke-width="8" stroke-dasharray="6 6" opacity=".5" class="fo"/>
+  <line x1="80" y1="0" x2="160" y2="0" class="bl" stroke-width="6" stroke-dasharray="4 4" opacity=".5" class="fo"/>
+  <!-- Flanges -->
+  <rect x="-185" y="-50" width="14" height="50" rx="3" class="fl" stroke="#94a3b8" stroke-width="1"/>
+  <rect x="171" y="-25" width="14" height="50" rx="3" class="fl" stroke="#94a3b8" stroke-width="1"/>
+  <text x="0" y="-85" class="tg">REDUCER DN100→DN50</text></g><script><![CDATA[//!export-start
+var _pn_flow=50;var _pb_active=true;
+//!export-end
+function postValue(id,v){console.log('FUXA post:',id,'=',v);}
+function putValue(id,v){v=Number(v);switch(id){case "_pn_flow":break;}}
+
+var o=new MutationObserver(function(m){m.forEach(function(mu){mu.removedNodes.forEach(function(n){if(n.id==='fuxa-pred'){o.disconnect();}});});});o.observe(document.body,{childList:true,subtree:true});
+]]></script></svg>

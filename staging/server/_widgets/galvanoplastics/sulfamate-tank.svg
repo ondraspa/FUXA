@@ -1,0 +1,71 @@
+<svg id="fuxa-sulfamate" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="st-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f1f5f9"/><stop offset="100%" stop-color="#cbd5e1"/>
+    </linearGradient>
+    <linearGradient id="st-tank" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#334155"/><stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <filter id="st-shadow"><feDropShadow dx="3" dy="5" stdDeviation="4" flood-color="#0f172a" flood-opacity="0.35"/></filter>
+    <style>.bg{fill:url(#st-bg)}.tank{fill:url(#st-tank);stroke:#475569;stroke-width:2;rx:8;filter:url(#st-shadow)}.metal{fill:#e2e8f0;stroke:#475569;stroke-width:1.5}.chem{fill:#fbbf24;opacity:0.5}.lbl{font:600 10px/1 'Segoe UI',sans-serif;fill:#94a3b8}.unit{font:11px/1 sans-serif;fill:#64748b}</style>
+  </defs>
+  <rect width="400" height="400" class="bg"/>
+  <rect x="15" y="15" width="370" height="370" class="tank"/>
+  <g transform="translate(200,160)">
+    <circle cx="-155" cy="0" r="0" data-port-id="in" data-port-dir="left" data-port-type="pipe"/>
+    <circle cx="155" cy="0" r="0" data-port-id="out" data-port-dir="right" data-port-type="pipe"/>
+    <!-- Main tank -->
+    <rect x="-80" y="-55" width="160" height="110" rx="8" class="metal" filter="url(#st-shadow)"/>
+    <rect x="-75" y="-50" width="150" height="100" rx="6" fill="#1e293b" stroke="#334155"/>
+    <!-- Chemical level -->
+    <rect id="st-level" x="-73" y="50" width="146" height="0" rx="2" class="chem"/>
+    <!-- Agitation motor -->
+    <rect x="-25" y="-70" width="50" height="20" rx="4" class="metal"/>
+    <circle cx="0" cy="-60" r="8" fill="#334155"/>
+    <!-- Level gauge -->
+    <rect x="70" y="-40" width="15" height="80" rx="4" fill="#0f172a" stroke="#334155"/>
+    <rect id="st-gauge" x="72" y="40" width="11" height="0" rx="2" class="chem"/>
+    <!-- Pipes -->
+    <rect x="-120" y="-10" width="40" height="6" rx="3" class="metal"/>
+    <rect x="80" y="-10" width="40" height="6" rx="3" class="metal"/>
+    <!-- Labels -->
+    <text x="0" y="75" class="lbl" text-anchor="middle">SULFAMATE TANK</text>
+    <text x="0" y="88" class="unit" text-anchor="middle">100% Nickel Sulfamate — 200L</text>
+  </g>
+  <g transform="translate(25,340)">
+    <rect width="165" height="35" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+    <circle cx="22" cy="17" r="6" id="st-status" class="alarm-on"/>
+    <text x="40" y="22" class="lbl" fill="#94a3b8">STATUS: OK</text>
+  </g>
+  <g transform="translate(210,340)">
+    <rect width="165" height="35" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+    <text x="82" y="22" class="unit" text-anchor="middle">ANALYZED</text>
+  </g>
+  <script><![CDATA[
+    var _pn_level = 75;
+    var _pb_ok = true;
+    function postValue(id, v) { console.log('FUXA post:', id, '=', v); }
+    function putValue(id, v) {
+      v = Number(v);
+      switch(id) {
+        case '_pn_level':
+          _pn_level = Math.max(0, Math.min(100, v));
+          var h = (_pn_level / 100) * 100;
+          document.getElementById('st-level').setAttribute('height', h);
+          document.getElementById('st-level').setAttribute('y', 50 - h);
+          document.getElementById('st-gauge').setAttribute('height', h);
+          document.getElementById('st-gauge').setAttribute('y', 40 - h);
+          break;
+        case '_pb_ok':
+          _pb_ok = v !== 0;
+          document.getElementById('st-status').setAttribute('class', _pb_ok ? 'alarm-on' : 'alarm-off');
+          break;
+      }
+    }
+    var obs = new MutationObserver(function(m) {
+      m.forEach(function(mu) { mu.removedNodes.forEach(function(n) { if(n.id==='fuxa-sulfamate') obs.disconnect(); }); });
+    });
+    obs.observe(document.body, {childList:true,subtree:true});
+  ]]></script>
+</svg>
+echo "Created sulfamate-tank.svg"

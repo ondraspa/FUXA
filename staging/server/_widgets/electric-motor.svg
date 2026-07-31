@@ -1,0 +1,262 @@
+<svg id="fuxa-electric-motor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 400" width="100%" height="100%">
+  <defs>
+    <!-- Industrial 3D Gradients -->
+    <linearGradient id="motor-blue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#60a5fa" />
+      <stop offset="30%" stop-color="#3b82f6" />
+      <stop offset="70%" stop-color="#2563eb" />
+      <stop offset="100%" stop-color="#1e40af" />
+    </linearGradient>
+
+    <linearGradient id="motor-metal" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f8fafc" />
+      <stop offset="25%" stop-color="#e2e8f0" />
+      <stop offset="75%" stop-color="#94a3b8" />
+      <stop offset="100%" stop-color="#64748b" />
+    </linearGradient>
+
+    <filter id="shadow-3d" x="-15%" y="-10%" width="140%" height="130%">
+      <feDropShadow dx="3" dy="5" stdDeviation="4" flood-color="#0f172a" flood-opacity="0.35" />
+    </filter>
+
+    <style>
+      .motor-body { fill: url(#motor-blue); stroke: #1e40af; stroke-width: 2.5; }
+      .motor-metal { fill: url(#motor-metal); stroke: #475569; stroke-width: 2; }
+      
+      .hmi-panel { fill: #0f172a; stroke: #334155; stroke-width: 2; rx: 8; filter: url(#shadow-3d); }
+      .hmi-label { font-family: 'Segoe UI', sans-serif; font-size: 12px; fill: #94a3b8; font-weight: 600; letter-spacing: 1px; }
+      .hmi-value { font-family: 'Consolas', monospace; font-size: 20px; fill: #10b981; font-weight: bold; }
+      .hmi-unit { font-family: sans-serif; font-size: 13px; fill: #64748b; }
+      .hmi-setpoint { font-family: monospace; font-size: 14px; fill: #38bdf8; font-weight: bold; }
+      
+      .indicator-on { fill: #22c55e; filter: url(#glow-green); }
+      .indicator-off { fill: #475569; }
+      
+      @keyframes alarm-flash {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.4; }
+      }
+      .alarm-on { fill: #ef4444; animation: alarm-flash 1s infinite; }
+      
+      .interactive:hover { filter: url(#shadow-3d) brightness(1.15); cursor: pointer; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="500" height="400" fill="#f1f5f9" />
+
+  <!-- Motor Base -->
+  <rect x="100" y="320" width="300" height="40" rx="6" class="motor-metal" filter="url(#shadow-3d)" />
+
+  <!-- Motor Body -->
+  <g id="motor-body-group" filter="url(#shadow-3d)">
+    <!-- Main housing -->
+    <rect x="120" y="140" width="260" height="180" rx="15" class="motor-body" />
+    
+    <!-- Cooling fins -->
+    <g id="cooling-fins">
+      <line x1="140" y1="155" x2="140" y2="305" stroke="#1e40af" stroke-width="3" />
+      <line x1="165" y1="155" x2="165" y2="305" stroke="#1e40af" stroke-width="3" />
+      <line x1="190" y1="155" x2="190" y2="305" stroke="#1e40af" stroke-width="3" />
+      <line x1="215" y1="155" x2="215" y2="305" stroke="#1e40af" stroke-width="3" />
+      <line x1="240" y1="155" x2="240" y2="305" stroke="#1e40af" stroke-width="3" />
+      <line x1="265" y1="155" x2="265" y2="305" stroke="#1e40af" stroke-width="3" />
+      <line x1="290" y1="155" x2="290" y2="305" stroke="#1e40af" stroke-width="3" />
+      <line x1="315" y1="155" x2="315" y2="305" stroke="#1e40af" stroke-width="3" />
+      <line x1="340" y1="155" x2="340" y2="305" stroke="#1e40af" stroke-width="3" />
+      <line x1="365" y1="155" x2="365" y2="305" stroke="#1e40af" stroke-width="3" />
+    </g>
+    
+    <!-- Highlight -->
+    <rect x="125" y="145" width="30" height="170" rx="8" fill="#ffffff" opacity="0.2" />
+  </g>
+
+  <!-- End Caps -->
+  <g id="end-caps">
+    <!-- Left end cap (terminal box) -->
+    <rect x="105" y="165" width="20" height="130" rx="4" class="motor-metal" />
+    <rect x="95" y="180" width="15" height="100" rx="3" class="motor-metal" />
+    <!-- Terminal box -->
+    <rect x="190" y="125" width="80" height="30" rx="6" class="motor-metal" />
+    <circle cx="210" cy="140" r="5" fill="#475569" stroke="#334155" stroke-width="1.5" />
+    <circle cx="230" cy="140" r="5" fill="#475569" stroke="#334155" stroke-width="1.5" />
+    <circle cx="250" cy="140" r="5" fill="#475569" stroke="#334155" stroke-width="1.5" />
+    
+    <!-- Right end cap (shaft) -->
+    <rect x="380" y="165" width="20" height="130" rx="4" class="motor-metal" />
+    <rect x="400" y="195" width="60" height="70" rx="8" class="motor-metal" />
+    <circle cx="460" cy="230" r="18" class="motor-metal" />
+    <circle cx="460" cy="230" r="10" fill="#475569" stroke="#334155" stroke-width="2" />
+  </g>
+
+  <!-- Shaft and Coupling -->
+  <g id="shaft-group">
+    <rect x="410" y="220" width="50" height="20" rx="3" class="motor-metal" />
+    <!-- Coupling -->
+    <circle cx="475" cy="230" r="16" class="motor-metal" />
+    <circle cx="475" cy="230" r="8" fill="#1e293b" stroke="#475569" stroke-width="2" />
+  </g>
+
+  <!-- Rotation Indicator -->
+  <g id="rotation-indicator" transform="translate(250, 360)">
+    <circle id="rotor-ring" cx="0" cy="0" r="25" fill="none" stroke="#64748b" stroke-width="2.5" stroke-dasharray="6 4" />
+    <line id="rotor-line" x1="0" y1="0" x2="0" y2="-25" stroke="#3b82f6" stroke-width="3" stroke-linecap="round" />
+    <circle cx="0" cy="0" r="6" fill="#3b82f6" />
+    <text x="0" y="45" font-family="sans-serif" font-size="11" fill="#64748b" text-anchor="middle">ROTATION</text>
+  </g>
+
+  <!-- HMI Panels -->
+  <g id="hmi-panels">
+    <!-- Speed Panel -->
+    <g transform="translate(20, 30)">
+    <circle cx="-155" cy="0" r="0" data-port-id="in" data-port-dir="left" data-port-type="pipe"/><circle cx="155" cy="0" r="0" data-port-id="out" data-port-dir="right" data-port-type="pipe"/>
+      <rect width="180" height="90" class="hmi-panel" />
+      <rect width="180" height="22" rx="6" fill="#ffffff" opacity="0.1" />
+      <text x="15" y="42" class="hmi-label">SPEED</text>
+      <text id="val_speed" x="90" y="75" class="hmi-value" text-anchor="middle">1480</text>
+      <text x="90" y="88" class="hmi-unit" text-anchor="middle">RPM</text>
+    </g>
+
+    <!-- Current Panel -->
+    <g transform="translate(20, 140)">
+      <rect width="180" height="90" class="hmi-panel" />
+      <rect width="180" height="22" rx="6" fill="#ffffff" opacity="0.1" />
+      <text x="15" y="42" class="hmi-label">CURRENT</text>
+      <text id="val_current" x="90" y="75" class="hmi-value" text-anchor="middle">12.4</text>
+      <text x="90" y="88" class="hmi-unit" text-anchor="middle">A</text>
+    </g>
+
+    <!-- Temperature Panel -->
+    <g transform="translate(20, 250)">
+      <rect width="180" height="90" class="hmi-panel" />
+      <rect width="180" height="22" rx="6" fill="#ffffff" opacity="0.1" />
+      <text x="15" y="42" class="hmi-label">TEMP</text>
+      <text id="val_temp" x="90" y="75" class="hmi-value" text-anchor="middle">62</text>
+      <text x="90" y="88" class="hmi-unit" text-anchor="middle">°C</text>
+    </g>
+
+    <!-- Status Panel -->
+    <g transform="translate(20, 360)">
+      <rect width="180" height="70" class="hmi-panel" />
+      <text x="90" y="30" class="hmi-label" text-anchor="middle">STATUS</text>
+      <circle id="status_light" cx="90" cy="52" r="14" class="indicator-on" />
+    </g>
+
+    <!-- Control Panel -->
+    <g transform="translate(320, 30)" class="interactive">
+      <rect width="160" height="150" fill="#0f172a" stroke="#334155" stroke-width="2" rx="8" filter="url(#shadow-3d)" />
+      <text x="80" y="35" class="hmi-label" text-anchor="middle">START/STOP</text>
+      <rect x="30" y="55" width="100" height="40" rx="20" fill="#334155" stroke="#64748b" stroke-width="2" />
+      <circle id="toggle_ball" cx="65" cy="75" r="14" fill="#22c55e" />
+      <text x="80" y="125" class="hmi-value" text-anchor="middle">RUNNING</text>
+    </g>
+
+    <!-- Setpoint Panel -->
+    <g transform="translate(320, 195)" class="interactive">
+      <rect width="160" height="235" fill="#0f172a" stroke="#334155" stroke-width="2" rx="8" filter="url(#shadow-3d)" />
+      <text x="80" y="35" class="hmi-label" text-anchor="middle">SETPOINTS</text>
+      
+      <rect x="20" y="55" width="120" height="45" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1.5" />
+      <text x="60" y="78" class="hmi-label" text-anchor="middle">SPEED SP</text>
+      <text id="set_speed" x="60" y="98" class="hmi-setpoint" text-anchor="middle">1500</text>
+      
+      <rect x="20" y="115" width="120" height="45" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1.5" />
+      <text x="60" y="138" class="hmi-label" text-anchor="middle">CURRENT SP</text>
+      <text id="set_current" x="60" y="158" class="hmi-setpoint" text-anchor="middle">12.0</text>
+      
+      <rect x="20" y="175" width="120" height="45" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1.5" />
+      <text x="60" y="198" class="hmi-label" text-anchor="middle">TEMP SP</text>
+      <text id="set_temp" x="60" y="218" class="hmi-setpoint" text-anchor="middle">70</text>
+    </g>
+  </g>
+
+  <script>
+    <![CDATA[
+    //!export-start
+    var _pn_motorSpeed = 1480;
+    var _pb_running = true;
+    var _pn_current = 12.4;
+    var _pn_temp = 62;
+    var _pn_setSpeed = 1500;
+    var _pn_setCurrent = 12.0;
+    var _pn_setTemp = 70;
+    //!export-end
+
+    var rotorAngle = 0;
+    var animFrame;
+
+    function postValue(id, value) {
+      console.log('FUXA post:', id, '=', value);
+    }
+
+    function putValue(id, value) {
+      var v = Number(value);
+      switch(id) {
+        case '_pn_motorSpeed':
+          _pn_motorSpeed = v;
+          document.getElementById('val_speed').textContent = Math.round(v);
+          break;
+        case '_pb_running':
+          _pn_valveOpen = (v !== 0);
+          var light = document.getElementById('status_light');
+          if (_pn_valveOpen) {
+            light.setAttribute('class', 'indicator-on');
+          } else {
+            light.setAttribute('class', 'indicator-off');
+          }
+          break;
+        case '_pn_current':
+          _pn_valveOpen = v;
+          document.getElementById('val_current').textContent = v.toFixed(1);
+          break;
+        case '_pn_temp':
+          _pn_valveOpen = v;
+          document.getElementById('val_temp').textContent = Math.round(v);
+          break;
+        case '_pn_setSpeed':
+          _pn_valveOpen = v;
+          document.getElementById('set_speed').textContent = Math.round(v);
+          break;
+        case '_pn_setCurrent':
+          _pn_valveOpen = v;
+          document.getElementById('set_current').textContent = v.toFixed(1);
+          break;
+        case '_pn_setTemp':
+          _pn_valveOpen = v;
+          document.getElementById('set_temp').textContent = Math.round(v);
+          break;
+      }
+    }
+
+    function animate() {
+      if (_pn_valveOpen &amp;&amp; _pn_motorSpeed > 0) {
+        rotorAngle = (rotorAngle + (_pn_motorSpeed * 0.03)) % 360;
+        var rotor = document.getElementById('rotor-ring');
+        var rotor_line = document.getElementById('rotor-line');
+        rotor.setAttribute('transform', 'rotate(' + rotorAngle + ')');
+        rotor_line.setAttribute('transform', 'rotate(' + rotorAngle + ')');
+      }
+      animFrame = requestAnimationFrame(animate);
+    }
+    animFrame = requestAnimationFrame(animate);
+
+    // Click to toggle motor
+    document.querySelector('[transform="translate(320, 30)"]').addEventListener('click', function() {
+      var newVal = !_pn_valveOpen;
+      postValue('_pb_running', newVal ? 1 : 0);
+    });
+
+    var observer = new MutationObserver(function(mutations) {
+      mutations.forEach(function(mutation) {
+        mutation.removedNodes.forEach(function(node) {
+          if (node.id === 'fuxa-electric-motor') {
+            cancelAnimationFrame(animFrame);
+            observer.disconnect();
+          }
+        });
+      });
+    });
+    observer.observe(document.body, { childList: true, subtree: true });
+    ]]>
+  </script>
+</svg>

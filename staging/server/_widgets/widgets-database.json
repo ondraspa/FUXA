@@ -1,0 +1,1437 @@
+{
+  "_meta": {
+    "title": "FUXA SCADA Widget Database",
+    "version": "1.0.0",
+    "standards": [
+      "ISA-5.1-2022",
+      "ISA-101-2015"
+    ],
+    "description": "Complete widget registry compliant with ISA-5.1 instrumentation symbols and ISA-101 high-performance HMI guidelines."
+  },
+  "categories": {
+    "instruments": {
+      "isa101_palette": {
+        "background": "#e8e8e8",
+        "normal": "#f0f0f0",
+        "running": "#4caf50",
+        "stopped": "#f44336",
+        "warning": "#ff9800",
+        "info": "#2196f3",
+        "text": "#212121",
+        "disabled": "#9e9e9e"
+      },
+      "widgets": {
+        "pressure-transmitter": {
+          "isa51_tag": "PIT",
+          "isa51_meaning": "Pressure Indicator Transmitter",
+          "variables": {
+            "_pn_pressure": {
+              "unit": "bar",
+              "type": "number",
+              "range": "0-400"
+            },
+            "_pb_alarm": {
+              "type": "boolean"
+            }
+          },
+          "connection_ports": [
+            {
+              "id": "process",
+              "direction": "left",
+              "type": "impulse_line"
+            }
+          ],
+          "animations": {
+            "alarm": {
+              "type": "flash",
+              "color": "#f44336"
+            }
+          },
+          "isa101_display": "exception",
+          "description": "Gauge with circular dial showing process pressure. Gray background, red alarm flash."
+        },
+        "flow-transmitter": {
+          "isa51_tag": "FIT",
+          "isa51_meaning": "Flow Indicator Transmitter",
+          "variables": {
+            "_pn_flow": {
+              "unit": "m\u00b3/h",
+              "type": "number",
+              "range": "0-1000"
+            },
+            "_pb_alarm": {
+              "type": "boolean"
+            }
+          },
+          "animations": {
+            "flow_line": {
+              "type": "dashed_march",
+              "color": "#616161"
+            }
+          },
+          "description": "Orifice plate with differential pressure lines to transmitter."
+        },
+        "level-transmitter": {
+          "isa51_tag": "LIT",
+          "isa51_meaning": "Level Indicator Transmitter",
+          "variables": {
+            "_pn_level": {
+              "unit": "%",
+              "type": "number",
+              "range": "0-100"
+            },
+            "_pb_alarm": {
+              "type": "boolean"
+            }
+          },
+          "animations": {
+            "level_fill": {
+              "type": "fill",
+              "color": "#90caf9"
+            }
+          },
+          "description": "Vessel with level measuring element and transmitter head."
+        },
+        "temperature-transmitter": {
+          "isa51_tag": "TIT",
+          "isa51_meaning": "Temperature Indicator Transmitter",
+          "variables": {
+            "_pn_temp": {
+              "unit": "\u00b0C",
+              "type": "number",
+              "range": "-50-500"
+            },
+            "_pb_alarm": {
+              "type": "boolean"
+            }
+          },
+          "connection_ports": [
+            {
+              "id": "thermowell",
+              "direction": "left",
+              "type": "process"
+            }
+          ],
+          "description": "Thermowell with connection head and transmitter."
+        },
+        "analytical-transmitter": {
+          "isa51_tag": "AIT",
+          "isa51_meaning": "Analysis Indicator Transmitter",
+          "variables": {
+            "_pn_ph": {
+              "unit": "pH",
+              "type": "number",
+              "range": "0-14"
+            },
+            "_pb_alarm": {
+              "type": "boolean"
+            }
+          }
+        },
+        "weight-transmitter": {
+          "isa51_tag": "WIT",
+          "isa51_meaning": "Weight Indicator Transmitter",
+          "variables": {
+            "_pn_weight": {
+              "unit": "kg",
+              "type": "number"
+            },
+            "_pb_ok": {
+              "type": "boolean"
+            }
+          }
+        }
+      }
+    },
+    "piping": {
+      "isa51_palette": {
+        "process_pipe": "#616161",
+        "impulse_line": "#9e9e9e",
+        "capillary": "#bdbdbd",
+        "electrical": "#ff9800",
+        "pneumatic": "#2196f3",
+        "hydraulic": "#4caf50"
+      },
+      "line_types": {
+        "process": {
+          "stroke": "#616161",
+          "width": "6px",
+          "dash": "none"
+        },
+        "impulse": {
+          "stroke": "#9e9e9e",
+          "width": "3px",
+          "dash": "none"
+        },
+        "electrical": {
+          "stroke": "#ff9800",
+          "width": "2px",
+          "dash": "4,2"
+        },
+        "pneumatic": {
+          "stroke": "#2196f3",
+          "width": "2px",
+          "dash": "6,2"
+        },
+        "capillary": {
+          "stroke": "#bdbdbd",
+          "width": "2px",
+          "dash": "2,4"
+        },
+        "hydraulic": {
+          "stroke": "#4caf50",
+          "width": "3px",
+          "dash": "8,4"
+        }
+      },
+      "widgets": {
+        "gate-valve": {
+          "isa51_tag": "V",
+          "variables": {
+            "_pn_position": {
+              "unit": "%",
+              "type": "number",
+              "range": "0-100"
+            },
+            "_pb_open": {
+              "type": "boolean"
+            }
+          },
+          "animations": {
+            "gate": {
+              "type": "translate_y",
+              "range": "0-100"
+            }
+          },
+          "connection_ports": [
+            {
+              "id": "inlet",
+              "direction": "left",
+              "type": "flanged"
+            },
+            {
+              "id": "outlet",
+              "direction": "right",
+              "type": "flanged"
+            }
+          ]
+        },
+        "check-valve": {
+          "isa51_tag": "V",
+          "variables": {
+            "_pn_flow": {
+              "unit": "m\u00b3/h",
+              "type": "number"
+            }
+          },
+          "animations": {
+            "flap": {
+              "type": "rotate",
+              "range": "0-20"
+            }
+          }
+        },
+        "elbow": {
+          "connection_ports": [
+            {
+              "id": "inlet",
+              "direction": "left",
+              "type": "welded"
+            },
+            {
+              "id": "outlet",
+              "direction": "bottom",
+              "type": "welded"
+            }
+          ]
+        },
+        "expansion-joint": {
+          "animations": {
+            "bellows": {
+              "type": "scale_x",
+              "range": "0.8-1.2"
+            }
+          }
+        },
+        "pipe-tee": {
+          "connection_ports": [
+            {
+              "id": "left",
+              "direction": "left",
+              "type": "welded"
+            },
+            {
+              "id": "right",
+              "direction": "right",
+              "type": "welded"
+            },
+            {
+              "id": "down",
+              "direction": "bottom",
+              "type": "welded"
+            }
+          ],
+          "variables": {
+            "_pn_flow": {
+              "unit": "m\u00b3/h",
+              "type": "number"
+            },
+            "_pb_active": {
+              "type": "boolean"
+            }
+          }
+        },
+        "pipe-reducer": {
+          "connection_ports": [
+            {
+              "id": "inlet",
+              "direction": "left",
+              "type": "welded"
+            },
+            {
+              "id": "outlet",
+              "direction": "right",
+              "type": "welded"
+            }
+          ],
+          "variables": {
+            "_pn_flow": {
+              "unit": "m\u00b3/h",
+              "type": "number"
+            },
+            "_pb_active": {
+              "type": "boolean"
+            }
+          }
+        },
+        "pipe-valve": {
+          "isa51_tag": "V",
+          "variables": {
+            "_pn_position": {
+              "unit": "%",
+              "type": "number",
+              "range": "0-100"
+            },
+            "_pb_open": {
+              "type": "boolean"
+            }
+          },
+          "connection_ports": [
+            {
+              "id": "inlet",
+              "direction": "left",
+              "type": "flanged"
+            },
+            {
+              "id": "outlet",
+              "direction": "right",
+              "type": "flanged"
+            }
+          ]
+        }
+      }
+    },
+    "hvac": {
+      "widgets": {
+        "air-handler": {
+          "variables": {
+            "_pn_speed": {
+              "unit": "RPM",
+              "type": "number"
+            },
+            "_pb_running": {
+              "type": "boolean"
+            }
+          },
+          "animations": {
+            "fan": {
+              "type": "rotate",
+              "speed_variable": "_pn_speed"
+            }
+          }
+        },
+        "chiller": {
+          "variables": {
+            "_pn_coolantTemp": {
+              "unit": "\u00b0C",
+              "type": "number"
+            },
+            "_pn_condPress": {
+              "unit": "bar",
+              "type": "number"
+            }
+          }
+        },
+        "boiler": {
+          "variables": {
+            "_pn_temp": {
+              "unit": "\u00b0C",
+              "type": "number"
+            },
+            "_pn_pressure": {
+              "unit": "bar",
+              "type": "number"
+            },
+            "_pb_fire": {
+              "type": "boolean"
+            }
+          },
+          "animations": {
+            "flame": {
+              "type": "scale",
+              "speed_variable": "_pb_fire"
+            }
+          }
+        },
+        "fan": {
+          "isa51_tag": "M",
+          "variables": {
+            "_pn_speed": {
+              "unit": "RPM",
+              "type": "number"
+            },
+            "_pb_running": {
+              "type": "boolean"
+            }
+          },
+          "animations": {
+            "rotor": {
+              "type": "rotate",
+              "speed_variable": "_pn_speed"
+            }
+          }
+        },
+        "cooling-tower": {
+          "variables": {
+            "_pn_temp": {
+              "unit": "\u00b0C",
+              "type": "number"
+            },
+            "_pn_flow": {
+              "unit": "m\u00b3/h",
+              "type": "number"
+            }
+          }
+        },
+        "heat-pump": {
+          "variables": {
+            "_pn_evapTemp": {
+              "unit": "\u00b0C",
+              "type": "number"
+            },
+            "_pn_condTemp": {
+              "unit": "\u00b0C",
+              "type": "number"
+            }
+          }
+        }
+      }
+    },
+    "pressing": {
+      "widgets": {
+        "hydraulic-press": {
+          "variables": {
+            "_pn_tonnage": {
+              "unit": "ton",
+              "type": "number"
+            },
+            "_pn_position": {
+              "unit": "mm",
+              "type": "number"
+            },
+            "_pb_cycle": {
+              "type": "boolean"
+            }
+          },
+          "animations": {
+            "ram": {
+              "type": "translate_y",
+              "variable": "_pn_position"
+            }
+          }
+        },
+        "press-brake": {
+          "variables": {
+            "_pn_angle": {
+              "unit": "deg",
+              "type": "number"
+            }
+          },
+          "animations": {
+            "beam": {
+              "type": "rotate"
+            }
+          }
+        },
+        "feeder": {
+          "variables": {
+            "_pn_speed": {
+              "unit": "m/min",
+              "type": "number"
+            }
+          },
+          "animations": {
+            "rollers": {
+              "type": "rotate",
+              "speed_variable": "_pn_speed"
+            }
+          }
+        },
+        "uncoiler": {
+          "variables": {
+            "_pn_speed": {
+              "unit": "m/min",
+              "type": "number"
+            },
+            "_pb_running": {
+              "type": "boolean"
+            }
+          }
+        }
+      }
+    },
+    "pressing-plant": {
+      "widgets": {
+        "press-line": {
+          "variables": {
+            "_pn_ctime": {
+              "unit": "s",
+              "type": "number"
+            },
+            "_pn_parts": {
+              "unit": "pcs",
+              "type": "number"
+            },
+            "_pb_running": {
+              "type": "boolean"
+            }
+          }
+        },
+        "transfer-system": {
+          "variables": {
+            "_pn_speed": {
+              "unit": "m/min",
+              "type": "number"
+            }
+          }
+        },
+        "die-cart": {
+          "variables": {
+            "_pn_pos": {
+              "unit": "m",
+              "type": "number"
+            },
+            "_pb_moving": {
+              "type": "boolean"
+            }
+          }
+        },
+        "scrap-conveyor": {
+          "variables": {
+            "_pn_speed": {
+              "unit": "m/min",
+              "type": "number"
+            }
+          },
+          "animations": {
+            "belt": {
+              "type": "scroll",
+              "speed_variable": "_pn_speed"
+            }
+          }
+        }
+      }
+    },
+    "galvanoplastics": {
+      "widgets": {
+        "vlpp-preplating": {
+          "description": "Digital Matrix VLPP-1000 4-position preplating machine",
+          "variables": {
+            "_pn_current": {
+              "unit": "A",
+              "type": "number"
+            },
+            "_pn_voltage": {
+              "unit": "V",
+              "type": "number"
+            }
+          }
+        },
+        "main-plating-tank": {
+          "description": "Alpha/Toolex Cinram P250-3 3-position main plating",
+          "variables": {
+            "_pn_temp": {
+              "unit": "\u00b0C",
+              "type": "number"
+            },
+            "_pn_ph": {
+              "unit": "pH",
+              "type": "number"
+            }
+          }
+        },
+        "silvering-station": {
+          "variables": {
+            "_pn_level": {
+              "unit": "%",
+              "type": "number"
+            },
+            "_pn_temp": {
+              "unit": "\u00b0C",
+              "type": "number"
+            }
+          }
+        },
+        "desilvering-station": {
+          "variables": {
+            "_pn_level": {
+              "unit": "%",
+              "type": "number"
+            },
+            "_pn_temp": {
+              "unit": "\u00b0C",
+              "type": "number"
+            }
+          }
+        },
+        "backsanding-machine": {
+          "variables": {
+            "_pn_speed": {
+              "unit": "RPM",
+              "type": "number"
+            }
+          }
+        },
+        "passivation-station": {
+          "variables": {
+            "_pn_level": {
+              "unit": "%",
+              "type": "number"
+            },
+            "_pn_temp": {
+              "unit": "\u00b0C",
+              "type": "number"
+            }
+          }
+        },
+        "power-supply-rack": {
+          "variables": {
+            "_pn_voltage": {
+              "unit": "V",
+              "type": "number"
+            },
+            "_pn_current": {
+              "unit": "A",
+              "type": "number"
+            }
+          }
+        },
+        "centering-press": {
+          "variables": {
+            "_pn_pressure": {
+              "unit": "bar",
+              "type": "number"
+            }
+          }
+        },
+        "wastewater-treatment": {
+          "description": "Alfatech Galvano ion exchange wastewater treatment system",
+          "variables": {
+            "_pn_resin": {
+              "unit": "%",
+              "type": "number",
+              "range": "0-100"
+            },
+            "_pb_active": {
+              "type": "boolean"
+            }
+          },
+          "connection_ports": [
+            {
+              "id": "in",
+              "direction": "left",
+              "type": "pipe"
+            },
+            {
+              "id": "out",
+              "direction": "right",
+              "type": "pipe"
+            }
+          ]
+        },
+        "deionization-column": {
+          "description": "Flojet diaphragm pump deionization column",
+          "variables": {
+            "_pn_flow": {
+              "unit": "L/min",
+              "type": "number",
+              "range": "0-100"
+            },
+            "_pb_running": {
+              "type": "boolean"
+            }
+          },
+          "connection_ports": [
+            {
+              "id": "in",
+              "direction": "left",
+              "type": "pipe"
+            },
+            {
+              "id": "out",
+              "direction": "right",
+              "type": "pipe"
+            }
+          ]
+        },
+        "wash-station": {
+          "description": "Double incorrosible polypropylene wash station with footswitch",
+          "variables": {
+            "_pn_water": {
+              "unit": "%",
+              "type": "number",
+              "range": "0-100"
+            },
+            "_pb_active": {
+              "type": "boolean"
+            }
+          },
+          "connection_ports": [
+            {
+              "id": "in",
+              "direction": "left",
+              "type": "pipe"
+            },
+            {
+              "id": "out",
+              "direction": "right",
+              "type": "pipe"
+            }
+          ]
+        },
+        "laminar-flow-booth": {
+          "description": "Alpha/Toolex PPB laminar flow preparation booth",
+          "variables": {
+            "_pb_fan": {
+              "type": "boolean"
+            }
+          },
+          "connection_ports": [
+            {
+              "id": "in",
+              "direction": "left",
+              "type": "pipe"
+            },
+            {
+              "id": "out",
+              "direction": "right",
+              "type": "pipe"
+            }
+          ]
+        },
+        "drying-booth": {
+          "description": "Karl Bleimehl preparation/drying booth",
+          "variables": {
+            "_pn_temp": {
+              "unit": "\u00b0C",
+              "type": "number",
+              "range": "20-100"
+            },
+            "_pb_heating": {
+              "type": "boolean"
+            }
+          },
+          "connection_ports": [
+            {
+              "id": "in",
+              "direction": "left",
+              "type": "pipe"
+            },
+            {
+              "id": "out",
+              "direction": "right",
+              "type": "pipe"
+            }
+          ]
+        },
+        "chemicals-cabinet": {
+          "description": "Chemical storage cabinet with 4 bottles",
+          "variables": {
+            "_pn_bottle": {
+              "unit": "%",
+              "type": "array",
+              "items": "0-100"
+            },
+            "_pb_secured": {
+              "type": "boolean"
+            }
+          },
+          "connection_ports": [
+            {
+              "id": "in",
+              "direction": "left",
+              "type": "pipe"
+            },
+            {
+              "id": "out",
+              "direction": "right",
+              "type": "pipe"
+            }
+          ]
+        },
+        "sulfamate-tank": {
+          "description": "100% nickel sulfamate tank (200L)",
+          "variables": {
+            "_pn_level": {
+              "unit": "%",
+              "type": "number",
+              "range": "0-100"
+            },
+            "_pb_ok": {
+              "type": "boolean"
+            }
+          },
+          "connection_ports": [
+            {
+              "id": "in",
+              "direction": "left",
+              "type": "pipe"
+            },
+            {
+              "id": "out",
+              "direction": "right",
+              "type": "pipe"
+            }
+          ]
+        },
+        "ro-softener": {
+          "description": "Pentair-Pentek-Clack RO + water softener system",
+          "variables": {
+            "_pn_soft": {
+              "unit": "%",
+              "type": "number",
+              "range": "0-100"
+            },
+            "_pn_brine": {
+              "unit": "%",
+              "type": "number",
+              "range": "0-100"
+            },
+            "_pb_active": {
+              "type": "boolean"
+            }
+          },
+          "connection_ports": [
+            {
+              "id": "in",
+              "direction": "left",
+              "type": "pipe"
+            },
+            {
+              "id": "out",
+              "direction": "right",
+              "type": "pipe"
+            }
+          ]
+        }
+      }
+    },
+    "atex": {
+      "widgets": {
+        "differential-pressure": {
+          "variables": {
+            "_pn_pressure": {
+              "unit": "Pa",
+              "type": "number"
+            },
+            "_pb_alarm": {
+              "type": "boolean"
+            }
+          }
+        },
+        "duct": {
+          "variables": {
+            "_pn_flow": {
+              "unit": "m\u00b3/h",
+              "type": "number"
+            },
+            "_pb_status": {
+              "type": "boolean"
+            }
+          }
+        },
+        "filter-stage": {
+          "variables": {
+            "_pn_dp": {
+              "unit": "Pa",
+              "type": "number"
+            },
+            "_pb_blocked": {
+              "type": "boolean"
+            }
+          }
+        },
+        "humidity-sensor": {
+          "variables": {
+            "_pn_humidity": {
+              "unit": "%RH",
+              "type": "number"
+            },
+            "_pb_alarm": {
+              "type": "boolean"
+            }
+          }
+        },
+        "temperature-sensor": {
+          "variables": {
+            "_pn_temp": {
+              "unit": "\u00b0C",
+              "type": "number"
+            },
+            "_pb_alarm": {
+              "type": "boolean"
+            }
+          }
+        },
+        "voc-sensor": {
+          "variables": {
+            "_pn_voc": {
+              "unit": "ppm",
+              "type": "number"
+            },
+            "_pb_alarm": {
+              "type": "boolean"
+            }
+          }
+        }
+      }
+    },
+    "classic": {
+      "widgets": {
+        "centrifugal-pump": {
+          "variables": {
+            "_pn_speed": {
+              "unit": "RPM",
+              "type": "number"
+            },
+            "_pb_running": {
+              "type": "boolean"
+            }
+          }
+        },
+        "electric-motor": {
+          "variables": {
+            "_pn_speed": {
+              "unit": "RPM",
+              "type": "number"
+            },
+            "_pn_current": {
+              "unit": "A",
+              "type": "number"
+            }
+          }
+        },
+        "gate-valve": {
+          "variables": {
+            "_pn_position": {
+              "unit": "%",
+              "type": "number"
+            },
+            "_pb_open": {
+              "type": "boolean"
+            }
+          }
+        },
+        "storage-tank": {
+          "variables": {
+            "_pn_level": {
+              "unit": "%",
+              "type": "number"
+            },
+            "_pn_temp": {
+              "unit": "\u00b0C",
+              "type": "number"
+            }
+          }
+        }
+      }
+    },
+    "dynamicSVG": {
+      "source": "Opto 22 SVG Image Library",
+      "description": "Multi-state color/blink widgets from Opto 22. Universal state machine: Off/Run/Warning/Fault/Invalid/Spare",
+      "widget_pattern": {
+        "variables": {
+          "_pn_setState": {
+            "unit": "",
+            "type": "number",
+            "values": {
+              "0": "Off",
+              "1": "Run",
+              "2": "Warning",
+              "3": "Fault",
+              "4": "Invalid",
+              "5": "Spare"
+            }
+          },
+          "_pb_boolState": {
+            "type": "boolean"
+          },
+          "_pn_setInterval": {
+            "unit": "ms",
+            "type": "number"
+          }
+        }
+      },
+      "widgets": {
+        "blower3": {
+          "description": "Centrifugal blower 3D"
+        },
+        "blower4": {
+          "description": "Centrifugal blower angled"
+        },
+        "checkvalve_closed": {
+          "description": "Check valve closed position"
+        },
+        "checkvalve_open": {
+          "description": "Check valve open position"
+        },
+        "compressor3": {
+          "description": "Rotary compressor"
+        },
+        "compressor6": {
+          "description": "Piston compressor"
+        },
+        "condensor_3d_h1": {
+          "description": "Condenser 3D"
+        },
+        "conveyor": {
+          "description": "Belt conveyor"
+        },
+        "conveyor4": {
+          "description": "Belt conveyor angled"
+        },
+        "conveyor_20degdecline": {
+          "description": "Conveyor decline 20\u00b0"
+        },
+        "conveyor_20degincline": {
+          "description": "Conveyor incline 20\u00b0"
+        },
+        "cyclonicseparator": {
+          "description": "Cyclonic separator"
+        },
+        "fanblades": {
+          "description": "Fan blades rotating"
+        },
+        "flange_3d_1": {
+          "description": "Pipe flange 3D"
+        },
+        "flowmeter": {
+          "description": "Flow meter indicator"
+        },
+        "flowmeter1": {
+          "description": "Flow meter inline"
+        },
+        "gaugedial_3d_h1": {
+          "description": "Gauge dial 3D horizontal"
+        },
+        "generator_1": {
+          "description": "Power generator"
+        },
+        "heatexchanger_pipetopipe": {
+          "description": "Heat exchanger pipe-to-pipe"
+        },
+        "heatexchanger_shelltube": {
+          "description": "Heat exchanger shell-and-tube"
+        },
+        "heatexchanger_singlepipetopipe": {
+          "description": "Heat exchanger single pipe"
+        },
+        "meter_3d_h1": {
+          "description": "Analog meter 3D #1"
+        },
+        "meter_3d_h2": {
+          "description": "Analog meter 3D #2"
+        },
+        "mixer1": {
+          "description": "Process mixer"
+        }
+      }
+    },
+    "root-widgets": {
+      "description": "Standalone process equipment widgets contributed to the FUXA library",
+      "widgets": {
+        "curtain-coater": {
+          "description": "Industrial curtain coating machine with conveyor, dosing pumps, and viscosity control",
+          "variables": {
+            "_pn_conveyorSpeed": {
+              "unit": "m/min",
+              "type": "number"
+            },
+            "_pn_setConveyorSpeed": {
+              "unit": "m/min",
+              "type": "number"
+            },
+            "_pn_lacquerLevel": {
+              "unit": "%",
+              "type": "number"
+            },
+            "_pn_lacquerTemp": {
+              "unit": "\u00b0C",
+              "type": "number"
+            },
+            "_pn_setLacquerTemp": {
+              "unit": "\u00b0C",
+              "type": "number"
+            },
+            "_pn_pumpSpeed": {
+              "unit": "RPM",
+              "type": "number"
+            },
+            "_pn_setPumpSpeed": {
+              "unit": "RPM",
+              "type": "number"
+            },
+            "_pn_bladesOpening": {
+              "unit": "mm",
+              "type": "number"
+            },
+            "_pn_setBladesOpening": {
+              "unit": "mm",
+              "type": "number"
+            },
+            "_pn_viscosity": {
+              "unit": "cP",
+              "type": "number"
+            },
+            "_pn_setViscosity": {
+              "unit": "cP",
+              "type": "number"
+            },
+            "_pn_viscosityStatus": {
+              "type": "number",
+              "unit": ""
+            },
+            "_pn_sensorOperator": {
+              "type": "number",
+              "unit": ""
+            },
+            "_pn_sensorC1": {
+              "type": "number",
+              "unit": ""
+            },
+            "_pn_sensorC2": {
+              "type": "number",
+              "unit": ""
+            },
+            "_pn_dosingLacquer": {
+              "type": "number",
+              "unit": ""
+            },
+            "_pn_dosingSolvent": {
+              "type": "number",
+              "unit": ""
+            }
+          }
+        },
+        "electric-motor": {
+          "description": "AC induction motor with speed, current, and temperature monitoring",
+          "variables": {
+            "_pn_motorSpeed": {
+              "unit": "RPM",
+              "type": "number"
+            },
+            "_pn_setSpeed": {
+              "unit": "RPM",
+              "type": "number"
+            },
+            "_pn_current": {
+              "unit": "A",
+              "type": "number"
+            },
+            "_pn_setCurrent": {
+              "unit": "A",
+              "type": "number"
+            },
+            "_pn_temp": {
+              "unit": "\u00b0C",
+              "type": "number"
+            },
+            "_pn_setTemp": {
+              "unit": "\u00b0C",
+              "type": "number"
+            },
+            "_pn_valveOpen": {
+              "type": "number",
+              "unit": ""
+            },
+            "_pb_running": {
+              "type": "boolean"
+            }
+          }
+        },
+        "flow-meter": {
+          "description": "Industrial flow meter with totalizer, alarms, and flow control",
+          "variables": {
+            "_pn_flowRate": {
+              "unit": "m\u00b3/h",
+              "type": "number"
+            },
+            "_pn_setFlow": {
+              "unit": "m\u00b3/h",
+              "type": "number"
+            },
+            "_pn_totalFlow": {
+              "unit": "m\u00b3",
+              "type": "number"
+            },
+            "_pn_alarmHigh": {
+              "unit": "m\u00b3/h",
+              "type": "number"
+            },
+            "_pn_alarmLow": {
+              "unit": "m\u00b3/h",
+              "type": "number"
+            },
+            "_pn_valveOpen": {
+              "type": "number",
+              "unit": ""
+            },
+            "_pb_flowActive": {
+              "type": "boolean"
+            }
+          }
+        },
+        "industrial-pipe-system": {
+          "description": "Complex pipe system with flow, pressure, temperature, and valve control",
+          "variables": {
+            "_pn_flow": {
+              "unit": "m\u00b3/h",
+              "type": "number"
+            },
+            "_pn_setFlow": {
+              "unit": "m\u00b3/h",
+              "type": "number"
+            },
+            "_pn_pressure": {
+              "unit": "bar",
+              "type": "number"
+            },
+            "_pn_temp": {
+              "unit": "\u00b0C",
+              "type": "number"
+            },
+            "_pn_valvePosition": {
+              "unit": "%",
+              "type": "number"
+            },
+            "_pn_valveOpen": {
+              "type": "number",
+              "unit": ""
+            },
+            "_pb_flowActive": {
+              "type": "boolean"
+            },
+            "_pb_valveOpen": {
+              "type": "boolean"
+            },
+            "_pb_alarm": {
+              "type": "boolean"
+            },
+            "_pc_pressureColor": {
+              "type": "color"
+            },
+            "_pc_tempColor": {
+              "type": "color"
+            }
+          }
+        },
+        "industrial-valve": {
+          "description": "Industrial control valve with position feedback and flow indication",
+          "variables": {
+            "_pn_valvePosition": {
+              "unit": "%",
+              "type": "number"
+            },
+            "_pn_flowRate": {
+              "unit": "m\u00b3/h",
+              "type": "number"
+            },
+            "_pn_valveOpen": {
+              "type": "number",
+              "unit": ""
+            },
+            "_pb_valveOpen": {
+              "type": "boolean"
+            }
+          }
+        },
+        "level-indicator": {
+          "description": "Tank level indicator with high/low alarms and volume calculation",
+          "variables": {
+            "_pn_level": {
+              "unit": "%",
+              "type": "number"
+            },
+            "_pn_setLevel": {
+              "unit": "%",
+              "type": "number"
+            },
+            "_pn_volume": {
+              "unit": "m\u00b3",
+              "type": "number"
+            },
+            "_pn_alarmHigh": {
+              "unit": "%",
+              "type": "number"
+            },
+            "_pn_alarmLow": {
+              "unit": "%",
+              "type": "number"
+            },
+            "_pb_alarmActive": {
+              "type": "boolean"
+            }
+          }
+        },
+        "pressure-gauge": {
+          "description": "Analog pressure gauge with alarm setpoint and min/max recording",
+          "variables": {
+            "_pn_pressure": {
+              "unit": "bar",
+              "type": "number"
+            },
+            "_pn_setPressure": {
+              "unit": "bar",
+              "type": "number"
+            },
+            "_pn_pressureMin": {
+              "unit": "bar",
+              "type": "number"
+            },
+            "_pn_pressureMax": {
+              "unit": "bar",
+              "type": "number"
+            },
+            "_pn_valveOpen": {
+              "type": "number",
+              "unit": ""
+            },
+            "_pb_alarmActive": {
+              "type": "boolean"
+            }
+          }
+        },
+        "process-tank": {
+          "description": "Process tank with level, temperature, pressure, and agitator control",
+          "variables": {
+            "_pn_tankLevel": {
+              "unit": "%",
+              "type": "number"
+            },
+            "_pn_tankTemp": {
+              "unit": "\u00b0C",
+              "type": "number"
+            },
+            "_pn_tankPressure": {
+              "unit": "bar",
+              "type": "number"
+            },
+            "_pn_tankVolume": {
+              "unit": "m\u00b3",
+              "type": "number"
+            },
+            "_pn_valveOpen": {
+              "type": "number",
+              "unit": ""
+            },
+            "_pb_agitatorOn": {
+              "type": "boolean"
+            },
+            "_pc_liquidColor": {
+              "type": "color"
+            }
+          }
+        },
+        "pump-system": {
+          "description": "Centrifugal pump system with speed, flow, and pressure control",
+          "variables": {
+            "_pn_pumpSpeed": {
+              "unit": "RPM",
+              "type": "number"
+            },
+            "_pn_setSpeed": {
+              "unit": "RPM",
+              "type": "number"
+            },
+            "_pn_flowRate": {
+              "unit": "m\u00b3/h",
+              "type": "number"
+            },
+            "_pn_setFlow": {
+              "unit": "m\u00b3/h",
+              "type": "number"
+            },
+            "_pn_pressure": {
+              "unit": "bar",
+              "type": "number"
+            },
+            "_pn_setPressure": {
+              "unit": "bar",
+              "type": "number"
+            },
+            "_pn_valveOpen": {
+              "type": "number",
+              "unit": ""
+            },
+            "_pb_running": {
+              "type": "boolean"
+            }
+          }
+        },
+        "sensor-indicator": {
+          "description": "Universal sensor indicator with configurable color mapping",
+          "variables": {
+            "_pn_sensorValue": {
+              "type": "number",
+              "unit": ""
+            },
+            "_pb_sensorActive": {
+              "type": "boolean"
+            },
+            "_pc_sensorColor": {
+              "type": "color"
+            }
+          }
+        },
+        "temperature-sensor": {
+          "description": "Temperature sensor with heater control and high/low alarms",
+          "variables": {
+            "_pn_temp": {
+              "unit": "\u00b0C",
+              "type": "number"
+            },
+            "_pn_setTemp": {
+              "unit": "\u00b0C",
+              "type": "number"
+            },
+            "_pn_alarmHigh": {
+              "unit": "\u00b0C",
+              "type": "number"
+            },
+            "_pn_alarmLow": {
+              "unit": "\u00b0C",
+              "type": "number"
+            },
+            "_pn_valveOpen": {
+              "type": "number",
+              "unit": ""
+            },
+            "_pb_heaterOn": {
+              "type": "boolean"
+            }
+          }
+        }
+      }
+    }
+  }
+}

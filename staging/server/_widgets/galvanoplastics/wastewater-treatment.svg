@@ -1,0 +1,71 @@
+<svg id="fuxa-wastewater" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="ww-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f1f5f9"/><stop offset="100%" stop-color="#cbd5e1"/>
+    </linearGradient>
+    <linearGradient id="ww-tank" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#334155"/><stop offset="30%" stop-color="#1e293b"/><stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="ww-metal" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f8fafc"/><stop offset="25%" stop-color="#e2e8f0"/><stop offset="75%" stop-color="#94a3b8"/><stop offset="100%" stop-color="#64748b"/>
+    </linearGradient>
+    <linearGradient id="ww-resin" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fbbf24"/><stop offset="100%" stop-color="#b45309"/>
+    </linearGradient>
+    <filter id="ww-shadow"><feDropShadow dx="3" dy="5" stdDeviation="4" flood-color="#0f172a" flood-opacity="0.35"/></filter>
+    <style>.bg{fill:url(#ww-bg)}.tank{fill:url(#ww-tank);stroke:#475569;stroke-width:2;rx:8;filter:url(#ww-shadow)}.metal{fill:url(#ww-metal);stroke:#475569;stroke-width:1.5}.resin{fill:url(#ww-resin);stroke:#92400e;stroke-width:1.5}.lbl{font:600 10px/1 'Segoe UI',sans-serif;fill:#94a3b8}.val{font:bold 20px/1 Consolas,monospace;fill:#10b981}.unit{font:11px/1 sans-serif;fill:#64748b}</style>
+  </defs>
+  <rect width="400" height="400" class="bg"/>
+  <rect x="15" y="15" width="370" height="370" class="tank"/>
+  <g transform="translate(200,170)">
+    <circle cx="-155" cy="0" r="0" data-port-id="in" data-port-dir="left" data-port-type="pipe"/>
+    <circle cx="155" cy="0" r="0" data-port-id="out" data-port-dir="right" data-port-type="pipe"/>
+    <!-- Main tank -->
+    <rect x="-80" y="-60" width="160" height="120" rx="8" class="metal" filter="url(#ww-shadow)"/>
+    <rect x="-73" y="-53" width="146" height="106" rx="6" fill="#1e293b" stroke="#334155"/>
+    <!-- Resin vessel -->
+    <rect x="-60" y="-40" width="120" height="80" rx="4" fill="#1e293b"/>
+    <rect x="-55" y="-35" width="110" height="70" rx="3" fill="url(#ww-resin)" opacity="0.8"/>
+    <!-- Level indicator -->
+    <rect x="-50" y="-30" width="100" height="60" rx="2" fill="#0f172a"/>
+    <rect id="ww-resin-level" x="-50" y="30" width="100" height="0" rx="2" fill="#fbbf24" opacity="0.7"/>
+    <!-- Pipes -->
+    <rect x="-120" y="-10" width="40" height="8" rx="4" class="metal"/>
+    <rect x="80" y="-10" width="40" height="8" rx="4" class="metal"/>
+    <!-- Labels -->
+    <text x="0" y="70" class="lbl" text-anchor="middle">WASTEWATER TREATMENT</text>
+    <text x="0" y="85" class="unit" text-anchor="middle">Alfatech Galvano — Ion Exchange</text>
+  </g>
+  <g transform="translate(25,340)">
+    <rect width="165" height="35" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+    <circle cx="22" cy="17" r="6" id="ww-status" class="alarm-on"/>
+    <text x="40" y="22" class="lbl" fill="#94a3b8">STATUS: ACTIVE</text>
+  </g>
+  <g transform="translate(210,340)">
+    <rect width="165" height="35" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+    <text x="82" y="22" class="unit" text-anchor="middle">3×400V 16A CEE</text>
+  </g>
+  <script><![CDATA[
+    var _pn_resinLevel = 70;
+    var _pb_active = true;
+    function postValue(id, v) { console.log('FUXA post:', id, '=', v); }
+    function putValue(id, v) {
+      v = Number(v);
+      switch(id) {
+        case '_pn_resinLevel':
+          _pn_resinLevel = Math.max(0, Math.min(60, v));
+          document.getElementById('ww-resin-level').setAttribute('height', _pn_resinLevel);
+          document.getElementById('ww-resin-level').setAttribute('y', 30 - _pn_resinLevel);
+          break;
+        case '_pb_active':
+          _pb_active = v !== 0;
+          document.getElementById('ww-status').setAttribute('class', _pb_active ? 'alarm-on' : 'alarm-off');
+          break;
+      }
+    }
+    var obs = new MutationObserver(function(m) {
+      m.forEach(function(mu) { mu.removedNodes.forEach(function(n) { if(n.id==='fuxa-wastewater') obs.disconnect(); }); });
+    });
+    obs.observe(document.body, {childList:true,subtree:true});
+  ]]></script>
+</svg>

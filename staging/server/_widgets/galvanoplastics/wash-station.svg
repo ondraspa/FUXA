@@ -1,0 +1,71 @@
+<svg id="fuxa-wash" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="ws-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f1f5f9"/><stop offset="100%" stop-color="#cbd5e1"/>
+    </linearGradient>
+    <linearGradient id="ws-tank" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#334155"/><stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <filter id="ws-shadow"><feDropShadow dx="3" dy="5" stdDeviation="4" flood-color="#0f172a" flood-opacity="0.35"/></filter>
+    <style>.bg{fill:url(#ws-bg)}.tank{fill:url(#ws-tank);stroke:#475569;stroke-width:2;rx:8;filter:url(#ws-shadow)}.metal{fill:#e2e8f0;stroke:#475569;stroke-width:1.5}.water{fill:#7dd3fc;opacity:0.5}.lbl{font:600 10px/1 'Segoe UI',sans-serif;fill:#94a3b8}.unit{font:11px/1 sans-serif;fill:#64748b}</style>
+  </defs>
+  <rect width="400" height="400" class="bg"/>
+  <rect x="15" y="15" width="370" height="370" class="tank"/>
+  <g transform="translate(200,165)">
+    <circle cx="-155" cy="0" r="0" data-port-id="in" data-port-dir="left" data-port-type="pipe"/>
+    <circle cx="155" cy="0" r="0" data-port-id="out" data-port-dir="right" data-port-type="pipe"/>
+    <!-- Wash basin -->
+    <rect x="-80" y="-40" width="160" height="80" rx="6" class="metal" filter="url(#ws-shadow)"/>
+    <rect x="-75" y="-35" width="150" height="70" rx="4" fill="#1e293b"/>
+    <!-- Water level -->
+    <rect id="ws-water" x="-73" y="0" width="146" height="0" rx="2" class="water"/>
+    <!-- Spray nozzles -->
+    <rect x="-60" y="-55" width="8" height="20" rx="4" class="metal"/>
+    <rect x="-20" y="-55" width="8" height="20" rx="4" class="metal"/>
+    <rect x="20" y="-55" width="8" height="20" rx="4" class="metal"/>
+    <rect x="60" y="-55" width="8" height="20" rx="4" class="metal"/>
+    <!-- Footswitch -->
+    <ellipse cx="0" cy="60" rx="25" ry="10" fill="#334155" stroke="#475569"/>
+    <rect id="ws-footswitch" x="-8" y="55" width="16" height="10" rx="2" fill="#22c55e"/>
+    <!-- Pipes -->
+    <rect x="-120" y="-10" width="40" height="6" rx="3" class="metal"/>
+    <rect x="80" y="-10" width="40" height="6" rx="3" class="metal"/>
+    <!-- Labels -->
+    <text x="0" y="85" class="lbl" text-anchor="middle">WASH STATION</text>
+    <text x="0" y="98" class="unit" text-anchor="middle">Double Polypropylene — Footswitch Controlled</text>
+  </g>
+  <g transform="translate(25,340)">
+    <rect width="165" height="35" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+    <circle cx="22" cy="17" r="6" id="ws-status" class="alarm-on"/>
+    <text x="40" y="22" class="lbl" fill="#94a3b8">STATUS: READY</text>
+  </g>
+  <g transform="translate(210,340)">
+    <rect width="165" height="35" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+    <text x="82" y="22" class="unit" text-anchor="middle">230V 16A</text>
+  </g>
+  <script><![CDATA[
+    var _pn_waterLevel = 40;
+    var _pb_active = false;
+    function postValue(id, v) { console.log('FUXA post:', id, '=', v); }
+    function putValue(id, v) {
+      v = Number(v);
+      switch(id) {
+        case '_pn_waterLevel':
+          _pn_waterLevel = Math.max(0, Math.min(70, v));
+          document.getElementById('ws-water').setAttribute('height', _pn_waterLevel);
+          document.getElementById('ws-water').setAttribute('y', 0 - _pn_waterLevel);
+          break;
+        case '_pb_active':
+          _pb_active = v !== 0;
+          document.getElementById('ws-footswitch').setAttribute('fill', _pb_active ? '#3b82f6' : '#22c55e');
+          document.getElementById('ws-status').setAttribute('class', _pb_active ? 'alarm-on' : 'alarm-off');
+          break;
+      }
+    }
+    var obs = new MutationObserver(function(m) {
+      m.forEach(function(mu) { mu.removedNodes.forEach(function(n) { if(n.id==='fuxa-wash') obs.disconnect(); }); });
+    });
+    obs.observe(document.body, {childList:true,subtree:true});
+  ]]></script>
+</svg>
+echo "Created wash-station.svg"

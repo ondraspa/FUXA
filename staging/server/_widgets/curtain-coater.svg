@@ -1,0 +1,467 @@
+<svg id="curtain_coater_hmi" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="100%" height="100%">
+  <defs>
+    <!-- Realistic Gradients -->
+    <linearGradient id="metal-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f8fafc" />
+      <stop offset="20%" stop-color="#e2e8f0" />
+      <stop offset="50%" stop-color="#94a3b8" />
+      <stop offset="80%" stop-color="#cbd5e1" />
+      <stop offset="100%" stop-color="#64748b" />
+    </linearGradient>
+
+    <linearGradient id="pipe-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#94a3b8" />
+      <stop offset="30%" stop-color="#f1f5f9" />
+      <stop offset="70%" stop-color="#94a3b8" />
+      <stop offset="100%" stop-color="#475569" />
+    </linearGradient>
+
+    <linearGradient id="belt-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b" />
+      <stop offset="20%" stop-color="#334155" />
+      <stop offset="80%" stop-color="#1e293b" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+
+    <linearGradient id="aluminum-disc" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="40%" stop-color="#e2e8f0" />
+      <stop offset="50%" stop-color="#cbd5e1" />
+      <stop offset="80%" stop-color="#f8fafc" />
+      <stop offset="100%" stop-color="#94a3b8" />
+    </linearGradient>
+
+    <linearGradient id="black-lacquer" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0a0a0a" />
+      <stop offset="30%" stop-color="#262626" />
+      <stop offset="70%" stop-color="#171717" />
+      <stop offset="100%" stop-color="#000000" />
+    </linearGradient>
+    
+    <linearGradient id="glass-glare" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.3"/>
+      <stop offset="50%" stop-color="#ffffff" stop-opacity="0.0"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.1"/>
+    </linearGradient>
+
+    <!-- UI Drop Shadow -->
+    <filter id="drop-shadow" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="2" dy="5" stdDeviation="4" flood-color="#0f172a" flood-opacity="0.4"/>
+    </filter>
+
+    <style>
+      <![CDATA[
+      .machine-frame { fill: url(#metal-grad); stroke: #475569; stroke-width: 2; }
+      .belt { fill: url(#belt-grad); stroke: #0f172a; stroke-width: 2; }
+      .roller { fill: url(#metal-grad); stroke: #334155; stroke-width: 1.5; }
+      .lacquer { fill: url(#black-lacquer); } 
+      .pipe { fill: none; stroke: url(#pipe-grad); stroke-width: 16; stroke-linejoin: round; stroke-linecap: round; }
+      .pipe-shadow { fill: none; stroke: #334155; stroke-width: 18; stroke-linejoin: round; stroke-linecap: round; opacity: 0.5; transform: translateY(3px); }
+      .disc { fill: url(#aluminum-disc); stroke: #64748b; stroke-width: 1.5; }
+      
+      .hmi-bg { fill: #0f172a; stroke: #334155; stroke-width: 2; rx: 6; filter: url(#drop-shadow); }
+      .hmi-bg-interactive { fill: #0f172a; stroke: #334155; stroke-width: 2; rx: 6; filter: url(#drop-shadow); cursor: pointer; transition: stroke 0.2s, fill 0.2s; }
+      .hmi-bg-interactive:hover { stroke: #10b981; fill: #1e293b; }
+      
+      .hmi-label { font-family: sans-serif; font-size: 13px; fill: #94a3b8; font-weight: 600; letter-spacing: 1px; }
+      .hmi-value { font-family: monospace; font-size: 18px; fill: #10b981; font-weight: bold; text-shadow: 0 0 5px rgba(16, 185, 129, 0.4); }
+      .hmi-setpoint { font-family: monospace; font-size: 14px; fill: #38bdf8; font-weight: bold; }
+      
+      .sensor-light { fill: #475569; stroke: #1e293b; stroke-width: 2; transition: fill 0.3s; }
+      
+      @keyframes flash-green {
+        0%, 100% { fill: #22c55e; stroke: #14532d; filter: drop-shadow(0 0 8px #22c55e); }
+        50% { fill: #064e3b; stroke: #022c22; filter: drop-shadow(0 0 0px #22c55e); }
+      }
+      @keyframes flash-blue {
+        0%, 100% { fill: #3b82f6; stroke: #1e3a8a; filter: drop-shadow(0 0 8px #3b82f6); }
+        50% { fill: #172554; stroke: #0f172a; filter: drop-shadow(0 0 0px #3b82f6); }
+      }
+      
+      .dosing-lacquer-active { animation: flash-green 0.8s infinite; }
+      .dosing-solvent-active { animation: flash-blue 0.8s infinite; }
+
+      @keyframes flow-anim {
+        from { stroke-dashoffset: 24; }
+        to { stroke-dashoffset: 0; }
+      }
+      .flow-line { 
+        fill: none; 
+        stroke: #171717; 
+        stroke-width: 6; 
+        stroke-dasharray: 12 12; 
+        animation: flow-anim 0.6s linear infinite; 
+        stroke-linejoin: round;
+        opacity: 0;
+        transition: opacity 0.5s;
+      }
+      .flow-line-overflow { stroke: #334155; }
+      ]]>
+    </style>
+  </defs>
+
+  <rect width="1200" height="800" fill="#e2e8f0" />
+  
+  <pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse">
+    <path d="M 100 0 L 0 0 0 100" fill="none" stroke="#cbd5e1" stroke-width="1"/>
+  </pattern>
+  <rect width="1200" height="800" fill="url(#grid)" opacity="0.5"/>
+
+    <circle cx="-155" cy="0" r="0" data-port-id="in" data-port-dir="left" data-port-type="pipe"/><circle cx="155" cy="0" r="0" data-port-id="out" data-port-dir="right" data-port-type="pipe"/>
+  <g id="machine_base">
+    <path d="M485 305 L645 305 L625 405 L505 405 Z" fill="#94a3b8" opacity="0.3" filter="url(#drop-shadow)"/>
+    <path d="M480 300 L640 300 L620 400 L500 400 Z" class="machine-frame" />
+    <path d="M505 385 L615 385 L610 400 L510 400 Z" class="lacquer" opacity="0.95" />
+    <rect x="535" y="400" width="30" height="20" fill="url(#glass-glare)" stroke="#64748b" stroke-width="2" filter="url(#drop-shadow)" />
+    <rect id="drain_flow" x="542" y="400" width="16" height="20" class="lacquer" />
+
+    <rect x="490" y="420" width="120" height="150" rx="10" class="machine-frame" filter="url(#drop-shadow)" />
+    <rect x="490" y="420" width="12" height="150" rx="4" fill="#ffffff" opacity="0.2" />
+    <rect id="tank_inflow" x="546" y="420" width="8" height="140" class="lacquer" opacity="0.75" />
+
+    <rect id="lacquer_level" x="500" y="480" width="100" height="85" class="lacquer" />
+    <rect x="500" y="430" width="100" height="135" fill="url(#glass-glare)" rx="4" stroke="#94a3b8" stroke-width="2"/>
+  </g>
+
+  <g id="pipe_infrastructure">
+    <path d="M550 570 L550 630 L730 630" class="pipe-shadow" />
+    <path d="M780 630 L950 630 L950 150 L550 150 L550 200" class="pipe-shadow" />
+    <path d="M620 220 L660 220 L660 350 L610 350 L610 400" class="pipe-shadow" />
+    
+    <path d="M550 570 L550 630 L730 630" class="pipe" />
+    <path d="M780 630 L950 630 L950 150 L550 150 L550 200" class="pipe" />
+    <path d="M620 220 L660 220 L660 350 L610 350 L610 400" class="pipe" />
+    
+    <rect x="535" y="565" width="30" height="10" rx="3" class="machine-frame"/>
+    <rect x="535" y="195" width="30" height="10" rx="3" class="machine-frame"/>
+    <rect x="715" y="615" width="10" height="30" rx="3" class="machine-frame"/>
+    <rect x="775" y="615" width="10" height="30" rx="3" class="machine-frame"/>
+  </g>
+
+  <g id="animated_flow_lines">
+    <path id="flow_suction" d="M550 570 L550 630 L730 630" class="flow-line" />
+    <path id="flow_discharge" d="M780 630 L950 630 L950 150 L550 150 L550 200" class="flow-line" />
+    <path id="flow_overflow" d="M620 220 L660 220 L660 350 L610 350 L610 400" class="flow-line flow-line-overflow" />
+  </g>
+
+  <g id="conveyors">
+    <rect x="53" y="273" width="485" height="20" rx="10" fill="#000" opacity="0.3" />
+    <rect id="conveyor_1_belt" x="50" y="270" width="485" height="20" rx="10" class="belt" />
+    <path d="M 60 272 L 525 272" stroke="#475569" stroke-width="1" />
+    
+    <g id="rollers_c1">
+      <g id="c1_r1"><circle cx="80" cy="280" r="14" class="roller" /><circle cx="80" cy="280" r="4" fill="#0f172a"/></g>
+      <g id="c1_r2"><circle cx="180" cy="280" r="14" class="roller" /><circle cx="180" cy="280" r="4" fill="#0f172a"/></g>
+      <g id="c1_r3"><circle cx="280" cy="280" r="14" class="roller" /><circle cx="280" cy="280" r="4" fill="#0f172a"/></g>
+      <g id="c1_r4"><circle cx="380" cy="280" r="14" class="roller" /><circle cx="380" cy="280" r="4" fill="#0f172a"/></g>
+      <g id="c1_r5"><circle cx="480" cy="280" r="14" class="roller" /><circle cx="480" cy="280" r="4" fill="#0f172a"/></g>
+    </g>
+
+    <rect x="568" y="273" width="485" height="20" rx="10" fill="#000" opacity="0.3" />
+    <rect id="conveyor_2_belt" x="565" y="270" width="485" height="20" rx="10" class="belt" />
+    <path d="M 575 272 L 1040 272" stroke="#475569" stroke-width="1" />
+
+    <g id="rollers_c2">
+      <g id="c2_r1"><circle cx="595" cy="280" r="14" class="roller" /><circle cx="595" cy="280" r="4" fill="#0f172a"/></g>
+      <g id="c2_r2"><circle cx="695" cy="280" r="14" class="roller" /><circle cx="695" cy="280" r="4" fill="#0f172a"/></g>
+      <g id="c2_r3"><circle cx="795" cy="280" r="14" class="roller" /><circle cx="795" cy="280" r="4" fill="#0f172a"/></g>
+      <g id="c2_r4"><circle cx="895" cy="280" r="14" class="roller" /><circle cx="895" cy="280" r="4" fill="#0f172a"/></g>
+      <g id="c2_r5"><circle cx="995" cy="280" r="14" class="roller" /><circle cx="995" cy="280" r="4" fill="#0f172a"/></g>
+    </g>
+  </g>
+  
+  <g id="coating_head">
+    <rect x="493" y="205" width="120" height="40" rx="5" fill="#334155" opacity="0.5" filter="url(#drop-shadow)" />
+    <rect x="490" y="200" width="120" height="40" rx="5" class="machine-frame" />
+    <rect x="495" y="202" width="110" height="5" fill="#ffffff" opacity="0.4" rx="2"/>
+    <rect x="610" y="205" width="20" height="30" rx="4" class="machine-frame" />
+    
+    <g id="curtain_group">
+      <path id="curtain_sheet" d="M548 240 L552 240 L552 390 L548 390 Z" class="lacquer" opacity="0.95" />
+      <path d="M551 240 L552 240 L552 390 L551 390 Z" fill="#404040" />
+      <path d="M548 240 L549 240 L549 390 L548 390 Z" fill="#000000" opacity="0.8"/>
+    </g>
+  </g>
+
+  <g id="discs_group">
+    <ellipse cx="282" cy="265" rx="40" ry="10" fill="#000000" opacity="0.4" filter="url(#drop-shadow)"/>
+    <ellipse id="disc_1" cx="280" cy="260" rx="40" ry="10" class="disc" />
+    <ellipse id="disc_curtain" cx="550" cy="260" rx="40" ry="10" class="lacquer" />
+    <ellipse cx="550" cy="258" rx="30" ry="6" fill="url(#glass-glare)" />
+    <ellipse cx="822" cy="265" rx="40" ry="10" fill="#000000" opacity="0.4" filter="url(#drop-shadow)"/>
+    <ellipse id="disc_2" cx="820" cy="260" rx="40" ry="10" class="lacquer" />
+    <ellipse cx="820" cy="258" rx="30" ry="6" fill="url(#glass-glare)" />
+  </g>
+
+  <g id="main_pump_system">
+    <g id="pump_main_anim">
+      <circle id="pump_housing_shadow" cx="757" cy="635" r="35" fill="#0f172a" opacity="0.5" filter="url(#drop-shadow)"/>
+      <circle id="pump_housing" cx="755" cy="630" r="35" class="machine-frame" />
+      <circle cx="755" cy="630" r="28" fill="#e2e8f0" stroke="#94a3b8" stroke-width="2"/>
+      <circle id="pump_rotor" cx="755" cy="630" r="15" fill="#1e293b" />
+      <path d="M740 630 L770 630 M755 615 L755 645" stroke="#94a3b8" stroke-width="4" stroke-linecap="round"/>
+      <circle cx="755" cy="630" r="4" fill="#0f172a"/>
+    </g>
+  </g>
+
+  <g id="dosing_pumps">
+    <g id="dosing_p1">
+      <rect x="360" y="440" width="40" height="80" rx="8" class="machine-frame" filter="url(#drop-shadow)"/>
+      <rect x="362" y="440" width="10" height="80" rx="4" fill="#ffffff" opacity="0.3"/>
+      <path d="M380 440 L380 410" class="pipe" stroke-width="8"/>
+      <path d="M380 520 L380 550 L500 550" class="pipe" stroke-width="8"/>
+      <g id="dosing_p1_piston">
+        <circle cx="380" cy="460" r="8" fill="url(#metal-grad)" stroke="#1e293b" stroke-width="2"/>
+        <rect x="376" y="468" width="8" height="30" fill="url(#metal-grad)" stroke="#334155" rx="4"/>
+      </g>
+    </g>
+    <g id="dosing_p2">
+      <rect x="420" y="440" width="40" height="80" rx="8" class="machine-frame" filter="url(#drop-shadow)"/>
+      <rect x="422" y="440" width="10" height="80" rx="4" fill="#ffffff" opacity="0.3"/>
+      <path d="M440 440 L440 410" class="pipe" stroke-width="8"/>
+      <path d="M440 520 L440 550 L500 550" class="pipe" stroke-width="8"/>
+      <g id="dosing_p2_piston">
+        <circle cx="440" cy="460" r="8" fill="url(#metal-grad)" stroke="#1e293b" stroke-width="2"/>
+        <rect x="436" y="468" width="8" height="30" fill="url(#metal-grad)" stroke="#334155" rx="4"/>
+      </g>
+    </g>
+  </g>
+
+  <g id="sensor_indicators">
+    <g id="sensor_operator_group">
+      <rect x="25" y="295" width="10" height="20" fill="url(#metal-grad)"/>
+      <circle id="sensor_operator_light" cx="30" cy="285" r="10" class="sensor-light" />
+      <text x="10" y="330" font-family="sans-serif" font-weight="bold" font-size="11" fill="#475569">OPERATOR</text>
+    </g>
+    <g id="sensor_c1_intake_group">
+      <rect x="125" y="320" width="10" height="20" fill="url(#metal-grad)"/>
+      <circle id="sensor_c1_intake_light" cx="130" cy="310" r="10" class="sensor-light" />
+      <text x="115" y="355" font-family="sans-serif" font-weight="bold" font-size="11" fill="#475569">C1 INTAKE</text>
+    </g>
+    <g id="sensor_c2_middle_group">
+      <rect x="795" y="320" width="10" height="20" fill="url(#metal-grad)"/>
+      <circle id="sensor_c2_middle_light" cx="800" cy="310" r="10" class="sensor-light" />
+      <text x="785" y="355" font-family="sans-serif" font-weight="bold" font-size="11" fill="#475569">C2 OUTFEED</text>
+    </g>
+  </g>
+
+  <!-- HMI PANELS / DATA DISPLAYS (Interactive Setpoints Added) -->
+  <g id="hmi_panels">
+    
+    <!-- Conveyor Speed -->
+    <g id="panel_conveyor_speed" transform="translate(50, 50)">
+      <rect id="bg_conveyor_speed" width="180" height="75" class="hmi-bg-interactive" />
+      <rect width="180" height="15" rx="5" fill="#ffffff" opacity="0.05" />
+      <text x="10" y="26" class="hmi-label">CONV SPEED</text>
+      <text id="val_conveyor_speed" x="90" y="47" class="hmi-value" text-anchor="middle">0.0 m/min</text>
+      <text id="set_conveyor_speed" x="90" y="67" class="hmi-setpoint" text-anchor="middle">SP: 0.0</text>
+    </g>
+    
+    <!-- Split Dosing Status Box -->
+    <g id="panel_dosing_status" transform="translate(190, 440)">
+      <rect width="140" height="90" class="hmi-bg" />
+      <rect width="140" height="15" rx="5" fill="#ffffff" opacity="0.05" />
+      <text x="70" y="28" class="hmi-label" text-anchor="middle">DOSING STATUS</text>
+      <circle id="light_dosing_lacquer" cx="40" cy="55" r="12" class="sensor-light" />
+      <text x="40" y="82" font-family="sans-serif" font-size="11" font-weight="bold" fill="#cbd5e1" text-anchor="middle">LACQ</text>
+      <circle id="light_dosing_solvent" cx="100" cy="55" r="12" class="sensor-light" />
+      <text x="100" y="82" font-family="sans-serif" font-size="11" font-weight="bold" fill="#cbd5e1" text-anchor="middle">SOLV</text>
+    </g>
+
+    <!-- Lacquer Temperature -->
+    <g id="panel_lacquer_temp" transform="translate(800, 430)">
+      <rect id="bg_lacquer_temp" width="180" height="75" class="hmi-bg-interactive" />
+      <rect width="180" height="15" rx="5" fill="#ffffff" opacity="0.05" />
+      <text x="10" y="26" class="hmi-label">LACQUER TEMP</text>
+      <text id="val_lacquer_temp" x="90" y="47" class="hmi-value" text-anchor="middle">22.5 °C</text>
+      <text id="set_lacquer_temp" x="90" y="67" class="hmi-setpoint" text-anchor="middle">SP: 22.5</text>
+    </g>
+
+    <!-- Main Pump Speed -->
+    <g id="panel_main_pump_speed" transform="translate(800, 680)">
+      <rect id="bg_main_pump_speed" width="180" height="75" class="hmi-bg-interactive" />
+      <rect width="180" height="15" rx="5" fill="#ffffff" opacity="0.05" />
+      <text x="10" y="26" class="hmi-label">MAIN PUMP SPEED</text>
+      <text id="val_pump_speed" x="90" y="47" class="hmi-value" text-anchor="middle">0 RPM</text>
+      <text id="set_pump_speed" x="90" y="67" class="hmi-setpoint" text-anchor="middle">SP: 0</text>
+    </g>
+    
+    <!-- Curtain Blades Opening -->
+    <g id="panel_blades_opening" transform="translate(460, 50)">
+      <rect id="bg_blades_opening" width="180" height="75" class="hmi-bg-interactive" />
+      <rect width="180" height="15" rx="5" fill="#ffffff" opacity="0.05" />
+      <text x="10" y="26" class="hmi-label">BLADES OPENING</text>
+      <text id="val_blades_opening" x="90" y="47" class="hmi-value" text-anchor="middle">0.0 nm</text>
+      <text id="set_blades_opening" x="90" y="67" class="hmi-setpoint" text-anchor="middle">SP: 0.0</text>
+    </g>
+    
+    <!-- Viscosity Measurement -->
+    <g id="panel_viscosity" transform="translate(800, 520)">
+      <rect id="bg_viscosity" width="180" height="95" class="hmi-bg-interactive" />
+      <rect width="180" height="15" rx="5" fill="#ffffff" opacity="0.05" />
+      <text x="10" y="26" class="hmi-label">VISCOSITY</text>
+      <text id="val_viscosity" x="90" y="47" class="hmi-value" text-anchor="middle">0.0 cP</text>
+      <text id="set_viscosity" x="90" y="67" class="hmi-setpoint" text-anchor="middle">SP: 0.0</text>
+      <text x="10" y="87" font-family="sans-serif" font-size="12" fill="#94a3b8">Measure Status</text>
+      <circle id="light_viscosity_status" cx="160" cy="83" r="8" class="sensor-light" />
+    </g>
+  </g>
+
+  <script>
+    <![CDATA[
+    //!export-start
+    var _pn_conveyorSpeed = 0.0;
+    var _pn_setConveyorSpeed = 0.0;
+    
+    var _pn_lacquerLevel = 50.0;
+    
+    var _pn_lacquerTemp = 22.5;
+    var _pn_setLacquerTemp = 22.5;
+    
+    var _pn_pumpSpeed = 0.0;
+    var _pn_setPumpSpeed = 0.0;
+    
+    var _pn_bladesOpening = 0.0;
+    var _pn_setBladesOpening = 0.0;
+    
+    var _pn_viscosity = 0.0;
+    var _pn_setViscosity = 0.0;
+    
+    var _pn_sensorOperator = 0;
+    var _pn_sensorC1 = 0;
+    var _pn_sensorC2 = 0;
+    
+    var _pn_dosingLacquer = 0;
+    var _pn_dosingSolvent = 0;
+    var _pn_viscosityStatus = 0;
+    //!export-end
+
+    function postValue(id, value) { console.error('Not defined!'); }
+    
+    function putValue(id, value) {
+      var v = Number(value);
+      switch(id) {
+        case '_pn_conveyorSpeed':
+          document.getElementById('val_conveyor_speed').textContent = v.toFixed(1) + ' m/min';
+          break;
+        case '_pn_setConveyorSpeed':
+          _pn_setConveyorSpeed = v;
+          document.getElementById('set_conveyor_speed').textContent = 'SP: ' + v.toFixed(1);
+          break;
+        case '_pn_lacquerLevel':
+          var clamp = Math.max(0, Math.min(100, v));
+          var h = (clamp / 100) * 85;
+          var y = 565 - h;
+          var rect = document.getElementById('lacquer_level');
+          rect.setAttribute('height', h);
+          rect.setAttribute('y', y);
+          break;
+        case '_pn_lacquerTemp':
+          document.getElementById('val_lacquer_temp').textContent = v.toFixed(1) + ' °C';
+          break;
+        case '_pn_setLacquerTemp':
+          _pn_setLacquerTemp = v;
+          document.getElementById('set_lacquer_temp').textContent = 'SP: ' + v.toFixed(1);
+          break;
+        case '_pn_pumpSpeed':
+          _pn_pumpSpeed = v;
+          document.getElementById('val_pump_speed').textContent = v.toFixed(0) + ' RPM';
+          break;
+        case '_pn_setPumpSpeed':
+          _pn_setPumpSpeed = v;
+          document.getElementById('set_pump_speed').textContent = 'SP: ' + v.toFixed(0);
+          break;
+        case '_pn_bladesOpening':
+          document.getElementById('val_blades_opening').textContent = v.toFixed(1) + ' nm';
+          break;
+        case '_pn_setBladesOpening':
+          _pn_setBladesOpening = v;
+          document.getElementById('set_blades_opening').textContent = 'SP: ' + v.toFixed(1);
+          break;
+        case '_pn_viscosity':
+          document.getElementById('val_viscosity').textContent = v.toFixed(1) + ' cP';
+          break;
+        case '_pn_setViscosity':
+          _pn_setViscosity = v;
+          document.getElementById('set_viscosity').textContent = 'SP: ' + v.toFixed(1);
+          break;
+        case '_pn_sensorOperator':
+          document.getElementById('sensor_operator_light').style.fill = (v !== 0) ? '#22c55e' : '#475569';
+          break;
+        case '_pn_sensorC1':
+          document.getElementById('sensor_c1_intake_light').style.fill = (v !== 0) ? '#22c55e' : '#475569';
+          break;
+        case '_pn_sensorC2':
+          document.getElementById('sensor_c2_middle_light').style.fill = (v !== 0) ? '#22c55e' : '#475569';
+          break;
+        case '_pn_viscosityStatus':
+          document.getElementById('light_viscosity_status').style.fill = (v !== 0) ? '#3b82f6' : '#475569';
+          break;
+        case '_pn_dosingLacquer':
+          var dl = document.getElementById('light_dosing_lacquer');
+          v !== 0 ? dl.classList.add('dosing-lacquer-active') : dl.classList.remove('dosing-lacquer-active');
+          break;
+        case '_pn_dosingSolvent':
+          var ds = document.getElementById('light_dosing_solvent');
+          v !== 0 ? ds.classList.add('dosing-lacquer-active') : ds.classList.remove('dosing-lacquer-active'); // fallback fix
+          break;
+      }
+    }
+
+    // Click bindings to trigger Setpoint writes back to FUXA via postValue
+    document.getElementById('bg_conveyor_speed').addEventListener('click', function() {
+      var newVal = prompt('Enter Setpoint for Conveyor Speed (m/min):', _pn_setConveyorSpeed);
+      if (newVal !== null &amp;&amp; !isNaN(newVal)) { postValue('_pn_setConveyorSpeed', Number(newVal)); }
+    });
+
+    document.getElementById('bg_lacquer_temp').addEventListener('click', function() {
+      var newVal = prompt('Enter Setpoint for Lacquer Temperature (°C):', _pn_setLacquerTemp);
+      if (newVal !== null &amp;&amp; !isNaN(newVal)) { postValue('_pn_setLacquerTemp', Number(newVal)); }
+    });
+
+    document.getElementById('bg_main_pump_speed').addEventListener('click', function() {
+      var newVal = prompt('Enter Setpoint for Main Pump Speed (RPM):', _pn_setPumpSpeed);
+      if (newVal !== null &amp;&amp; !isNaN(newVal)) { postValue('_pn_setPumpSpeed', Number(newVal)); }
+    });
+
+    document.getElementById('bg_blades_opening').addEventListener('click', function() {
+      var newVal = prompt('Enter Setpoint for Blades Opening (nm):', _pn_setBladesOpening);
+      if (newVal !== null &amp;&amp; !isNaN(newVal)) { postValue('_pn_setBladesOpening', Number(newVal)); }
+    });
+
+    document.getElementById('bg_viscosity').addEventListener('click', function() {
+      var newVal = prompt('Enter Setpoint for Viscosity (cP):', _pn_setViscosity);
+      if (newVal !== null &amp;&amp; !isNaN(newVal)) { postValue('_pn_setViscosity', Number(newVal)); }
+    });
+
+    var pumpRot = 0;
+    var animFrame;
+    var flowLines = document.getElementById('animated_flow_lines');
+    var pumpAnim = document.getElementById('pump_main_anim');
+
+    function animate() {
+      if (_pn_pumpSpeed !== 0) {
+        pumpRot = (pumpRot + (_pn_pumpSpeed * 0.05)) % 360;
+        pumpAnim.setAttribute('transform', 'rotate(' + pumpRot + ' 755 630)');
+        flowLines.style.opacity = '1';
+      } else {
+        flowLines.style.opacity = '0';
+      }
+      animFrame = requestAnimationFrame(animate);
+    }
+    animFrame = requestAnimationFrame(animate);
+
+    var observer = new MutationObserver(function(mutations) {
+      mutations.forEach(function(mutation) {
+        mutation.removedNodes.forEach(function(node) {
+          if (node.id === 'curtain_coater_hmi') {
+            cancelAnimationFrame(animFrame);
+            observer.disconnect();
+          }
+        });
+      });
+    });
+    observer.observe(document.body, { childList: true, subtree: true });
+    ]]>
+  </script>
+</svg>

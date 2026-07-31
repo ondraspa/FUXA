@@ -1,0 +1,74 @@
+<svg id="fuxa-cabinet" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="cb-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f1f5f9"/><stop offset="100%" stop-color="#cbd5e1"/>
+    </linearGradient>
+    <linearGradient id="cb-tank" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#334155"/><stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <filter id="cb-shadow"><feDropShadow dx="3" dy="5" stdDeviation="4" flood-color="#0f172a" flood-opacity="0.35"/></filter>
+    <style>.bg{fill:url(#cb-bg)}.tank{fill:url(#cb-tank);stroke:#475569;stroke-width:2;rx:8;filter:url(#cb-shadow)}.metal{fill:#e2e8f0;stroke:#475569;stroke-width:1.5}.chemical{fill:#22c55e;opacity:0.6}.lbl{font:600 10px/1 'Segoe UI',sans-serif;fill:#94a3b8}.unit{font:11px/1 sans-serif;fill:#64748b}</style>
+  </defs>
+  <rect width="400" height="400" class="bg"/>
+  <rect x="15" y="15" width="370" height="370" class="tank"/>
+  <g transform="translate(200,165)">
+    <circle cx="-155" cy="0" r="0" data-port-id="in" data-port-dir="left" data-port-type="pipe"/>
+    <circle cx="155" cy="0" r="0" data-port-id="out" data-port-dir="right" data-port-type="pipe"/>
+    <!-- Main cabinet -->
+    <rect x="-70" y="-55" width="140" height="110" rx="6" class="metal" filter="url(#cb-shadow)"/>
+    <rect x="-65" y="-50" width="130" height="100" rx="4" fill="#1e293b" stroke="#334155"/>
+    <!-- Chemical bottles -->
+    <rect x="-55" y="-40" width="20" height="40" rx="3" class="chemical" id="cb-bottle1"/>
+    <rect x="-30" y="-40" width="20" height="40" rx="3" class="chemical" id="cb-bottle2" style="fill:#3b82f6;opacity:0.6"/>
+    <rect x="-5" y="-40" width="20" height="40" rx="3" class="chemical" id="cb-bottle3" style="fill:#f97316;opacity:0.6"/>
+    <rect x="20" y="-40" width="20" height="40" rx="3" class="chemical" id="cb-bottle4"/>
+    <!-- Storage shelves -->
+    <rect x="-60" y="10" width="120" height="6" rx="2" class="metal"/>
+    <rect x="-60" y="35" width="120" height="6" rx="2" class="metal"/>
+    <!-- Labels -->
+    <text x="-45" y="28" class="unit" text-anchor="middle" font-size="7">Ni</text>
+    <text x="-20" y="28" class="unit" text-anchor="middle" font-size="7">Ag</text>
+    <text x="5" y="28" class="unit" text-anchor="middle" font-size="7">Cu</text>
+    <text x="30" y="28" class="unit" text-anchor="middle" font-size="7">Zn</text>
+    <!-- Labels -->
+    <text x="0" y="70" class="lbl" text-anchor="middle">CHEMICALS CABINET</text>
+    <text x="0" y="83" class="unit" text-anchor="middle">Chemical + 2x Storage Cabinets</text>
+  </g>
+  <g transform="translate(25,340)">
+    <rect width="165" height="35" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+    <circle cx="22" cy="17" r="6" id="cb-status" class="alarm-on"/>
+    <text x="40" y="22" class="lbl" fill="#94a3b8">STATUS: SECURED</text>
+  </g>
+  <g transform="translate(210,340)">
+    <rect width="165" height="35" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+    <text x="82" y="22" class="unit" text-anchor="middle">VENTILATED</text>
+  </g>
+  <script><![CDATA[
+    var _pn_bottleLevels = [80, 60, 40, 90];
+    var _pb_secured = true;
+    function postValue(id, v) { console.log('FUXA post:', id, '=', v); }
+    function putValue(id, v) {
+      v = Number(v);
+      switch(id) {
+        case '_pn_bottleLevels':
+          var levels = v.toString().split(',').map(Number);
+          for (var i = 0; i < Math.min(4, levels.length); i++) {
+            var h = Math.max(0, Math.min(40, levels[i]));
+            var bottle = document.getElementById('cb-bottle' + (i+1));
+            bottle.setAttribute('height', h);
+            bottle.setAttribute('y', -40 + (40 - h));
+          }
+          break;
+        case '_pb_secured':
+          _pb_secured = v !== 0;
+          document.getElementById('cb-status').setAttribute('class', _pb_secured ? 'alarm-on' : 'alarm-off');
+          break;
+      }
+    }
+    var obs = new MutationObserver(function(m) {
+      m.forEach(function(mu) { mu.removedNodes.forEach(function(n) { if(n.id==='fuxa-cabinet') obs.disconnect(); }); });
+    });
+    obs.observe(document.body, {childList:true,subtree:true});
+  ]]></script>
+</svg>
+echo "Created chemicals-cabinet.svg"

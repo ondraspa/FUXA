@@ -1,0 +1,277 @@
+<svg id="fuxa-pump-system" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 400" width="100%" height="100%">
+  <defs>
+    <!-- Industrial 3D Gradients -->
+    <linearGradient id="pump-housing" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f8fafc" />
+      <stop offset="25%" stop-color="#e2e8f0" />
+      <stop offset="50%" stop-color="#cbd5e1" />
+      <stop offset="75%" stop-color="#94a3b8" />
+      <stop offset="100%" stop-color="#64748b" />
+    </linearGradient>
+
+    <linearGradient id="pump-impeller" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3b82f6" />
+      <stop offset="50%" stop-color="#1d4ed8" />
+      <stop offset="100%" stop-color="#1e3a8a" />
+    </linearGradient>
+
+    <linearGradient id="pipe-steel" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#64748b" />
+      <stop offset="30%" stop-color="#cbd5e1" />
+      <stop offset="60%" stop-color="#f8fafc" />
+      <stop offset="100%" stop-color="#475569" />
+    </linearGradient>
+
+    <filter id="shadow-3d" x="-15%" y="-10%" width="140%" height="130%">
+      <feDropShadow dx="3" dy="5" stdDeviation="4" flood-color="#0f172a" flood-opacity="0.35" />
+    </filter>
+
+    <style>
+      .pump-main { fill: url(#pump-housing); stroke: #475569; stroke-width: 2.5; }
+      .pump-impeller { fill: url(#pump-impeller); stroke: #1e3a8a; stroke-width: 2; }
+      .pipe { fill: none; stroke: url(#pipe-steel); stroke-width: 18; }
+      
+      .flow-line {
+        fill: none;
+        stroke-width: 8;
+        stroke-dasharray: 16 16;
+        animation: flow-anim 0.8s linear infinite;
+      }
+      .flow-blue { stroke: url(#liquid-flow); opacity: 0.8; }
+      
+      @keyframes flow-anim {
+        from { stroke-dashoffset: 32; }
+        to { stroke-dashoffset: 0; }
+      }
+
+      .hmi-panel { fill: #0f172a; stroke: #334155; stroke-width: 2; rx: 8; filter: url(#shadow-3d); }
+      .hmi-label { font-family: 'Segoe UI', sans-serif; font-size: 12px; fill: #94a3b8; font-weight: 600; letter-spacing: 1px; }
+      .hmi-value { font-family: 'Consolas', monospace; font-size: 20px; fill: #10b981; font-weight: bold; }
+      .hmi-unit { font-family: sans-serif; font-size: 13px; fill: #64748b; }
+      .hmi-setpoint { font-family: monospace; font-size: 14px; fill: #38bdf8; font-weight: bold; }
+      
+      .indicator-on { fill: #22c55e; filter: url(#glow-green); }
+      .indicator-off { fill: #475569; }
+      
+      @keyframes alarm-flash {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.4; }
+      }
+      .alarm-on { fill: #ef4444; animation: alarm-flash 1s infinite; }
+      
+      .interactive:hover { filter: url(#shadow-3d) brightness(1.15); cursor: pointer; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="500" height="400" fill="#f1f5f9" />
+
+  <!-- Pipe Inlet -->
+  <g id="inlet-pipe">
+    <path d="M40 250 L180 250" class="pipe" filter="url(#shadow-3d)" />
+    <path d="M40 250 L180 250" class="flow-line flow-blue" id="flow-inlet" opacity="0.8" />
+    <text x="100" y="235" font-family="sans-serif" font-size="10" fill="#64748b">INLET</text>
+  </g>
+
+  <!-- Pipe Outlet -->
+  <g id="outlet-pipe">
+    <path d="M320 150 L460 150" class="pipe" filter="url(#shadow-3d)" />
+    <path d="M320 150 L460 150" class="flow-line flow-blue" id="flow-outlet" opacity="0.8" />
+    <text x="390" y="135" font-family="sans-serif" font-size="10" fill="#64748b">OUTLET</text>
+  </g>
+
+  <!-- Pump Housing -->
+  <g id="pump-housing-group" filter="url(#shadow-3d)">
+    <!-- Casing -->
+    <path d="M180 150 Q180 120 210 120 L290 120 Q320 120 320 150 L320 280 Q320 310 290 310 L210 310 Q180 310 180 280 Z" class="pump-main" />
+    
+    <!-- Volute casing highlight -->
+    <path d="M185 155 Q185 130 215 130 L285 130 Q315 130 315 155 L315 275 Q315 305 285 305 L215 305 Q185 305 185 275 Z" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.3" />
+    
+    <!-- Impeller -->
+    <g id="impeller-group">
+      <circle cx="250" cy="215" r="45" class="pump-impeller" />
+      <circle cx="250" cy="215" r="30" fill="#1e3a8a" stroke="#0f172a" stroke-width="2" />
+      <!-- Impeller blades -->
+      <g id="impeller-blades">
+        <path d="M250 185 L265 200 L250 215 L235 200 Z" fill="#60a5fa" opacity="0.8" />
+        <path d="M280 215 L265 230 L250 215 L265 200 Z" fill="#60a5fa" opacity="0.8" />
+        <path d="M250 245 L235 230 L250 215 L265 230 Z" fill="#60a5fa" opacity="0.8" />
+        <path d="M220 215 L235 200 L250 215 L235 230 Z" fill="#60a5fa" opacity="0.8" />
+      </g>
+      <circle cx="250" cy="215" r="12" fill="#475569" stroke="#334155" stroke-width="2" />
+    </g>
+  </g>
+
+  <!-- Motor -->
+  <g id="motor-group" transform="translate(250, 60)">
+    <rect x="-40" y="-25" width="80" height="50" rx="6" class="pump-main" filter="url(#shadow-3d)" />
+    <rect x="-45" y="-20" width="10" height="40" rx="3" class="pump-main" />
+    <circle cx="-40" cy="0" r="15" class="pump-main" />
+    <circle cx="-40" cy="0" r="8" fill="#475569" stroke="#334155" stroke-width="2" />
+    <line x1="-40" y1="-8" x2="-40" y2="8" stroke="#f8fafc" stroke-width="3" />
+    <line x1="-48" y1="0" x2="-32" y2="0" stroke="#f8fafc" stroke-width="3" />
+    <text x="0" y="45" font-family="sans-serif" font-size="11" fill="#64748b" text-anchor="middle">MOTOR</text>
+  </g>
+
+  <!-- Base Plate -->
+  <rect x="160" y="310" width="180" height="25" rx="4" class="pump-main" filter="url(#shadow-3d)" />
+
+  <!-- HMI Panels -->
+  <g id="hmi-panels">
+    <!-- Speed Panel -->
+    <g transform="translate(20, 30)">
+    <circle cx="-155" cy="0" r="0" data-port-id="in" data-port-dir="left" data-port-type="pipe"/><circle cx="155" cy="0" r="0" data-port-id="out" data-port-dir="right" data-port-type="pipe"/>
+      <rect width="180" height="90" class="hmi-panel" />
+      <rect width="180" height="22" rx="6" fill="#ffffff" opacity="0.1" />
+      <text x="15" y="42" class="hmi-label">PUMP SPEED</text>
+      <text id="val_speed" x="90" y="75" class="hmi-value" text-anchor="middle">1450</text>
+      <text x="90" y="88" class="hmi-unit" text-anchor="middle">RPM</text>
+    </g>
+
+    <!-- Flow Panel -->
+    <g transform="translate(20, 140)">
+      <rect width="180" height="90" class="hmi-panel" />
+      <rect width="180" height="22" rx="6" fill="#ffffff" opacity="0.1" />
+      <text x="15" y="42" class="hmi-label">FLOW RATE</text>
+      <text id="val_flow" x="90" y="75" class="hmi-value" text-anchor="middle">85.2</text>
+      <text x="90" y="88" class="hmi-unit" text-anchor="middle">m³/h</text>
+    </g>
+
+    <!-- Pressure Panel -->
+    <g transform="translate(20, 250)">
+      <rect width="180" height="90" class="hmi-panel" />
+      <rect width="180" height="22" rx="6" fill="#ffffff" opacity="0.1" />
+      <text x="15" y="42" class="hmi-label">DISCHARGE PRESS</text>
+      <text id="val_pressure" x="90" y="75" class="hmi-value" text-anchor="middle">3.8</text>
+      <text x="90" y="88" class="hmi-unit" text-anchor="middle">bar</text>
+    </g>
+
+    <!-- Status Panel -->
+    <g transform="translate(20, 360)">
+      <rect width="180" height="70" class="hmi-panel" />
+      <text x="90" y="30" class="hmi-label" text-anchor="middle">STATUS</text>
+      <circle id="status_light" cx="90" cy="52" r="14" class="indicator-on" />
+    </g>
+
+    <!-- Control Panel -->
+    <g transform="translate(320, 30)" class="interactive">
+      <rect width="160" height="150" fill="#0f172a" stroke="#334155" stroke-width="2" rx="8" filter="url(#shadow-3d)" />
+      <text x="80" y="35" class="hmi-label" text-anchor="middle">START/STOP</text>
+      <rect x="30" y="55" width="100" height="40" rx="20" fill="#334155" stroke="#64748b" stroke-width="2" />
+      <circle id="toggle_ball" cx="65" cy="75" r="14" fill="#22c55e" />
+      <text x="80" y="125" class="hmi-value" text-anchor="middle">RUNNING</text>
+    </g>
+
+    <!-- Setpoint Panel -->
+    <g transform="translate(320, 195)" class="interactive">
+      <rect width="160" height="235" fill="#0f172a" stroke="#334155" stroke-width="2" rx="8" filter="url(#shadow-3d)" />
+      <text x="80" y="35" class="hmi-label" text-anchor="middle">SETPOINTS</text>
+      
+      <rect x="20" y="55" width="120" height="45" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1.5" />
+      <text x="60" y="78" class="hmi-label" text-anchor="middle">SPEED SP</text>
+      <text id="set_speed" x="60" y="98" class="hmi-setpoint" text-anchor="middle">1450</text>
+      
+      <rect x="20" y="115" width="120" height="45" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1.5" />
+      <text x="60" y="138" class="hmi-label" text-anchor="middle">FLOW SP</text>
+      <text id="set_flow" x="60" y="158" class="hmi-setpoint" text-anchor="middle">80.0</text>
+      
+      <rect x="20" y="175" width="120" height="45" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1.5" />
+      <text x="60" y="198" class="hmi-label" text-anchor="middle">PRESS SP</text>
+      <text id="set_pressure" x="60" y="218" class="hmi-setpoint" text-anchor="middle">3.5</text>
+    </g>
+  </g>
+
+  <script>
+    <![CDATA[
+    //!export-start
+    var _pn_pumpSpeed = 1450;
+    var _pb_running = true;
+    var _pn_flowRate = 85.2;
+    var _pn_pressure = 3.8;
+    var _pn_setSpeed = 1450;
+    var _pn_setFlow = 80.0;
+    var _pn_setPressure = 3.5;
+    //!export-end
+
+    var impellerAngle = 0;
+    var animFrame;
+
+    function postValue(id, value) {
+      console.log('FUXA post:', id, '=', value);
+    }
+
+    function putValue(id, value) {
+      var v = Number(value);
+      switch(id) {
+        case '_pn_pumpSpeed':
+          _pn_pumpSpeed = v;
+          document.getElementById('val_speed').textContent = Math.round(v);
+          break;
+        case '_pb_running':
+          _pn_valveOpen = (v !== 0);
+          var light = document.getElementById('status_light');
+          if (_pn_valveOpen) {
+            light.setAttribute('class', 'indicator-on');
+          } else {
+            light.setAttribute('class', 'indicator-off');
+          }
+          break;
+        case '_pn_flowRate':
+          _pn_valveOpen = v;
+          document.getElementById('val_flow').textContent = v.toFixed(1);
+          break;
+        case '_pn_pressure':
+          _pn_valveOpen = v;
+          document.getElementById('val_pressure').textContent = v.toFixed(1);
+          break;
+        case '_pn_setSpeed':
+          _pn_valveOpen = v;
+          document.getElementById('set_speed').textContent = Math.round(v);
+          break;
+        case '_pn_setFlow':
+          _pn_valveOpen = v;
+          document.getElementById('set_flow').textContent = v.toFixed(1);
+          break;
+        case '_pn_setPressure':
+          _pn_valveOpen = v;
+          document.getElementById('set_pressure').textContent = v.toFixed(1);
+          break;
+      }
+    }
+
+    function animate() {
+      if (_pn_valveOpen &amp;&amp; _pn_pumpSpeed > 0) {
+        impellerAngle = (impellerAngle + (_pn_pumpSpeed * 0.02)) % 360;
+        var impeller = document.getElementById('impeller-group');
+        impeller.setAttribute('transform', 'rotate(' + impellerAngle + ' 250 215)');
+        document.getElementById('flow-inlet').style.opacity = '0.8';
+        document.getElementById('flow-outlet').style.opacity = '0.8';
+      } else {
+        document.getElementById('flow-inlet').style.opacity = '0.1';
+        document.getElementById('flow-outlet').style.opacity = '0.1';
+      }
+      animFrame = requestAnimationFrame(animate);
+    }
+    animFrame = requestAnimationFrame(animate);
+
+    // Click to toggle pump
+    document.querySelector('[transform="translate(320, 30)"]').addEventListener('click', function() {
+      var newVal = !_pn_valveOpen;
+      postValue('_pb_running', newVal ? 1 : 0);
+    });
+
+    var observer = new MutationObserver(function(mutations) {
+      mutations.forEach(function(mutation) {
+        mutation.removedNodes.forEach(function(node) {
+          if (node.id === 'fuxa-pump-system') {
+            cancelAnimationFrame(animFrame);
+            observer.disconnect();
+          }
+        });
+      });
+    });
+    observer.observe(document.body, { childList: true, subtree: true });
+    ]]>
+  </script>
+</svg>
