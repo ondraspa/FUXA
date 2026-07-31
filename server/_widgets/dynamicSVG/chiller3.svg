@@ -1,0 +1,69 @@
+<svg id="fuxa-dyn-chiller3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+<defs>
+<linearGradient id="gs" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#f1f5f9"/><stop offset="30%" stop-color="#cbd5e1"/><stop offset="70%" stop-color="#94a3b8"/><stop offset="100%" stop-color="#64748b"/></linearGradient>
+<linearGradient id="gi" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#94a3b8"/><stop offset="50%" stop-color="#64748b"/><stop offset="100%" stop-color="#334155"/></linearGradient>
+<linearGradient id="gc" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#fca5a5"/><stop offset="40%" stop-color="#dc2626"/><stop offset="100%" stop-color="#991b1b"/></linearGradient>
+<linearGradient id="gb" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#7dd3fc"/><stop offset="40%" stop-color="#0284c7"/><stop offset="100%" stop-color="#0369a1"/></linearGradient>
+<filter id="s"><feDropShadow dx="2" dy="3" stdDeviation="3" flood-color="#0f172a" flood-opacity="0.35"/></filter>
+<style>.bkg{fill:#dbeafe}.frm{fill:#0f172a;rx:10;filter:url(#s)}</style>
+
+</defs>
+<rect width="200" height="200" class="bkg"/><rect x="6" y="6" width="188" height="188" class="frm"/>
+<g transform="translate(50,50)">
+
+<g id="shape">
+	<path fill="#999999" d="M83.609,46.419H83.36l0.162-1.748L71.564,3.43l-2.286-1.256l10.589,40.551l-0.234-0.219L69.278,2.175
+		h-1.549C67.31,1.746,66.683,1.362,65.9,1.044l0.118-0.053c0.091-0.04,0.222,0.168,0.181,0.078c-0.04-0.091-0.236-0.357-0.328-0.317
+		L65.674,0.75l-0.252,0.112c-1.373-0.474-3.132-0.759-5.047-0.759c-1.913,0-3.671,0.284-5.043,0.757l-0.287-0.128l-0.161,0.019
+		c-0.091-0.04-0.198,0.09-0.238,0.182c-0.041,0.091,0,0.017,0.091,0.058l0.116,0.051c-0.785,0.318-1.413,0.702-1.832,1.132h-4.766
+		c-0.419-0.429-1.046-0.813-1.829-1.131l0.118-0.053c0.091-0.04,0.222,0.168,0.181,0.078c-0.04-0.091-0.236-0.357-0.328-0.317
+		L46.199,0.75l-0.252,0.112c-1.373-0.474-3.132-0.759-5.047-0.759c-1.913,0-3.671,0.284-5.043,0.757L35.57,0.733l-0.161,0.019
+		c-0.091-0.04-0.198,0.09-0.238,0.182c-0.04,0.091,0,0.017,0.091,0.058l0.116,0.051c-0.785,0.318-1.413,0.702-1.832,1.132h-1.868
+		L29.391,3.43L17.433,44.672l0.162,1.748h-0.248l-0.126,0.439l4.863,52.519h0.414h0l0.067,0.725h55.823l0.067-0.725h0h0.414
+		l4.863-52.519L83.609,46.419z M61.281,80.945h-0.978l-0.044,1.411h-0.972l-0.936-15.885l1.84,0.719L61.281,80.945z M59.815,91.322
+		l-0.356-6.038h0.71l-0.186,6.038H59.815z M52.219,66.148h4.287l0.734,16.208h-5.116l0.159-8.884v-2.051L52.219,66.148z
+		 M48.597,66.148h0.834l-0.071,4.646h-0.924L48.597,66.148z M48.433,73.472h0.795l0.008,0.46h0l0.151,8.424h-0.954V73.472z
+		 M44.914,66.148l-0.016,0.472v0l0.002-0.052l-0.112-0.046c-0.067-0.041-0.161-0.079-0.281-0.114l-0.176-0.072l-0.001,0.025
+		c-0.057-0.013-0.126-0.025-0.191-0.038l0.008-0.175H44.914z M24.266,66.148H37.16c-0.943,0.06-1.795,0.151-2.433,0.274l-0.44,0.04
+		l-0.017,0.065c-0.393,0.107-0.646,0.231-0.694,0.375c-0.335,1.004-1.004,3.516-1.004,3.516c-0.096,0.139-0.201,0.262-0.309,0.377
+		h-8.905L24.266,66.148z M22.153,65.825l-1.4-16.501l0.616,7.254l1.366,6.275L22.153,65.825z M22.802,73.472h6.629
+		c-0.072,0.25-0.115,0.514-0.101,0.792l0.001,0.028c-0.286,0.416-0.448,0.925-0.42,1.479l0.338,6.586h-3.627l-0.377,2.236v0.69
+		h5.686c0.308,0.129,0.642,0.2,0.989,0.2h0.101c0.339,0.477,0.894,0.794,1.505,0.794h7.606l-0.518,8.804h-15.98L22.802,73.472z
+		 M42.837,95.082l0.406-8.97h5.189v-0.828h1.006l0.175,9.798H42.837z M52.072,85.284h5.3l0.444,9.798h-5.919L52.072,85.284z
+		 M76.319,95.082H60.037l-0.023-0.391h16.339L76.319,95.082z M76.613,91.624l-0.035-0.302h-2.215l0.451-6.038h0.717v-0.69
+		l-0.251-2.236h-0.247l0.059-0.784l-0.188-0.628h-2.542l-1.744-11.741l-0.299-2.014l-0.155-1.042h6.934l1.169,5.977L76.613,91.624z
+		 M78.926,64.368l-0.324-1.655l0.761-3.496L78.926,64.368z"/>
+</g>
+</g>
+<script><![CDATA[
+//!export-start
+var _pn_setState=0;
+var _pb_boolState=false;
+var _pn_setInterval=500;
+var _pc_state0Colour='#808080';
+var _pc_state1Colour='#22c55e';
+var _pc_state2Colour='#eab308';
+var _pc_state3Colour='#ef4444';
+var _pc_state4Colour='#a855f7';
+var _pc_state5Colour='#3b82f6';
+//!export-end
+function postValue(id,v){console.log('FUXA post:',id,'=',v);}
+function putValue(id,v){v=Number(v);switch(id){
+  case '_pn_setState':
+    _pn_setState=v;
+    var colors=[_pc_state0Colour,_pc_state1Colour,_pc_state2Colour,_pc_state3Colour,_pc_state4Colour,_pc_state5Colour];
+    var c=colors[Math.min(v,5)]||'#808080';
+    var els=document.querySelectorAll('#shape path,#shape circle,#shape rect');
+    for(var k=0;k<els.length;k++){els[k].setAttribute('fill',c);}
+    break;
+  case '_pb_boolState':
+    _pb_boolState=v!==0;
+    var c2=_pb_boolState?_pc_state1Colour:_pc_state0Colour;
+    var els2=document.querySelectorAll('#shape path,#shape circle,#shape rect');
+    for(var j=0;j<els2.length;j++){els2[j].setAttribute('fill',c2);}
+    break;
+}}
+var o=new MutationObserver(function(m){m.forEach(function(mu){mu.removedNodes.forEach(function(n){if(n.id==='fuxa-dyn-chiller3'){o.disconnect();}});});});
+o.observe(document.body,{childList:true,subtree:true});
+]]></script>
+</svg>

@@ -1,0 +1,49 @@
+<svg id="fuxa-dyn-verticalpump3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+<defs>
+<linearGradient id="gs" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#f1f5f9"/><stop offset="30%" stop-color="#cbd5e1"/><stop offset="70%" stop-color="#94a3b8"/><stop offset="100%" stop-color="#64748b"/></linearGradient>
+<linearGradient id="gi" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#94a3b8"/><stop offset="50%" stop-color="#64748b"/><stop offset="100%" stop-color="#334155"/></linearGradient>
+<linearGradient id="gc" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#fca5a5"/><stop offset="40%" stop-color="#dc2626"/><stop offset="100%" stop-color="#991b1b"/></linearGradient>
+<linearGradient id="gb" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#7dd3fc"/><stop offset="40%" stop-color="#0284c7"/><stop offset="100%" stop-color="#0369a1"/></linearGradient>
+<filter id="s"><feDropShadow dx="2" dy="3" stdDeviation="3" flood-color="#0f172a" flood-opacity="0.35"/></filter>
+<style>.bkg{fill:#dbeafe}.frm{fill:#0f172a;rx:10;filter:url(#s)}</style>
+
+</defs>
+<rect width="200" height="200" class="bkg"/><rect x="6" y="6" width="188" height="188" class="frm"/>
+<g transform="translate(50,50)">
+<circle cx="50" cy="30" r="0" data-port-id="pipe" data-port-dir="right" data-port-type="pipe"/>
+<g transform="translate(36.19307 0) scale(0.15093)"><g id="shape">
+        <path d="M182.438,237.34c-.22-4.774-2.021-8.092-4.804-9.683l-3.654-2.109c-3.204-1.832-7.71-1.375-12.601,1.788-.092.06-.181.131-.272.192l-8.128-4.693c.053-.839.078-1.67.041-2.479-.22-4.774-2.021-8.092-4.804-9.683l-3.654-2.109c-3.204-1.832-7.71-1.375-12.601,1.788-2.693,1.741-5.194,4.119-7.383,6.854l-1.117.203c-.596-3.568-1.003-7.317-1.184-11.255-.108-2.353-.138-4.736-.103-7.14,15.587-5.83,25.911-15.961,25.911-27.493v-3.06c0-.757-.061-1.506-.148-2.25.088-.744.148-1.493.148-2.25,0-.625-.037-1.245-.097-1.861,3.027-4.193,4.704-8.793,4.704-13.62l.071-32.114,13.764-7.946v-40.65l-13.638-7.874.053-24.002c.002-19.548-27.404-35.394-61.212-35.394S30.517,16.346,30.517,35.892l-.25,112.587c0,4.827,1.677,9.427,4.704,13.62-.06.616-.097,1.236-.097,1.861,0,.757.061,1.506.148,2.25-.088.744-.148,1.493-.148,2.25v3.06c0,9.933,7.663,18.825,19.746,24.828.265.611.528,1.225.778,1.853.179.452.358.904.529,1.365.27.726.524,1.472.774,2.222.157.473.325.934.474,1.416.336,1.083.648,2.194.942,3.323.182.699.345,1.419.51,2.135.125.539.249,1.079.364,1.628.164.78.318,1.569.463,2.368.089.492.17.993.252,1.493.14.857.282,1.712.4,2.59h0c-1.135,7.132-3.054,13.517-5.557,19.134-12.042,6.002-19.676,14.879-19.676,24.792v3.06c0,15.162,17.835,27.91,42.034,31.628v270.905c-5.569,2.51-9.155,6.423-9.155,10.823,0,.507.051,1.007.144,1.5-.093.493-.144.993-.144,1.5,0,4.036,3.015,7.664,7.812,10.174-.924,4.968-2.075,10.957-2.638,18.128-3.235,2.345-5.174,5.314-5.174,8.547,0,.507.051,1.007.144,1.5-.093.493-.144.993-.144,1.5,0,7.577,10.623,13.719,23.728,13.719s23.728-6.142,23.728-13.719c0-.507-.051-1.007-.144-1.5.093-.493.144-.993.144-1.5,0-3.233-1.939-6.202-5.174-8.547-.562-7.171-1.714-13.16-2.638-18.128,4.797-2.51,7.812-6.138,7.812-10.174,0-.507-.051-1.007-.144-1.5.093-.493.144-.993.144-1.5,0-4.399-3.586-8.312-9.155-10.823v-270.905c23.98-3.684,41.696-16.238,42.016-31.219.683.898,1.483,1.634,2.403,2.164l3.654,2.109c3.205,1.844,7.718,1.391,12.619-1.777,9.14-5.909,16.166-19.024,15.694-29.294v.002ZM108.085,203.611h0v-.796h0v.796Z" fill="#138f34"/>
+      </g></g>
+</g>
+<script><![CDATA[
+//!export-start
+var _pn_setState=0;
+var _pb_boolState=false;
+var _pn_setInterval=500;
+var _pc_state0Colour='#808080';
+var _pc_state1Colour='#22c55e';
+var _pc_state2Colour='#eab308';
+var _pc_state3Colour='#ef4444';
+var _pc_state4Colour='#a855f7';
+var _pc_state5Colour='#3b82f6';
+//!export-end
+function postValue(id,v){console.log('FUXA post:',id,'=',v);}
+function putValue(id,v){v=Number(v);switch(id){
+  case '_pn_setState':
+    _pn_setState=v;
+    var colors=[_pc_state0Colour,_pc_state1Colour,_pc_state2Colour,_pc_state3Colour,_pc_state4Colour,_pc_state5Colour];
+    var c=colors[Math.min(v,5)]||'#808080';
+    var els=document.querySelectorAll('#shape path,#shape circle,#shape rect');
+    for(var k=0;k<els.length;k++){els[k].setAttribute('fill',c);}
+    break;
+  case '_pb_boolState':
+    _pb_boolState=v!==0;
+    var c2=_pb_boolState?_pc_state1Colour:_pc_state0Colour;
+    var els2=document.querySelectorAll('#shape path,#shape circle,#shape rect');
+    for(var j=0;j<els2.length;j++){els2[j].setAttribute('fill',c2);}
+    break;
+}}
+var o=new MutationObserver(function(m){m.forEach(function(mu){mu.removedNodes.forEach(function(n){if(n.id==='fuxa-dyn-verticalpump3'){o.disconnect();}});});});
+o.observe(document.body,{childList:true,subtree:true});
+]]></script>
+</svg>

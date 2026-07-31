@@ -1,0 +1,54 @@
+<svg id="fuxa-dyn-rotarywasher_housing_upper_reverse" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+<defs>
+<linearGradient id="gs" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#f1f5f9"/><stop offset="30%" stop-color="#cbd5e1"/><stop offset="70%" stop-color="#94a3b8"/><stop offset="100%" stop-color="#64748b"/></linearGradient>
+<linearGradient id="gi" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#94a3b8"/><stop offset="50%" stop-color="#64748b"/><stop offset="100%" stop-color="#334155"/></linearGradient>
+<linearGradient id="gc" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#fca5a5"/><stop offset="40%" stop-color="#dc2626"/><stop offset="100%" stop-color="#991b1b"/></linearGradient>
+<linearGradient id="gb" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#7dd3fc"/><stop offset="40%" stop-color="#0284c7"/><stop offset="100%" stop-color="#0369a1"/></linearGradient>
+<filter id="s"><feDropShadow dx="2" dy="3" stdDeviation="3" flood-color="#0f172a" flood-opacity="0.35"/></filter>
+<style>.bkg{fill:#dbeafe}.frm{fill:#0f172a;rx:10;filter:url(#s)}</style>
+
+</defs>
+<rect width="200" height="200" class="bkg"/><rect x="6" y="6" width="188" height="188" class="frm"/>
+<g transform="translate(50,50)">
+<circle cx="50" cy="30" r="0" data-port-id="shaft" data-port-dir="left" data-port-type="shaft"/>
+<g transform="translate(0 21.16244) scale(0.07452)"><g id="dark">
+        <path d="M293.089,401.759l-8.921,24.99c-34.785-12.417-35.266-100.131-1.074-195.914,34.192-95.783,90.109-163.364,124.894-150.947l-10.897,30.527c-27.707-9.891-73.45,47.311-102.169,127.763-28.719,80.453-29.539,153.69-1.832,163.581h0Z" fill="#39c"/>
+        <path d="M1181.515,531.59c-32.61,91.353-32.151,175.01,1.025,186.853,33.176,11.843,86.507-52.613,119.117-143.966,32.61-91.353,32.151-175.01-1.025-186.853s-86.507,52.613-119.117,143.966h0ZM1192.809,535.622c26.479-74.177,69.783-126.514,96.722-116.898,26.939,9.616,27.311,77.545.832,151.722-26.48,74.177-69.783,126.514-96.722,116.898-26.939-9.616-27.311-77.544-.832-151.722Z" fill="#39c" stroke="#00467f" stroke-linecap="round" stroke-linejoin="round"/>
+        <g>
+          <path d="M1289.531,418.722c-4.882-1.743-10.304-1.441-16.063.647,14.463,23.527,10.873,80.376-10.936,141.472-21.68,60.734-54.638,106.818-80.659,116.251-.897-1.459,5.641,8.064,11.768,10.251,26.939,9.617,70.243-42.72,96.722-116.898,26.479-74.177,26.107-142.106-.832-151.722h0Z" fill="#39c" stroke="#00467f" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M1135.101,515.352c-42.699,119.614-42.098,229.152,1.342,244.659,24.349,8.693,56.991-14.011,88.498-56.706-15.493,13.608-30.29,19.461-42.4,15.138l-27.831-9.604c-33.177-11.843-33.635-95.5-1.025-186.853,32.61-91.353,85.941-155.809,119.117-143.966l27.831,9.604c11.936,4.261,19.636,17.818,23.086,37.683,2.378-52.23-8.527-89.848-32.65-98.459-43.44-15.507-113.27,68.889-155.969,188.504h0Z" fill="#39c" stroke="#00467f" stroke-linecap="round" stroke-linejoin="round"/>
+        </g>
+      </g></g>
+</g>
+<script><![CDATA[
+//!export-start
+var _pn_setState=0;
+var _pb_boolState=false;
+var _pn_setInterval=500;
+var _pc_state0Colour='#808080';
+var _pc_state1Colour='#22c55e';
+var _pc_state2Colour='#eab308';
+var _pc_state3Colour='#ef4444';
+var _pc_state4Colour='#a855f7';
+var _pc_state5Colour='#3b82f6';
+//!export-end
+function postValue(id,v){console.log('FUXA post:',id,'=',v);}
+function putValue(id,v){v=Number(v);switch(id){
+  case '_pn_setState':
+    _pn_setState=v;
+    var colors=[_pc_state0Colour,_pc_state1Colour,_pc_state2Colour,_pc_state3Colour,_pc_state4Colour,_pc_state5Colour];
+    var c=colors[Math.min(v,5)]||'#808080';
+    var els=document.querySelectorAll('#shape path,#shape circle,#shape rect');
+    for(var k=0;k<els.length;k++){els[k].setAttribute('fill',c);}
+    break;
+  case '_pb_boolState':
+    _pb_boolState=v!==0;
+    var c2=_pb_boolState?_pc_state1Colour:_pc_state0Colour;
+    var els2=document.querySelectorAll('#shape path,#shape circle,#shape rect');
+    for(var j=0;j<els2.length;j++){els2[j].setAttribute('fill',c2);}
+    break;
+}}
+var o=new MutationObserver(function(m){m.forEach(function(mu){mu.removedNodes.forEach(function(n){if(n.id==='fuxa-dyn-rotarywasher_housing_upper_reverse'){o.disconnect();}});});});
+o.observe(document.body,{childList:true,subtree:true});
+]]></script>
+</svg>

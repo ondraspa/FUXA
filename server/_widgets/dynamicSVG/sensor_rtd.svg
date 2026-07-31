@@ -1,0 +1,69 @@
+<svg id="fuxa-dyn-sensor_rtd" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+<defs>
+<linearGradient id="gs" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#f1f5f9"/><stop offset="30%" stop-color="#cbd5e1"/><stop offset="70%" stop-color="#94a3b8"/><stop offset="100%" stop-color="#64748b"/></linearGradient>
+<linearGradient id="gi" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#94a3b8"/><stop offset="50%" stop-color="#64748b"/><stop offset="100%" stop-color="#334155"/></linearGradient>
+<linearGradient id="gc" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#fca5a5"/><stop offset="40%" stop-color="#dc2626"/><stop offset="100%" stop-color="#991b1b"/></linearGradient>
+<linearGradient id="gb" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#7dd3fc"/><stop offset="40%" stop-color="#0284c7"/><stop offset="100%" stop-color="#0369a1"/></linearGradient>
+<filter id="s"><feDropShadow dx="2" dy="3" stdDeviation="3" flood-color="#0f172a" flood-opacity="0.35"/></filter>
+<style>.bkg{fill:#dbeafe}.frm{fill:#0f172a;rx:10;filter:url(#s)}</style>
+
+</defs>
+<rect width="200" height="200" class="bkg"/><rect x="6" y="6" width="188" height="188" class="frm"/>
+<g transform="translate(50,50)">
+<circle cx="100" cy="170" r="0" data-port-id="wire" data-port-dir="bottom" data-port-type="wire"/>
+<g id="shape">
+	<path fill="#808285" d="M69.015,7.59h-0.252h-2.271h-0.568c-0.694,0-1.262,0.227-1.262,0.505c0,0.278-0.568,0.505-1.262,0.505
+		h-0.116v-1.85H52.813V6.368l0.96-0.876l-0.534-1.181l0.713-0.322c-0.432-0.956-0.472-1.044-0.94-2.08
+		c-2.278-0.454-5.899,0.091-9.873,1.528c0.234-0.084,0.471-0.179,0.702-0.257l-0.706-1.561l-7.271,3.281l0.732,1.62c0,0,0,0,0.001,0
+		c-3.128,1.869-5.47,3.943-6.521,5.739l0.948,2.096l0.707-0.32l0.534,1.181l1.119,0.63v1.075l4.542,2.586v5.236h2.25v0.75h1.304
+		c-0.278,0-0.505,0.227-0.505,0.505v0.252v2.505v0.568c0,0.244,0.125,0.452,0.306,0.591h-0.726h-0.262c-0.55,0-1,0.45-1,1v0.262
+		v2.28v0.558c0,0.694,0.227,1.262,0.505,1.262c0.185,0,0.34,0.263,0.428,0.635h-0.461h-3.174h-0.125c-0.55,0-1,0.45-1,1v2.542
+		c0,0.55,0.45,1,1,1h0.125h1.146v0.595l-0.482-0.02l-0.622,0.301c-0.297,0.144-0.297,0.379,0,0.523l0.622,0.301l0.482,0.02v0.389
+		l-0.482-0.02l-0.622,0.301c-0.297,0.144-0.297,0.379,0,0.523l0.622,0.301l0.482,0.02v0.389l-0.482-0.02l-0.622,0.301
+		c-0.297,0.144-0.297,0.379,0,0.523l0.622,0.301l0.482,0.02v0.389l-0.482-0.02l-0.622,0.301c-0.297,0.144-0.297,0.379,0,0.523
+		l0.622,0.301l0.482,0.02v0.389l-0.482-0.02l-0.622,0.301c-0.297,0.144-0.297,0.379,0,0.523l0.622,0.301l0.482,0.02v0.677h4.479
+		v49.332l0.359,0.602c0.379,0.371,0.982,0.382,1.374,0.024l0.412-0.626V48.905h4.479v-0.217l0.499,0.021l0.622-0.301
+		c0.297-0.144,0.297-0.379,0-0.523l-0.622-0.301l-0.499-0.021v-0.389l0.499,0.021l0.622-0.301c0.297-0.144,0.297-0.379,0-0.523
+		l-0.622-0.301l-0.499-0.021V45.66l0.499,0.021l0.622-0.301c0.297-0.144,0.297-0.379,0-0.523l-0.622-0.301l-0.499-0.021v-0.389
+		l0.499,0.021l0.622-0.301c0.297-0.144,0.297-0.379,0-0.523l-0.622-0.301l-0.499-0.021v-0.389l0.499,0.021l0.622-0.301
+		c0.297-0.144,0.297-0.379,0-0.523l-0.622-0.301l-0.499-0.021v-1.054h0.748h0.398h0.125c0.55,0,1-0.45,1-1V36.91c0-0.55-0.45-1-1-1
+		h-0.125h-0.398h-2h-1.32c0.088-0.372,0.243-0.635,0.428-0.635c0.278,0,0.505-0.568,0.505-1.262v-0.558v-2.28v-0.262
+		c0-0.55-0.45-1-1-1h-0.262h-0.726c0.181-0.139,0.306-0.347,0.306-0.591v-0.563V26.25v-0.257c0-0.275-0.225-0.5-0.5-0.5h1.005v-0.75
+		h2.25v-5.236l4.542-2.586v-0.583h10.471v-1.85H63.4c0.694,0,1.262,0.227,1.262,0.505c0,0.278,0.568,0.505,1.262,0.505h0.568h2.271
+		h0.252c0.555,0,1.009-0.454,1.009-1.009v-0.252v-1.682v-2.019V8.851V8.599C70.024,8.044,69.57,7.59,69.015,7.59z M42.169,3.792
+		c-0.591,0.232-1.187,0.482-1.786,0.753C40.982,4.273,41.578,4.023,42.169,3.792z M38.429,5.495
+		c-0.011,0.006-0.021,0.012-0.032,0.017C38.408,5.507,38.418,5.501,38.429,5.495z"/>
+</g>
+</g>
+<script><![CDATA[
+//!export-start
+var _pn_setState=0;
+var _pb_boolState=false;
+var _pn_setInterval=500;
+var _pc_state0Colour='#808080';
+var _pc_state1Colour='#22c55e';
+var _pc_state2Colour='#eab308';
+var _pc_state3Colour='#ef4444';
+var _pc_state4Colour='#a855f7';
+var _pc_state5Colour='#3b82f6';
+//!export-end
+function postValue(id,v){console.log('FUXA post:',id,'=',v);}
+function putValue(id,v){v=Number(v);switch(id){
+  case '_pn_setState':
+    _pn_setState=v;
+    var colors=[_pc_state0Colour,_pc_state1Colour,_pc_state2Colour,_pc_state3Colour,_pc_state4Colour,_pc_state5Colour];
+    var c=colors[Math.min(v,5)]||'#808080';
+    var els=document.querySelectorAll('#shape path,#shape circle,#shape rect');
+    for(var k=0;k<els.length;k++){els[k].setAttribute('fill',c);}
+    break;
+  case '_pb_boolState':
+    _pb_boolState=v!==0;
+    var c2=_pb_boolState?_pc_state1Colour:_pc_state0Colour;
+    var els2=document.querySelectorAll('#shape path,#shape circle,#shape rect');
+    for(var j=0;j<els2.length;j++){els2[j].setAttribute('fill',c2);}
+    break;
+}}
+var o=new MutationObserver(function(m){m.forEach(function(mu){mu.removedNodes.forEach(function(n){if(n.id==='fuxa-dyn-sensor_rtd'){o.disconnect();}});});});
+o.observe(document.body,{childList:true,subtree:true});
+]]></script>
+</svg>

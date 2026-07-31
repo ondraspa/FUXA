@@ -1,0 +1,74 @@
+<svg id="fuxa-dyn-coolingtower" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+<defs>
+<linearGradient id="gs" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#f1f5f9"/><stop offset="30%" stop-color="#cbd5e1"/><stop offset="70%" stop-color="#94a3b8"/><stop offset="100%" stop-color="#64748b"/></linearGradient>
+<linearGradient id="gi" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#94a3b8"/><stop offset="50%" stop-color="#64748b"/><stop offset="100%" stop-color="#334155"/></linearGradient>
+<linearGradient id="gc" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#fca5a5"/><stop offset="40%" stop-color="#dc2626"/><stop offset="100%" stop-color="#991b1b"/></linearGradient>
+<linearGradient id="gb" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#7dd3fc"/><stop offset="40%" stop-color="#0284c7"/><stop offset="100%" stop-color="#0369a1"/></linearGradient>
+<filter id="s"><feDropShadow dx="2" dy="3" stdDeviation="3" flood-color="#0f172a" flood-opacity="0.35"/></filter>
+<style>.bkg{fill:#dbeafe}.frm{fill:#0f172a;rx:10;filter:url(#s)}</style>
+
+</defs>
+<rect width="200" height="200" class="bkg"/><rect x="6" y="6" width="188" height="188" class="frm"/>
+<g transform="translate(50,50)">
+
+<g id="shape">
+	<polygon fill="#000000" opacity="0.4" points="17.9,99.4 16.2,98.7 16.2,18.3 17.9,17.3 	"/>
+	<polygon fill="#000000" opacity="0.4" points="80.1,99.4 81.8,98.7 81.8,18.3 80.1,17.3 	"/>
+	<path fill="#000000" d="M79.8,22.3v-0.8h8.3v-4.2h-8.3v-0.9H65.3V0H32.7v6H32v1.3h-7.8c-0.6,0-1.1,0.5-1.1,1.1v3.2c0,0.6,0.5,1.1,1.1,1.1h0.7v4
+		h-6.6v5.9h0.5l0.1,0.7h-1.8c-0.4,0-0.8,0.3-0.8,0.8c0,0.4,0.3,0.8,0.8,0.8h2.1l0.4,1.9h-1.8c-0.4,0-0.8,0.3-0.8,0.8
+		s0.3,0.8,0.8,0.8h2.1l0.4,1.9h-1.8c-0.4,0-0.8,0.3-0.8,0.8s0.3,0.8,0.8,0.8h2l0.4,1.9H19c-0.4,0-0.8,0.3-0.8,0.8s0.3,0.8,0.8,0.8h2
+		l0.4,1.9h-1.8c-0.4,0-0.8,0.3-0.8,0.8s0.3,0.8,0.8,0.8h2l0.4,1.9h-1.7c-0.4,0-0.8,0.3-0.8,0.8s0.3,0.8,0.8,0.8h2l0.4,1.9h-1.7
+		c-0.4,0-0.8,0.3-0.8,0.8s0.3,0.8,0.8,0.8h2l0.4,1.9h-1.7c-0.4,0-0.8,0.3-0.8,0.8s0.3,0.8,0.8,0.8h2l0.4,1.9h-1.7
+		c-0.4,0-0.8,0.3-0.8,0.8s0.3,0.8,0.8,0.8h2l0.4,1.9h-1.7c-0.4,0-0.8,0.3-0.8,0.8s0.3,0.8,0.8,0.8h2l0.4,1.9h-1.7
+		c-0.4,0-0.8,0.3-0.8,0.8s0.3,0.8,0.8,0.8h2l0.4,1.9h-1.7c-0.4,0-0.8,0.3-0.8,0.8s0.3,0.8,0.8,0.8h2l0.4,1.9h-1.7
+		c-0.4,0-0.8,0.3-0.8,0.8s0.3,0.8,0.8,0.8h2l0.4,1.9h-1.7c-0.4,0-0.8,0.3-0.8,0.8s0.3,0.8,0.8,0.8h1.9l0.4,1.9H26
+		c-0.4,0-0.8,0.3-0.8,0.8s0.3,0.8,0.8,0.8H28l0.2,1h-1.8h-2.1h-1.6L17.4,100H25l1.3-10.6h20.8v2.2c0,4.4,3.6,7.9,7.9,7.9H73L73,100
+		h7.6l-0.1-0.5h7.6v-4.2h-8.5l-4.3-21.5h-1.6h-2h-1.8l0.2-1H72c0.4,0,0.8-0.3,0.8-0.8s-0.3-0.8-0.8-0.8h-1.7l0.4-1.9h1.9
+		c0.4,0,0.8-0.3,0.8-0.8s-0.3-0.8-0.8-0.8H71l0.4-1.9h2c0.4,0,0.8-0.3,0.8-0.8s-0.3-0.8-0.8-0.8h-1.7l0.4-1.9h2
+		c0.4,0,0.8-0.3,0.8-0.8s-0.3-0.8-0.8-0.8h-1.7l0.4-1.9h2c0.4,0,0.8-0.3,0.8-0.8s-0.3-0.8-0.8-0.8h-1.7l0.4-1.9h2
+		c0.4,0,0.8-0.3,0.8-0.8S75.6,54,75.2,54h-1.7l0.4-1.9h2c0.4,0,0.8-0.3,0.8-0.8s-0.3-0.8-0.8-0.8h-1.7l0.4-1.9h2
+		c0.4,0,0.8-0.3,0.8-0.8s-0.3-0.8-0.8-0.8h-1.7l0.4-1.9h2c0.4,0,0.8-0.3,0.8-0.8s-0.3-0.8-0.8-0.8h-1.7l0.4-1.9h2
+		c0.4,0,0.8-0.3,0.8-0.8s-0.3-0.8-0.8-0.8H76l0.4-1.9h2c0.4,0,0.8-0.3,0.8-0.8s-0.3-0.8-0.8-0.8h-1.8l0.4-1.9h2
+		c0.4,0,0.8-0.3,0.8-0.8s-0.3-0.8-0.8-0.8h-1.8l0.4-1.9h2c0.4,0,0.8-0.3,0.8-0.8s-0.3-0.8-0.8-0.8h-1.8l0.4-1.9h2.1
+		c0.4,0,0.8-0.3,0.8-0.8s-0.3-0.8-0.8-0.8h-1.8l0.4-1.9H81c0.4,0,0.8-0.3,0.8-0.8s-0.3-0.8-0.8-0.8h-1.8l0.1-0.7H79.8z M56.3,54
+		H41.8l-0.4-1.9h15.2L56.3,54z M55.6,57.5H42.4L42,55.5h14L55.6,57.5z M55,60.9H43L42.7,59h12.7L55,60.9z M54.4,64.4H43.7l-0.4-1.9
+		h11.4L54.4,64.4z M53.8,67.8h-9.5l-0.4-1.9h10.2L53.8,67.8z M41.1,50.6l-0.4-1.9h16.5l-0.4,1.9H41.1z M40.5,47.2l-0.4-1.9h17.7
+		l-0.4,1.9H40.5z M39.9,43.7l-0.4-1.9h19l-0.4,1.9H39.9z M39.2,40.3l-0.4-1.9h20.3l-0.4,1.9H39.2z M38.6,36.8l-0.4-1.9h21.5
+		l-0.4,1.9H38.6z M38,33.4l-0.4-1.9h22.8l-0.4,1.9H38z M37.3,29.9L37,28H61l-0.4,1.9H37.3z M36.7,26.5l-0.4-1.9h25.3l-0.4,1.9H36.7z
+		 M44.6,69.3h8.9l-0.4,1.9h-8.2L44.6,69.3z M62.1,22.1l-0.2,1H36.1l-0.2-1H62.1z M31.5,12.5H32v1.4h0.7v2.6h-1.3V12.5z M45.7,75.6
+		l-0.5-2.8h7.7l-0.5,2.8H45.7z M71.7,89.4l0.7,5.9H55.1c-2,0-3.7-1.7-3.7-3.7v-2.2H71.7z"/>
+	<polygon fill="#000000" opacity="0.4" points="45.7,75.6 35.9,22.1 62.1,22.1 52.3,75.6 	"/>
+</g>
+</g>
+<script><![CDATA[
+//!export-start
+var _pn_setState=0;
+var _pb_boolState=false;
+var _pn_setInterval=500;
+var _pc_state0Colour='#808080';
+var _pc_state1Colour='#22c55e';
+var _pc_state2Colour='#eab308';
+var _pc_state3Colour='#ef4444';
+var _pc_state4Colour='#a855f7';
+var _pc_state5Colour='#3b82f6';
+//!export-end
+function postValue(id,v){console.log('FUXA post:',id,'=',v);}
+function putValue(id,v){v=Number(v);switch(id){
+  case '_pn_setState':
+    _pn_setState=v;
+    var colors=[_pc_state0Colour,_pc_state1Colour,_pc_state2Colour,_pc_state3Colour,_pc_state4Colour,_pc_state5Colour];
+    var c=colors[Math.min(v,5)]||'#808080';
+    var els=document.querySelectorAll('#shape path,#shape circle,#shape rect');
+    for(var k=0;k<els.length;k++){els[k].setAttribute('fill',c);}
+    break;
+  case '_pb_boolState':
+    _pb_boolState=v!==0;
+    var c2=_pb_boolState?_pc_state1Colour:_pc_state0Colour;
+    var els2=document.querySelectorAll('#shape path,#shape circle,#shape rect');
+    for(var j=0;j<els2.length;j++){els2[j].setAttribute('fill',c2);}
+    break;
+}}
+var o=new MutationObserver(function(m){m.forEach(function(mu){mu.removedNodes.forEach(function(n){if(n.id==='fuxa-dyn-coolingtower'){o.disconnect();}});});});
+o.observe(document.body,{childList:true,subtree:true});
+]]></script>
+</svg>

@@ -1,0 +1,64 @@
+<svg id="fuxa-dyn-chiller1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+<defs>
+<linearGradient id="gs" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#f1f5f9"/><stop offset="30%" stop-color="#cbd5e1"/><stop offset="70%" stop-color="#94a3b8"/><stop offset="100%" stop-color="#64748b"/></linearGradient>
+<linearGradient id="gi" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#94a3b8"/><stop offset="50%" stop-color="#64748b"/><stop offset="100%" stop-color="#334155"/></linearGradient>
+<linearGradient id="gc" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#fca5a5"/><stop offset="40%" stop-color="#dc2626"/><stop offset="100%" stop-color="#991b1b"/></linearGradient>
+<linearGradient id="gb" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#7dd3fc"/><stop offset="40%" stop-color="#0284c7"/><stop offset="100%" stop-color="#0369a1"/></linearGradient>
+<filter id="s"><feDropShadow dx="2" dy="3" stdDeviation="3" flood-color="#0f172a" flood-opacity="0.35"/></filter>
+<style>.bkg{fill:#dbeafe}.frm{fill:#0f172a;rx:10;filter:url(#s)}</style>
+
+</defs>
+<rect width="200" height="200" class="bkg"/><rect x="6" y="6" width="188" height="188" class="frm"/>
+<g transform="translate(50,50)">
+
+<g id="shape">
+
+			<rect x="91.52" y="25.76" fill="#999999" width="8.48" height="21.352"/>
+
+		<path fill="#999999" d="M90.414,26.681l1.844-8.296h-1.844h-2.212h-3.068c-0.599-3.373-3.539-5.937-7.085-5.937H59.703
+			c-3.546,0-6.486,2.564-7.085,5.937H41.931c-0.599-3.373-3.539-5.937-7.085-5.937H16.501c-3.544,0-6.484,2.564-7.083,5.937H5.244
+			H3.031H1.188l1.844,8.296v66.182H1.188V99.5h91.069v-6.637h-1.844V26.681z M5.244,41.526l1.035-0.23l0.883,3.974l-1.919,0.426
+			V41.526z M55.632,84.752v8.111H37.321v-8.111H55.632z M88.202,45.61l-1.9-0.422l0.883-3.974l1.017,0.226V45.61z M71.241,84.752
+			h6.268l0.472-2.126l2.236,0.497l0.65-2.928l-2.235-0.497l0.883-3.975l2.272,0.505l0.65-2.928l-2.271-0.505l0.883-3.974
+			l2.308,0.513l0.65-2.928L81.7,65.894l0.883-3.975l2.344,0.521l0.65-2.928l-2.344-0.521l0.883-3.974l2.38,0.529l0.65-2.928
+			l-2.38-0.529l0.883-3.975l2.416,0.537l0.135-0.608v44.819h-16.96V84.752z M88.202,38.368l-0.367-0.081l0.367-1.65V38.368z
+			 M61.263,14.317H76.49c3.122,0,5.682,1.789,5.951,4.069h-27.13C55.581,16.105,58.14,14.317,61.263,14.317z M18.06,14.317h15.227
+			c3.122,0,5.682,1.789,5.951,4.069H12.11C12.379,16.105,14.939,14.317,18.06,14.317z M5.629,38.368l-0.385,0.086v-1.818
+			L5.629,38.368z M5.244,46.305l0.521,2.347l2.048-0.455l0.883,3.975l-2.011,0.447l0.65,2.928L9.347,55.1l0.883,3.974l-1.975,0.439
+			l0.65,2.928l1.976-0.439l0.883,3.975l-1.939,0.431l0.65,2.928l1.939-0.431l0.883,3.974l-1.903,0.423l0.65,2.928l1.903-0.423
+			l0.883,3.975l-1.867,0.415l0.65,2.928l1.867-0.415l0.454,2.044h5.775v8.111H5.244V46.305z"/>
+
+</g>
+</g>
+<script><![CDATA[
+//!export-start
+var _pn_setState=0;
+var _pb_boolState=false;
+var _pn_setInterval=500;
+var _pc_state0Colour='#808080';
+var _pc_state1Colour='#22c55e';
+var _pc_state2Colour='#eab308';
+var _pc_state3Colour='#ef4444';
+var _pc_state4Colour='#a855f7';
+var _pc_state5Colour='#3b82f6';
+//!export-end
+function postValue(id,v){console.log('FUXA post:',id,'=',v);}
+function putValue(id,v){v=Number(v);switch(id){
+  case '_pn_setState':
+    _pn_setState=v;
+    var colors=[_pc_state0Colour,_pc_state1Colour,_pc_state2Colour,_pc_state3Colour,_pc_state4Colour,_pc_state5Colour];
+    var c=colors[Math.min(v,5)]||'#808080';
+    var els=document.querySelectorAll('#shape path,#shape circle,#shape rect');
+    for(var k=0;k<els.length;k++){els[k].setAttribute('fill',c);}
+    break;
+  case '_pb_boolState':
+    _pb_boolState=v!==0;
+    var c2=_pb_boolState?_pc_state1Colour:_pc_state0Colour;
+    var els2=document.querySelectorAll('#shape path,#shape circle,#shape rect');
+    for(var j=0;j<els2.length;j++){els2[j].setAttribute('fill',c2);}
+    break;
+}}
+var o=new MutationObserver(function(m){m.forEach(function(mu){mu.removedNodes.forEach(function(n){if(n.id==='fuxa-dyn-chiller1'){o.disconnect();}});});});
+o.observe(document.body,{childList:true,subtree:true});
+]]></script>
+</svg>

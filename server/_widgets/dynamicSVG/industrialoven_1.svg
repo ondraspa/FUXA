@@ -1,0 +1,62 @@
+<svg id="fuxa-dyn-industrialoven_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+<defs>
+<linearGradient id="gs" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#f1f5f9"/><stop offset="30%" stop-color="#cbd5e1"/><stop offset="70%" stop-color="#94a3b8"/><stop offset="100%" stop-color="#64748b"/></linearGradient>
+<linearGradient id="gi" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#94a3b8"/><stop offset="50%" stop-color="#64748b"/><stop offset="100%" stop-color="#334155"/></linearGradient>
+<linearGradient id="gc" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#fca5a5"/><stop offset="40%" stop-color="#dc2626"/><stop offset="100%" stop-color="#991b1b"/></linearGradient>
+<linearGradient id="gb" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#7dd3fc"/><stop offset="40%" stop-color="#0284c7"/><stop offset="100%" stop-color="#0369a1"/></linearGradient>
+<filter id="s"><feDropShadow dx="2" dy="3" stdDeviation="3" flood-color="#0f172a" flood-opacity="0.35"/></filter>
+<style>.bkg{fill:#dbeafe}.frm{fill:#0f172a;rx:10;filter:url(#s)}</style>
+
+</defs>
+<rect width="200" height="200" class="bkg"/><rect x="6" y="6" width="188" height="188" class="frm"/>
+<g transform="translate(50,50)">
+
+<g id="shape">
+	<path fill="#B3B3B3" d="M100,55.054v-2.383H78.369v-9.432h2.716l-1.805,2.946v2.648h12.444v-2.648l-3.394-5.13h-1.866v-4.75
+		c0-0.895-0.725-1.62-1.62-1.62h-6.225c-0.539-2.217-2.524-3.869-4.907-3.869c-2.383,0-4.367,1.652-4.907,3.869h-3.27v-1.364H53.055
+		v1.364h-1.461v-3.189h-5.886v3.189H44.08c-0.792-2.143-2.847-3.674-5.265-3.674c-2.418,0-4.473,1.531-5.265,3.674H16.445
+		c-0.895,0-1.62,0.725-1.62,1.62v4.75h-1.866l-3.394,5.13v2.648h12.444v-2.648l-1.805-2.946h2.567v9.432H0v2.383h1.456v3.773H0
+		v2.383h0.549l-0.11,0.315l22.595,7.915v1.549h2.383v-1.787h14.804v1.787h2.383v-1.787h14.804v1.787h2.383v-1.787h14.804v1.787
+		h2.383v-1.554l22.583-7.911l-0.11-0.315H100v-2.383h-1.456v-3.773H100z M78.675,36.87h5.603v4.185h-1.855l-0.588,0.96h-3.466
+		v-0.331h-0.376l-0.484-2.129h-0.33C77.928,38.847,78.467,37.921,78.675,36.87z M65.534,36.87h3.213
+		c0.208,1.051,0.747,1.977,1.496,2.685h-0.479l-0.339,2.129h-3.891V36.87z M50.77,36.87h2.285v4.814H50.77V36.87z M44.432,36.87h2.1
+		v4.814h-2.1V36.87z M31.772,36.87h1.425v4.814h-1.425V36.87z M19.452,42.015l-0.588-0.96h-1.855V36.87h7.464v4.814h-1.704v0.331
+		H19.452z M4.937,58.827H3.839v-3.773h16.812v0.865H7.016c-1.217,0-2.204,0.987-2.204,2.204C4.812,58.371,4.862,58.605,4.937,58.827
+		z M6.747,61.21h16.287v0.993v0.728v3.889v0.096L6.747,61.21z M25.417,66.82v-3.889h6.586h1.919h6.299v3.889H25.417z M42.604,66.82
+		v-3.889h0.138h6.619h1.787h6.26v3.889H42.604z M59.792,66.82v-3.889h0.16h6.619h1.837h6.189v3.889H59.792z M76.979,66.911V66.82
+		v-3.889h0.066V61.21h16.208L76.979,66.911z M96.161,58.827h-1.263c0.075-0.222,0.125-0.456,0.125-0.703
+		c0-1.217-0.987-2.204-2.204-2.204h-14.45v-0.865h17.792V58.827z"/>
+</g>
+</g>
+<script><![CDATA[
+//!export-start
+var _pn_setState=0;
+var _pb_boolState=false;
+var _pn_setInterval=500;
+var _pc_state0Colour='#808080';
+var _pc_state1Colour='#22c55e';
+var _pc_state2Colour='#eab308';
+var _pc_state3Colour='#ef4444';
+var _pc_state4Colour='#a855f7';
+var _pc_state5Colour='#3b82f6';
+//!export-end
+function postValue(id,v){console.log('FUXA post:',id,'=',v);}
+function putValue(id,v){v=Number(v);switch(id){
+  case '_pn_setState':
+    _pn_setState=v;
+    var colors=[_pc_state0Colour,_pc_state1Colour,_pc_state2Colour,_pc_state3Colour,_pc_state4Colour,_pc_state5Colour];
+    var c=colors[Math.min(v,5)]||'#808080';
+    var els=document.querySelectorAll('#shape path,#shape circle,#shape rect');
+    for(var k=0;k<els.length;k++){els[k].setAttribute('fill',c);}
+    break;
+  case '_pb_boolState':
+    _pb_boolState=v!==0;
+    var c2=_pb_boolState?_pc_state1Colour:_pc_state0Colour;
+    var els2=document.querySelectorAll('#shape path,#shape circle,#shape rect');
+    for(var j=0;j<els2.length;j++){els2[j].setAttribute('fill',c2);}
+    break;
+}}
+var o=new MutationObserver(function(m){m.forEach(function(mu){mu.removedNodes.forEach(function(n){if(n.id==='fuxa-dyn-industrialoven_1'){o.disconnect();}});});});
+o.observe(document.body,{childList:true,subtree:true});
+]]></script>
+</svg>

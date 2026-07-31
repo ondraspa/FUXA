@@ -1,0 +1,49 @@
+<svg id="fuxa-dyn-injectionmolding4_r" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+<defs>
+<linearGradient id="gs" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#f1f5f9"/><stop offset="30%" stop-color="#cbd5e1"/><stop offset="70%" stop-color="#94a3b8"/><stop offset="100%" stop-color="#64748b"/></linearGradient>
+<linearGradient id="gi" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#94a3b8"/><stop offset="50%" stop-color="#64748b"/><stop offset="100%" stop-color="#334155"/></linearGradient>
+<linearGradient id="gc" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#fca5a5"/><stop offset="40%" stop-color="#dc2626"/><stop offset="100%" stop-color="#991b1b"/></linearGradient>
+<linearGradient id="gb" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#7dd3fc"/><stop offset="40%" stop-color="#0284c7"/><stop offset="100%" stop-color="#0369a1"/></linearGradient>
+<filter id="s"><feDropShadow dx="2" dy="3" stdDeviation="3" flood-color="#0f172a" flood-opacity="0.35"/></filter>
+<style>.bkg{fill:#dbeafe}.frm{fill:#0f172a;rx:10;filter:url(#s)}</style>
+
+</defs>
+<rect width="200" height="200" class="bkg"/><rect x="6" y="6" width="188" height="188" class="frm"/>
+<g transform="translate(50,50)">
+
+<g transform="translate(0 29.64374) scale(0.19051)"><g id="shape">
+        <path d="M.5,94v28.9s.3,0,.3,0v24.7s70.3,0,70.3,0v6.3s26.9,0,26.9,0v-6.3h13.2v6.3s26.9,0,26.9,0v-6.3h13.2v6.3s26.9,0,26.9,0v-6.3h13.2v6.3s26.9,0,26.9,0v-6.3h13.2v6.3s26.9,0,26.9,0v-6.3h13.2v51.7h-3.2s0,9.5,0,9.5h3.2v4.4s22.6,0,22.6,0v-4.4h125.2v4.4s22.6,0,22.6,0v-4.4h59.7v4.4s22.6,0,22.6,0v-86.9s0-36.2,0-36.2V3.3s-22.6,0-22.6,0v4.7h-59.7V3.3s-22.6,0-22.6,0v4.7h-125.2V3.3s-22.6,0-22.6,0v4.7h-3.2s0,9.5,0,9.5h3.2v51.4h-13.2v-6.3s-26.9,0-26.9,0v6.3h-13.2v-6.3s-26.9,0-26.9,0v6.3h-13.2v-6.3s-26.9,0-26.9,0v6.3h-13.2v-6.3s-26.9,0-26.9,0v6.3h-13.2v-6.3s-26.9,0-26.9,0v6.3h-14v-10.9s24.2-45,24.2-45V.5s-65.5,0-65.5,0v12.5s24.2,45,24.2,45v10.9H.8s0,25.1,0,25.1h-.3ZM419.4,17.5v6.2h-62.7s-1.2,0-1.2,0h-60.2s0,66.4,0,66.4l15.3,11.3v5.2s-1.3-.9-1.3-.9v-4.3s-15.3-11.3-15.3-11.3h.3s0-72.6,0-72.6c0,0,125.2,0,125.2,0ZM501.8,17.5v16.6h-59.7v-16.6h59.7ZM501.8,158.3h-59.7v-32s0-36.2,0-36.2v-34.7h59.7v34.7s0,36.2,0,36.2v32ZM442.1,199.3v-19.7h59.7v19.7h-59.7ZM419.4,199.3h-125.2v-72.9s-.3,0-.3,0l15.3-11.3v-4.3s1.3-.9,1.3-.9v5.2s-15.3,11.3-15.3,11.3v66.4s60.2,0,60.2,0h1.2s62.7,0,62.7,0v6.5s0,0,0,0Z" fill="#999"/>
+      </g></g>
+</g>
+<script><![CDATA[
+//!export-start
+var _pn_setState=0;
+var _pb_boolState=false;
+var _pn_setInterval=500;
+var _pc_state0Colour='#808080';
+var _pc_state1Colour='#22c55e';
+var _pc_state2Colour='#eab308';
+var _pc_state3Colour='#ef4444';
+var _pc_state4Colour='#a855f7';
+var _pc_state5Colour='#3b82f6';
+//!export-end
+function postValue(id,v){console.log('FUXA post:',id,'=',v);}
+function putValue(id,v){v=Number(v);switch(id){
+  case '_pn_setState':
+    _pn_setState=v;
+    var colors=[_pc_state0Colour,_pc_state1Colour,_pc_state2Colour,_pc_state3Colour,_pc_state4Colour,_pc_state5Colour];
+    var c=colors[Math.min(v,5)]||'#808080';
+    var els=document.querySelectorAll('#shape path,#shape circle,#shape rect');
+    for(var k=0;k<els.length;k++){els[k].setAttribute('fill',c);}
+    break;
+  case '_pb_boolState':
+    _pb_boolState=v!==0;
+    var c2=_pb_boolState?_pc_state1Colour:_pc_state0Colour;
+    var els2=document.querySelectorAll('#shape path,#shape circle,#shape rect');
+    for(var j=0;j<els2.length;j++){els2[j].setAttribute('fill',c2);}
+    break;
+}}
+var o=new MutationObserver(function(m){m.forEach(function(mu){mu.removedNodes.forEach(function(n){if(n.id==='fuxa-dyn-injectionmolding4_r'){o.disconnect();}});});});
+o.observe(document.body,{childList:true,subtree:true});
+]]></script>
+</svg>

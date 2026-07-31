@@ -1,0 +1,77 @@
+<svg id="fuxa-dyn-pressure_regulator" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+<defs>
+<linearGradient id="gs" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#f1f5f9"/><stop offset="30%" stop-color="#cbd5e1"/><stop offset="70%" stop-color="#94a3b8"/><stop offset="100%" stop-color="#64748b"/></linearGradient>
+<linearGradient id="gi" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#94a3b8"/><stop offset="50%" stop-color="#64748b"/><stop offset="100%" stop-color="#334155"/></linearGradient>
+<linearGradient id="gc" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#fca5a5"/><stop offset="40%" stop-color="#dc2626"/><stop offset="100%" stop-color="#991b1b"/></linearGradient>
+<linearGradient id="gb" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#7dd3fc"/><stop offset="40%" stop-color="#0284c7"/><stop offset="100%" stop-color="#0369a1"/></linearGradient>
+<filter id="s"><feDropShadow dx="2" dy="3" stdDeviation="3" flood-color="#0f172a" flood-opacity="0.35"/></filter>
+<style>.bkg{fill:#dbeafe}.frm{fill:#0f172a;rx:10;filter:url(#s)}</style>
+
+</defs>
+<rect width="200" height="200" class="bkg"/><rect x="6" y="6" width="188" height="188" class="frm"/>
+<g transform="translate(50,50)">
+
+<g id="shape">
+	<path fill="#006837" d="M96.149,41.926v2.34v0.077H67.955V29.5h-3.104v6.096h-11.27l2.509,3.867v5.468H43.91v-5.468l2.509-3.867
+		h-11.52V29.5h-4.104v14.843H3.851v-0.077v-2.34H0v2.34v11.468v2.34h3.851v-2.34v-0.077h26.945v14.454c0,0.605,0.895,1.5,2,1.5
+		h33.16c1.105,0,2-0.895,2-2V55.657h28.195v0.077v2.34H100v-2.34V44.266v-2.34H96.149z"/>
+	<polygon fill="#006837" points="67.859,29.319 67.859,27.372 30.891,27.372 30.891,29.319 48.745,29.319 48.745,33.691 
+		44.842,39.967 44.842,46.011 55.158,46.011 55.158,39.967 51.085,33.691 51.085,29.319 	"/>
+	<path fill="#006837" d="M45.148,17.494c-3.156,0-6.547-0.253-6.803-1.32l0.973-0.232c-0.013-0.053-0.037-0.086-0.046-0.095
+		c0.473,0.463,4.652,0.897,10.969,0.468c2.696-0.182,5.255-0.49,7.206-0.868l0.19,0.982c-1.99,0.385-4.593,0.699-7.329,0.884
+		C49.511,17.366,47.389,17.494,45.148,17.494z"/>
+	<path fill="#006837" d="M69.256,9.543H51.58V8.218h12.122c1.105,0,2-0.895,2-2V2.266c0-1.105-0.895-2-2-2H36.298
+		c-1.105,0-2,0.895-2,2v3.952c0,1.105,0.895,2,2,2H48.42v1.324H29.494c-1.245,0-2.254,1.009-2.254,2.254v24.166c0,0.552,0.448,1,1,1
+		h2.306V15.346H48.42v0.126H37.374v1.2h20.072c1.841,0.358,2.717,0.694,3,0.886c-0.381,0.275-1.619,0.646-3.57,0.989
+		c-2.19-0.375-4.729-0.626-6.568-0.75c-1.921-0.129-11.525-0.684-11.963,1.139l-0.028,0.116l0.028,0.116
+		c0.437,1.821,10.042,1.269,11.963,1.139c1.839-0.124,4.378-0.375,6.568-0.75c1.957,0.345,3.196,0.716,3.574,0.992
+		c-0.378,0.276-1.618,0.646-3.575,0.992c-2.189-0.375-4.728-0.626-6.566-0.75c-1.921-0.129-11.525-0.687-11.963,1.139l-0.028,0.116
+		l0.028,0.116c0.437,1.822,10.042,1.269,11.963,1.139c1.839-0.125,4.377-0.375,6.566-0.75c1.957,0.345,3.197,0.716,3.575,0.992
+		c-0.378,0.276-1.618,0.646-3.575,0.992c-2.189-0.376-4.728-0.626-6.566-0.751c-1.921-0.13-11.525-0.684-11.963,1.139l-0.028,0.116
+		l0.028,0.116c0.109,0.456,0.792,0.763,1.785,0.966h-2.756v1.2H62.46v-1.2h-1.072c-0.018-0.032-0.023-0.067-0.045-0.098
+		c-0.273-0.372-1.046-0.7-2.094-0.983c1.047-0.284,1.82-0.612,2.094-0.984c0.116-0.157,0.17-0.336,0.158-0.513
+		c0.012-0.177-0.042-0.355-0.158-0.513c-0.274-0.373-1.047-0.701-2.094-0.984c1.047-0.284,1.82-0.612,2.094-0.984
+		c0.116-0.157,0.17-0.336,0.158-0.513c0.012-0.177-0.042-0.355-0.158-0.513c-0.274-0.373-1.046-0.701-2.093-0.984
+		c1.046-0.283,1.819-0.612,2.093-0.984c0.116-0.157,0.17-0.336,0.157-0.513c0.011-0.164-0.034-0.33-0.133-0.479
+		c-0.054-0.081-0.152-0.224-0.458-0.404h1.552v-1.2h-6.046c-0.041-0.007-0.077-0.013-0.119-0.02l-0.003,0.02H51.58v-0.126h16.625
+		v21.617h2.306c0.552,0,1-0.448,1-1V11.797C71.511,10.552,70.502,9.543,69.256,9.543z M50.241,19.309
+		c-5.334,0.361-9.143,0.109-10.484-0.257c1.341-0.365,5.149-0.617,10.484-0.257c1.064,0.071,2.059,0.159,2.978,0.257
+		C52.3,19.149,51.305,19.237,50.241,19.309z M50.241,22.303c-5.334,0.36-9.144,0.108-10.484-0.257
+		c1.341-0.365,5.151-0.62,10.484-0.257c1.063,0.071,2.058,0.159,2.976,0.257C52.298,22.144,51.305,22.23,50.241,22.303z
+		 M50.241,24.782c1.064,0.072,2.06,0.159,2.978,0.257c-0.918,0.099-1.913,0.186-2.978,0.258c-5.335,0.36-9.142,0.109-10.484-0.258
+		C41.099,24.675,44.909,24.422,50.241,24.782z M59.442,26.121h-7.033c1.442-0.139,3.028-0.33,4.466-0.577
+		C57.959,25.735,58.822,25.934,59.442,26.121z"/>
+</g>
+</g>
+<script><![CDATA[
+//!export-start
+var _pn_setState=0;
+var _pb_boolState=false;
+var _pn_setInterval=500;
+var _pc_state0Colour='#808080';
+var _pc_state1Colour='#22c55e';
+var _pc_state2Colour='#eab308';
+var _pc_state3Colour='#ef4444';
+var _pc_state4Colour='#a855f7';
+var _pc_state5Colour='#3b82f6';
+//!export-end
+function postValue(id,v){console.log('FUXA post:',id,'=',v);}
+function putValue(id,v){v=Number(v);switch(id){
+  case '_pn_setState':
+    _pn_setState=v;
+    var colors=[_pc_state0Colour,_pc_state1Colour,_pc_state2Colour,_pc_state3Colour,_pc_state4Colour,_pc_state5Colour];
+    var c=colors[Math.min(v,5)]||'#808080';
+    var els=document.querySelectorAll('#shape path,#shape circle,#shape rect');
+    for(var k=0;k<els.length;k++){els[k].setAttribute('fill',c);}
+    break;
+  case '_pb_boolState':
+    _pb_boolState=v!==0;
+    var c2=_pb_boolState?_pc_state1Colour:_pc_state0Colour;
+    var els2=document.querySelectorAll('#shape path,#shape circle,#shape rect');
+    for(var j=0;j<els2.length;j++){els2[j].setAttribute('fill',c2);}
+    break;
+}}
+var o=new MutationObserver(function(m){m.forEach(function(mu){mu.removedNodes.forEach(function(n){if(n.id==='fuxa-dyn-pressure_regulator'){o.disconnect();}});});});
+o.observe(document.body,{childList:true,subtree:true});
+]]></script>
+</svg>

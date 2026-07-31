@@ -1,0 +1,50 @@
+<svg id="fuxa-dyn-compressor5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+<defs>
+<linearGradient id="gs" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#f1f5f9"/><stop offset="30%" stop-color="#cbd5e1"/><stop offset="70%" stop-color="#94a3b8"/><stop offset="100%" stop-color="#64748b"/></linearGradient>
+<linearGradient id="gi" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#94a3b8"/><stop offset="50%" stop-color="#64748b"/><stop offset="100%" stop-color="#334155"/></linearGradient>
+<linearGradient id="gc" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#fca5a5"/><stop offset="40%" stop-color="#dc2626"/><stop offset="100%" stop-color="#991b1b"/></linearGradient>
+<linearGradient id="gb" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#7dd3fc"/><stop offset="40%" stop-color="#0284c7"/><stop offset="100%" stop-color="#0369a1"/></linearGradient>
+<filter id="s"><feDropShadow dx="2" dy="3" stdDeviation="3" flood-color="#0f172a" flood-opacity="0.35"/></filter>
+<style>.bkg{fill:#dbeafe}.frm{fill:#0f172a;rx:10;filter:url(#s)}</style>
+
+</defs>
+<rect width="200" height="200" class="bkg"/><rect x="6" y="6" width="188" height="188" class="frm"/>
+<g transform="translate(50,50)">
+<circle cx="15" cy="80" r="0" data-port-id="pipe" data-port-dir="left" data-port-type="pipe"/>
+<circle cx="185" cy="80" r="0" data-port-id="pipe" data-port-dir="right" data-port-type="pipe"/>
+<g transform="translate(0 11.4715) scale(1)"><g id="shape">
+        <path d="M95,36.428V12.828h-17.1v18.7h-.6c-.2,0-.6-.5-.6-1.3v-.9h0c.4,0,.6-.3.6-.6v-7.1c0-.4-.3-.6-.6-.6h0v-.6c0-.5-.2-1-.4-1.3v-.2c0-.5-.4-.9-.9-.9h-2.2v-3.5h-5v3.4h-4.4v-2.6h-1.1v-4.5h5.1c.2,0,.3-.1.4-.2h1.1v-1.5h-1v-1.6h1v-1.5h-1v-1.6h1v-1.5h-1.3c-.1-.1-.2-.1-.3-.1h-17.9c-.1,0-.2.1-.3.1h-1v1.5h.9v1.6h-.9v1.5h.9v1.6h-.9v1.4h1c.1.1.2.2.4.2h5.1v4.5h-1.1v2.6h-1.7l-10.1-1.3v-.4l-6.8-.8v-.4l-1.5-.4v-.9H14.9v19.5h13.5v3.2H5.7c-2.9,0-5.2,5.7-5.2,12.7s2.3,12.7,5.2,12.7h7.4v7.7h-1.8v-.5h-2.2v3.8h2.2v-.5h1.8v.5h10.8v-11h.1v12.1h-5.1v1.5h8.9v-3.3h9.2c.3.6.9,1,1.6,1h2.4c.7,0,1.4-.4,1.6-1h12.9v.7h2.8c1.5,0,2.8-.9,3.3-2.2h1.9v.4h3.5c.5,0,.9-.4.9-.9v-8.3h5.2v13.6h8.9v-1.5h-5v-12.1h17.3c2.9,0,5.2-5.7,5.2-12.7,0-6.5-2-11.8-4.5-12.6ZM54.6,29.228h3.6c.9.5,1.9.8,3,.8s2.1-.3,3-.8h.3v1.5c0,.6-.6,1.1-1.3,1.1h-5.7c-1.2,0-2.2.6-2.2,1.4v.5h-.7v-4.5h0ZM33.8,32.528l1.5-.3v-.4l6.8-.8v-.4l9.8-1.3h1.8v4.6h-1.7c-1.1,0-2,.9-2,2v.4h-8.9v-3.6h-7.3v-.2ZM39.1,69.728h-.5c-.7,0-1.2.3-1.5.8h-9.3v-8.9h11.3v8.1ZM39.4,36.328h-9.2v-2.1h9.2v2.1ZM63.7,67.528h-1.9c-.6-1.3-1.8-2.2-3.3-2.2h-2.8v5.2h-13.1c-.3-.5-.9-.8-1.5-.8h-.5v-8h23.2c-.1,0-.1,5.8-.1,5.8ZM70.4,36.328h-3.7v-1.8h-1.6v1.8h-6.2v-.4c0-1.1-.9-2-2-2h-.6v-.5c0-.2.5-.5,1.3-.5h5.7c1.2,0,2.2-.9,2.2-2v-1.5h3.3c-.3.1-.5.4-.5.8v2.5c0,.5.4.9.9.9h1.4c-.2-.2-.2,2.7-.2,2.7ZM75.8,29.228h0c0,.1,0,0,0,0h0ZM77.9,35.228v1.1h-3.9v-2.8h1.4c.5,0,.9-.4.9-.9v-.9c.3.4.6.6,1,.6h.6v2.9ZM93.3,36.328h-13.7v-1.1h13.7s0,1.1,0,1.1Z" fill="#0071bc"/>
+      </g></g>
+</g>
+<script><![CDATA[
+//!export-start
+var _pn_setState=0;
+var _pb_boolState=false;
+var _pn_setInterval=500;
+var _pc_state0Colour='#808080';
+var _pc_state1Colour='#22c55e';
+var _pc_state2Colour='#eab308';
+var _pc_state3Colour='#ef4444';
+var _pc_state4Colour='#a855f7';
+var _pc_state5Colour='#3b82f6';
+//!export-end
+function postValue(id,v){console.log('FUXA post:',id,'=',v);}
+function putValue(id,v){v=Number(v);switch(id){
+  case '_pn_setState':
+    _pn_setState=v;
+    var colors=[_pc_state0Colour,_pc_state1Colour,_pc_state2Colour,_pc_state3Colour,_pc_state4Colour,_pc_state5Colour];
+    var c=colors[Math.min(v,5)]||'#808080';
+    var els=document.querySelectorAll('#shape path,#shape circle,#shape rect');
+    for(var k=0;k<els.length;k++){els[k].setAttribute('fill',c);}
+    break;
+  case '_pb_boolState':
+    _pb_boolState=v!==0;
+    var c2=_pb_boolState?_pc_state1Colour:_pc_state0Colour;
+    var els2=document.querySelectorAll('#shape path,#shape circle,#shape rect');
+    for(var j=0;j<els2.length;j++){els2[j].setAttribute('fill',c2);}
+    break;
+}}
+var o=new MutationObserver(function(m){m.forEach(function(mu){mu.removedNodes.forEach(function(n){if(n.id==='fuxa-dyn-compressor5'){o.disconnect();}});});});
+o.observe(document.body,{childList:true,subtree:true});
+]]></script>
+</svg>

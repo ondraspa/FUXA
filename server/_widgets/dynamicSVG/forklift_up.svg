@@ -1,0 +1,71 @@
+<svg id="fuxa-dyn-forklift_up" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+<defs>
+<linearGradient id="gs" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#f1f5f9"/><stop offset="30%" stop-color="#cbd5e1"/><stop offset="70%" stop-color="#94a3b8"/><stop offset="100%" stop-color="#64748b"/></linearGradient>
+<linearGradient id="gi" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#94a3b8"/><stop offset="50%" stop-color="#64748b"/><stop offset="100%" stop-color="#334155"/></linearGradient>
+<linearGradient id="gc" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#fca5a5"/><stop offset="40%" stop-color="#dc2626"/><stop offset="100%" stop-color="#991b1b"/></linearGradient>
+<linearGradient id="gb" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#7dd3fc"/><stop offset="40%" stop-color="#0284c7"/><stop offset="100%" stop-color="#0369a1"/></linearGradient>
+<filter id="s"><feDropShadow dx="2" dy="3" stdDeviation="3" flood-color="#0f172a" flood-opacity="0.35"/></filter>
+<style>.bkg{fill:#dbeafe}.frm{fill:#0f172a;rx:10;filter:url(#s)}</style>
+
+</defs>
+<rect width="200" height="200" class="bkg"/><rect x="6" y="6" width="188" height="188" class="frm"/>
+<g transform="translate(50,50)">
+
+<g id="shape">
+
+		<path fill="#009245" d="M57.237,77.476c0.76-0.678,1.248-1.654,1.248-2.75c0-0.401-0.08-0.779-0.199-1.141h-1.183
+			c0.171,0.346,0.276,0.73,0.276,1.141c0,0.286-0.058,0.556-0.143,0.813v-0.09h-0.563v-1.864h-1.136V26.877h-2.407v15.045
+			c-1.205,0.61-2.042,1.848-2.042,3.288v29.517c0,0.248,0.026,0.489,0.073,0.723h-1.536l-1.947-26.291
+			c-0.067-1.096-0.975-1.951-2.073-1.951H24.292c-1.147,0-2.077,0.93-2.077,2.077l-1.692,16.987l2.181,0.039l1.492-15.919h21.392
+			l2.057,25.058h-0.179l0.151-0.114l-5.573-6.72l-0.951,0.718l5.072,6.116h-1.438l-3.221,1.369v0l3.076-1.307l-4.714-4.445
+			l-0.86-0.207l5.634-4.252l-0.718-0.951l-0.36,0.272l-1.577-0.021l-4.727-0.598l-1.998-2.995c0,0-0.707-0.427-0.595-1.069
+			c0.059-0.338,1.203-0.736,1.256-1.162c0.042-0.34,0.064-0.67,0.064-0.987c0-0.201,0.245-0.396,0.228-0.585
+			c-0.016-0.182-0.224-0.358-0.306-0.527l1.748-0.184l-1.472-0.736c-0.063-0.212-0.136-0.413-0.223-0.553
+			c-0.621-1.009-1.805-1.602-3.05-1.411c-1.66,0.254-2.799,1.806-2.545,3.465l0.676-0.071c-0.194,0.795,0.441,1.616,0.441,2.346
+			c0,0.603-1.656,1.809-1.995,3.259c-0.362,1.548-0.597,3.491-0.644,5.255l-0.386-4.634c-0.103-1.238-1.138-2.19-2.38-2.19h-0.987
+			l0.315,3.781h-2.703H5.392c-2.638,0-4.776,2.138-4.776,4.776v10.638c-0.102,0.355-0.164,0.74-0.164,1.139v7.923h1.106v0h0.879
+			c-0.014,0.198-0.03,0.395-0.03,0.597c0,4.616,3.742,8.358,8.358,8.358c4.616,0,8.358-3.742,8.358-8.358
+			c0-0.202-0.016-0.399-0.03-0.597h18.379c0.913,5.089,5.353,8.955,10.704,8.955c6.012,0,10.886-4.874,10.886-10.886
+			c0-2.23-0.673-4.302-1.824-6.028V77.476z M27.177,77.161v3.364l-0.361,0l-0.291-3.666h0.349c0.115,0,0.224-0.02,0.335-0.036
+			C27.194,76.934,27.177,77.045,27.177,77.161z M34.8,67.289l3.033,0.552l3.503-0.233l-3.121,2.355l0.65,0.861l-1.084-0.261
+			l-3.442-0.326L34.8,67.289z M38.919,73.985l-9.552,0.796c-0.045,0.004-0.086,0.017-0.13,0.023
+			c0.024-0.173,0.032-0.351,0.017-0.533l-0.106-1.268c0.175,0.61,0.425,1.017,0.769,1.103c2.948,0.737,8.936-0.276,8.936-0.276
+			l0.139,0.157C38.967,73.988,38.944,73.983,38.919,73.985z M53.131,75.45H52.31c-0.068-0.231-0.115-0.471-0.115-0.723
+			c0-0.797,0.369-1.502,0.937-1.978V75.45z M53.131,71.439c-0.344,0.174-0.665,0.389-0.937,0.658V47.84
+			c0.272,0.268,0.593,0.483,0.937,0.658V71.439z M53.131,47.188c-0.568-0.476-0.937-1.181-0.937-1.978
+			c0-0.797,0.369-1.502,0.937-1.978V47.188z"/>
+
+</g>
+</g>
+<script><![CDATA[
+//!export-start
+var _pn_setState=0;
+var _pb_boolState=false;
+var _pn_setInterval=500;
+var _pc_state0Colour='#808080';
+var _pc_state1Colour='#22c55e';
+var _pc_state2Colour='#eab308';
+var _pc_state3Colour='#ef4444';
+var _pc_state4Colour='#a855f7';
+var _pc_state5Colour='#3b82f6';
+//!export-end
+function postValue(id,v){console.log('FUXA post:',id,'=',v);}
+function putValue(id,v){v=Number(v);switch(id){
+  case '_pn_setState':
+    _pn_setState=v;
+    var colors=[_pc_state0Colour,_pc_state1Colour,_pc_state2Colour,_pc_state3Colour,_pc_state4Colour,_pc_state5Colour];
+    var c=colors[Math.min(v,5)]||'#808080';
+    var els=document.querySelectorAll('#shape path,#shape circle,#shape rect');
+    for(var k=0;k<els.length;k++){els[k].setAttribute('fill',c);}
+    break;
+  case '_pb_boolState':
+    _pb_boolState=v!==0;
+    var c2=_pb_boolState?_pc_state1Colour:_pc_state0Colour;
+    var els2=document.querySelectorAll('#shape path,#shape circle,#shape rect');
+    for(var j=0;j<els2.length;j++){els2[j].setAttribute('fill',c2);}
+    break;
+}}
+var o=new MutationObserver(function(m){m.forEach(function(mu){mu.removedNodes.forEach(function(n){if(n.id==='fuxa-dyn-forklift_up'){o.disconnect();}});});});
+o.observe(document.body,{childList:true,subtree:true});
+]]></script>
+</svg>

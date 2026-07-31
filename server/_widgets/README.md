@@ -1,25 +1,66 @@
-**How to use**
+# FUXA SCADA Widget Library
 
-The widgets will be displayed in the editor panel and can be used from there directly, or download the SVG from here make your edits and follow the steps:
-```
-    1. Select desired SVG image
-    2. Click download Icon
-    3. Import SVG in Fuxa project using embedded Image Import
-```
+## Standards Compliance
 
-**How to contribute**
-```
-    1. Fork the Project
-    2. In your Fork enter FUXA/server/_widgets/(what type your SVG is, control, indicator, dynamicSVG)
-    3. Add File Arrow, Upload file
-    4. Select your SVG and name the commit
-    5. Commit the changes
-    6. Go back to FUXA main page in your Fork
-    7. Click Contribute 
-    8. Open a Pull Request
-```
-Please Include a description in the How to Use section of the SVG file, how your SVG control/indicator/dynamicSVG works and how to use it in Fuxa
+All widgets in this library follow **ISA-5.1-2022** instrumentation symbols and **ISA-101-2015** high-performance HMI guidelines:
 
-For more details on building SVG widgets and using them please see the Wiki
+- **ISA-5.1**: Standardized P&ID tag naming (PIT, FIC, LSH, etc.), line type conventions, and instrument bubble symbols
+- **ISA-101**: Gray-scale base HMIs with exception-based color usage (no bright colors for normal states)
 
-https://github.com/frangoteam/FUXA/wiki/HowTo-Widgets
+## Widget Database
+
+`widgets-database.json` is the master registry. Every SVG widget is documented there with:
+- ISA-5.1 tag and meaning
+- Variable names, units, and ranges
+- Connection port definitions
+- Animation behaviors
+- ISA-101 color palette
+
+## Categories
+
+| Category | Description | Widgets |
+|----------|-------------|---------|
+| `atex` | ATEX/IECEx certified explosion-proof instruments | 12 |
+| `classic` | Classic industrial process components | 8 |
+| `hvac` | Heating, ventilation, air conditioning equipment | 6 |
+| `instruments` | ISA-5.1 process measurement instruments | 6 |
+| `piping` | Piping components with ISA line types | 6 |
+| `pressing` | Stamping press line machinery | 4 |
+| `pressing-plant` | Complete press plant systems | 4 |
+| `galvanoplastics` | Electroforming/electroplating production equipment | 8 |
+
+## Widget SVG Specification
+
+Each SVG widget must include:
+
+1. **`data-port-id`** elements for snap-to-connect system
+2. **`<script>` block** with `//!export-start`/`//!export-end` variables
+3. **`postValue` / `putValue`** for FUXA data binding
+4. **`MutationObserver`** for cleanup when removed from DOM
+5. **CSS `@keyframes`** for flow/status animations
+6. **Element IDs** for FUXA variable binding at runtime
+
+## How to Use
+
+1. Open FUXA editor at `/editor/`
+2. Expand **Widgets** panel in the left sidebar
+3. Browse categories and click a widget to select it
+4. Click on the canvas to place the widget
+5. Connect pipes between widgets (ports snap automatically)
+6. Bind variables to widget properties via the property dialog
+
+## How to Contribute
+
+1. Fork the Project
+2. Enter `server/_widgets/<category>/`
+3. Add your SVG file following the widget specification above
+4. Register it in `widgets-database.json`
+5. Create a Pull Request
+
+Each widget SVG must include a FUXA integration script block with proper variable exports.
+
+## Resources
+
+- https://github.com/frangoteam/FUXA/wiki/HowTo-Widgets
+- ISA-5.1-2022: Instrumentation Symbols and Identification
+- ISA-101-2015: Human Machine Interfaces for Process Automation Systems

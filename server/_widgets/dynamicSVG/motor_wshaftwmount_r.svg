@@ -1,0 +1,57 @@
+<svg id="fuxa-dyn-motor_wshaftwmount_r" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+<defs>
+<linearGradient id="gs" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#f1f5f9"/><stop offset="30%" stop-color="#cbd5e1"/><stop offset="70%" stop-color="#94a3b8"/><stop offset="100%" stop-color="#64748b"/></linearGradient>
+<linearGradient id="gi" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#94a3b8"/><stop offset="50%" stop-color="#64748b"/><stop offset="100%" stop-color="#334155"/></linearGradient>
+<linearGradient id="gc" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#fca5a5"/><stop offset="40%" stop-color="#dc2626"/><stop offset="100%" stop-color="#991b1b"/></linearGradient>
+<linearGradient id="gb" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#7dd3fc"/><stop offset="40%" stop-color="#0284c7"/><stop offset="100%" stop-color="#0369a1"/></linearGradient>
+<filter id="s"><feDropShadow dx="2" dy="3" stdDeviation="3" flood-color="#0f172a" flood-opacity="0.35"/></filter>
+<style>.bkg{fill:#dbeafe}.frm{fill:#0f172a;rx:10;filter:url(#s)}</style>
+
+</defs>
+<rect width="200" height="200" class="bkg"/><rect x="6" y="6" width="188" height="188" class="frm"/>
+<g transform="translate(50,50)">
+<circle cx="50" cy="30" r="0" data-port-id="shaft" data-port-dir="left" data-port-type="shaft"/>
+<g transform="translate(0 18.52809) scale(0.22154)"><g id="shape">
+	<path fill="#146E46" d="M26.14,51.339h86.675v-2.077c0-1.99,3.08-3.603,6.879-3.603c3.799,0,6.879,1.613,6.879,3.603v2.077h6.879
+		v9.631h2.131v-0.682v-4.129h136.825V52.99h-12.382V22.723h-2.376V4.837h2.376h1.993c-0.263-0.137-0.41-0.287-0.41-0.445V2.774
+		c0-1.532,2.371-2.774,5.295-2.774c2.925,0,5.295,1.242,5.295,2.774v1.618c0,0.158-0.147,0.308-0.41,0.445h72.985
+		c-0.263-0.137-0.41-0.287-0.41-0.445V2.774c0-1.532,2.371-2.774,5.295-2.774c2.925,0,5.295,1.242,5.295,2.774v1.618
+		c0,0.158-0.147,0.308-0.41,0.445h1.786h2.376v17.885h-2.376V52.99h-12.382v7.98h16.51v46.777h9.006c1.105,0,2,0.895,2,2v26.892
+		h77.928c1.105,0,2,0.895,2,2v23.516c0,1.105-0.895,2-2,2h-77.928v26.892c0,1.105-0.895,2-2,2h-9.006v46.777h-35.771v28.412h9.508
+		v15.889H279.72l-0.556-2.752h-90.803l-0.556,2.752H133.33v-15.889h8.377v-28.412h-8.255v9.631h-7.331
+		c0.287,0.165,0.452,0.344,0.452,0.531v2.102c0,1.99-3.08,3.603-6.879,3.603c-3.799,0-6.879-1.613-6.879-3.603v-2.102
+		c0-0.187,0.164-0.366,0.452-0.531H26.14C11.703,249.454,0,205.104,0,150.397C0,95.689,11.703,51.339,26.14,51.339z"/>
+</g></g>
+</g>
+<script><![CDATA[
+//!export-start
+var _pn_setState=0;
+var _pb_boolState=false;
+var _pn_setInterval=500;
+var _pc_state0Colour='#808080';
+var _pc_state1Colour='#22c55e';
+var _pc_state2Colour='#eab308';
+var _pc_state3Colour='#ef4444';
+var _pc_state4Colour='#a855f7';
+var _pc_state5Colour='#3b82f6';
+//!export-end
+function postValue(id,v){console.log('FUXA post:',id,'=',v);}
+function putValue(id,v){v=Number(v);switch(id){
+  case '_pn_setState':
+    _pn_setState=v;
+    var colors=[_pc_state0Colour,_pc_state1Colour,_pc_state2Colour,_pc_state3Colour,_pc_state4Colour,_pc_state5Colour];
+    var c=colors[Math.min(v,5)]||'#808080';
+    var els=document.querySelectorAll('#shape path,#shape circle,#shape rect');
+    for(var k=0;k<els.length;k++){els[k].setAttribute('fill',c);}
+    break;
+  case '_pb_boolState':
+    _pb_boolState=v!==0;
+    var c2=_pb_boolState?_pc_state1Colour:_pc_state0Colour;
+    var els2=document.querySelectorAll('#shape path,#shape circle,#shape rect');
+    for(var j=0;j<els2.length;j++){els2[j].setAttribute('fill',c2);}
+    break;
+}}
+var o=new MutationObserver(function(m){m.forEach(function(mu){mu.removedNodes.forEach(function(n){if(n.id==='fuxa-dyn-motor_wshaftwmount_r'){o.disconnect();}});});});
+o.observe(document.body,{childList:true,subtree:true});
+]]></script>
+</svg>

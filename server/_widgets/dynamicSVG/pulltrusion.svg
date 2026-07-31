@@ -1,0 +1,62 @@
+<svg id="fuxa-dyn-pulltrusion" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+<defs>
+<linearGradient id="gs" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#f1f5f9"/><stop offset="30%" stop-color="#cbd5e1"/><stop offset="70%" stop-color="#94a3b8"/><stop offset="100%" stop-color="#64748b"/></linearGradient>
+<linearGradient id="gi" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#94a3b8"/><stop offset="50%" stop-color="#64748b"/><stop offset="100%" stop-color="#334155"/></linearGradient>
+<linearGradient id="gc" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#fca5a5"/><stop offset="40%" stop-color="#dc2626"/><stop offset="100%" stop-color="#991b1b"/></linearGradient>
+<linearGradient id="gb" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#7dd3fc"/><stop offset="40%" stop-color="#0284c7"/><stop offset="100%" stop-color="#0369a1"/></linearGradient>
+<filter id="s"><feDropShadow dx="2" dy="3" stdDeviation="3" flood-color="#0f172a" flood-opacity="0.35"/></filter>
+<style>.bkg{fill:#dbeafe}.frm{fill:#0f172a;rx:10;filter:url(#s)}</style>
+
+</defs>
+<rect width="200" height="200" class="bkg"/><rect x="6" y="6" width="188" height="188" class="frm"/>
+<g transform="translate(50,50)">
+
+<g id="shape">
+	<path fill="#808080" d="M100,49.672h-3.202V39.501h1.695v-1.884H86.408c-0.336-0.706-1.032-1.199-1.853-1.249v-1.2h-5.651v1.251
+		c-0.655,0.156-1.193,0.602-1.476,1.197H57.892v1.884h1.13v10.171h-1.884V36.085h-8.74h-0.359h0v-0.099h0v-0.359h0v-2.514H22.371
+		v2.514v0.359v10.29l-5.283-7.791c-0.912-3.609-4.171-6.283-8.063-6.283c-4.598,0-8.326,3.727-8.326,8.326
+		c0,3.267,1.886,6.087,4.625,7.45v1.705C2.586,51.046,0.7,53.866,0.7,57.133s1.886,6.087,4.625,7.45v3.265h7.4v-3.265
+		c2.739-1.363,4.625-4.183,4.625-7.45c0-2.896-1.481-5.445-3.725-6.937l8.745-0.396v5.029h-0.278v0.18v0.18v2.219l-1.351,10.519
+		h7.836l1.275-9.924h10.771l1.275,9.924h7.835l-1.351-10.519v-1.114h0.016v0h8.74v-3.607h0.377v4.332h1.907v10.924h2.59v-1.836
+		h9.476v1.836h2.59v-1.836h19.353v1.836h2.59V57.018h1.719v-4.332H100V49.672z M12.725,49.355v-1.376
+		c2.739-1.363,4.625-4.183,4.625-7.45c0-0.07-0.009-0.139-0.01-0.209l5.031,7.329v1.269L12.725,49.355z M93.431,60.517
+		c-0.576-1.597-2.089-2.745-3.885-2.745c-2.289,0-4.144,1.855-4.144,4.144c0,0.816,0.244,1.572,0.651,2.213h-4.711
+		c0.407-0.641,0.651-1.397,0.651-2.213c0-2.289-1.855-4.144-4.144-4.144c-1.682,0-3.123,1.007-3.772,2.447v-3.2h19.353V60.517z
+		 M74.078,64.128v-0.516c0.081,0.18,0.175,0.351,0.28,0.516H74.078z M62.012,57.018h9.476v7.11h-9.476v0h0V57.018z M93.039,64.128
+		c0.161-0.254,0.289-0.527,0.392-0.815v0.815H93.039z M77.428,39.501c0.283,0.595,0.821,1.042,1.477,1.198v3.135h1.167v3.579h3.317
+		v-3.579h1.167V40.75c0.821-0.05,1.518-0.543,1.853-1.249h8.506v10.171h-7.722V47.6H76.644v2.072h-2.731V39.501H77.428z
+		 M60.905,39.501h11.124v10.171h0v0H60.905V39.501z"/>
+</g>
+</g>
+<script><![CDATA[
+//!export-start
+var _pn_setState=0;
+var _pb_boolState=false;
+var _pn_setInterval=500;
+var _pc_state0Colour='#808080';
+var _pc_state1Colour='#22c55e';
+var _pc_state2Colour='#eab308';
+var _pc_state3Colour='#ef4444';
+var _pc_state4Colour='#a855f7';
+var _pc_state5Colour='#3b82f6';
+//!export-end
+function postValue(id,v){console.log('FUXA post:',id,'=',v);}
+function putValue(id,v){v=Number(v);switch(id){
+  case '_pn_setState':
+    _pn_setState=v;
+    var colors=[_pc_state0Colour,_pc_state1Colour,_pc_state2Colour,_pc_state3Colour,_pc_state4Colour,_pc_state5Colour];
+    var c=colors[Math.min(v,5)]||'#808080';
+    var els=document.querySelectorAll('#shape path,#shape circle,#shape rect');
+    for(var k=0;k<els.length;k++){els[k].setAttribute('fill',c);}
+    break;
+  case '_pb_boolState':
+    _pb_boolState=v!==0;
+    var c2=_pb_boolState?_pc_state1Colour:_pc_state0Colour;
+    var els2=document.querySelectorAll('#shape path,#shape circle,#shape rect');
+    for(var j=0;j<els2.length;j++){els2[j].setAttribute('fill',c2);}
+    break;
+}}
+var o=new MutationObserver(function(m){m.forEach(function(mu){mu.removedNodes.forEach(function(n){if(n.id==='fuxa-dyn-pulltrusion'){o.disconnect();}});});});
+o.observe(document.body,{childList:true,subtree:true});
+]]></script>
+</svg>

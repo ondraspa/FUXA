@@ -1,0 +1,56 @@
+<svg id="fuxa-dyn-watermeter" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+<defs>
+<linearGradient id="gs" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#f1f5f9"/><stop offset="30%" stop-color="#cbd5e1"/><stop offset="70%" stop-color="#94a3b8"/><stop offset="100%" stop-color="#64748b"/></linearGradient>
+<linearGradient id="gi" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#94a3b8"/><stop offset="50%" stop-color="#64748b"/><stop offset="100%" stop-color="#334155"/></linearGradient>
+<linearGradient id="gc" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#fca5a5"/><stop offset="40%" stop-color="#dc2626"/><stop offset="100%" stop-color="#991b1b"/></linearGradient>
+<linearGradient id="gb" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#7dd3fc"/><stop offset="40%" stop-color="#0284c7"/><stop offset="100%" stop-color="#0369a1"/></linearGradient>
+<filter id="s"><feDropShadow dx="2" dy="3" stdDeviation="3" flood-color="#0f172a" flood-opacity="0.35"/></filter>
+<style>.bkg{fill:#dbeafe}.frm{fill:#0f172a;rx:10;filter:url(#s)}</style>
+
+</defs>
+<rect width="200" height="200" class="bkg"/><rect x="6" y="6" width="188" height="188" class="frm"/>
+<g transform="translate(50,50)">
+<circle cx="100" cy="170" r="0" data-port-id="wire" data-port-dir="bottom" data-port-type="wire"/>
+<g id="shape">
+	<path fill="#BC4512" d="M94.4,18.6C94.4,18.6,94.3,18.6,94.4,18.6c-0.4-0.5-0.8-0.9-1.2-1.3c-0.1-0.1-0.1-0.1-0.2-0.2
+		c-0.4-0.4-0.8-0.8-1.3-1.1c0,0,0,0-0.1,0c-0.3-0.2-0.6-0.4-0.8-0.6c-0.1-0.1-0.2-0.1-0.3-0.2c-0.2-0.1-0.4-0.2-0.6-0.3
+		c-0.1-0.1-0.2-0.1-0.3-0.2c-0.3-0.1-0.6-0.3-0.9-0.4c-1.6-0.6-3.1-0.5-4.3,0.1l-18,10.4c-2.5-1.4-4.9-1.8-6.9-1.2L58,23.6
+		c-3.9-1.2-8.6-1.7-13.3-1.3c-0.4,0-0.7,0.1-1.1,0.1c-6.7,0.9-11.8,3.6-13.7,7.1c-0.5,1-0.8,2-0.8,3c0,3.5-1.1,9.7-7,12.7
+		c-1.9,1-3.2,2.9-3.7,5.8c-0.1,0.6-0.1,1.1-0.2,1.7L2.9,61.7c-1.4,0.7-2.4,2.2-2.8,4.4c-0.9,5.2,2.2,12.3,7,15.9
+		c2.8,2.1,5.5,2.6,7.4,1.5l0,0l16.2-9.4c2.6,1.1,5,1.2,6.8,0.2c0,0,1.5-0.9,4-1.9c3.6,0.7,7.6,0.9,11.6,0.4
+		c6.7-0.9,11.8-3.6,13.7-7.1c0.2-0.4,0.4-0.8,0.5-1.3c2.5-2.1,3.1-3.8,3.3-6c0.3-3.1,3.4-5.3,3.4-5.3c1.8-1,3.1-2.9,3.6-5.8
+		c0-0.1,0-0.3,0-0.4L96,36.4c1.4-0.7,2.4-2.2,2.7-4.4C99.4,27.9,97.5,22.5,94.4,18.6z"/>
+</g>
+</g>
+<script><![CDATA[
+//!export-start
+var _pn_setState=0;
+var _pb_boolState=false;
+var _pn_setInterval=500;
+var _pc_state0Colour='#808080';
+var _pc_state1Colour='#22c55e';
+var _pc_state2Colour='#eab308';
+var _pc_state3Colour='#ef4444';
+var _pc_state4Colour='#a855f7';
+var _pc_state5Colour='#3b82f6';
+//!export-end
+function postValue(id,v){console.log('FUXA post:',id,'=',v);}
+function putValue(id,v){v=Number(v);switch(id){
+  case '_pn_setState':
+    _pn_setState=v;
+    var colors=[_pc_state0Colour,_pc_state1Colour,_pc_state2Colour,_pc_state3Colour,_pc_state4Colour,_pc_state5Colour];
+    var c=colors[Math.min(v,5)]||'#808080';
+    var els=document.querySelectorAll('#shape path,#shape circle,#shape rect');
+    for(var k=0;k<els.length;k++){els[k].setAttribute('fill',c);}
+    break;
+  case '_pb_boolState':
+    _pb_boolState=v!==0;
+    var c2=_pb_boolState?_pc_state1Colour:_pc_state0Colour;
+    var els2=document.querySelectorAll('#shape path,#shape circle,#shape rect');
+    for(var j=0;j<els2.length;j++){els2[j].setAttribute('fill',c2);}
+    break;
+}}
+var o=new MutationObserver(function(m){m.forEach(function(mu){mu.removedNodes.forEach(function(n){if(n.id==='fuxa-dyn-watermeter'){o.disconnect();}});});});
+o.observe(document.body,{childList:true,subtree:true});
+]]></script>
+</svg>

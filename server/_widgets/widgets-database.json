@@ -1,0 +1,4137 @@
+{
+  "_meta": {
+    "title": "FUXA SCADA Widget Database",
+    "version": "1.0.0",
+    "standards": [
+      "ISA-5.1-2022",
+      "ISA-101-2015"
+    ],
+    "description": "Complete widget registry compliant with ISA-5.1 instrumentation symbols and ISA-101 high-performance HMI guidelines."
+  },
+  "categories": {
+    "instruments": {
+      "isa101_palette": {
+        "background": "#e8e8e8",
+        "normal": "#f0f0f0",
+        "running": "#4caf50",
+        "stopped": "#f44336",
+        "warning": "#ff9800",
+        "info": "#2196f3",
+        "text": "#212121",
+        "disabled": "#9e9e9e"
+      },
+      "widgets": {
+        "pressure-transmitter": {
+          "isa51_tag": "PIT",
+          "isa51_meaning": "Pressure Indicator Transmitter",
+          "variables": {
+            "_pn_pressure": {
+              "unit": "bar",
+              "type": "number",
+              "range": "0-400"
+            },
+            "_pb_alarm": {
+              "type": "boolean"
+            }
+          },
+          "connection_ports": [
+            {
+              "id": "process",
+              "direction": "left",
+              "type": "impulse_line"
+            }
+          ],
+          "animations": {
+            "alarm": {
+              "type": "flash",
+              "color": "#f44336"
+            }
+          },
+          "isa101_display": "exception",
+          "description": "Gauge with circular dial showing process pressure. Gray background, red alarm flash."
+        },
+        "flow-transmitter": {
+          "isa51_tag": "FIT",
+          "isa51_meaning": "Flow Indicator Transmitter",
+          "variables": {
+            "_pn_flow": {
+              "unit": "m³/h",
+              "type": "number",
+              "range": "0-1000"
+            },
+            "_pb_alarm": {
+              "type": "boolean"
+            }
+          },
+          "animations": {
+            "flow_line": {
+              "type": "dashed_march",
+              "color": "#616161"
+            }
+          },
+          "description": "Orifice plate with differential pressure lines to transmitter."
+        },
+        "level-transmitter": {
+          "isa51_tag": "LIT",
+          "isa51_meaning": "Level Indicator Transmitter",
+          "variables": {
+            "_pn_level": {
+              "unit": "%",
+              "type": "number",
+              "range": "0-100"
+            },
+            "_pb_alarm": {
+              "type": "boolean"
+            }
+          },
+          "animations": {
+            "level_fill": {
+              "type": "fill",
+              "color": "#90caf9"
+            }
+          },
+          "description": "Vessel with level measuring element and transmitter head."
+        },
+        "temperature-transmitter": {
+          "isa51_tag": "TIT",
+          "isa51_meaning": "Temperature Indicator Transmitter",
+          "variables": {
+            "_pn_temp": {
+              "unit": "°C",
+              "type": "number",
+              "range": "-50-500"
+            },
+            "_pb_alarm": {
+              "type": "boolean"
+            }
+          },
+          "connection_ports": [
+            {
+              "id": "thermowell",
+              "direction": "left",
+              "type": "process"
+            }
+          ],
+          "description": "Thermowell with connection head and transmitter."
+        },
+        "analytical-transmitter": {
+          "isa51_tag": "AIT",
+          "isa51_meaning": "Analysis Indicator Transmitter",
+          "variables": {
+            "_pn_ph": {
+              "unit": "pH",
+              "type": "number",
+              "range": "0-14"
+            },
+            "_pb_alarm": {
+              "type": "boolean"
+            }
+          }
+        },
+        "weight-transmitter": {
+          "isa51_tag": "WIT",
+          "isa51_meaning": "Weight Indicator Transmitter",
+          "variables": {
+            "_pn_weight": {
+              "unit": "kg",
+              "type": "number"
+            },
+            "_pb_ok": {
+              "type": "boolean"
+            }
+          }
+        }
+      }
+    },
+    "piping": {
+      "isa51_palette": {
+        "process_pipe": "#616161",
+        "impulse_line": "#9e9e9e",
+        "capillary": "#bdbdbd",
+        "electrical": "#ff9800",
+        "pneumatic": "#2196f3",
+        "hydraulic": "#4caf50"
+      },
+      "line_types": {
+        "process": {
+          "stroke": "#616161",
+          "width": "6px",
+          "dash": "none"
+        },
+        "impulse": {
+          "stroke": "#9e9e9e",
+          "width": "3px",
+          "dash": "none"
+        },
+        "electrical": {
+          "stroke": "#ff9800",
+          "width": "2px",
+          "dash": "4,2"
+        },
+        "pneumatic": {
+          "stroke": "#2196f3",
+          "width": "2px",
+          "dash": "6,2"
+        },
+        "capillary": {
+          "stroke": "#bdbdbd",
+          "width": "2px",
+          "dash": "2,4"
+        },
+        "hydraulic": {
+          "stroke": "#4caf50",
+          "width": "3px",
+          "dash": "8,4"
+        }
+      },
+      "widgets": {
+        "gate-valve": {
+          "isa51_tag": "V",
+          "variables": {
+            "_pn_position": {
+              "unit": "%",
+              "type": "number",
+              "range": "0-100"
+            },
+            "_pb_open": {
+              "type": "boolean"
+            }
+          },
+          "animations": {
+            "gate": {
+              "type": "translate_y",
+              "range": "0-100"
+            }
+          },
+          "connection_ports": [
+            {
+              "id": "inlet",
+              "direction": "left",
+              "type": "flanged"
+            },
+            {
+              "id": "outlet",
+              "direction": "right",
+              "type": "flanged"
+            }
+          ]
+        },
+        "check-valve": {
+          "isa51_tag": "V",
+          "variables": {
+            "_pn_flow": {
+              "unit": "m³/h",
+              "type": "number"
+            }
+          },
+          "animations": {
+            "flap": {
+              "type": "rotate",
+              "range": "0-20"
+            }
+          }
+        },
+        "elbow": {
+          "connection_ports": [
+            {
+              "id": "inlet",
+              "direction": "left",
+              "type": "welded"
+            },
+            {
+              "id": "outlet",
+              "direction": "bottom",
+              "type": "welded"
+            }
+          ]
+        },
+        "expansion-joint": {
+          "animations": {
+            "bellows": {
+              "type": "scale_x",
+              "range": "0.8-1.2"
+            }
+          }
+        },
+        "pipe-tee": {
+          "connection_ports": [
+            {
+              "id": "left",
+              "direction": "left",
+              "type": "welded"
+            },
+            {
+              "id": "right",
+              "direction": "right",
+              "type": "welded"
+            },
+            {
+              "id": "down",
+              "direction": "bottom",
+              "type": "welded"
+            }
+          ],
+          "variables": {
+            "_pn_flow": {
+              "unit": "m³/h",
+              "type": "number"
+            },
+            "_pb_active": {
+              "type": "boolean"
+            }
+          }
+        },
+        "pipe-reducer": {
+          "connection_ports": [
+            {
+              "id": "inlet",
+              "direction": "left",
+              "type": "welded"
+            },
+            {
+              "id": "outlet",
+              "direction": "right",
+              "type": "welded"
+            }
+          ],
+          "variables": {
+            "_pn_flow": {
+              "unit": "m³/h",
+              "type": "number"
+            },
+            "_pb_active": {
+              "type": "boolean"
+            }
+          }
+        },
+        "pipe-valve": {
+          "isa51_tag": "V",
+          "variables": {
+            "_pn_position": {
+              "unit": "%",
+              "type": "number",
+              "range": "0-100"
+            },
+            "_pb_open": {
+              "type": "boolean"
+            }
+          },
+          "connection_ports": [
+            {
+              "id": "inlet",
+              "direction": "left",
+              "type": "flanged"
+            },
+            {
+              "id": "outlet",
+              "direction": "right",
+              "type": "flanged"
+            }
+          ]
+        }
+      }
+    },
+    "hvac": {
+      "widgets": {
+        "air-handler": {
+          "variables": {
+            "_pn_speed": {
+              "unit": "RPM",
+              "type": "number"
+            },
+            "_pb_running": {
+              "type": "boolean"
+            }
+          },
+          "animations": {
+            "fan": {
+              "type": "rotate",
+              "speed_variable": "_pn_speed"
+            }
+          }
+        },
+        "chiller": {
+          "variables": {
+            "_pn_coolantTemp": {
+              "unit": "°C",
+              "type": "number"
+            },
+            "_pn_condPress": {
+              "unit": "bar",
+              "type": "number"
+            }
+          }
+        },
+        "boiler": {
+          "variables": {
+            "_pn_temp": {
+              "unit": "°C",
+              "type": "number"
+            },
+            "_pn_pressure": {
+              "unit": "bar",
+              "type": "number"
+            },
+            "_pb_fire": {
+              "type": "boolean"
+            }
+          },
+          "animations": {
+            "flame": {
+              "type": "scale",
+              "speed_variable": "_pb_fire"
+            }
+          }
+        },
+        "fan": {
+          "isa51_tag": "M",
+          "variables": {
+            "_pn_speed": {
+              "unit": "RPM",
+              "type": "number"
+            },
+            "_pb_running": {
+              "type": "boolean"
+            }
+          },
+          "animations": {
+            "rotor": {
+              "type": "rotate",
+              "speed_variable": "_pn_speed"
+            }
+          }
+        },
+        "cooling-tower": {
+          "variables": {
+            "_pn_temp": {
+              "unit": "°C",
+              "type": "number"
+            },
+            "_pn_flow": {
+              "unit": "m³/h",
+              "type": "number"
+            }
+          }
+        },
+        "heat-pump": {
+          "variables": {
+            "_pn_evapTemp": {
+              "unit": "°C",
+              "type": "number"
+            },
+            "_pn_condTemp": {
+              "unit": "°C",
+              "type": "number"
+            }
+          }
+        }
+      }
+    },
+    "pressing": {
+      "widgets": {
+        "hydraulic-press": {
+          "variables": {
+            "_pn_tonnage": {
+              "unit": "ton",
+              "type": "number"
+            },
+            "_pn_position": {
+              "unit": "mm",
+              "type": "number"
+            },
+            "_pb_cycle": {
+              "type": "boolean"
+            }
+          },
+          "animations": {
+            "ram": {
+              "type": "translate_y",
+              "variable": "_pn_position"
+            }
+          }
+        },
+        "press-brake": {
+          "variables": {
+            "_pn_angle": {
+              "unit": "deg",
+              "type": "number"
+            }
+          },
+          "animations": {
+            "beam": {
+              "type": "rotate"
+            }
+          }
+        },
+        "feeder": {
+          "variables": {
+            "_pn_speed": {
+              "unit": "m/min",
+              "type": "number"
+            }
+          },
+          "animations": {
+            "rollers": {
+              "type": "rotate",
+              "speed_variable": "_pn_speed"
+            }
+          }
+        },
+        "uncoiler": {
+          "variables": {
+            "_pn_speed": {
+              "unit": "m/min",
+              "type": "number"
+            },
+            "_pb_running": {
+              "type": "boolean"
+            }
+          }
+        }
+      }
+    },
+    "pressing-plant": {
+      "widgets": {
+        "press-line": {
+          "variables": {
+            "_pn_ctime": {
+              "unit": "s",
+              "type": "number"
+            },
+            "_pn_parts": {
+              "unit": "pcs",
+              "type": "number"
+            },
+            "_pb_running": {
+              "type": "boolean"
+            }
+          }
+        },
+        "transfer-system": {
+          "variables": {
+            "_pn_speed": {
+              "unit": "m/min",
+              "type": "number"
+            }
+          }
+        },
+        "die-cart": {
+          "variables": {
+            "_pn_pos": {
+              "unit": "m",
+              "type": "number"
+            },
+            "_pb_moving": {
+              "type": "boolean"
+            }
+          }
+        },
+        "scrap-conveyor": {
+          "variables": {
+            "_pn_speed": {
+              "unit": "m/min",
+              "type": "number"
+            }
+          },
+          "animations": {
+            "belt": {
+              "type": "scroll",
+              "speed_variable": "_pn_speed"
+            }
+          }
+        }
+      }
+    },
+    "galvanoplastics": {
+      "widgets": {
+        "vlpp-preplating": {
+          "description": "Digital Matrix VLPP-1000 4-position preplating machine",
+          "variables": {
+            "_pn_current": {
+              "unit": "A",
+              "type": "number"
+            },
+            "_pn_voltage": {
+              "unit": "V",
+              "type": "number"
+            }
+          }
+        },
+        "main-plating-tank": {
+          "description": "Alpha/Toolex Cinram P250-3 3-position main plating",
+          "variables": {
+            "_pn_temp": {
+              "unit": "°C",
+              "type": "number"
+            },
+            "_pn_ph": {
+              "unit": "pH",
+              "type": "number"
+            }
+          }
+        },
+        "silvering-station": {
+          "variables": {
+            "_pn_level": {
+              "unit": "%",
+              "type": "number"
+            },
+            "_pn_temp": {
+              "unit": "°C",
+              "type": "number"
+            }
+          }
+        },
+        "desilvering-station": {
+          "variables": {
+            "_pn_level": {
+              "unit": "%",
+              "type": "number"
+            },
+            "_pn_temp": {
+              "unit": "°C",
+              "type": "number"
+            }
+          }
+        },
+        "backsanding-machine": {
+          "variables": {
+            "_pn_speed": {
+              "unit": "RPM",
+              "type": "number"
+            }
+          }
+        },
+        "passivation-station": {
+          "variables": {
+            "_pn_level": {
+              "unit": "%",
+              "type": "number"
+            },
+            "_pn_temp": {
+              "unit": "°C",
+              "type": "number"
+            }
+          }
+        },
+        "power-supply-rack": {
+          "variables": {
+            "_pn_voltage": {
+              "unit": "V",
+              "type": "number"
+            },
+            "_pn_current": {
+              "unit": "A",
+              "type": "number"
+            }
+          }
+        },
+        "centering-press": {
+          "variables": {
+            "_pn_pressure": {
+              "unit": "bar",
+              "type": "number"
+            }
+          }
+        },
+        "wastewater-treatment": {
+          "description": "Alfatech Galvano ion exchange wastewater treatment system",
+          "variables": {
+            "_pn_resin": {
+              "unit": "%",
+              "type": "number",
+              "range": "0-100"
+            },
+            "_pb_active": {
+              "type": "boolean"
+            }
+          },
+          "connection_ports": [
+            {
+              "id": "in",
+              "direction": "left",
+              "type": "pipe"
+            },
+            {
+              "id": "out",
+              "direction": "right",
+              "type": "pipe"
+            }
+          ]
+        },
+        "deionization-column": {
+          "description": "Flojet diaphragm pump deionization column",
+          "variables": {
+            "_pn_flow": {
+              "unit": "L/min",
+              "type": "number",
+              "range": "0-100"
+            },
+            "_pb_running": {
+              "type": "boolean"
+            }
+          },
+          "connection_ports": [
+            {
+              "id": "in",
+              "direction": "left",
+              "type": "pipe"
+            },
+            {
+              "id": "out",
+              "direction": "right",
+              "type": "pipe"
+            }
+          ]
+        },
+        "wash-station": {
+          "description": "Double incorrosible polypropylene wash station with footswitch",
+          "variables": {
+            "_pn_water": {
+              "unit": "%",
+              "type": "number",
+              "range": "0-100"
+            },
+            "_pb_active": {
+              "type": "boolean"
+            }
+          },
+          "connection_ports": [
+            {
+              "id": "in",
+              "direction": "left",
+              "type": "pipe"
+            },
+            {
+              "id": "out",
+              "direction": "right",
+              "type": "pipe"
+            }
+          ]
+        },
+        "laminar-flow-booth": {
+          "description": "Alpha/Toolex PPB laminar flow preparation booth",
+          "variables": {
+            "_pb_fan": {
+              "type": "boolean"
+            }
+          },
+          "connection_ports": [
+            {
+              "id": "in",
+              "direction": "left",
+              "type": "pipe"
+            },
+            {
+              "id": "out",
+              "direction": "right",
+              "type": "pipe"
+            }
+          ]
+        },
+        "drying-booth": {
+          "description": "Karl Bleimehl preparation/drying booth",
+          "variables": {
+            "_pn_temp": {
+              "unit": "°C",
+              "type": "number",
+              "range": "20-100"
+            },
+            "_pb_heating": {
+              "type": "boolean"
+            }
+          },
+          "connection_ports": [
+            {
+              "id": "in",
+              "direction": "left",
+              "type": "pipe"
+            },
+            {
+              "id": "out",
+              "direction": "right",
+              "type": "pipe"
+            }
+          ]
+        },
+        "chemicals-cabinet": {
+          "description": "Chemical storage cabinet with 4 bottles",
+          "variables": {
+            "_pn_bottle": {
+              "unit": "%",
+              "type": "array",
+              "items": "0-100"
+            },
+            "_pb_secured": {
+              "type": "boolean"
+            }
+          },
+          "connection_ports": [
+            {
+              "id": "in",
+              "direction": "left",
+              "type": "pipe"
+            },
+            {
+              "id": "out",
+              "direction": "right",
+              "type": "pipe"
+            }
+          ]
+        },
+        "sulfamate-tank": {
+          "description": "100% nickel sulfamate tank (200L)",
+          "variables": {
+            "_pn_level": {
+              "unit": "%",
+              "type": "number",
+              "range": "0-100"
+            },
+            "_pb_ok": {
+              "type": "boolean"
+            }
+          },
+          "connection_ports": [
+            {
+              "id": "in",
+              "direction": "left",
+              "type": "pipe"
+            },
+            {
+              "id": "out",
+              "direction": "right",
+              "type": "pipe"
+            }
+          ]
+        },
+        "ro-softener": {
+          "description": "Pentair-Pentek-Clack RO + water softener system",
+          "variables": {
+            "_pn_soft": {
+              "unit": "%",
+              "type": "number",
+              "range": "0-100"
+            },
+            "_pn_brine": {
+              "unit": "%",
+              "type": "number",
+              "range": "0-100"
+            },
+            "_pb_active": {
+              "type": "boolean"
+            }
+          },
+          "connection_ports": [
+            {
+              "id": "in",
+              "direction": "left",
+              "type": "pipe"
+            },
+            {
+              "id": "out",
+              "direction": "right",
+              "type": "pipe"
+            }
+          ]
+        }
+      }
+    },
+    "atex": {
+      "widgets": {
+        "differential-pressure": {
+          "variables": {
+            "_pn_pressure": {
+              "unit": "Pa",
+              "type": "number"
+            },
+            "_pb_alarm": {
+              "type": "boolean"
+            }
+          }
+        },
+        "duct": {
+          "variables": {
+            "_pn_flow": {
+              "unit": "m³/h",
+              "type": "number"
+            },
+            "_pb_status": {
+              "type": "boolean"
+            }
+          }
+        },
+        "filter-stage": {
+          "variables": {
+            "_pn_dp": {
+              "unit": "Pa",
+              "type": "number"
+            },
+            "_pb_blocked": {
+              "type": "boolean"
+            }
+          }
+        },
+        "humidity-sensor": {
+          "variables": {
+            "_pn_humidity": {
+              "unit": "%RH",
+              "type": "number"
+            },
+            "_pb_alarm": {
+              "type": "boolean"
+            }
+          }
+        },
+        "temperature-sensor": {
+          "variables": {
+            "_pn_temp": {
+              "unit": "°C",
+              "type": "number"
+            },
+            "_pb_alarm": {
+              "type": "boolean"
+            }
+          }
+        },
+        "voc-sensor": {
+          "variables": {
+            "_pn_voc": {
+              "unit": "ppm",
+              "type": "number"
+            },
+            "_pb_alarm": {
+              "type": "boolean"
+            }
+          }
+        }
+      }
+    },
+    "classic": {
+      "widgets": {
+        "centrifugal-pump": {
+          "variables": {
+            "_pn_speed": {
+              "unit": "RPM",
+              "type": "number"
+            },
+            "_pb_running": {
+              "type": "boolean"
+            }
+          }
+        },
+        "electric-motor": {
+          "variables": {
+            "_pn_speed": {
+              "unit": "RPM",
+              "type": "number"
+            },
+            "_pn_current": {
+              "unit": "A",
+              "type": "number"
+            }
+          }
+        },
+        "gate-valve": {
+          "variables": {
+            "_pn_position": {
+              "unit": "%",
+              "type": "number"
+            },
+            "_pb_open": {
+              "type": "boolean"
+            }
+          }
+        },
+        "storage-tank": {
+          "variables": {
+            "_pn_level": {
+              "unit": "%",
+              "type": "number"
+            },
+            "_pn_temp": {
+              "unit": "°C",
+              "type": "number"
+            }
+          }
+        }
+      }
+    },
+    "dynamicSVG": {
+      "source": "Opto 22 SVG Image Library",
+      "description": "Multi-state color/blink widgets from Opto 22. Universal state machine: Off/Run/Warning/Fault/Invalid/Spare",
+      "widget_pattern": {
+        "variables": {
+          "_pn_setState": {
+            "unit": "",
+            "type": "number",
+            "values": {
+              "0": "Off",
+              "1": "Run",
+              "2": "Warning",
+              "3": "Fault",
+              "4": "Invalid",
+              "5": "Spare"
+            }
+          },
+          "_pb_boolState": {
+            "type": "boolean"
+          },
+          "_pn_setInterval": {
+            "unit": "ms",
+            "type": "number"
+          }
+        }
+      },
+      "widgets": {
+        "blower3": {
+          "description": "Centrifugal blower 3D"
+        },
+        "blower4": {
+          "description": "Centrifugal blower angled"
+        },
+        "checkvalve_closed": {
+          "description": "Check valve closed position"
+        },
+        "checkvalve_open": {
+          "description": "Check valve open position"
+        },
+        "compressor3": {
+          "description": "Rotary compressor"
+        },
+        "compressor6": {
+          "description": "Piston compressor"
+        },
+        "condensor_3d_h1": {
+          "description": "Condenser 3D"
+        },
+        "conveyor": {
+          "description": "Belt conveyor"
+        },
+        "conveyor4": {
+          "description": "Belt conveyor angled"
+        },
+        "conveyor_20degdecline": {
+          "description": "Conveyor decline 20°"
+        },
+        "conveyor_20degincline": {
+          "description": "Conveyor incline 20°"
+        },
+        "cyclonicseparator": {
+          "description": "Cyclonic separator"
+        },
+        "fanblades": {
+          "description": "Fan blades rotating"
+        },
+        "flange_3d_1": {
+          "description": "Pipe flange 3D"
+        },
+        "flowmeter": {
+          "description": "Flow meter indicator"
+        },
+        "flowmeter1": {
+          "description": "Flow meter inline"
+        },
+        "gaugedial_3d_h1": {
+          "description": "Gauge dial 3D horizontal"
+        },
+        "generator_1": {
+          "description": "Power generator"
+        },
+        "heatexchanger_pipetopipe": {
+          "description": "Heat exchanger pipe-to-pipe"
+        },
+        "heatexchanger_shelltube": {
+          "description": "Heat exchanger shell-and-tube"
+        },
+        "heatexchanger_singlepipetopipe": {
+          "description": "Heat exchanger single pipe"
+        },
+        "meter_3d_h1": {
+          "description": "Analog meter 3D #1"
+        },
+        "meter_3d_h2": {
+          "description": "Analog meter 3D #2"
+        },
+        "mixer1": {
+          "description": "Process mixer"
+        },
+        "blower3_flipped": {
+          "description": "Auto-imported from Opto22 Image Library: blower3_flipped"
+        },
+        "blower4_flipped": {
+          "description": "Auto-imported from Opto22 Image Library: blower4_flipped"
+        },
+        "checkvalve_closed_flipped": {
+          "description": "Auto-imported from Opto22 Image Library: checkvalve_closed_flipped"
+        },
+        "checkvalve_open_flipped": {
+          "description": "Auto-imported from Opto22 Image Library: checkvalve_open_flipped"
+        },
+        "pump_3d_180": {
+          "description": "Auto-imported from Opto22 Image Library: pump_3d_180"
+        },
+        "abstractmachinery": {
+          "description": "Auto-imported from Opto22 Image Library: abstractmachinery"
+        },
+        "ac_6units": {
+          "description": "Auto-imported from Opto22 Image Library: ac_6units"
+        },
+        "ac_8units": {
+          "description": "Auto-imported from Opto22 Image Library: ac_8units"
+        },
+        "ac_doubleh": {
+          "description": "Auto-imported from Opto22 Image Library: ac_doubleh"
+        },
+        "ac_doublev": {
+          "description": "Auto-imported from Opto22 Image Library: ac_doublev"
+        },
+        "ac_single": {
+          "description": "Auto-imported from Opto22 Image Library: ac_single"
+        },
+        "ac_unit_topview": {
+          "description": "Auto-imported from Opto22 Image Library: ac_unit_topview"
+        },
+        "agitator_1": {
+          "description": "Auto-imported from Opto22 Image Library: agitator_1"
+        },
+        "agitator_2": {
+          "description": "Auto-imported from Opto22 Image Library: agitator_2"
+        },
+        "agitator_3": {
+          "description": "Auto-imported from Opto22 Image Library: agitator_3"
+        },
+        "agitator_4": {
+          "description": "Auto-imported from Opto22 Image Library: agitator_4"
+        },
+        "agitator_5": {
+          "description": "Auto-imported from Opto22 Image Library: agitator_5"
+        },
+        "alarm_bell": {
+          "description": "Auto-imported from Opto22 Image Library: alarm_bell"
+        },
+        "alarm_bell_off": {
+          "description": "Auto-imported from Opto22 Image Library: alarm_bell_off"
+        },
+        "alarm_on_r_symbol": {
+          "description": "Auto-imported from Opto22 Image Library: alarm_on_r_symbol"
+        },
+        "alarm_on_r_symbol_bkgd": {
+          "description": "Auto-imported from Opto22 Image Library: alarm_on_r_symbol_bkgd"
+        },
+        "alarm_on_symbol": {
+          "description": "Auto-imported from Opto22 Image Library: alarm_on_symbol"
+        },
+        "alarm_on_symbol_bkgd": {
+          "description": "Auto-imported from Opto22 Image Library: alarm_on_symbol_bkgd"
+        },
+        "alarm_symbol": {
+          "description": "Auto-imported from Opto22 Image Library: alarm_symbol"
+        },
+        "alarm_symbol_off": {
+          "description": "Auto-imported from Opto22 Image Library: alarm_symbol_off"
+        },
+        "assembly_iso_2lines": {
+          "description": "Auto-imported from Opto22 Image Library: assembly_iso_2lines"
+        },
+        "assemblyline_iso": {
+          "description": "Auto-imported from Opto22 Image Library: assemblyline_iso"
+        },
+        "autoclavedoorclosed_iso": {
+          "description": "Auto-imported from Opto22 Image Library: autoclavedoorclosed_iso"
+        },
+        "autoclavedooropen_iso": {
+          "description": "Auto-imported from Opto22 Image Library: autoclavedooropen_iso"
+        },
+        "ballvalve_closed": {
+          "description": "Auto-imported from Opto22 Image Library: ballvalve_closed"
+        },
+        "ballvalve_open": {
+          "description": "Auto-imported from Opto22 Image Library: ballvalve_open"
+        },
+        "barrel_55gal": {
+          "description": "Auto-imported from Opto22 Image Library: barrel_55gal"
+        },
+        "battery_dn": {
+          "description": "Auto-imported from Opto22 Image Library: battery_dn"
+        },
+        "battery_empty_dn": {
+          "description": "Auto-imported from Opto22 Image Library: battery_empty_dn"
+        },
+        "battery_empty_l": {
+          "description": "Auto-imported from Opto22 Image Library: battery_empty_l"
+        },
+        "battery_empty_r": {
+          "description": "Auto-imported from Opto22 Image Library: battery_empty_r"
+        },
+        "battery_empty_up": {
+          "description": "Auto-imported from Opto22 Image Library: battery_empty_up"
+        },
+        "battery_l": {
+          "description": "Auto-imported from Opto22 Image Library: battery_l"
+        },
+        "battery_r": {
+          "description": "Auto-imported from Opto22 Image Library: battery_r"
+        },
+        "battery_up": {
+          "description": "Auto-imported from Opto22 Image Library: battery_up"
+        },
+        "beaconlight": {
+          "description": "Auto-imported from Opto22 Image Library: beaconlight"
+        },
+        "biohazard": {
+          "description": "Auto-imported from Opto22 Image Library: biohazard"
+        },
+        "biohazard_rc": {
+          "description": "Auto-imported from Opto22 Image Library: biohazard_rc"
+        },
+        "bluetank": {
+          "description": "Auto-imported from Opto22 Image Library: bluetank"
+        },
+        "boiler": {
+          "description": "Auto-imported from Opto22 Image Library: boiler"
+        },
+        "boiler2": {
+          "description": "Auto-imported from Opto22 Image Library: boiler2"
+        },
+        "boiler2_r": {
+          "description": "Auto-imported from Opto22 Image Library: boiler2_r"
+        },
+        "boiler3": {
+          "description": "Auto-imported from Opto22 Image Library: boiler3"
+        },
+        "boiler3_r": {
+          "description": "Auto-imported from Opto22 Image Library: boiler3_r"
+        },
+        "boiler4": {
+          "description": "Auto-imported from Opto22 Image Library: boiler4"
+        },
+        "boiler4_r": {
+          "description": "Auto-imported from Opto22 Image Library: boiler4_r"
+        },
+        "boiler_iso": {
+          "description": "Auto-imported from Opto22 Image Library: boiler_iso"
+        },
+        "buriedwaterintake": {
+          "description": "Auto-imported from Opto22 Image Library: buriedwaterintake"
+        },
+        "centrifugaldecanter": {
+          "description": "Auto-imported from Opto22 Image Library: centrifugaldecanter"
+        },
+        "centrifugaldecanter2": {
+          "description": "Auto-imported from Opto22 Image Library: centrifugaldecanter2"
+        },
+        "centrifugaldecanter2_r": {
+          "description": "Auto-imported from Opto22 Image Library: centrifugaldecanter2_r"
+        },
+        "centrifugaldecanter_r": {
+          "description": "Auto-imported from Opto22 Image Library: centrifugaldecanter_r"
+        },
+        "checkvalve_closed_rotated": {
+          "description": "Auto-imported from Opto22 Image Library: checkvalve_closed_rotated"
+        },
+        "checkvalve_open_rotated": {
+          "description": "Auto-imported from Opto22 Image Library: checkvalve_open_rotated"
+        },
+        "chiller": {
+          "description": "Auto-imported from Opto22 Image Library: chiller"
+        },
+        "chiller1": {
+          "description": "Auto-imported from Opto22 Image Library: chiller1"
+        },
+        "chiller3": {
+          "description": "Auto-imported from Opto22 Image Library: chiller3"
+        },
+        "chiller6": {
+          "description": "Auto-imported from Opto22 Image Library: chiller6"
+        },
+        "chiller_iso": {
+          "description": "Auto-imported from Opto22 Image Library: chiller_iso"
+        },
+        "circuitbreakerbox": {
+          "description": "Auto-imported from Opto22 Image Library: circuitbreakerbox"
+        },
+        "cleanroomairhandler_iso_l": {
+          "description": "Auto-imported from Opto22 Image Library: cleanroomairhandler_iso_l"
+        },
+        "cleanroomairhandler_iso_r": {
+          "description": "Auto-imported from Opto22 Image Library: cleanroomairhandler_iso_r"
+        },
+        "coarsefilter": {
+          "description": "Auto-imported from Opto22 Image Library: coarsefilter"
+        },
+        "compass_background": {
+          "description": "Auto-imported from Opto22 Image Library: compass_background"
+        },
+        "compassmarkings": {
+          "description": "Auto-imported from Opto22 Image Library: compassmarkings"
+        },
+        "compressor1": {
+          "description": "Auto-imported from Opto22 Image Library: compressor1"
+        },
+        "compressor2": {
+          "description": "Auto-imported from Opto22 Image Library: compressor2"
+        },
+        "compressor4": {
+          "description": "Auto-imported from Opto22 Image Library: compressor4"
+        },
+        "compressor5": {
+          "description": "Auto-imported from Opto22 Image Library: compressor5"
+        },
+        "compressor6_dn": {
+          "description": "Auto-imported from Opto22 Image Library: compressor6_dn"
+        },
+        "compressor6_up": {
+          "description": "Auto-imported from Opto22 Image Library: compressor6_up"
+        },
+        "compressor6r": {
+          "description": "Auto-imported from Opto22 Image Library: compressor6r"
+        },
+        "compressor_can": {
+          "description": "Auto-imported from Opto22 Image Library: compressor_can"
+        },
+        "compressor_iso": {
+          "description": "Auto-imported from Opto22 Image Library: compressor_iso"
+        },
+        "compressor_iso_blue": {
+          "description": "Auto-imported from Opto22 Image Library: compressor_iso_blue"
+        },
+        "compressor_screw": {
+          "description": "Auto-imported from Opto22 Image Library: compressor_screw"
+        },
+        "condenser_column": {
+          "description": "Auto-imported from Opto22 Image Library: condenser_column"
+        },
+        "condenser_column_r": {
+          "description": "Auto-imported from Opto22 Image Library: condenser_column_r"
+        },
+        "condenser_column_simple": {
+          "description": "Auto-imported from Opto22 Image Library: condenser_column_simple"
+        },
+        "conicaldecanter": {
+          "description": "Auto-imported from Opto22 Image Library: conicaldecanter"
+        },
+        "controlvalve": {
+          "description": "Auto-imported from Opto22 Image Library: controlvalve"
+        },
+        "controlvalve_dn": {
+          "description": "Auto-imported from Opto22 Image Library: controlvalve_dn"
+        },
+        "controlvalve_r": {
+          "description": "Auto-imported from Opto22 Image Library: controlvalve_r"
+        },
+        "controlvalve_up": {
+          "description": "Auto-imported from Opto22 Image Library: controlvalve_up"
+        },
+        "controlvalvewgauge": {
+          "description": "Auto-imported from Opto22 Image Library: controlvalvewgauge"
+        },
+        "conveyor2": {
+          "description": "Auto-imported from Opto22 Image Library: conveyor2"
+        },
+        "conveyor3": {
+          "description": "Auto-imported from Opto22 Image Library: conveyor3"
+        },
+        "conveyor_inclined": {
+          "description": "Auto-imported from Opto22 Image Library: conveyor_inclined"
+        },
+        "conveyor_iso": {
+          "description": "Auto-imported from Opto22 Image Library: conveyor_iso"
+        },
+        "coolingtower": {
+          "description": "Auto-imported from Opto22 Image Library: coolingtower"
+        },
+        "coolingtower2": {
+          "description": "Auto-imported from Opto22 Image Library: coolingtower2"
+        },
+        "craneonrails": {
+          "description": "Auto-imported from Opto22 Image Library: craneonrails"
+        },
+        "crate": {
+          "description": "Auto-imported from Opto22 Image Library: crate"
+        },
+        "crutcher_iso": {
+          "description": "Auto-imported from Opto22 Image Library: crutcher_iso"
+        },
+        "crutcher_min": {
+          "description": "Auto-imported from Opto22 Image Library: crutcher_min"
+        },
+        "crutcher_open": {
+          "description": "Auto-imported from Opto22 Image Library: crutcher_open"
+        },
+        "crutcher_solid": {
+          "description": "Auto-imported from Opto22 Image Library: crutcher_solid"
+        },
+        "cyclonicseparator2": {
+          "description": "Auto-imported from Opto22 Image Library: cyclonicseparator2"
+        },
+        "cyclonicseparator2_cutout": {
+          "description": "Auto-imported from Opto22 Image Library: cyclonicseparator2_cutout"
+        },
+        "cyclonicseparator2r": {
+          "description": "Auto-imported from Opto22 Image Library: cyclonicseparator2r"
+        },
+        "cyclonicseparator2r_cutout": {
+          "description": "Auto-imported from Opto22 Image Library: cyclonicseparator2r_cutout"
+        },
+        "cyclonicseparator3": {
+          "description": "Auto-imported from Opto22 Image Library: cyclonicseparator3"
+        },
+        "debrisscreen": {
+          "description": "Auto-imported from Opto22 Image Library: debrisscreen"
+        },
+        "desalinationprocess": {
+          "description": "Auto-imported from Opto22 Image Library: desalinationprocess"
+        },
+        "dynamo": {
+          "description": "Auto-imported from Opto22 Image Library: dynamo"
+        },
+        "elbow2_": {
+          "description": "Auto-imported from Opto22 Image Library: elbow2_"
+        },
+        "elbow2_a": {
+          "description": "Auto-imported from Opto22 Image Library: elbow2_a"
+        },
+        "elbow2_b": {
+          "description": "Auto-imported from Opto22 Image Library: elbow2_b"
+        },
+        "elbow2_c": {
+          "description": "Auto-imported from Opto22 Image Library: elbow2_c"
+        },
+        "elbow_lowerrightcorner_": {
+          "description": "Auto-imported from Opto22 Image Library: elbow_lowerrightcorner_"
+        },
+        "elbow_lowerrightcorner_2": {
+          "description": "Auto-imported from Opto22 Image Library: elbow_lowerrightcorner_2"
+        },
+        "elbow_lowerrightcorner_3": {
+          "description": "Auto-imported from Opto22 Image Library: elbow_lowerrightcorner_3"
+        },
+        "elbow_lowerrightcorner_4": {
+          "description": "Auto-imported from Opto22 Image Library: elbow_lowerrightcorner_4"
+        },
+        "electricarcfurnace_iso": {
+          "description": "Auto-imported from Opto22 Image Library: electricarcfurnace_iso"
+        },
+        "electricbolt1": {
+          "description": "Auto-imported from Opto22 Image Library: electricbolt1"
+        },
+        "electricbolt2": {
+          "description": "Auto-imported from Opto22 Image Library: electricbolt2"
+        },
+        "electricbolt3": {
+          "description": "Auto-imported from Opto22 Image Library: electricbolt3"
+        },
+        "electricmeter": {
+          "description": "Auto-imported from Opto22 Image Library: electricmeter"
+        },
+        "electrocell": {
+          "description": "Auto-imported from Opto22 Image Library: electrocell"
+        },
+        "electrocell_4cells": {
+          "description": "Auto-imported from Opto22 Image Library: electrocell_4cells"
+        },
+        "electrocell_4cells_flipped": {
+          "description": "Auto-imported from Opto22 Image Library: electrocell_4cells_flipped"
+        },
+        "electrocell_4cells_nooutlets": {
+          "description": "Auto-imported from Opto22 Image Library: electrocell_4cells_nooutlets"
+        },
+        "electrocell_4cells_nooutlets_flipped": {
+          "description": "Auto-imported from Opto22 Image Library: electrocell_4cells_nooutlets_flipped"
+        },
+        "electrocell_4cells_nooutlets_nopolarity": {
+          "description": "Auto-imported from Opto22 Image Library: electrocell_4cells_nooutlets_nopolarity"
+        },
+        "electrocell_4cells_nooutlets_rotated": {
+          "description": "Auto-imported from Opto22 Image Library: electrocell_4cells_nooutlets_rotated"
+        },
+        "electrocell_4cells_nooutlets_rotated2": {
+          "description": "Auto-imported from Opto22 Image Library: electrocell_4cells_nooutlets_rotated2"
+        },
+        "electrocell_4cells_nooutlets_rotated_nopolarity": {
+          "description": "Auto-imported from Opto22 Image Library: electrocell_4cells_nooutlets_rotated_nopolarity"
+        },
+        "electrocell_4cells_nopolarity": {
+          "description": "Auto-imported from Opto22 Image Library: electrocell_4cells_nopolarity"
+        },
+        "electrocell_5cells": {
+          "description": "Auto-imported from Opto22 Image Library: electrocell_5cells"
+        },
+        "electrocell_5cells_inoutpipes": {
+          "description": "Auto-imported from Opto22 Image Library: electrocell_5cells_inoutpipes"
+        },
+        "electrocell_5cells_inoutpipes_nopolarity": {
+          "description": "Auto-imported from Opto22 Image Library: electrocell_5cells_inoutpipes_nopolarity"
+        },
+        "electrocell_5cells_nopolarity": {
+          "description": "Auto-imported from Opto22 Image Library: electrocell_5cells_nopolarity"
+        },
+        "electrocell_adapter_bottomleft90": {
+          "description": "Auto-imported from Opto22 Image Library: electrocell_adapter_bottomleft90"
+        },
+        "electrocell_adapter_bottomleftcenter": {
+          "description": "Auto-imported from Opto22 Image Library: electrocell_adapter_bottomleftcenter"
+        },
+        "electrocell_adapter_bottomright90": {
+          "description": "Auto-imported from Opto22 Image Library: electrocell_adapter_bottomright90"
+        },
+        "electrocell_adapter_bottomrightcenter": {
+          "description": "Auto-imported from Opto22 Image Library: electrocell_adapter_bottomrightcenter"
+        },
+        "electrocell_adapter_leftbottom90": {
+          "description": "Auto-imported from Opto22 Image Library: electrocell_adapter_leftbottom90"
+        },
+        "electrocell_adapter_leftbottomcenter": {
+          "description": "Auto-imported from Opto22 Image Library: electrocell_adapter_leftbottomcenter"
+        },
+        "electrocell_adapter_lefttop90": {
+          "description": "Auto-imported from Opto22 Image Library: electrocell_adapter_lefttop90"
+        },
+        "electrocell_adapter_lefttopcenter": {
+          "description": "Auto-imported from Opto22 Image Library: electrocell_adapter_lefttopcenter"
+        },
+        "electrocell_adapter_rightbottom90": {
+          "description": "Auto-imported from Opto22 Image Library: electrocell_adapter_rightbottom90"
+        },
+        "electrocell_adapter_rightbottomcenter": {
+          "description": "Auto-imported from Opto22 Image Library: electrocell_adapter_rightbottomcenter"
+        },
+        "electrocell_adapter_righttop90": {
+          "description": "Auto-imported from Opto22 Image Library: electrocell_adapter_righttop90"
+        },
+        "electrocell_adapter_righttopcenter": {
+          "description": "Auto-imported from Opto22 Image Library: electrocell_adapter_righttopcenter"
+        },
+        "electrocell_adapter_topleft90": {
+          "description": "Auto-imported from Opto22 Image Library: electrocell_adapter_topleft90"
+        },
+        "electrocell_adapter_topleftcenter": {
+          "description": "Auto-imported from Opto22 Image Library: electrocell_adapter_topleftcenter"
+        },
+        "electrocell_adapter_topright90": {
+          "description": "Auto-imported from Opto22 Image Library: electrocell_adapter_topright90"
+        },
+        "electrocell_adapter_toprightcenter": {
+          "description": "Auto-imported from Opto22 Image Library: electrocell_adapter_toprightcenter"
+        },
+        "electrocell_h": {
+          "description": "Auto-imported from Opto22 Image Library: electrocell_h"
+        },
+        "electrocell_h_nomembrane": {
+          "description": "Auto-imported from Opto22 Image Library: electrocell_h_nomembrane"
+        },
+        "electrocell_nomembrane": {
+          "description": "Auto-imported from Opto22 Image Library: electrocell_nomembrane"
+        },
+        "electrocell_nomembrane_nosigns": {
+          "description": "Auto-imported from Opto22 Image Library: electrocell_nomembrane_nosigns"
+        },
+        "electrocell_nomembrane_r": {
+          "description": "Auto-imported from Opto22 Image Library: electrocell_nomembrane_r"
+        },
+        "electrocell_nosigns": {
+          "description": "Auto-imported from Opto22 Image Library: electrocell_nosigns"
+        },
+        "electrocell_r": {
+          "description": "Auto-imported from Opto22 Image Library: electrocell_r"
+        },
+        "engine_blue_l": {
+          "description": "Auto-imported from Opto22 Image Library: engine_blue_l"
+        },
+        "engine_blue_r": {
+          "description": "Auto-imported from Opto22 Image Library: engine_blue_r"
+        },
+        "engine_bw_l": {
+          "description": "Auto-imported from Opto22 Image Library: engine_bw_l"
+        },
+        "engine_bw_r": {
+          "description": "Auto-imported from Opto22 Image Library: engine_bw_r"
+        },
+        "evapcolumn1": {
+          "description": "Auto-imported from Opto22 Image Library: evapcolumn1"
+        },
+        "evapcolumn1_cutout": {
+          "description": "Auto-imported from Opto22 Image Library: evapcolumn1_cutout"
+        },
+        "evapcolumn2": {
+          "description": "Auto-imported from Opto22 Image Library: evapcolumn2"
+        },
+        "evapcolumn2_cutout": {
+          "description": "Auto-imported from Opto22 Image Library: evapcolumn2_cutout"
+        },
+        "evaporatorcolumn": {
+          "description": "Auto-imported from Opto22 Image Library: evaporatorcolumn"
+        },
+        "exclamation_1": {
+          "description": "Auto-imported from Opto22 Image Library: exclamation_1"
+        },
+        "exclamation_1a": {
+          "description": "Auto-imported from Opto22 Image Library: exclamation_1a"
+        },
+        "exclamation_2": {
+          "description": "Auto-imported from Opto22 Image Library: exclamation_2"
+        },
+        "exclamation_3": {
+          "description": "Auto-imported from Opto22 Image Library: exclamation_3"
+        },
+        "exclamation_4": {
+          "description": "Auto-imported from Opto22 Image Library: exclamation_4"
+        },
+        "feeder": {
+          "description": "Auto-imported from Opto22 Image Library: feeder"
+        },
+        "feeder_r": {
+          "description": "Auto-imported from Opto22 Image Library: feeder_r"
+        },
+        "feeder_wchute": {
+          "description": "Auto-imported from Opto22 Image Library: feeder_wchute"
+        },
+        "feeder_wchute_r": {
+          "description": "Auto-imported from Opto22 Image Library: feeder_wchute_r"
+        },
+        "feeder_wchute_wstand": {
+          "description": "Auto-imported from Opto22 Image Library: feeder_wchute_wstand"
+        },
+        "feeder_wchute_wstand_r": {
+          "description": "Auto-imported from Opto22 Image Library: feeder_wchute_wstand_r"
+        },
+        "fieldoilderrick_iso": {
+          "description": "Auto-imported from Opto22 Image Library: fieldoilderrick_iso"
+        },
+        "fieldoilderrick_iso_l": {
+          "description": "Auto-imported from Opto22 Image Library: fieldoilderrick_iso_l"
+        },
+        "fieldwellhead_iso": {
+          "description": "Auto-imported from Opto22 Image Library: fieldwellhead_iso"
+        },
+        "fieldwellheadmanifold_iso": {
+          "description": "Auto-imported from Opto22 Image Library: fieldwellheadmanifold_iso"
+        },
+        "filter_nopipeh": {
+          "description": "Auto-imported from Opto22 Image Library: filter_nopipeh"
+        },
+        "filter_nopipev": {
+          "description": "Auto-imported from Opto22 Image Library: filter_nopipev"
+        },
+        "filter_wpipe": {
+          "description": "Auto-imported from Opto22 Image Library: filter_wpipe"
+        },
+        "filter_wpipe_r": {
+          "description": "Auto-imported from Opto22 Image Library: filter_wpipe_r"
+        },
+        "finefilter": {
+          "description": "Auto-imported from Opto22 Image Library: finefilter"
+        },
+        "fishtank": {
+          "description": "Auto-imported from Opto22 Image Library: fishtank"
+        },
+        "flammable": {
+          "description": "Auto-imported from Opto22 Image Library: flammable"
+        },
+        "flammable_rc": {
+          "description": "Auto-imported from Opto22 Image Library: flammable_rc"
+        },
+        "flange_3d_1_r180": {
+          "description": "Auto-imported from Opto22 Image Library: flange_3d_1_r180"
+        },
+        "flange_3d_1_r270": {
+          "description": "Auto-imported from Opto22 Image Library: flange_3d_1_r270"
+        },
+        "flange_3d_1_r90": {
+          "description": "Auto-imported from Opto22 Image Library: flange_3d_1_r90"
+        },
+        "flowmeter1_left": {
+          "description": "Auto-imported from Opto22 Image Library: flowmeter1_left"
+        },
+        "flowmeter1_r": {
+          "description": "Auto-imported from Opto22 Image Library: flowmeter1_r"
+        },
+        "flowmeter1_right": {
+          "description": "Auto-imported from Opto22 Image Library: flowmeter1_right"
+        },
+        "flowmeter_blue": {
+          "description": "Auto-imported from Opto22 Image Library: flowmeter_blue"
+        },
+        "forklift_down": {
+          "description": "Auto-imported from Opto22 Image Library: forklift_down"
+        },
+        "forklift_up": {
+          "description": "Auto-imported from Opto22 Image Library: forklift_up"
+        },
+        "funnelfilter": {
+          "description": "Auto-imported from Opto22 Image Library: funnelfilter"
+        },
+        "gaspump": {
+          "description": "Auto-imported from Opto22 Image Library: gaspump"
+        },
+        "gasturbineengine": {
+          "description": "Auto-imported from Opto22 Image Library: gasturbineengine"
+        },
+        "gasturbinegenerator": {
+          "description": "Auto-imported from Opto22 Image Library: gasturbinegenerator"
+        },
+        "gaugecover": {
+          "description": "Auto-imported from Opto22 Image Library: gaugecover"
+        },
+        "gaugedial_3d_h1_r180": {
+          "description": "Auto-imported from Opto22 Image Library: gaugedial_3d_h1_r180"
+        },
+        "gaugedial_3d_h1_r270": {
+          "description": "Auto-imported from Opto22 Image Library: gaugedial_3d_h1_r270"
+        },
+        "gaugedial_3d_h1_r90": {
+          "description": "Auto-imported from Opto22 Image Library: gaugedial_3d_h1_r90"
+        },
+        "gaugeneedle": {
+          "description": "Auto-imported from Opto22 Image Library: gaugeneedle"
+        },
+        "generator": {
+          "description": "Auto-imported from Opto22 Image Library: generator"
+        },
+        "generator_2": {
+          "description": "Auto-imported from Opto22 Image Library: generator_2"
+        },
+        "generator_2d": {
+          "description": "Auto-imported from Opto22 Image Library: generator_2d"
+        },
+        "generator_3": {
+          "description": "Auto-imported from Opto22 Image Library: generator_3"
+        },
+        "generator_simple": {
+          "description": "Auto-imported from Opto22 Image Library: generator_simple"
+        },
+        "generator_simple2": {
+          "description": "Auto-imported from Opto22 Image Library: generator_simple2"
+        },
+        "generator_simple2_v": {
+          "description": "Auto-imported from Opto22 Image Library: generator_simple2_v"
+        },
+        "generator_simple_v": {
+          "description": "Auto-imported from Opto22 Image Library: generator_simple_v"
+        },
+        "generatordiesel_iso": {
+          "description": "Auto-imported from Opto22 Image Library: generatordiesel_iso"
+        },
+        "generators_whousing": {
+          "description": "Auto-imported from Opto22 Image Library: generators_whousing"
+        },
+        "generators_whousing2": {
+          "description": "Auto-imported from Opto22 Image Library: generators_whousing2"
+        },
+        "goldtank": {
+          "description": "Auto-imported from Opto22 Image Library: goldtank"
+        },
+        "goldtank_wcutaway": {
+          "description": "Auto-imported from Opto22 Image Library: goldtank_wcutaway"
+        },
+        "goldtank_wcutaway_inside": {
+          "description": "Auto-imported from Opto22 Image Library: goldtank_wcutaway_inside"
+        },
+        "heater1": {
+          "description": "Auto-imported from Opto22 Image Library: heater1"
+        },
+        "heatexchanger_pipetopipe_h": {
+          "description": "Auto-imported from Opto22 Image Library: heatexchanger_pipetopipe_h"
+        },
+        "heatexchanger_pipetopipe_h_r": {
+          "description": "Auto-imported from Opto22 Image Library: heatexchanger_pipetopipe_h_r"
+        },
+        "heatexchanger_pipetopipe_r": {
+          "description": "Auto-imported from Opto22 Image Library: heatexchanger_pipetopipe_r"
+        },
+        "heatexchanger_shelltube_farends": {
+          "description": "Auto-imported from Opto22 Image Library: heatexchanger_shelltube_farends"
+        },
+        "heatexchanger_shelltube_farends_r": {
+          "description": "Auto-imported from Opto22 Image Library: heatexchanger_shelltube_farends_r"
+        },
+        "heatexchanger_shelltube_r": {
+          "description": "Auto-imported from Opto22 Image Library: heatexchanger_shelltube_r"
+        },
+        "heatexchanger_shelltube_rr": {
+          "description": "Auto-imported from Opto22 Image Library: heatexchanger_shelltube_rr"
+        },
+        "heatexchanger_shelltube_rrr": {
+          "description": "Auto-imported from Opto22 Image Library: heatexchanger_shelltube_rrr"
+        },
+        "heatexchanger_singlepipetopipe_r": {
+          "description": "Auto-imported from Opto22 Image Library: heatexchanger_singlepipetopipe_r"
+        },
+        "heatexchanger_singlepipetopipe_up": {
+          "description": "Auto-imported from Opto22 Image Library: heatexchanger_singlepipetopipe_up"
+        },
+        "heatexchanger_singlepipetopipe_up_r": {
+          "description": "Auto-imported from Opto22 Image Library: heatexchanger_singlepipetopipe_up_r"
+        },
+        "heatingelement": {
+          "description": "Auto-imported from Opto22 Image Library: heatingelement"
+        },
+        "heatingtube": {
+          "description": "Auto-imported from Opto22 Image Library: heatingtube"
+        },
+        "heatingtube_long": {
+          "description": "Auto-imported from Opto22 Image Library: heatingtube_long"
+        },
+        "heatingtube_long_reverse": {
+          "description": "Auto-imported from Opto22 Image Library: heatingtube_long_reverse"
+        },
+        "heatingtube_reverse": {
+          "description": "Auto-imported from Opto22 Image Library: heatingtube_reverse"
+        },
+        "highvoltage": {
+          "description": "Auto-imported from Opto22 Image Library: highvoltage"
+        },
+        "highvoltage_rc": {
+          "description": "Auto-imported from Opto22 Image Library: highvoltage_rc"
+        },
+        "holdingfurnace_iso": {
+          "description": "Auto-imported from Opto22 Image Library: holdingfurnace_iso"
+        },
+        "hopper": {
+          "description": "Auto-imported from Opto22 Image Library: hopper"
+        },
+        "hopper2_iso": {
+          "description": "Auto-imported from Opto22 Image Library: hopper2_iso"
+        },
+        "hopper2_iso_r": {
+          "description": "Auto-imported from Opto22 Image Library: hopper2_iso_r"
+        },
+        "hopper3_waugerwconveyor": {
+          "description": "Auto-imported from Opto22 Image Library: hopper3_waugerwconveyor"
+        },
+        "hopper3_waugerwconveyor_r": {
+          "description": "Auto-imported from Opto22 Image Library: hopper3_waugerwconveyor_r"
+        },
+        "hopper_frontconveyor": {
+          "description": "Auto-imported from Opto22 Image Library: hopper_frontconveyor"
+        },
+        "hopper_iso": {
+          "description": "Auto-imported from Opto22 Image Library: hopper_iso"
+        },
+        "hopper_simple": {
+          "description": "Auto-imported from Opto22 Image Library: hopper_simple"
+        },
+        "hopper_tilting_l": {
+          "description": "Auto-imported from Opto22 Image Library: hopper_tilting_l"
+        },
+        "hopper_tilting_l_100p": {
+          "description": "Auto-imported from Opto22 Image Library: hopper_tilting_l_100p"
+        },
+        "hopper_tilting_l_33p": {
+          "description": "Auto-imported from Opto22 Image Library: hopper_tilting_l_33p"
+        },
+        "hopper_tilting_l_66p": {
+          "description": "Auto-imported from Opto22 Image Library: hopper_tilting_l_66p"
+        },
+        "hopper_tilting_r": {
+          "description": "Auto-imported from Opto22 Image Library: hopper_tilting_r"
+        },
+        "hopper_tilting_r_100p": {
+          "description": "Auto-imported from Opto22 Image Library: hopper_tilting_r_100p"
+        },
+        "hopper_tilting_r_33p": {
+          "description": "Auto-imported from Opto22 Image Library: hopper_tilting_r_33p"
+        },
+        "hopper_tilting_r_66p": {
+          "description": "Auto-imported from Opto22 Image Library: hopper_tilting_r_66p"
+        },
+        "hopper_wconveyor_l": {
+          "description": "Auto-imported from Opto22 Image Library: hopper_wconveyor_l"
+        },
+        "hopper_wconveyor_r": {
+          "description": "Auto-imported from Opto22 Image Library: hopper_wconveyor_r"
+        },
+        "hopper_welevator_l": {
+          "description": "Auto-imported from Opto22 Image Library: hopper_welevator_l"
+        },
+        "hopper_welevator_r": {
+          "description": "Auto-imported from Opto22 Image Library: hopper_welevator_r"
+        },
+        "hopper_wlift_l": {
+          "description": "Auto-imported from Opto22 Image Library: hopper_wlift_l"
+        },
+        "hopper_wlift_r": {
+          "description": "Auto-imported from Opto22 Image Library: hopper_wlift_r"
+        },
+        "hopper_wliftauger_l": {
+          "description": "Auto-imported from Opto22 Image Library: hopper_wliftauger_l"
+        },
+        "hopper_wliftauger_r": {
+          "description": "Auto-imported from Opto22 Image Library: hopper_wliftauger_r"
+        },
+        "hopper_woutfeed": {
+          "description": "Auto-imported from Opto22 Image Library: hopper_woutfeed"
+        },
+        "hopper_woutfeed_reverse": {
+          "description": "Auto-imported from Opto22 Image Library: hopper_woutfeed_reverse"
+        },
+        "hopperoutline": {
+          "description": "Auto-imported from Opto22 Image Library: hopperoutline"
+        },
+        "hoppers_iso": {
+          "description": "Auto-imported from Opto22 Image Library: hoppers_iso"
+        },
+        "hoppers_iso_r": {
+          "description": "Auto-imported from Opto22 Image Library: hoppers_iso_r"
+        },
+        "hydraulicfracturingrig_iso_l": {
+          "description": "Auto-imported from Opto22 Image Library: hydraulicfracturingrig_iso_l"
+        },
+        "hydraulicfracturingrig_iso_r": {
+          "description": "Auto-imported from Opto22 Image Library: hydraulicfracturingrig_iso_r"
+        },
+        "inductionfurnace_iso": {
+          "description": "Auto-imported from Opto22 Image Library: inductionfurnace_iso"
+        },
+        "inductiveholdingfurnace": {
+          "description": "Auto-imported from Opto22 Image Library: inductiveholdingfurnace"
+        },
+        "inductiveholdingfurnace_2d": {
+          "description": "Auto-imported from Opto22 Image Library: inductiveholdingfurnace_2d"
+        },
+        "industrial_process": {
+          "description": "Auto-imported from Opto22 Image Library: industrial_process"
+        },
+        "industrialoven_1": {
+          "description": "Auto-imported from Opto22 Image Library: industrialoven_1"
+        },
+        "industrialoven_2": {
+          "description": "Auto-imported from Opto22 Image Library: industrialoven_2"
+        },
+        "industrialoven_3": {
+          "description": "Auto-imported from Opto22 Image Library: industrialoven_3"
+        },
+        "injectionmolding": {
+          "description": "Auto-imported from Opto22 Image Library: injectionmolding"
+        },
+        "injectionmolding2": {
+          "description": "Auto-imported from Opto22 Image Library: injectionmolding2"
+        },
+        "injectionmolding2_r": {
+          "description": "Auto-imported from Opto22 Image Library: injectionmolding2_r"
+        },
+        "injectionmolding3": {
+          "description": "Auto-imported from Opto22 Image Library: injectionmolding3"
+        },
+        "injectionmolding3_r": {
+          "description": "Auto-imported from Opto22 Image Library: injectionmolding3_r"
+        },
+        "injectionmolding4": {
+          "description": "Auto-imported from Opto22 Image Library: injectionmolding4"
+        },
+        "injectionmolding4_r": {
+          "description": "Auto-imported from Opto22 Image Library: injectionmolding4_r"
+        },
+        "injectionmolding_iso": {
+          "description": "Auto-imported from Opto22 Image Library: injectionmolding_iso"
+        },
+        "inverter": {
+          "description": "Auto-imported from Opto22 Image Library: inverter"
+        },
+        "irritant": {
+          "description": "Auto-imported from Opto22 Image Library: irritant"
+        },
+        "irritant_rc": {
+          "description": "Auto-imported from Opto22 Image Library: irritant_rc"
+        },
+        "laser": {
+          "description": "Auto-imported from Opto22 Image Library: laser"
+        },
+        "laser_rc": {
+          "description": "Auto-imported from Opto22 Image Library: laser_rc"
+        },
+        "level": {
+          "description": "Auto-imported from Opto22 Image Library: level"
+        },
+        "liftstation_iso": {
+          "description": "Auto-imported from Opto22 Image Library: liftstation_iso"
+        },
+        "lportvalve_flowdnl": {
+          "description": "Auto-imported from Opto22 Image Library: lportvalve_flowdnl"
+        },
+        "lportvalve_flowdnr": {
+          "description": "Auto-imported from Opto22 Image Library: lportvalve_flowdnr"
+        },
+        "lportvalve_flowupl": {
+          "description": "Auto-imported from Opto22 Image Library: lportvalve_flowupl"
+        },
+        "lportvalve_flowupr": {
+          "description": "Auto-imported from Opto22 Image Library: lportvalve_flowupr"
+        },
+        "lportvalve_hdn": {
+          "description": "Auto-imported from Opto22 Image Library: lportvalve_hdn"
+        },
+        "lportvalve_hdn2": {
+          "description": "Auto-imported from Opto22 Image Library: lportvalve_hdn2"
+        },
+        "lportvalve_hup": {
+          "description": "Auto-imported from Opto22 Image Library: lportvalve_hup"
+        },
+        "lportvalve_hup2": {
+          "description": "Auto-imported from Opto22 Image Library: lportvalve_hup2"
+        },
+        "lportvalve_vl": {
+          "description": "Auto-imported from Opto22 Image Library: lportvalve_vl"
+        },
+        "lportvalve_vl2": {
+          "description": "Auto-imported from Opto22 Image Library: lportvalve_vl2"
+        },
+        "lportvalve_vr": {
+          "description": "Auto-imported from Opto22 Image Library: lportvalve_vr"
+        },
+        "lportvalve_vr2": {
+          "description": "Auto-imported from Opto22 Image Library: lportvalve_vr2"
+        },
+        "massflowmeter": {
+          "description": "Auto-imported from Opto22 Image Library: massflowmeter"
+        },
+        "meter_3d_h2_r90": {
+          "description": "Auto-imported from Opto22 Image Library: meter_3d_h2_r90"
+        },
+        "milling": {
+          "description": "Auto-imported from Opto22 Image Library: milling"
+        },
+        "mixer2": {
+          "description": "Auto-imported from Opto22 Image Library: mixer2"
+        },
+        "mobilepump_iso": {
+          "description": "Auto-imported from Opto22 Image Library: mobilepump_iso"
+        },
+        "motor1": {
+          "description": "Auto-imported from Opto22 Image Library: motor1"
+        },
+        "motor_noshaftwmount": {
+          "description": "Auto-imported from Opto22 Image Library: motor_noshaftwmount"
+        },
+        "motor_noshaftwmount_r": {
+          "description": "Auto-imported from Opto22 Image Library: motor_noshaftwmount_r"
+        },
+        "motor_simplenoshaft": {
+          "description": "Auto-imported from Opto22 Image Library: motor_simplenoshaft"
+        },
+        "motor_simplenoshaft_d": {
+          "description": "Auto-imported from Opto22 Image Library: motor_simplenoshaft_d"
+        },
+        "motor_simplenoshaft_r": {
+          "description": "Auto-imported from Opto22 Image Library: motor_simplenoshaft_r"
+        },
+        "motor_simplenoshaft_u": {
+          "description": "Auto-imported from Opto22 Image Library: motor_simplenoshaft_u"
+        },
+        "motor_wshaft": {
+          "description": "Auto-imported from Opto22 Image Library: motor_wshaft"
+        },
+        "motor_wshaftwmount": {
+          "description": "Auto-imported from Opto22 Image Library: motor_wshaftwmount"
+        },
+        "motor_wshaftwmount_r": {
+          "description": "Auto-imported from Opto22 Image Library: motor_wshaftwmount_r"
+        },
+        "motorsymbol": {
+          "description": "Auto-imported from Opto22 Image Library: motorsymbol"
+        },
+        "mudpump_1": {
+          "description": "Auto-imported from Opto22 Image Library: mudpump_1"
+        },
+        "mudpump_2": {
+          "description": "Auto-imported from Opto22 Image Library: mudpump_2"
+        },
+        "mudpump_3": {
+          "description": "Auto-imported from Opto22 Image Library: mudpump_3"
+        },
+        "mudpump_4": {
+          "description": "Auto-imported from Opto22 Image Library: mudpump_4"
+        },
+        "mudtank_1": {
+          "description": "Auto-imported from Opto22 Image Library: mudtank_1"
+        },
+        "networkswitch8": {
+          "description": "Auto-imported from Opto22 Image Library: networkswitch8"
+        },
+        "networkswitch8_2": {
+          "description": "Auto-imported from Opto22 Image Library: networkswitch8_2"
+        },
+        "networkswitchsymbol": {
+          "description": "Auto-imported from Opto22 Image Library: networkswitchsymbol"
+        },
+        "oiljack_2": {
+          "description": "Auto-imported from Opto22 Image Library: oiljack_2"
+        },
+        "oven_iso": {
+          "description": "Auto-imported from Opto22 Image Library: oven_iso"
+        },
+        "packedbedreactor_1": {
+          "description": "Auto-imported from Opto22 Image Library: packedbedreactor_1"
+        },
+        "packedbedreactor_2": {
+          "description": "Auto-imported from Opto22 Image Library: packedbedreactor_2"
+        },
+        "packedbedreactor_pipe": {
+          "description": "Auto-imported from Opto22 Image Library: packedbedreactor_pipe"
+        },
+        "packedbedreactor_pipewide": {
+          "description": "Auto-imported from Opto22 Image Library: packedbedreactor_pipewide"
+        },
+        "packedbedreactor_wide": {
+          "description": "Auto-imported from Opto22 Image Library: packedbedreactor_wide"
+        },
+        "perforatedtube": {
+          "description": "Auto-imported from Opto22 Image Library: perforatedtube"
+        },
+        "peristaltic_pump_adapter_elbow": {
+          "description": "Auto-imported from Opto22 Image Library: peristaltic_pump_adapter_elbow"
+        },
+        "peristaltic_pump_adapter_elbow2": {
+          "description": "Auto-imported from Opto22 Image Library: peristaltic_pump_adapter_elbow2"
+        },
+        "peristaltic_pump_adapter_elbow3": {
+          "description": "Auto-imported from Opto22 Image Library: peristaltic_pump_adapter_elbow3"
+        },
+        "peristaltic_pump_adapter_elbow4": {
+          "description": "Auto-imported from Opto22 Image Library: peristaltic_pump_adapter_elbow4"
+        },
+        "peristaltic_pump_adapter_straight": {
+          "description": "Auto-imported from Opto22 Image Library: peristaltic_pump_adapter_straight"
+        },
+        "peristaltic_pump_adapter_straight2": {
+          "description": "Auto-imported from Opto22 Image Library: peristaltic_pump_adapter_straight2"
+        },
+        "peristaltic_pump_adapter_straight3": {
+          "description": "Auto-imported from Opto22 Image Library: peristaltic_pump_adapter_straight3"
+        },
+        "peristaltic_pump_adapter_straight4": {
+          "description": "Auto-imported from Opto22 Image Library: peristaltic_pump_adapter_straight4"
+        },
+        "peristaltic_pump_tube": {
+          "description": "Auto-imported from Opto22 Image Library: peristaltic_pump_tube"
+        },
+        "peristaltic_pump_tube2": {
+          "description": "Auto-imported from Opto22 Image Library: peristaltic_pump_tube2"
+        },
+        "peristaltic_pump_tube2_dn": {
+          "description": "Auto-imported from Opto22 Image Library: peristaltic_pump_tube2_dn"
+        },
+        "peristaltic_pump_tube2_left": {
+          "description": "Auto-imported from Opto22 Image Library: peristaltic_pump_tube2_left"
+        },
+        "peristaltic_pump_tube2_up": {
+          "description": "Auto-imported from Opto22 Image Library: peristaltic_pump_tube2_up"
+        },
+        "peristaltic_pump_tube_d": {
+          "description": "Auto-imported from Opto22 Image Library: peristaltic_pump_tube_d"
+        },
+        "peristaltic_pump_tube_l": {
+          "description": "Auto-imported from Opto22 Image Library: peristaltic_pump_tube_l"
+        },
+        "peristaltic_pump_tube_u": {
+          "description": "Auto-imported from Opto22 Image Library: peristaltic_pump_tube_u"
+        },
+        "pipe": {
+          "description": "Auto-imported from Opto22 Image Library: pipe"
+        },
+        "pipe_3d_elbow": {
+          "description": "Auto-imported from Opto22 Image Library: pipe_3d_elbow"
+        },
+        "pipe_3d_elbow2": {
+          "description": "Auto-imported from Opto22 Image Library: pipe_3d_elbow2"
+        },
+        "pipe_3d_elbow2_r180": {
+          "description": "Auto-imported from Opto22 Image Library: pipe_3d_elbow2_r180"
+        },
+        "pipe_3d_elbow2_r270": {
+          "description": "Auto-imported from Opto22 Image Library: pipe_3d_elbow2_r270"
+        },
+        "pipe_3d_elbow2_r90": {
+          "description": "Auto-imported from Opto22 Image Library: pipe_3d_elbow2_r90"
+        },
+        "pipe_3d_elbow_r180": {
+          "description": "Auto-imported from Opto22 Image Library: pipe_3d_elbow_r180"
+        },
+        "pipe_3d_elbow_r270": {
+          "description": "Auto-imported from Opto22 Image Library: pipe_3d_elbow_r270"
+        },
+        "pipe_3d_elbow_r90": {
+          "description": "Auto-imported from Opto22 Image Library: pipe_3d_elbow_r90"
+        },
+        "pipe_3d_h1": {
+          "description": "Auto-imported from Opto22 Image Library: pipe_3d_h1"
+        },
+        "pipe_3d_h1_r": {
+          "description": "Auto-imported from Opto22 Image Library: pipe_3d_h1_r"
+        },
+        "pipe_3d_h2": {
+          "description": "Auto-imported from Opto22 Image Library: pipe_3d_h2"
+        },
+        "pipe_3d_h2_r": {
+          "description": "Auto-imported from Opto22 Image Library: pipe_3d_h2_r"
+        },
+        "pipe_3d_h3": {
+          "description": "Auto-imported from Opto22 Image Library: pipe_3d_h3"
+        },
+        "pipe_3d_h3_r": {
+          "description": "Auto-imported from Opto22 Image Library: pipe_3d_h3_r"
+        },
+        "pipe_3d_heatexchange1": {
+          "description": "Auto-imported from Opto22 Image Library: pipe_3d_heatexchange1"
+        },
+        "pipe_3d_heatexchange1_dn": {
+          "description": "Auto-imported from Opto22 Image Library: pipe_3d_heatexchange1_dn"
+        },
+        "pipe_3d_heatexchange1_r": {
+          "description": "Auto-imported from Opto22 Image Library: pipe_3d_heatexchange1_r"
+        },
+        "pipe_3d_heatexchange1_up": {
+          "description": "Auto-imported from Opto22 Image Library: pipe_3d_heatexchange1_up"
+        },
+        "pipe_3d_heatexchange2": {
+          "description": "Auto-imported from Opto22 Image Library: pipe_3d_heatexchange2"
+        },
+        "pipe_3d_heatexchange2_r": {
+          "description": "Auto-imported from Opto22 Image Library: pipe_3d_heatexchange2_r"
+        },
+        "pipe_3d_heatexchange2_up": {
+          "description": "Auto-imported from Opto22 Image Library: pipe_3d_heatexchange2_up"
+        },
+        "pipe_3d_heatexchange2_up_r": {
+          "description": "Auto-imported from Opto22 Image Library: pipe_3d_heatexchange2_up_r"
+        },
+        "pipe_3d_heatexchange3": {
+          "description": "Auto-imported from Opto22 Image Library: pipe_3d_heatexchange3"
+        },
+        "pipe_3d_heatexchange3_dn": {
+          "description": "Auto-imported from Opto22 Image Library: pipe_3d_heatexchange3_dn"
+        },
+        "pipe_3d_heatexchange3_r": {
+          "description": "Auto-imported from Opto22 Image Library: pipe_3d_heatexchange3_r"
+        },
+        "pipe_3d_heatexchange3_up": {
+          "description": "Auto-imported from Opto22 Image Library: pipe_3d_heatexchange3_up"
+        },
+        "pipe_3d_tjunction": {
+          "description": "Auto-imported from Opto22 Image Library: pipe_3d_tjunction"
+        },
+        "pipe_3d_tjunction_r180": {
+          "description": "Auto-imported from Opto22 Image Library: pipe_3d_tjunction_r180"
+        },
+        "pipe_3d_tjunction_r270": {
+          "description": "Auto-imported from Opto22 Image Library: pipe_3d_tjunction_r270"
+        },
+        "pipe_3d_tjunction_r90": {
+          "description": "Auto-imported from Opto22 Image Library: pipe_3d_tjunction_r90"
+        },
+        "pipe_elbow": {
+          "description": "Auto-imported from Opto22 Image Library: pipe_elbow"
+        },
+        "pipe_tjunction": {
+          "description": "Auto-imported from Opto22 Image Library: pipe_tjunction"
+        },
+        "pipe_v5": {
+          "description": "Auto-imported from Opto22 Image Library: pipe_v5"
+        },
+        "pipelinepump": {
+          "description": "Auto-imported from Opto22 Image Library: pipelinepump"
+        },
+        "pipelinepump2": {
+          "description": "Auto-imported from Opto22 Image Library: pipelinepump2"
+        },
+        "pipelinepump2_r": {
+          "description": "Auto-imported from Opto22 Image Library: pipelinepump2_r"
+        },
+        "pipelinepump_r": {
+          "description": "Auto-imported from Opto22 Image Library: pipelinepump_r"
+        },
+        "piperedirect1": {
+          "description": "Auto-imported from Opto22 Image Library: piperedirect1"
+        },
+        "piperedirect1_r": {
+          "description": "Auto-imported from Opto22 Image Library: piperedirect1_r"
+        },
+        "poolpump": {
+          "description": "Auto-imported from Opto22 Image Library: poolpump"
+        },
+        "poolpump_2": {
+          "description": "Auto-imported from Opto22 Image Library: poolpump_2"
+        },
+        "poolpump_3": {
+          "description": "Auto-imported from Opto22 Image Library: poolpump_3"
+        },
+        "poolpump_l": {
+          "description": "Auto-imported from Opto22 Image Library: poolpump_l"
+        },
+        "poolpump_r": {
+          "description": "Auto-imported from Opto22 Image Library: poolpump_r"
+        },
+        "press_iso": {
+          "description": "Auto-imported from Opto22 Image Library: press_iso"
+        },
+        "pressure_regulator": {
+          "description": "Auto-imported from Opto22 Image Library: pressure_regulator"
+        },
+        "processmachinery": {
+          "description": "Auto-imported from Opto22 Image Library: processmachinery"
+        },
+        "pulltrusion": {
+          "description": "Auto-imported from Opto22 Image Library: pulltrusion"
+        },
+        "pulsationdampener": {
+          "description": "Auto-imported from Opto22 Image Library: pulsationdampener"
+        },
+        "pump1": {
+          "description": "Auto-imported from Opto22 Image Library: pump1"
+        },
+        "pump2": {
+          "description": "Auto-imported from Opto22 Image Library: pump2"
+        },
+        "pump_3d_180_r": {
+          "description": "Auto-imported from Opto22 Image Library: pump_3d_180_r"
+        },
+        "pump_3d_90_1": {
+          "description": "Auto-imported from Opto22 Image Library: pump_3d_90_1"
+        },
+        "pump_3d_90_1_r180": {
+          "description": "Auto-imported from Opto22 Image Library: pump_3d_90_1_r180"
+        },
+        "pump_3d_90_1_r270": {
+          "description": "Auto-imported from Opto22 Image Library: pump_3d_90_1_r270"
+        },
+        "pump_3d_90_1_r90": {
+          "description": "Auto-imported from Opto22 Image Library: pump_3d_90_1_r90"
+        },
+        "pump_3d_straight1": {
+          "description": "Auto-imported from Opto22 Image Library: pump_3d_straight1"
+        },
+        "pump_3d_straight1_r180": {
+          "description": "Auto-imported from Opto22 Image Library: pump_3d_straight1_r180"
+        },
+        "pump_3d_straight1_r270": {
+          "description": "Auto-imported from Opto22 Image Library: pump_3d_straight1_r270"
+        },
+        "pump_3d_straight1_r90": {
+          "description": "Auto-imported from Opto22 Image Library: pump_3d_straight1_r90"
+        },
+        "pump_hollow": {
+          "description": "Auto-imported from Opto22 Image Library: pump_hollow"
+        },
+        "pump_iso_l": {
+          "description": "Auto-imported from Opto22 Image Library: pump_iso_l"
+        },
+        "pump_iso_r": {
+          "description": "Auto-imported from Opto22 Image Library: pump_iso_r"
+        },
+        "pump_iso_well": {
+          "description": "Auto-imported from Opto22 Image Library: pump_iso_well"
+        },
+        "pump_vertical": {
+          "description": "Auto-imported from Opto22 Image Library: pump_vertical"
+        },
+        "pumphead": {
+          "description": "Auto-imported from Opto22 Image Library: pumphead"
+        },
+        "pumphead_profile_3d": {
+          "description": "Auto-imported from Opto22 Image Library: pumphead_profile_3d"
+        },
+        "pumphead_profile_3d_r180": {
+          "description": "Auto-imported from Opto22 Image Library: pumphead_profile_3d_r180"
+        },
+        "pumphead_profile_3d_r270": {
+          "description": "Auto-imported from Opto22 Image Library: pumphead_profile_3d_r270"
+        },
+        "pumphead_profile_3d_r90": {
+          "description": "Auto-imported from Opto22 Image Library: pumphead_profile_3d_r90"
+        },
+        "pumphead_profile_simple": {
+          "description": "Auto-imported from Opto22 Image Library: pumphead_profile_simple"
+        },
+        "pumphead_profile_simple_r180": {
+          "description": "Auto-imported from Opto22 Image Library: pumphead_profile_simple_r180"
+        },
+        "pumphead_profile_simple_r270": {
+          "description": "Auto-imported from Opto22 Image Library: pumphead_profile_simple_r270"
+        },
+        "pumphead_profile_simple_r90": {
+          "description": "Auto-imported from Opto22 Image Library: pumphead_profile_simple_r90"
+        },
+        "quenchchute": {
+          "description": "Auto-imported from Opto22 Image Library: quenchchute"
+        },
+        "quenchchute_reverse": {
+          "description": "Auto-imported from Opto22 Image Library: quenchchute_reverse"
+        },
+        "quenchtank": {
+          "description": "Auto-imported from Opto22 Image Library: quenchtank"
+        },
+        "quenchtank_resizable_back": {
+          "description": "Auto-imported from Opto22 Image Library: quenchtank_resizable_back"
+        },
+        "quenchtank_resizable_front": {
+          "description": "Auto-imported from Opto22 Image Library: quenchtank_resizable_front"
+        },
+        "quenchtank_resizable_reverse_back": {
+          "description": "Auto-imported from Opto22 Image Library: quenchtank_resizable_reverse_back"
+        },
+        "quenchtank_resizable_reverse_front": {
+          "description": "Auto-imported from Opto22 Image Library: quenchtank_resizable_reverse_front"
+        },
+        "quenchtank_wconveyor": {
+          "description": "Auto-imported from Opto22 Image Library: quenchtank_wconveyor"
+        },
+        "radiation": {
+          "description": "Auto-imported from Opto22 Image Library: radiation"
+        },
+        "radiation_rc": {
+          "description": "Auto-imported from Opto22 Image Library: radiation_rc"
+        },
+        "reboiler_3d": {
+          "description": "Auto-imported from Opto22 Image Library: reboiler_3d"
+        },
+        "reboiler_3d_r": {
+          "description": "Auto-imported from Opto22 Image Library: reboiler_3d_r"
+        },
+        "reducer_3d_1": {
+          "description": "Auto-imported from Opto22 Image Library: reducer_3d_1"
+        },
+        "reducer_3d_1_r180": {
+          "description": "Auto-imported from Opto22 Image Library: reducer_3d_1_r180"
+        },
+        "reducer_3d_1_r270": {
+          "description": "Auto-imported from Opto22 Image Library: reducer_3d_1_r270"
+        },
+        "reducer_3d_1_r90": {
+          "description": "Auto-imported from Opto22 Image Library: reducer_3d_1_r90"
+        },
+        "reducer_3d_2": {
+          "description": "Auto-imported from Opto22 Image Library: reducer_3d_2"
+        },
+        "reducer_3d_2_r180": {
+          "description": "Auto-imported from Opto22 Image Library: reducer_3d_2_r180"
+        },
+        "reducer_3d_2_r270": {
+          "description": "Auto-imported from Opto22 Image Library: reducer_3d_2_r270"
+        },
+        "reducer_3d_2_r90": {
+          "description": "Auto-imported from Opto22 Image Library: reducer_3d_2_r90"
+        },
+        "refinery": {
+          "description": "Auto-imported from Opto22 Image Library: refinery"
+        },
+        "reflowoven": {
+          "description": "Auto-imported from Opto22 Image Library: reflowoven"
+        },
+        "releasevalve_closed": {
+          "description": "Auto-imported from Opto22 Image Library: releasevalve_closed"
+        },
+        "releasevalve_closed_u": {
+          "description": "Auto-imported from Opto22 Image Library: releasevalve_closed_u"
+        },
+        "releasevalve_open": {
+          "description": "Auto-imported from Opto22 Image Library: releasevalve_open"
+        },
+        "releasevalve_open_u": {
+          "description": "Auto-imported from Opto22 Image Library: releasevalve_open_u"
+        },
+        "retortfeeder": {
+          "description": "Auto-imported from Opto22 Image Library: retortfeeder"
+        },
+        "retortfeeder_wroller": {
+          "description": "Auto-imported from Opto22 Image Library: retortfeeder_wroller"
+        },
+        "retortfeeder_wroller_reverse": {
+          "description": "Auto-imported from Opto22 Image Library: retortfeeder_wroller_reverse"
+        },
+        "rockerswitch_down": {
+          "description": "Auto-imported from Opto22 Image Library: rockerswitch_down"
+        },
+        "rockerswitch_left": {
+          "description": "Auto-imported from Opto22 Image Library: rockerswitch_left"
+        },
+        "rockerswitch_right": {
+          "description": "Auto-imported from Opto22 Image Library: rockerswitch_right"
+        },
+        "rockerswitch_up": {
+          "description": "Auto-imported from Opto22 Image Library: rockerswitch_up"
+        },
+        "rockerswitchthin_left": {
+          "description": "Auto-imported from Opto22 Image Library: rockerswitchthin_left"
+        },
+        "rockerswitchthin_right": {
+          "description": "Auto-imported from Opto22 Image Library: rockerswitchthin_right"
+        },
+        "rofilter": {
+          "description": "Auto-imported from Opto22 Image Library: rofilter"
+        },
+        "rollerpress": {
+          "description": "Auto-imported from Opto22 Image Library: rollerpress"
+        },
+        "rollerpress2": {
+          "description": "Auto-imported from Opto22 Image Library: rollerpress2"
+        },
+        "rollerpress_chamberonly": {
+          "description": "Auto-imported from Opto22 Image Library: rollerpress_chamberonly"
+        },
+        "rollerpress_frameonly": {
+          "description": "Auto-imported from Opto22 Image Library: rollerpress_frameonly"
+        },
+        "rotaryfurnace": {
+          "description": "Auto-imported from Opto22 Image Library: rotaryfurnace"
+        },
+        "rotaryretort_lower": {
+          "description": "Auto-imported from Opto22 Image Library: rotaryretort_lower"
+        },
+        "rotaryretort_lower_reverse": {
+          "description": "Auto-imported from Opto22 Image Library: rotaryretort_lower_reverse"
+        },
+        "rotaryretort_upper": {
+          "description": "Auto-imported from Opto22 Image Library: rotaryretort_upper"
+        },
+        "rotaryretort_upper_reverse": {
+          "description": "Auto-imported from Opto22 Image Library: rotaryretort_upper_reverse"
+        },
+        "rotarywasher_barrel": {
+          "description": "Auto-imported from Opto22 Image Library: rotarywasher_barrel"
+        },
+        "rotarywasher_barrel_declined": {
+          "description": "Auto-imported from Opto22 Image Library: rotarywasher_barrel_declined"
+        },
+        "rotarywasher_barrel_inclined": {
+          "description": "Auto-imported from Opto22 Image Library: rotarywasher_barrel_inclined"
+        },
+        "rotarywasher_housing_lower": {
+          "description": "Auto-imported from Opto22 Image Library: rotarywasher_housing_lower"
+        },
+        "rotarywasher_housing_lower_reverse": {
+          "description": "Auto-imported from Opto22 Image Library: rotarywasher_housing_lower_reverse"
+        },
+        "rotarywasher_housing_upper": {
+          "description": "Auto-imported from Opto22 Image Library: rotarywasher_housing_upper"
+        },
+        "rotarywasher_housing_upper_reverse": {
+          "description": "Auto-imported from Opto22 Image Library: rotarywasher_housing_upper_reverse"
+        },
+        "rotarywasher_platform": {
+          "description": "Auto-imported from Opto22 Image Library: rotarywasher_platform"
+        },
+        "roundfurnace": {
+          "description": "Auto-imported from Opto22 Image Library: roundfurnace"
+        },
+        "scale2": {
+          "description": "Auto-imported from Opto22 Image Library: scale2"
+        },
+        "sensor_bilevel": {
+          "description": "Auto-imported from Opto22 Image Library: sensor_bilevel"
+        },
+        "sensor_bilevel_silhouette": {
+          "description": "Auto-imported from Opto22 Image Library: sensor_bilevel_silhouette"
+        },
+        "sensor_rtd": {
+          "description": "Auto-imported from Opto22 Image Library: sensor_rtd"
+        },
+        "sensor_rtd_silhouette": {
+          "description": "Auto-imported from Opto22 Image Library: sensor_rtd_silhouette"
+        },
+        "settlingpond": {
+          "description": "Auto-imported from Opto22 Image Library: settlingpond"
+        },
+        "shippingcontainer_iso": {
+          "description": "Auto-imported from Opto22 Image Library: shippingcontainer_iso"
+        },
+        "smartmeter": {
+          "description": "Auto-imported from Opto22 Image Library: smartmeter"
+        },
+        "smartmeter2": {
+          "description": "Auto-imported from Opto22 Image Library: smartmeter2"
+        },
+        "solenoidvalve": {
+          "description": "Auto-imported from Opto22 Image Library: solenoidvalve"
+        },
+        "spraycurtain_nozzle_left": {
+          "description": "Auto-imported from Opto22 Image Library: spraycurtain_nozzle_left"
+        },
+        "spraycurtain_nozzle_right": {
+          "description": "Auto-imported from Opto22 Image Library: spraycurtain_nozzle_right"
+        },
+        "storagepond_iso": {
+          "description": "Auto-imported from Opto22 Image Library: storagepond_iso"
+        },
+        "strainer_basket": {
+          "description": "Auto-imported from Opto22 Image Library: strainer_basket"
+        },
+        "strainer_basket_r": {
+          "description": "Auto-imported from Opto22 Image Library: strainer_basket_r"
+        },
+        "strainer_wye": {
+          "description": "Auto-imported from Opto22 Image Library: strainer_wye"
+        },
+        "strainer_wye_r": {
+          "description": "Auto-imported from Opto22 Image Library: strainer_wye_r"
+        },
+        "sumptank1": {
+          "description": "Auto-imported from Opto22 Image Library: sumptank1"
+        },
+        "sumptank1_bkgd": {
+          "description": "Auto-imported from Opto22 Image Library: sumptank1_bkgd"
+        },
+        "sumptank1_r": {
+          "description": "Auto-imported from Opto22 Image Library: sumptank1_r"
+        },
+        "sumptank1_r_bkgd": {
+          "description": "Auto-imported from Opto22 Image Library: sumptank1_r_bkgd"
+        },
+        "surfacemount": {
+          "description": "Auto-imported from Opto22 Image Library: surfacemount"
+        },
+        "surfacemount2": {
+          "description": "Auto-imported from Opto22 Image Library: surfacemount2"
+        },
+        "surfacemount3": {
+          "description": "Auto-imported from Opto22 Image Library: surfacemount3"
+        },
+        "switch_hoa_auto": {
+          "description": "Auto-imported from Opto22 Image Library: switch_hoa_auto"
+        },
+        "switch_hoa_hand": {
+          "description": "Auto-imported from Opto22 Image Library: switch_hoa_hand"
+        },
+        "switch_hoa_off": {
+          "description": "Auto-imported from Opto22 Image Library: switch_hoa_off"
+        },
+        "switchsymbol": {
+          "description": "Auto-imported from Opto22 Image Library: switchsymbol"
+        },
+        "tank1": {
+          "description": "Auto-imported from Opto22 Image Library: tank1"
+        },
+        "tank2_iso": {
+          "description": "Auto-imported from Opto22 Image Library: tank2_iso"
+        },
+        "tank2_iso_cutaway": {
+          "description": "Auto-imported from Opto22 Image Library: tank2_iso_cutaway"
+        },
+        "tank_3d_h1": {
+          "description": "Auto-imported from Opto22 Image Library: tank_3d_h1"
+        },
+        "tank_3d_large1": {
+          "description": "Auto-imported from Opto22 Image Library: tank_3d_large1"
+        },
+        "tank_3d_medium_rtop1": {
+          "description": "Auto-imported from Opto22 Image Library: tank_3d_medium_rtop1"
+        },
+        "tank_3d_v1": {
+          "description": "Auto-imported from Opto22 Image Library: tank_3d_v1"
+        },
+        "tank_3d_v2": {
+          "description": "Auto-imported from Opto22 Image Library: tank_3d_v2"
+        },
+        "tank_3d_v3": {
+          "description": "Auto-imported from Opto22 Image Library: tank_3d_v3"
+        },
+        "tank_3d_v4": {
+          "description": "Auto-imported from Opto22 Image Library: tank_3d_v4"
+        },
+        "tank_3d_v5": {
+          "description": "Auto-imported from Opto22 Image Library: tank_3d_v5"
+        },
+        "tank_3d_v6": {
+          "description": "Auto-imported from Opto22 Image Library: tank_3d_v6"
+        },
+        "tank_3d_v7": {
+          "description": "Auto-imported from Opto22 Image Library: tank_3d_v7"
+        },
+        "tank_3d_v8": {
+          "description": "Auto-imported from Opto22 Image Library: tank_3d_v8"
+        },
+        "tank_conebottom": {
+          "description": "Auto-imported from Opto22 Image Library: tank_conebottom"
+        },
+        "tank_conetop1": {
+          "description": "Auto-imported from Opto22 Image Library: tank_conetop1"
+        },
+        "tank_conetop_wgradient": {
+          "description": "Auto-imported from Opto22 Image Library: tank_conetop_wgradient"
+        },
+        "tank_cylinder": {
+          "description": "Auto-imported from Opto22 Image Library: tank_cylinder"
+        },
+        "tank_cylinder_wcutout": {
+          "description": "Auto-imported from Opto22 Image Library: tank_cylinder_wcutout"
+        },
+        "tank_cylinder_wide": {
+          "description": "Auto-imported from Opto22 Image Library: tank_cylinder_wide"
+        },
+        "tank_cylinder_wide_wcutout": {
+          "description": "Auto-imported from Opto22 Image Library: tank_cylinder_wide_wcutout"
+        },
+        "tank_h_oval_wcutout": {
+          "description": "Auto-imported from Opto22 Image Library: tank_h_oval_wcutout"
+        },
+        "tank_iso": {
+          "description": "Auto-imported from Opto22 Image Library: tank_iso"
+        },
+        "tank_iso_blue": {
+          "description": "Auto-imported from Opto22 Image Library: tank_iso_blue"
+        },
+        "tank_iso_cutaway": {
+          "description": "Auto-imported from Opto22 Image Library: tank_iso_cutaway"
+        },
+        "tank_iso_metallic": {
+          "description": "Auto-imported from Opto22 Image Library: tank_iso_metallic"
+        },
+        "tank_iso_pharm": {
+          "description": "Auto-imported from Opto22 Image Library: tank_iso_pharm"
+        },
+        "tank_iso_pharm2": {
+          "description": "Auto-imported from Opto22 Image Library: tank_iso_pharm2"
+        },
+        "tank_iso_separation": {
+          "description": "Auto-imported from Opto22 Image Library: tank_iso_separation"
+        },
+        "tank_iso_silver": {
+          "description": "Auto-imported from Opto22 Image Library: tank_iso_silver"
+        },
+        "tank_iso_tower_blue": {
+          "description": "Auto-imported from Opto22 Image Library: tank_iso_tower_blue"
+        },
+        "tank_iso_tower_yellow": {
+          "description": "Auto-imported from Opto22 Image Library: tank_iso_tower_yellow"
+        },
+        "tank_lowrounded": {
+          "description": "Auto-imported from Opto22 Image Library: tank_lowrounded"
+        },
+        "tank_pharm": {
+          "description": "Auto-imported from Opto22 Image Library: tank_pharm"
+        },
+        "tank_pharm_wcutaway": {
+          "description": "Auto-imported from Opto22 Image Library: tank_pharm_wcutaway"
+        },
+        "tank_pharm_wcutout": {
+          "description": "Auto-imported from Opto22 Image Library: tank_pharm_wcutout"
+        },
+        "tank_pillshape": {
+          "description": "Auto-imported from Opto22 Image Library: tank_pillshape"
+        },
+        "tank_pillshape2": {
+          "description": "Auto-imported from Opto22 Image Library: tank_pillshape2"
+        },
+        "tank_pillshape_horizontal": {
+          "description": "Auto-imported from Opto22 Image Library: tank_pillshape_horizontal"
+        },
+        "tank_plain": {
+          "description": "Auto-imported from Opto22 Image Library: tank_plain"
+        },
+        "tank_plain_welds": {
+          "description": "Auto-imported from Opto22 Image Library: tank_plain_welds"
+        },
+        "tank_rounded_wlegs": {
+          "description": "Auto-imported from Opto22 Image Library: tank_rounded_wlegs"
+        },
+        "tank_sphere": {
+          "description": "Auto-imported from Opto22 Image Library: tank_sphere"
+        },
+        "tank_sublike": {
+          "description": "Auto-imported from Opto22 Image Library: tank_sublike"
+        },
+        "tank_topview_1": {
+          "description": "Auto-imported from Opto22 Image Library: tank_topview_1"
+        },
+        "tank_topview_pipe": {
+          "description": "Auto-imported from Opto22 Image Library: tank_topview_pipe"
+        },
+        "tanklevel": {
+          "description": "Auto-imported from Opto22 Image Library: tanklevel"
+        },
+        "tanknocab_iso": {
+          "description": "Auto-imported from Opto22 Image Library: tanknocab_iso"
+        },
+        "temperature1": {
+          "description": "Auto-imported from Opto22 Image Library: temperature1"
+        },
+        "temperature2": {
+          "description": "Auto-imported from Opto22 Image Library: temperature2"
+        },
+        "temperature3": {
+          "description": "Auto-imported from Opto22 Image Library: temperature3"
+        },
+        "temperature4": {
+          "description": "Auto-imported from Opto22 Image Library: temperature4"
+        },
+        "temperature5": {
+          "description": "Auto-imported from Opto22 Image Library: temperature5"
+        },
+        "temperature6": {
+          "description": "Auto-imported from Opto22 Image Library: temperature6"
+        },
+        "thermister": {
+          "description": "Auto-imported from Opto22 Image Library: thermister"
+        },
+        "thermistor": {
+          "description": "Auto-imported from Opto22 Image Library: thermistor"
+        },
+        "thumbdown_left": {
+          "description": "Auto-imported from Opto22 Image Library: thumbdown_left"
+        },
+        "thumbdown_right": {
+          "description": "Auto-imported from Opto22 Image Library: thumbdown_right"
+        },
+        "thumbup_left": {
+          "description": "Auto-imported from Opto22 Image Library: thumbup_left"
+        },
+        "thumbup_right": {
+          "description": "Auto-imported from Opto22 Image Library: thumbup_right"
+        },
+        "tiltingfurnace2": {
+          "description": "Auto-imported from Opto22 Image Library: tiltingfurnace2"
+        },
+        "tiltingfurnace_00": {
+          "description": "Auto-imported from Opto22 Image Library: tiltingfurnace_00"
+        },
+        "tiltingfurnace_100": {
+          "description": "Auto-imported from Opto22 Image Library: tiltingfurnace_100"
+        },
+        "tiltingfurnace_25": {
+          "description": "Auto-imported from Opto22 Image Library: tiltingfurnace_25"
+        },
+        "tiltingfurnace_50": {
+          "description": "Auto-imported from Opto22 Image Library: tiltingfurnace_50"
+        },
+        "tiltingfurnace_75": {
+          "description": "Auto-imported from Opto22 Image Library: tiltingfurnace_75"
+        },
+        "tiltingfurnaceforaluminum_iao": {
+          "description": "Auto-imported from Opto22 Image Library: tiltingfurnaceforaluminum_iao"
+        },
+        "timer_symbol": {
+          "description": "Auto-imported from Opto22 Image Library: timer_symbol"
+        },
+        "toggleswitch_down": {
+          "description": "Auto-imported from Opto22 Image Library: toggleswitch_down"
+        },
+        "toggleswitch_left": {
+          "description": "Auto-imported from Opto22 Image Library: toggleswitch_left"
+        },
+        "toggleswitch_right": {
+          "description": "Auto-imported from Opto22 Image Library: toggleswitch_right"
+        },
+        "toggleswitch_up": {
+          "description": "Auto-imported from Opto22 Image Library: toggleswitch_up"
+        },
+        "toxic": {
+          "description": "Auto-imported from Opto22 Image Library: toxic"
+        },
+        "toxic_rc": {
+          "description": "Auto-imported from Opto22 Image Library: toxic_rc"
+        },
+        "trommel_color": {
+          "description": "Auto-imported from Opto22 Image Library: trommel_color"
+        },
+        "turbine1": {
+          "description": "Auto-imported from Opto22 Image Library: turbine1"
+        },
+        "turbine1_dn": {
+          "description": "Auto-imported from Opto22 Image Library: turbine1_dn"
+        },
+        "turbine1_up": {
+          "description": "Auto-imported from Opto22 Image Library: turbine1_up"
+        },
+        "turbine1r": {
+          "description": "Auto-imported from Opto22 Image Library: turbine1r"
+        },
+        "turbine2": {
+          "description": "Auto-imported from Opto22 Image Library: turbine2"
+        },
+        "turbine2_dn": {
+          "description": "Auto-imported from Opto22 Image Library: turbine2_dn"
+        },
+        "turbine2_up": {
+          "description": "Auto-imported from Opto22 Image Library: turbine2_up"
+        },
+        "turbine2r": {
+          "description": "Auto-imported from Opto22 Image Library: turbine2r"
+        },
+        "turbinerounded": {
+          "description": "Auto-imported from Opto22 Image Library: turbinerounded"
+        },
+        "turbinerounded_dn": {
+          "description": "Auto-imported from Opto22 Image Library: turbinerounded_dn"
+        },
+        "turbinerounded_up": {
+          "description": "Auto-imported from Opto22 Image Library: turbinerounded_up"
+        },
+        "turbineroundedr": {
+          "description": "Auto-imported from Opto22 Image Library: turbineroundedr"
+        },
+        "uv": {
+          "description": "Auto-imported from Opto22 Image Library: uv"
+        },
+        "uv_rc": {
+          "description": "Auto-imported from Opto22 Image Library: uv_rc"
+        },
+        "valve": {
+          "description": "Auto-imported from Opto22 Image Library: valve"
+        },
+        "valve_1path_down": {
+          "description": "Auto-imported from Opto22 Image Library: valve_1path_down"
+        },
+        "valve_1path_left": {
+          "description": "Auto-imported from Opto22 Image Library: valve_1path_left"
+        },
+        "valve_1path_right": {
+          "description": "Auto-imported from Opto22 Image Library: valve_1path_right"
+        },
+        "valve_1path_up": {
+          "description": "Auto-imported from Opto22 Image Library: valve_1path_up"
+        },
+        "valve_2": {
+          "description": "Auto-imported from Opto22 Image Library: valve_2"
+        },
+        "valve_3d_3way1": {
+          "description": "Auto-imported from Opto22 Image Library: valve_3d_3way1"
+        },
+        "valve_3d_3way1_nopipe": {
+          "description": "Auto-imported from Opto22 Image Library: valve_3d_3way1_nopipe"
+        },
+        "valve_3d_3way1_nopipe_r180": {
+          "description": "Auto-imported from Opto22 Image Library: valve_3d_3way1_nopipe_r180"
+        },
+        "valve_3d_3way1_nopipe_r270": {
+          "description": "Auto-imported from Opto22 Image Library: valve_3d_3way1_nopipe_r270"
+        },
+        "valve_3d_3way1_nopipe_r90": {
+          "description": "Auto-imported from Opto22 Image Library: valve_3d_3way1_nopipe_r90"
+        },
+        "valve_3d_3way1_r180": {
+          "description": "Auto-imported from Opto22 Image Library: valve_3d_3way1_r180"
+        },
+        "valve_3d_3way1_r270": {
+          "description": "Auto-imported from Opto22 Image Library: valve_3d_3way1_r270"
+        },
+        "valve_3d_3way1_r90": {
+          "description": "Auto-imported from Opto22 Image Library: valve_3d_3way1_r90"
+        },
+        "valve_3d_4way1": {
+          "description": "Auto-imported from Opto22 Image Library: valve_3d_4way1"
+        },
+        "valve_3d_4way1_nopipe": {
+          "description": "Auto-imported from Opto22 Image Library: valve_3d_4way1_nopipe"
+        },
+        "valve_3d_angled1": {
+          "description": "Auto-imported from Opto22 Image Library: valve_3d_angled1"
+        },
+        "valve_3d_angled1_nopipe": {
+          "description": "Auto-imported from Opto22 Image Library: valve_3d_angled1_nopipe"
+        },
+        "valve_3d_angled2": {
+          "description": "Auto-imported from Opto22 Image Library: valve_3d_angled2"
+        },
+        "valve_3d_angled2_nopipe": {
+          "description": "Auto-imported from Opto22 Image Library: valve_3d_angled2_nopipe"
+        },
+        "valve_3d_angled2_nopipe_r180": {
+          "description": "Auto-imported from Opto22 Image Library: valve_3d_angled2_nopipe_r180"
+        },
+        "valve_3d_angled2_nopipe_r270": {
+          "description": "Auto-imported from Opto22 Image Library: valve_3d_angled2_nopipe_r270"
+        },
+        "valve_3d_angled2_nopipe_r90": {
+          "description": "Auto-imported from Opto22 Image Library: valve_3d_angled2_nopipe_r90"
+        },
+        "valve_3d_common1": {
+          "description": "Auto-imported from Opto22 Image Library: valve_3d_common1"
+        },
+        "valve_3d_common1_r180": {
+          "description": "Auto-imported from Opto22 Image Library: valve_3d_common1_r180"
+        },
+        "valve_3d_common1_r270": {
+          "description": "Auto-imported from Opto22 Image Library: valve_3d_common1_r270"
+        },
+        "valve_3d_common1_r90": {
+          "description": "Auto-imported from Opto22 Image Library: valve_3d_common1_r90"
+        },
+        "valve_3d_common2": {
+          "description": "Auto-imported from Opto22 Image Library: valve_3d_common2"
+        },
+        "valve_3d_common2_nopipe": {
+          "description": "Auto-imported from Opto22 Image Library: valve_3d_common2_nopipe"
+        },
+        "valve_3d_common2_nopipe_r90": {
+          "description": "Auto-imported from Opto22 Image Library: valve_3d_common2_nopipe_r90"
+        },
+        "valve_3d_common2_r90": {
+          "description": "Auto-imported from Opto22 Image Library: valve_3d_common2_r90"
+        },
+        "valve_3d_common3": {
+          "description": "Auto-imported from Opto22 Image Library: valve_3d_common3"
+        },
+        "valve_3d_common3_r90": {
+          "description": "Auto-imported from Opto22 Image Library: valve_3d_common3_r90"
+        },
+        "valve_3d_common4": {
+          "description": "Auto-imported from Opto22 Image Library: valve_3d_common4"
+        },
+        "valve_3d_common4_nopipe": {
+          "description": "Auto-imported from Opto22 Image Library: valve_3d_common4_nopipe"
+        },
+        "valve_3d_common4_nopipe_r90": {
+          "description": "Auto-imported from Opto22 Image Library: valve_3d_common4_nopipe_r90"
+        },
+        "valve_3d_common4_r90": {
+          "description": "Auto-imported from Opto22 Image Library: valve_3d_common4_r90"
+        },
+        "valve_3d_h1": {
+          "description": "Auto-imported from Opto22 Image Library: valve_3d_h1"
+        },
+        "valve_3d_h2_closed": {
+          "description": "Auto-imported from Opto22 Image Library: valve_3d_h2_closed"
+        },
+        "valve_3d_h2_closed_r": {
+          "description": "Auto-imported from Opto22 Image Library: valve_3d_h2_closed_r"
+        },
+        "valve_3d_h2_open": {
+          "description": "Auto-imported from Opto22 Image Library: valve_3d_h2_open"
+        },
+        "valve_3d_h2_open_r": {
+          "description": "Auto-imported from Opto22 Image Library: valve_3d_h2_open_r"
+        },
+        "valve_3d_h3": {
+          "description": "Auto-imported from Opto22 Image Library: valve_3d_h3"
+        },
+        "valve_3d_v3": {
+          "description": "Auto-imported from Opto22 Image Library: valve_3d_v3"
+        },
+        "valve_3d_v4": {
+          "description": "Auto-imported from Opto22 Image Library: valve_3d_v4"
+        },
+        "valve_4way_part_down": {
+          "description": "Auto-imported from Opto22 Image Library: valve_4way_part_down"
+        },
+        "valve_4way_part_left": {
+          "description": "Auto-imported from Opto22 Image Library: valve_4way_part_left"
+        },
+        "valve_4way_part_right": {
+          "description": "Auto-imported from Opto22 Image Library: valve_4way_part_right"
+        },
+        "valve_4way_part_up": {
+          "description": "Auto-imported from Opto22 Image Library: valve_4way_part_up"
+        },
+        "valve_circle": {
+          "description": "Auto-imported from Opto22 Image Library: valve_circle"
+        },
+        "valve_hand": {
+          "description": "Auto-imported from Opto22 Image Library: valve_hand"
+        },
+        "valve_simple1": {
+          "description": "Auto-imported from Opto22 Image Library: valve_simple1"
+        },
+        "valvesymbol": {
+          "description": "Auto-imported from Opto22 Image Library: valvesymbol"
+        },
+        "verticalpump1": {
+          "description": "Auto-imported from Opto22 Image Library: verticalpump1"
+        },
+        "verticalpump1_r": {
+          "description": "Auto-imported from Opto22 Image Library: verticalpump1_r"
+        },
+        "verticalpump2": {
+          "description": "Auto-imported from Opto22 Image Library: verticalpump2"
+        },
+        "verticalpump2_r": {
+          "description": "Auto-imported from Opto22 Image Library: verticalpump2_r"
+        },
+        "verticalpump3": {
+          "description": "Auto-imported from Opto22 Image Library: verticalpump3"
+        },
+        "verticalpump3_r": {
+          "description": "Auto-imported from Opto22 Image Library: verticalpump3_r"
+        },
+        "verticalpump_nooutflow": {
+          "description": "Auto-imported from Opto22 Image Library: verticalpump_nooutflow"
+        },
+        "warning1": {
+          "description": "Auto-imported from Opto22 Image Library: warning1"
+        },
+        "warning1_rc": {
+          "description": "Auto-imported from Opto22 Image Library: warning1_rc"
+        },
+        "warning2": {
+          "description": "Auto-imported from Opto22 Image Library: warning2"
+        },
+        "warning2_rc": {
+          "description": "Auto-imported from Opto22 Image Library: warning2_rc"
+        },
+        "warning3": {
+          "description": "Auto-imported from Opto22 Image Library: warning3"
+        },
+        "warning3_rc": {
+          "description": "Auto-imported from Opto22 Image Library: warning3_rc"
+        },
+        "warning4": {
+          "description": "Auto-imported from Opto22 Image Library: warning4"
+        },
+        "warning4_rc": {
+          "description": "Auto-imported from Opto22 Image Library: warning4_rc"
+        },
+        "washingbooth": {
+          "description": "Auto-imported from Opto22 Image Library: washingbooth"
+        },
+        "watermeter": {
+          "description": "Auto-imported from Opto22 Image Library: watermeter"
+        },
+        "watertreatmentpond": {
+          "description": "Auto-imported from Opto22 Image Library: watertreatmentpond"
+        },
+        "watertreatmentpond_iso": {
+          "description": "Auto-imported from Opto22 Image Library: watertreatmentpond_iso"
+        },
+        "windturbine_01": {
+          "description": "Auto-imported from Opto22 Image Library: windturbine_01"
+        },
+        "windturbine_02": {
+          "description": "Auto-imported from Opto22 Image Library: windturbine_02"
+        },
+        "windturbine_03": {
+          "description": "Auto-imported from Opto22 Image Library: windturbine_03"
+        },
+        "windturbine_04": {
+          "description": "Auto-imported from Opto22 Image Library: windturbine_04"
+        },
+        "windturbine_05": {
+          "description": "Auto-imported from Opto22 Image Library: windturbine_05"
+        },
+        "windturbine_06": {
+          "description": "Auto-imported from Opto22 Image Library: windturbine_06"
+        },
+        "windturbine_07": {
+          "description": "Auto-imported from Opto22 Image Library: windturbine_07"
+        },
+        "windturbine_08": {
+          "description": "Auto-imported from Opto22 Image Library: windturbine_08"
+        },
+        "windturbine_1": {
+          "description": "Auto-imported from Opto22 Image Library: windturbine_1"
+        },
+        "windturbine_2": {
+          "description": "Auto-imported from Opto22 Image Library: windturbine_2"
+        },
+        "windturbine_3": {
+          "description": "Auto-imported from Opto22 Image Library: windturbine_3"
+        },
+        "windturbine_4": {
+          "description": "Auto-imported from Opto22 Image Library: windturbine_4"
+        },
+        "acfan6blades": {
+          "description": "Auto-imported from Opto22 Image Library: acfan6blades"
+        },
+        "alarm_exclamation_red_onoff": {
+          "description": "Auto-imported from Opto22 Image Library: alarm_exclamation_red_onoff"
+        },
+        "alarm_exclamation_red_reverse_onoff": {
+          "description": "Auto-imported from Opto22 Image Library: alarm_exclamation_red_reverse_onoff"
+        },
+        "alarm_exclamation_red_reversing": {
+          "description": "Auto-imported from Opto22 Image Library: alarm_exclamation_red_reversing"
+        },
+        "alarm_exclamation_yellow_onoff": {
+          "description": "Auto-imported from Opto22 Image Library: alarm_exclamation_yellow_onoff"
+        },
+        "alarm_exclamation_yellow_reverse_onoff": {
+          "description": "Auto-imported from Opto22 Image Library: alarm_exclamation_yellow_reverse_onoff"
+        },
+        "alarm_exclamation_yellow_reversing": {
+          "description": "Auto-imported from Opto22 Image Library: alarm_exclamation_yellow_reversing"
+        },
+        "alarm_radiating_blue": {
+          "description": "Auto-imported from Opto22 Image Library: alarm_radiating_blue"
+        },
+        "alarm_radiating_red": {
+          "description": "Auto-imported from Opto22 Image Library: alarm_radiating_red"
+        },
+        "alarm_radiating_yellow": {
+          "description": "Auto-imported from Opto22 Image Library: alarm_radiating_yellow"
+        },
+        "alarmprofile": {
+          "description": "Auto-imported from Opto22 Image Library: alarmprofile"
+        },
+        "alarmprofile_black_alt": {
+          "description": "Auto-imported from Opto22 Image Library: alarmprofile_black_alt"
+        },
+        "alarmprofile_red": {
+          "description": "Auto-imported from Opto22 Image Library: alarmprofile_red"
+        },
+        "alarmprofile_red_alt": {
+          "description": "Auto-imported from Opto22 Image Library: alarmprofile_red_alt"
+        },
+        "auger": {
+          "description": "Auto-imported from Opto22 Image Library: auger"
+        },
+        "auger2": {
+          "description": "Auto-imported from Opto22 Image Library: auger2"
+        },
+        "auger2_reverse": {
+          "description": "Auto-imported from Opto22 Image Library: auger2_reverse"
+        },
+        "auger_3d_horizontal_lefttoright": {
+          "description": "Auto-imported from Opto22 Image Library: auger_3d_horizontal_lefttoright"
+        },
+        "auger_3d_horizontal_righttoleft": {
+          "description": "Auto-imported from Opto22 Image Library: auger_3d_horizontal_righttoleft"
+        },
+        "auger_3d_vertical_down": {
+          "description": "Auto-imported from Opto22 Image Library: auger_3d_vertical_down"
+        },
+        "auger_3d_vertical_up": {
+          "description": "Auto-imported from Opto22 Image Library: auger_3d_vertical_up"
+        },
+        "auger_reverse": {
+          "description": "Auto-imported from Opto22 Image Library: auger_reverse"
+        },
+        "auger_rh_down_fast": {
+          "description": "Auto-imported from Opto22 Image Library: auger_rh_down_fast"
+        },
+        "auger_rh_down_slow": {
+          "description": "Auto-imported from Opto22 Image Library: auger_rh_down_slow"
+        },
+        "auger_rh_left_fast": {
+          "description": "Auto-imported from Opto22 Image Library: auger_rh_left_fast"
+        },
+        "auger_rh_left_slow": {
+          "description": "Auto-imported from Opto22 Image Library: auger_rh_left_slow"
+        },
+        "auger_rh_right_fast": {
+          "description": "Auto-imported from Opto22 Image Library: auger_rh_right_fast"
+        },
+        "auger_rh_right_slow": {
+          "description": "Auto-imported from Opto22 Image Library: auger_rh_right_slow"
+        },
+        "auger_rh_up_fast": {
+          "description": "Auto-imported from Opto22 Image Library: auger_rh_up_fast"
+        },
+        "auger_rh_up_slow": {
+          "description": "Auto-imported from Opto22 Image Library: auger_rh_up_slow"
+        },
+        "bottling_fast": {
+          "description": "Auto-imported from Opto22 Image Library: bottling_fast"
+        },
+        "bottling_onlight": {
+          "description": "Auto-imported from Opto22 Image Library: bottling_onlight"
+        },
+        "bottling_slow": {
+          "description": "Auto-imported from Opto22 Image Library: bottling_slow"
+        },
+        "compressor": {
+          "description": "Auto-imported from Opto22 Image Library: compressor"
+        },
+        "conecrusher": {
+          "description": "Auto-imported from Opto22 Image Library: conecrusher"
+        },
+        "conecrusher_005": {
+          "description": "Auto-imported from Opto22 Image Library: conecrusher_005"
+        },
+        "conecrusher_graymatte": {
+          "description": "Auto-imported from Opto22 Image Library: conecrusher_graymatte"
+        },
+        "conveyor2_ccw": {
+          "description": "Auto-imported from Opto22 Image Library: conveyor2_ccw"
+        },
+        "conveyor2_cw": {
+          "description": "Auto-imported from Opto22 Image Library: conveyor2_cw"
+        },
+        "conveyor2bottles_ccw": {
+          "description": "Auto-imported from Opto22 Image Library: conveyor2bottles_ccw"
+        },
+        "conveyor2bottles_cw": {
+          "description": "Auto-imported from Opto22 Image Library: conveyor2bottles_cw"
+        },
+        "conveyor2boxes_ccw": {
+          "description": "Auto-imported from Opto22 Image Library: conveyor2boxes_ccw"
+        },
+        "conveyor2boxes_cw": {
+          "description": "Auto-imported from Opto22 Image Library: conveyor2boxes_cw"
+        },
+        "conveyor2rawmaterial_ccw": {
+          "description": "Auto-imported from Opto22 Image Library: conveyor2rawmaterial_ccw"
+        },
+        "conveyor2rawmaterial_cw": {
+          "description": "Auto-imported from Opto22 Image Library: conveyor2rawmaterial_cw"
+        },
+        "conveyor_01ps": {
+          "description": "Auto-imported from Opto22 Image Library: conveyor_01ps"
+        },
+        "conveyor_02ps": {
+          "description": "Auto-imported from Opto22 Image Library: conveyor_02ps"
+        },
+        "conveyor_15down": {
+          "description": "Auto-imported from Opto22 Image Library: conveyor_15down"
+        },
+        "conveyor_15down_cc": {
+          "description": "Auto-imported from Opto22 Image Library: conveyor_15down_cc"
+        },
+        "conveyor_15up": {
+          "description": "Auto-imported from Opto22 Image Library: conveyor_15up"
+        },
+        "conveyor_15up_cc": {
+          "description": "Auto-imported from Opto22 Image Library: conveyor_15up_cc"
+        },
+        "conveyor_30down": {
+          "description": "Auto-imported from Opto22 Image Library: conveyor_30down"
+        },
+        "conveyor_30down_reverse": {
+          "description": "Auto-imported from Opto22 Image Library: conveyor_30down_reverse"
+        },
+        "conveyor_30up": {
+          "description": "Auto-imported from Opto22 Image Library: conveyor_30up"
+        },
+        "conveyor_30up_reverse": {
+          "description": "Auto-imported from Opto22 Image Library: conveyor_30up_reverse"
+        },
+        "conveyor_cc": {
+          "description": "Auto-imported from Opto22 Image Library: conveyor_cc"
+        },
+        "conveyor_nolegs": {
+          "description": "Auto-imported from Opto22 Image Library: conveyor_nolegs"
+        },
+        "conveyor_reverse": {
+          "description": "Auto-imported from Opto22 Image Library: conveyor_reverse"
+        },
+        "conveyorbox_01ps": {
+          "description": "Auto-imported from Opto22 Image Library: conveyorbox_01ps"
+        },
+        "conveyorbox_02ps": {
+          "description": "Auto-imported from Opto22 Image Library: conveyorbox_02ps"
+        },
+        "conveyorbox_15down": {
+          "description": "Auto-imported from Opto22 Image Library: conveyorbox_15down"
+        },
+        "conveyorbox_15down_cc": {
+          "description": "Auto-imported from Opto22 Image Library: conveyorbox_15down_cc"
+        },
+        "conveyorbox_15up": {
+          "description": "Auto-imported from Opto22 Image Library: conveyorbox_15up"
+        },
+        "conveyorbox_15up_cc": {
+          "description": "Auto-imported from Opto22 Image Library: conveyorbox_15up_cc"
+        },
+        "conveyorbox_30down": {
+          "description": "Auto-imported from Opto22 Image Library: conveyorbox_30down"
+        },
+        "conveyorbox_30down_reverse": {
+          "description": "Auto-imported from Opto22 Image Library: conveyorbox_30down_reverse"
+        },
+        "conveyorbox_30up_10f_01": {
+          "description": "Auto-imported from Opto22 Image Library: conveyorbox_30up_10f_01"
+        },
+        "conveyorbox_30up_10f_02": {
+          "description": "Auto-imported from Opto22 Image Library: conveyorbox_30up_10f_02"
+        },
+        "conveyorbox_30up_reverse": {
+          "description": "Auto-imported from Opto22 Image Library: conveyorbox_30up_reverse"
+        },
+        "conveyorbox_cc": {
+          "description": "Auto-imported from Opto22 Image Library: conveyorbox_cc"
+        },
+        "conveyorbox_nolegs": {
+          "description": "Auto-imported from Opto22 Image Library: conveyorbox_nolegs"
+        },
+        "conveyorbox_open": {
+          "description": "Auto-imported from Opto22 Image Library: conveyorbox_open"
+        },
+        "conveyorrawmaterial": {
+          "description": "Auto-imported from Opto22 Image Library: conveyorrawmaterial"
+        },
+        "conveyorrawmaterial_15down": {
+          "description": "Auto-imported from Opto22 Image Library: conveyorrawmaterial_15down"
+        },
+        "conveyorrawmaterial_15down_cc": {
+          "description": "Auto-imported from Opto22 Image Library: conveyorrawmaterial_15down_cc"
+        },
+        "conveyorrawmaterial_15up": {
+          "description": "Auto-imported from Opto22 Image Library: conveyorrawmaterial_15up"
+        },
+        "conveyorrawmaterial_15up_cc": {
+          "description": "Auto-imported from Opto22 Image Library: conveyorrawmaterial_15up_cc"
+        },
+        "conveyorrawmaterial_30down": {
+          "description": "Auto-imported from Opto22 Image Library: conveyorrawmaterial_30down"
+        },
+        "conveyorrawmaterial_30down_reverse": {
+          "description": "Auto-imported from Opto22 Image Library: conveyorrawmaterial_30down_reverse"
+        },
+        "conveyorrawmaterial_30up": {
+          "description": "Auto-imported from Opto22 Image Library: conveyorrawmaterial_30up"
+        },
+        "conveyorrawmaterial_30up_reverse": {
+          "description": "Auto-imported from Opto22 Image Library: conveyorrawmaterial_30up_reverse"
+        },
+        "conveyorrawmaterial_cc": {
+          "description": "Auto-imported from Opto22 Image Library: conveyorrawmaterial_cc"
+        },
+        "crutcher_tall_wcutawaytank": {
+          "description": "Auto-imported from Opto22 Image Library: crutcher_tall_wcutawaytank"
+        },
+        "electric1": {
+          "description": "Auto-imported from Opto22 Image Library: electric1"
+        },
+        "electric2": {
+          "description": "Auto-imported from Opto22 Image Library: electric2"
+        },
+        "fan": {
+          "description": "Auto-imported from Opto22 Image Library: fan"
+        },
+        "fan2": {
+          "description": "Auto-imported from Opto22 Image Library: fan2"
+        },
+        "fan3": {
+          "description": "Auto-imported from Opto22 Image Library: fan3"
+        },
+        "fan4": {
+          "description": "Auto-imported from Opto22 Image Library: fan4"
+        },
+        "fan5": {
+          "description": "Auto-imported from Opto22 Image Library: fan5"
+        },
+        "fan_hvac_motion": {
+          "description": "Auto-imported from Opto22 Image Library: fan_hvac_motion"
+        },
+        "fanblades_ccw_b_fast": {
+          "description": "Auto-imported from Opto22 Image Library: fanblades_ccw_b_fast"
+        },
+        "fanblades_ccw_b_med": {
+          "description": "Auto-imported from Opto22 Image Library: fanblades_ccw_b_med"
+        },
+        "fanblades_ccw_b_slow": {
+          "description": "Auto-imported from Opto22 Image Library: fanblades_ccw_b_slow"
+        },
+        "fanblades_cw_b_fast": {
+          "description": "Auto-imported from Opto22 Image Library: fanblades_cw_b_fast"
+        },
+        "fanblades_cw_b_med": {
+          "description": "Auto-imported from Opto22 Image Library: fanblades_cw_b_med"
+        },
+        "fanblades_cw_b_slow": {
+          "description": "Auto-imported from Opto22 Image Library: fanblades_cw_b_slow"
+        },
+        "generator_002": {
+          "description": "Auto-imported from Opto22 Image Library: generator_002"
+        },
+        "heater_animated": {
+          "description": "Auto-imported from Opto22 Image Library: heater_animated"
+        },
+        "heatingelement_on": {
+          "description": "Auto-imported from Opto22 Image Library: heatingelement_on"
+        },
+        "hopper_midsizetube": {
+          "description": "Auto-imported from Opto22 Image Library: hopper_midsizetube"
+        },
+        "hvsocket": {
+          "description": "Auto-imported from Opto22 Image Library: hvsocket"
+        },
+        "hvtower2_energized": {
+          "description": "Auto-imported from Opto22 Image Library: hvtower2_energized"
+        },
+        "hvtower_energized": {
+          "description": "Auto-imported from Opto22 Image Library: hvtower_energized"
+        },
+        "jawcrusher_overheadeccen": {
+          "description": "Auto-imported from Opto22 Image Library: jawcrusher_overheadeccen"
+        },
+        "jawcrusher_overheadeccen_perspective": {
+          "description": "Auto-imported from Opto22 Image Library: jawcrusher_overheadeccen_perspective"
+        },
+        "line_energized": {
+          "description": "Auto-imported from Opto22 Image Library: line_energized"
+        },
+        "oiljack_red_19f_ccw": {
+          "description": "Auto-imported from Opto22 Image Library: oiljack_red_19f_ccw"
+        },
+        "oiljack_red_19f_cw": {
+          "description": "Auto-imported from Opto22 Image Library: oiljack_red_19f_cw"
+        },
+        "oiljack_whiteonblack_36f_ccw": {
+          "description": "Auto-imported from Opto22 Image Library: oiljack_whiteonblack_36f_ccw"
+        },
+        "oiljack_whiteonblack_36f_cw": {
+          "description": "Auto-imported from Opto22 Image Library: oiljack_whiteonblack_36f_cw"
+        },
+        "paristaltic_pump": {
+          "description": "Auto-imported from Opto22 Image Library: paristaltic_pump"
+        },
+        "paristaltic_pump_rotator": {
+          "description": "Auto-imported from Opto22 Image Library: paristaltic_pump_rotator"
+        },
+        "peristaltic2_rotor_ccw_002": {
+          "description": "Auto-imported from Opto22 Image Library: peristaltic2_rotor_ccw_002"
+        },
+        "peristaltic2_rotor_ccw_005": {
+          "description": "Auto-imported from Opto22 Image Library: peristaltic2_rotor_ccw_005"
+        },
+        "peristaltic2_rotor_ccw_01": {
+          "description": "Auto-imported from Opto22 Image Library: peristaltic2_rotor_ccw_01"
+        },
+        "peristaltic2_rotor_cw_002": {
+          "description": "Auto-imported from Opto22 Image Library: peristaltic2_rotor_cw_002"
+        },
+        "peristaltic2_rotor_cw_005": {
+          "description": "Auto-imported from Opto22 Image Library: peristaltic2_rotor_cw_005"
+        },
+        "peristaltic2_rotor_cw_01": {
+          "description": "Auto-imported from Opto22 Image Library: peristaltic2_rotor_cw_01"
+        },
+        "peristaltic_304stainless_ccw_002": {
+          "description": "Auto-imported from Opto22 Image Library: peristaltic_304stainless_ccw_002"
+        },
+        "peristaltic_304stainless_ccw_005": {
+          "description": "Auto-imported from Opto22 Image Library: peristaltic_304stainless_ccw_005"
+        },
+        "peristaltic_304stainless_ccw_01": {
+          "description": "Auto-imported from Opto22 Image Library: peristaltic_304stainless_ccw_01"
+        },
+        "peristaltic_304stainless_cw_002": {
+          "description": "Auto-imported from Opto22 Image Library: peristaltic_304stainless_cw_002"
+        },
+        "peristaltic_304stainless_cw_005": {
+          "description": "Auto-imported from Opto22 Image Library: peristaltic_304stainless_cw_005"
+        },
+        "peristaltic_304stainless_cw_01": {
+          "description": "Auto-imported from Opto22 Image Library: peristaltic_304stainless_cw_01"
+        },
+        "peristaltic_pump_rotor_ccw": {
+          "description": "Auto-imported from Opto22 Image Library: peristaltic_pump_rotor_ccw"
+        },
+        "peristaltic_pump_rotor_ccw_002": {
+          "description": "Auto-imported from Opto22 Image Library: peristaltic_pump_rotor_ccw_002"
+        },
+        "peristaltic_pump_rotor_ccw_005": {
+          "description": "Auto-imported from Opto22 Image Library: peristaltic_pump_rotor_ccw_005"
+        },
+        "peristaltic_pump_rotor_cw": {
+          "description": "Auto-imported from Opto22 Image Library: peristaltic_pump_rotor_cw"
+        },
+        "peristaltic_pump_rotor_cw_002": {
+          "description": "Auto-imported from Opto22 Image Library: peristaltic_pump_rotor_cw_002"
+        },
+        "peristaltic_pump_rotor_cw_005": {
+          "description": "Auto-imported from Opto22 Image Library: peristaltic_pump_rotor_cw_005"
+        },
+        "piston_onblack": {
+          "description": "Auto-imported from Opto22 Image Library: piston_onblack"
+        },
+        "piston_transparent": {
+          "description": "Auto-imported from Opto22 Image Library: piston_transparent"
+        },
+        "propeller_5blades_ccw": {
+          "description": "Auto-imported from Opto22 Image Library: propeller_5blades_ccw"
+        },
+        "propeller_5blades_copper": {
+          "description": "Auto-imported from Opto22 Image Library: propeller_5blades_copper"
+        },
+        "propeller_radial_45doblique": {
+          "description": "Auto-imported from Opto22 Image Library: propeller_radial_45doblique"
+        },
+        "propeller_radial_45doblique_reverse": {
+          "description": "Auto-imported from Opto22 Image Library: propeller_radial_45doblique_reverse"
+        },
+        "pump_ccw_on_002": {
+          "description": "Auto-imported from Opto22 Image Library: pump_ccw_on_002"
+        },
+        "pump_ccw_on_005": {
+          "description": "Auto-imported from Opto22 Image Library: pump_ccw_on_005"
+        },
+        "pump_ccw_on_010": {
+          "description": "Auto-imported from Opto22 Image Library: pump_ccw_on_010"
+        },
+        "pump_cw_on_002": {
+          "description": "Auto-imported from Opto22 Image Library: pump_cw_on_002"
+        },
+        "pump_cw_on_005": {
+          "description": "Auto-imported from Opto22 Image Library: pump_cw_on_005"
+        },
+        "pump_cw_on_010": {
+          "description": "Auto-imported from Opto22 Image Library: pump_cw_on_010"
+        },
+        "pumpanimations_intakeflow": {
+          "description": "Auto-imported from Opto22 Image Library: pumpanimations_intakeflow"
+        },
+        "pumpblades_fast": {
+          "description": "Auto-imported from Opto22 Image Library: pumpblades_fast"
+        },
+        "pumpblades_fastest": {
+          "description": "Auto-imported from Opto22 Image Library: pumpblades_fastest"
+        },
+        "pumpblades_medium": {
+          "description": "Auto-imported from Opto22 Image Library: pumpblades_medium"
+        },
+        "pumpblades_slow": {
+          "description": "Auto-imported from Opto22 Image Library: pumpblades_slow"
+        },
+        "quenchtankconveyor": {
+          "description": "Auto-imported from Opto22 Image Library: quenchtankconveyor"
+        },
+        "quenchtankconveyor_reverse": {
+          "description": "Auto-imported from Opto22 Image Library: quenchtankconveyor_reverse"
+        },
+        "retortauger_fullsize_offsetforoblique": {
+          "description": "Auto-imported from Opto22 Image Library: retortauger_fullsize_offsetforoblique"
+        },
+        "retortauger_fullsize_offsetforoblique_reverse": {
+          "description": "Auto-imported from Opto22 Image Library: retortauger_fullsize_offsetforoblique_reverse"
+        },
+        "rollerpress_blueframe_005sf": {
+          "description": "Auto-imported from Opto22 Image Library: rollerpress_blueframe_005sf"
+        },
+        "rollerpress_blueframe_01sf": {
+          "description": "Auto-imported from Opto22 Image Library: rollerpress_blueframe_01sf"
+        },
+        "rollerpress_simpleblack_005sf": {
+          "description": "Auto-imported from Opto22 Image Library: rollerpress_simpleblack_005sf"
+        },
+        "rollerpress_simpleblack_01sf": {
+          "description": "Auto-imported from Opto22 Image Library: rollerpress_simpleblack_01sf"
+        },
+        "rollerpress_simpleblue_005sf": {
+          "description": "Auto-imported from Opto22 Image Library: rollerpress_simpleblue_005sf"
+        },
+        "rollerpress_simpleblue_01sf": {
+          "description": "Auto-imported from Opto22 Image Library: rollerpress_simpleblue_01sf"
+        },
+        "rollerpress_simpledkgray_005sf": {
+          "description": "Auto-imported from Opto22 Image Library: rollerpress_simpledkgray_005sf"
+        },
+        "rollerpress_simpledkgray_01sf": {
+          "description": "Auto-imported from Opto22 Image Library: rollerpress_simpledkgray_01sf"
+        },
+        "rollerpress_simplegreen_005sf": {
+          "description": "Auto-imported from Opto22 Image Library: rollerpress_simplegreen_005sf"
+        },
+        "rollerpress_simplegreen_01sf": {
+          "description": "Auto-imported from Opto22 Image Library: rollerpress_simplegreen_01sf"
+        },
+        "rollerpress_simpleltgray_005sf": {
+          "description": "Auto-imported from Opto22 Image Library: rollerpress_simpleltgray_005sf"
+        },
+        "rollerpress_simpleltgray_01sf": {
+          "description": "Auto-imported from Opto22 Image Library: rollerpress_simpleltgray_01sf"
+        },
+        "rollerpress_simplered_005sf": {
+          "description": "Auto-imported from Opto22 Image Library: rollerpress_simplered_005sf"
+        },
+        "rollerpress_simplered_01sf": {
+          "description": "Auto-imported from Opto22 Image Library: rollerpress_simplered_01sf"
+        },
+        "rollerpress_vertical_simpleblue_005sf": {
+          "description": "Auto-imported from Opto22 Image Library: rollerpress_vertical_simpleblue_005sf"
+        },
+        "rollerpress_vertical_simpleblue_01sf": {
+          "description": "Auto-imported from Opto22 Image Library: rollerpress_vertical_simpleblue_01sf"
+        },
+        "rollerpress_vertical_simpleblue_r_005sf": {
+          "description": "Auto-imported from Opto22 Image Library: rollerpress_vertical_simpleblue_r_005sf"
+        },
+        "rollerpress_vertical_simpleblue_r_01sf": {
+          "description": "Auto-imported from Opto22 Image Library: rollerpress_vertical_simpleblue_r_01sf"
+        },
+        "rollerpress_vertical_simplegreen_005sf": {
+          "description": "Auto-imported from Opto22 Image Library: rollerpress_vertical_simplegreen_005sf"
+        },
+        "rollerpress_vertical_simplegreen_01sf": {
+          "description": "Auto-imported from Opto22 Image Library: rollerpress_vertical_simplegreen_01sf"
+        },
+        "rollerpress_vertical_simplegreen_r_005sf": {
+          "description": "Auto-imported from Opto22 Image Library: rollerpress_vertical_simplegreen_r_005sf"
+        },
+        "rollerpress_vertical_simplegreen_r_01sf": {
+          "description": "Auto-imported from Opto22 Image Library: rollerpress_vertical_simplegreen_r_01sf"
+        },
+        "rollerpress_vertical_simplered_005sf": {
+          "description": "Auto-imported from Opto22 Image Library: rollerpress_vertical_simplered_005sf"
+        },
+        "rollerpress_vertical_simplered_01sf": {
+          "description": "Auto-imported from Opto22 Image Library: rollerpress_vertical_simplered_01sf"
+        },
+        "rollerpress_vertical_simplered_r_005sf": {
+          "description": "Auto-imported from Opto22 Image Library: rollerpress_vertical_simplered_r_005sf"
+        },
+        "rollerpress_vertical_simplered_r_01sf": {
+          "description": "Auto-imported from Opto22 Image Library: rollerpress_vertical_simplered_r_01sf"
+        },
+        "rotarywasheranimation": {
+          "description": "Auto-imported from Opto22 Image Library: rotarywasheranimation"
+        },
+        "rotarywasheranimation_reverse": {
+          "description": "Auto-imported from Opto22 Image Library: rotarywasheranimation_reverse"
+        },
+        "spraycurtain_blue": {
+          "description": "Auto-imported from Opto22 Image Library: spraycurtain_blue"
+        },
+        "spraycurtain_blue_reverse": {
+          "description": "Auto-imported from Opto22 Image Library: spraycurtain_blue_reverse"
+        },
+        "spraycurtain_cyan": {
+          "description": "Auto-imported from Opto22 Image Library: spraycurtain_cyan"
+        },
+        "spraycurtain_cyan_reverse": {
+          "description": "Auto-imported from Opto22 Image Library: spraycurtain_cyan_reverse"
+        },
+        "spraycurtain_white": {
+          "description": "Auto-imported from Opto22 Image Library: spraycurtain_white"
+        },
+        "spraycurtain_white_reverse": {
+          "description": "Auto-imported from Opto22 Image Library: spraycurtain_white_reverse"
+        },
+        "turbine_h2_black_dn": {
+          "description": "Auto-imported from Opto22 Image Library: turbine_h2_black_dn"
+        },
+        "turbine_h_black_dn": {
+          "description": "Auto-imported from Opto22 Image Library: turbine_h_black_dn"
+        },
+        "turbine_h_black_up": {
+          "description": "Auto-imported from Opto22 Image Library: turbine_h_black_up"
+        },
+        "turbine_h_black_wframe_up": {
+          "description": "Auto-imported from Opto22 Image Library: turbine_h_black_wframe_up"
+        },
+        "turbine_h_flipped_black_dn": {
+          "description": "Auto-imported from Opto22 Image Library: turbine_h_flipped_black_dn"
+        },
+        "turbine_h_flipped_up_black": {
+          "description": "Auto-imported from Opto22 Image Library: turbine_h_flipped_up_black"
+        },
+        "turbine_h_flipped_up_wframe_black": {
+          "description": "Auto-imported from Opto22 Image Library: turbine_h_flipped_up_wframe_black"
+        },
+        "turbine_h_flipped_wframe_black": {
+          "description": "Auto-imported from Opto22 Image Library: turbine_h_flipped_wframe_black"
+        },
+        "turbine_rccw_lt_black": {
+          "description": "Auto-imported from Opto22 Image Library: turbine_rccw_lt_black"
+        },
+        "turbine_rccw_rt_black": {
+          "description": "Auto-imported from Opto22 Image Library: turbine_rccw_rt_black"
+        },
+        "turbine_rcw_lt_black": {
+          "description": "Auto-imported from Opto22 Image Library: turbine_rcw_lt_black"
+        },
+        "turbine_rcw_rt_black": {
+          "description": "Auto-imported from Opto22 Image Library: turbine_rcw_rt_black"
+        },
+        "wallsocket": {
+          "description": "Auto-imported from Opto22 Image Library: wallsocket"
+        },
+        "wturbine_fast": {
+          "description": "Auto-imported from Opto22 Image Library: wturbine_fast"
+        },
+        "wturbine_green_100w_005fps_ccw": {
+          "description": "Auto-imported from Opto22 Image Library: wturbine_green_100w_005fps_ccw"
+        },
+        "wturbine_green_100w_005fps_cw": {
+          "description": "Auto-imported from Opto22 Image Library: wturbine_green_100w_005fps_cw"
+        },
+        "wturbine_green_100w_01fps_ccw": {
+          "description": "Auto-imported from Opto22 Image Library: wturbine_green_100w_01fps_ccw"
+        },
+        "wturbine_green_100w_01fps_cw": {
+          "description": "Auto-imported from Opto22 Image Library: wturbine_green_100w_01fps_cw"
+        },
+        "wturbine_green_124w_01fps_ccw": {
+          "description": "Auto-imported from Opto22 Image Library: wturbine_green_124w_01fps_ccw"
+        },
+        "wturbine_green_124w_01fps_cw": {
+          "description": "Auto-imported from Opto22 Image Library: wturbine_green_124w_01fps_cw"
+        },
+        "wturbine_green_200w": {
+          "description": "Auto-imported from Opto22 Image Library: wturbine_green_200w"
+        },
+        "wturbine_green_560w_ccw": {
+          "description": "Auto-imported from Opto22 Image Library: wturbine_green_560w_ccw"
+        },
+        "wturbine_green_560w_cw": {
+          "description": "Auto-imported from Opto22 Image Library: wturbine_green_560w_cw"
+        },
+        "wturbine_green_562w": {
+          "description": "Auto-imported from Opto22 Image Library: wturbine_green_562w"
+        },
+        "wturbine_med": {
+          "description": "Auto-imported from Opto22 Image Library: wturbine_med"
+        },
+        "gaspump_anim": {
+          "description": "Auto-imported from Opto22 Image Library: gaspump_anim"
+        },
+        "generator_anim": {
+          "description": "Auto-imported from Opto22 Image Library: generator_anim"
+        }
+      }
+    },
+    "root-widgets": {
+      "description": "Standalone process equipment widgets contributed to the FUXA library",
+      "widgets": {
+        "curtain-coater": {
+          "description": "Industrial curtain coating machine with conveyor, dosing pumps, and viscosity control",
+          "variables": {
+            "_pn_conveyorSpeed": {
+              "unit": "m/min",
+              "type": "number"
+            },
+            "_pn_setConveyorSpeed": {
+              "unit": "m/min",
+              "type": "number"
+            },
+            "_pn_lacquerLevel": {
+              "unit": "%",
+              "type": "number"
+            },
+            "_pn_lacquerTemp": {
+              "unit": "°C",
+              "type": "number"
+            },
+            "_pn_setLacquerTemp": {
+              "unit": "°C",
+              "type": "number"
+            },
+            "_pn_pumpSpeed": {
+              "unit": "RPM",
+              "type": "number"
+            },
+            "_pn_setPumpSpeed": {
+              "unit": "RPM",
+              "type": "number"
+            },
+            "_pn_bladesOpening": {
+              "unit": "mm",
+              "type": "number"
+            },
+            "_pn_setBladesOpening": {
+              "unit": "mm",
+              "type": "number"
+            },
+            "_pn_viscosity": {
+              "unit": "cP",
+              "type": "number"
+            },
+            "_pn_setViscosity": {
+              "unit": "cP",
+              "type": "number"
+            },
+            "_pn_viscosityStatus": {
+              "type": "number",
+              "unit": ""
+            },
+            "_pn_sensorOperator": {
+              "type": "number",
+              "unit": ""
+            },
+            "_pn_sensorC1": {
+              "type": "number",
+              "unit": ""
+            },
+            "_pn_sensorC2": {
+              "type": "number",
+              "unit": ""
+            },
+            "_pn_dosingLacquer": {
+              "type": "number",
+              "unit": ""
+            },
+            "_pn_dosingSolvent": {
+              "type": "number",
+              "unit": ""
+            }
+          }
+        },
+        "electric-motor": {
+          "description": "AC induction motor with speed, current, and temperature monitoring",
+          "variables": {
+            "_pn_motorSpeed": {
+              "unit": "RPM",
+              "type": "number"
+            },
+            "_pn_setSpeed": {
+              "unit": "RPM",
+              "type": "number"
+            },
+            "_pn_current": {
+              "unit": "A",
+              "type": "number"
+            },
+            "_pn_setCurrent": {
+              "unit": "A",
+              "type": "number"
+            },
+            "_pn_temp": {
+              "unit": "°C",
+              "type": "number"
+            },
+            "_pn_setTemp": {
+              "unit": "°C",
+              "type": "number"
+            },
+            "_pn_valveOpen": {
+              "type": "number",
+              "unit": ""
+            },
+            "_pb_running": {
+              "type": "boolean"
+            }
+          }
+        },
+        "flow-meter": {
+          "description": "Industrial flow meter with totalizer, alarms, and flow control",
+          "variables": {
+            "_pn_flowRate": {
+              "unit": "m³/h",
+              "type": "number"
+            },
+            "_pn_setFlow": {
+              "unit": "m³/h",
+              "type": "number"
+            },
+            "_pn_totalFlow": {
+              "unit": "m³",
+              "type": "number"
+            },
+            "_pn_alarmHigh": {
+              "unit": "m³/h",
+              "type": "number"
+            },
+            "_pn_alarmLow": {
+              "unit": "m³/h",
+              "type": "number"
+            },
+            "_pn_valveOpen": {
+              "type": "number",
+              "unit": ""
+            },
+            "_pb_flowActive": {
+              "type": "boolean"
+            }
+          }
+        },
+        "industrial-pipe-system": {
+          "description": "Complex pipe system with flow, pressure, temperature, and valve control",
+          "variables": {
+            "_pn_flow": {
+              "unit": "m³/h",
+              "type": "number"
+            },
+            "_pn_setFlow": {
+              "unit": "m³/h",
+              "type": "number"
+            },
+            "_pn_pressure": {
+              "unit": "bar",
+              "type": "number"
+            },
+            "_pn_temp": {
+              "unit": "°C",
+              "type": "number"
+            },
+            "_pn_valvePosition": {
+              "unit": "%",
+              "type": "number"
+            },
+            "_pn_valveOpen": {
+              "type": "number",
+              "unit": ""
+            },
+            "_pb_flowActive": {
+              "type": "boolean"
+            },
+            "_pb_valveOpen": {
+              "type": "boolean"
+            },
+            "_pb_alarm": {
+              "type": "boolean"
+            },
+            "_pc_pressureColor": {
+              "type": "color"
+            },
+            "_pc_tempColor": {
+              "type": "color"
+            }
+          }
+        },
+        "industrial-valve": {
+          "description": "Industrial control valve with position feedback and flow indication",
+          "variables": {
+            "_pn_valvePosition": {
+              "unit": "%",
+              "type": "number"
+            },
+            "_pn_flowRate": {
+              "unit": "m³/h",
+              "type": "number"
+            },
+            "_pn_valveOpen": {
+              "type": "number",
+              "unit": ""
+            },
+            "_pb_valveOpen": {
+              "type": "boolean"
+            }
+          }
+        },
+        "level-indicator": {
+          "description": "Tank level indicator with high/low alarms and volume calculation",
+          "variables": {
+            "_pn_level": {
+              "unit": "%",
+              "type": "number"
+            },
+            "_pn_setLevel": {
+              "unit": "%",
+              "type": "number"
+            },
+            "_pn_volume": {
+              "unit": "m³",
+              "type": "number"
+            },
+            "_pn_alarmHigh": {
+              "unit": "%",
+              "type": "number"
+            },
+            "_pn_alarmLow": {
+              "unit": "%",
+              "type": "number"
+            },
+            "_pb_alarmActive": {
+              "type": "boolean"
+            }
+          }
+        },
+        "pressure-gauge": {
+          "description": "Analog pressure gauge with alarm setpoint and min/max recording",
+          "variables": {
+            "_pn_pressure": {
+              "unit": "bar",
+              "type": "number"
+            },
+            "_pn_setPressure": {
+              "unit": "bar",
+              "type": "number"
+            },
+            "_pn_pressureMin": {
+              "unit": "bar",
+              "type": "number"
+            },
+            "_pn_pressureMax": {
+              "unit": "bar",
+              "type": "number"
+            },
+            "_pn_valveOpen": {
+              "type": "number",
+              "unit": ""
+            },
+            "_pb_alarmActive": {
+              "type": "boolean"
+            }
+          }
+        },
+        "process-tank": {
+          "description": "Process tank with level, temperature, pressure, and agitator control",
+          "variables": {
+            "_pn_tankLevel": {
+              "unit": "%",
+              "type": "number"
+            },
+            "_pn_tankTemp": {
+              "unit": "°C",
+              "type": "number"
+            },
+            "_pn_tankPressure": {
+              "unit": "bar",
+              "type": "number"
+            },
+            "_pn_tankVolume": {
+              "unit": "m³",
+              "type": "number"
+            },
+            "_pn_valveOpen": {
+              "type": "number",
+              "unit": ""
+            },
+            "_pb_agitatorOn": {
+              "type": "boolean"
+            },
+            "_pc_liquidColor": {
+              "type": "color"
+            }
+          }
+        },
+        "pump-system": {
+          "description": "Centrifugal pump system with speed, flow, and pressure control",
+          "variables": {
+            "_pn_pumpSpeed": {
+              "unit": "RPM",
+              "type": "number"
+            },
+            "_pn_setSpeed": {
+              "unit": "RPM",
+              "type": "number"
+            },
+            "_pn_flowRate": {
+              "unit": "m³/h",
+              "type": "number"
+            },
+            "_pn_setFlow": {
+              "unit": "m³/h",
+              "type": "number"
+            },
+            "_pn_pressure": {
+              "unit": "bar",
+              "type": "number"
+            },
+            "_pn_setPressure": {
+              "unit": "bar",
+              "type": "number"
+            },
+            "_pn_valveOpen": {
+              "type": "number",
+              "unit": ""
+            },
+            "_pb_running": {
+              "type": "boolean"
+            }
+          }
+        },
+        "sensor-indicator": {
+          "description": "Universal sensor indicator with configurable color mapping",
+          "variables": {
+            "_pn_sensorValue": {
+              "type": "number",
+              "unit": ""
+            },
+            "_pb_sensorActive": {
+              "type": "boolean"
+            },
+            "_pc_sensorColor": {
+              "type": "color"
+            }
+          }
+        },
+        "temperature-sensor": {
+          "description": "Temperature sensor with heater control and high/low alarms",
+          "variables": {
+            "_pn_temp": {
+              "unit": "°C",
+              "type": "number"
+            },
+            "_pn_setTemp": {
+              "unit": "°C",
+              "type": "number"
+            },
+            "_pn_alarmHigh": {
+              "unit": "°C",
+              "type": "number"
+            },
+            "_pn_alarmLow": {
+              "unit": "°C",
+              "type": "number"
+            },
+            "_pn_valveOpen": {
+              "type": "number",
+              "unit": ""
+            },
+            "_pb_heaterOn": {
+              "type": "boolean"
+            }
+          }
+        }
+      }
+    }
+  }
+}

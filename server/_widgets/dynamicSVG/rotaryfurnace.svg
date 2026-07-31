@@ -1,0 +1,50 @@
+<svg id="fuxa-dyn-rotaryfurnace" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+<defs>
+<linearGradient id="gs" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#f1f5f9"/><stop offset="30%" stop-color="#cbd5e1"/><stop offset="70%" stop-color="#94a3b8"/><stop offset="100%" stop-color="#64748b"/></linearGradient>
+<linearGradient id="gi" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#94a3b8"/><stop offset="50%" stop-color="#64748b"/><stop offset="100%" stop-color="#334155"/></linearGradient>
+<linearGradient id="gc" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#fca5a5"/><stop offset="40%" stop-color="#dc2626"/><stop offset="100%" stop-color="#991b1b"/></linearGradient>
+<linearGradient id="gb" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#7dd3fc"/><stop offset="40%" stop-color="#0284c7"/><stop offset="100%" stop-color="#0369a1"/></linearGradient>
+<filter id="s"><feDropShadow dx="2" dy="3" stdDeviation="3" flood-color="#0f172a" flood-opacity="0.35"/></filter>
+<style>.bkg{fill:#dbeafe}.frm{fill:#0f172a;rx:10;filter:url(#s)}</style>
+
+</defs>
+<rect width="200" height="200" class="bkg"/><rect x="6" y="6" width="188" height="188" class="frm"/>
+<g transform="translate(50,50)">
+<circle cx="15" cy="50" r="0" data-port-id="pipe" data-port-dir="left" data-port-type="pipe"/>
+<circle cx="185" cy="50" r="0" data-port-id="pipe" data-port-dir="right" data-port-type="pipe"/>
+<g id="shape">
+        <path d="M98.26,37.116h-6.074c-.335,0-.647.85-.912,2.299h-5.569c-.344-2.643-.793-4.254-1.285-4.254h-7.517v-2.644c.776-.093,1.261-.218,1.261-.355v-.698c0-.287-2.069-.52-4.622-.52s-4.622.233-4.622.52v.698c0,.138.484.262,1.261.355v2.644h-7.61c-.011,0-.022.013-.033.015-.223-.719-.463-1.132-.714-1.132h-1.681c-.25,0-.488.407-.71,1.117h-6.247v-2.644c.776-.093,1.261-.218,1.261-.355v-.698c0-.287-2.069-.52-4.622-.52s-4.622.233-4.622.52v.698c0,.138.484.262,1.261.355v2.644h-7.834c-.222-.71-.46-1.117-.71-1.117h-1.681c-.25,0-.488.407-.71,1.117h-5.873v-2.644c.776-.093,1.261-.218,1.261-.355v-.698c0-.287-2.069-.52-4.622-.52s-4.622.233-4.622.52v.698c0,.138.484.262,1.261.355v2.644h-8.544c-.433,0-.832,1.254-1.156,3.352h-.805c-.196,0-.382.328-.555.902h-3.149c-.265-1.448-.577-2.299-.912-2.299H1.74c-.961,0-1.74,6.879-1.74,15.365s.779,15.365,1.74,15.365h6.074c.335,0,.647-.85.912-2.299h3.146c.173.573.359.902.555.902h.805c.324,2.098.723,3.352,1.156,3.352h1.017v.279l3.185,5.707h6.723v-5.987h10.215c.222.71.46,1.117.71,1.117h1.681c.25,0,.488-.407.71-1.117h8.712v.279l3.185,5.707h6.723v-5.987h2.185c.222.71.46,1.117.71,1.117h1.681c.251,0,.491-.413.714-1.132.011.002.022.015.033.015h13.624v.279l3.185,5.707h6.723v-10.238h5.172c.265,1.448.577,2.299.912,2.299h6.074c.961,0,1.74-6.879,1.74-15.365s-.781-15.365-1.742-15.365Z"/>
+      </g>
+</g>
+<script><![CDATA[
+//!export-start
+var _pn_setState=0;
+var _pb_boolState=false;
+var _pn_setInterval=500;
+var _pc_state0Colour='#808080';
+var _pc_state1Colour='#22c55e';
+var _pc_state2Colour='#eab308';
+var _pc_state3Colour='#ef4444';
+var _pc_state4Colour='#a855f7';
+var _pc_state5Colour='#3b82f6';
+//!export-end
+function postValue(id,v){console.log('FUXA post:',id,'=',v);}
+function putValue(id,v){v=Number(v);switch(id){
+  case '_pn_setState':
+    _pn_setState=v;
+    var colors=[_pc_state0Colour,_pc_state1Colour,_pc_state2Colour,_pc_state3Colour,_pc_state4Colour,_pc_state5Colour];
+    var c=colors[Math.min(v,5)]||'#808080';
+    var els=document.querySelectorAll('#shape path,#shape circle,#shape rect');
+    for(var k=0;k<els.length;k++){els[k].setAttribute('fill',c);}
+    break;
+  case '_pb_boolState':
+    _pb_boolState=v!==0;
+    var c2=_pb_boolState?_pc_state1Colour:_pc_state0Colour;
+    var els2=document.querySelectorAll('#shape path,#shape circle,#shape rect');
+    for(var j=0;j<els2.length;j++){els2[j].setAttribute('fill',c2);}
+    break;
+}}
+var o=new MutationObserver(function(m){m.forEach(function(mu){mu.removedNodes.forEach(function(n){if(n.id==='fuxa-dyn-rotaryfurnace'){o.disconnect();}});});});
+o.observe(document.body,{childList:true,subtree:true});
+]]></script>
+</svg>

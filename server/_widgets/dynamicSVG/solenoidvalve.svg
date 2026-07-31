@@ -1,0 +1,65 @@
+<svg id="fuxa-dyn-solenoidvalve" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+<defs>
+<linearGradient id="gs" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#f1f5f9"/><stop offset="30%" stop-color="#cbd5e1"/><stop offset="70%" stop-color="#94a3b8"/><stop offset="100%" stop-color="#64748b"/></linearGradient>
+<linearGradient id="gi" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#94a3b8"/><stop offset="50%" stop-color="#64748b"/><stop offset="100%" stop-color="#334155"/></linearGradient>
+<linearGradient id="gc" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#fca5a5"/><stop offset="40%" stop-color="#dc2626"/><stop offset="100%" stop-color="#991b1b"/></linearGradient>
+<linearGradient id="gb" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#7dd3fc"/><stop offset="40%" stop-color="#0284c7"/><stop offset="100%" stop-color="#0369a1"/></linearGradient>
+<filter id="s"><feDropShadow dx="2" dy="3" stdDeviation="3" flood-color="#0f172a" flood-opacity="0.35"/></filter>
+<style>.bkg{fill:#dbeafe}.frm{fill:#0f172a;rx:10;filter:url(#s)}</style>
+
+</defs>
+<rect width="200" height="200" class="bkg"/><rect x="6" y="6" width="188" height="188" class="frm"/>
+<g transform="translate(50,50)">
+<circle cx="15" cy="100" r="0" data-port-id="pipe" data-port-dir="left" data-port-type="pipe"/>
+<circle cx="185" cy="100" r="0" data-port-id="pipe" data-port-dir="right" data-port-type="pipe"/>
+<g id="shape">
+        <path fill="#2398C9" d="M99.359,68.574H87.087c-0.459,0-0.831,0.372-0.831,0.831v1.755h-7.878c-0.459,0-0.831,0.372-0.831,0.831
+            v0.946h-4.331V71.99c0-0.459-0.372-0.831-0.831-0.831h-0.974v-5.858c0-0.082-0.018-0.159-0.024-0.239h2.517v-2.077h0.415
+            c1.835,0,3.323-1.488,3.323-3.323v-4.251c0-1.835-1.488-3.323-3.323-3.323h-0.176l-0.24-0.431l-0.5-1.62h-0.901L72.49,50.01h-1.501
+            v-1.532h-2.378v1.532h-8.985v-5.338H72.08c0.918,0,1.662-0.744,1.662-1.662v-6.019h16.674c2.294,0,4.153-1.86,4.153-4.153V21.435
+            c0-2.294-1.86-4.154-4.154-4.154H73.741v-6.654c0-0.129-0.031-0.256-0.088-0.371l-1.231-1.459c-0.19-0.225-0.47-0.355-0.764-0.355
+            h-44.11c-0.295,0-0.574,0.13-0.764,0.355l-1.231,1.459c-0.058,0.115-0.088,0.243-0.088,0.371V43.01
+            c0,0.918,0.744,1.662,1.662,1.662h13.408v5.338h-8.074v-1.532h-2.378v1.532h-3.08l-0.664,2.143l-1.14,0.2
+            c-1.187,0.507-2.02,1.684-2.02,3.057v4.251c0,1.835,1.488,3.323,3.323,3.323h0.995v2.077h1.938
+            c-0.006,0.08-0.024,0.157-0.024,0.239v5.858H28.5c-0.459,0-0.831,0.372-0.831,0.831v0.946h-4.086v-0.946
+            c0-0.459-0.372-0.831-0.831-0.831h-8.376v-1.755c0-0.459-0.372-0.831-0.831-0.831H1.273c-0.459,0-0.831,0.372-0.831,0.831V89.64
+            c0,0.459,0.372,0.831,0.831,0.831h12.273c0.458,0,0.83-0.372,0.83-0.83v-1.756h8.376c0.458,0,0.83-0.372,0.83-0.83v-1.656h4.086
+            v1.655c0,0.459,0.372,0.831,0.831,0.831h0.911v0.361c0,1.835,1.488,3.323,3.323,3.323h35.355c1.835,0,3.322-1.488,3.322-3.322
+            v-0.362h0.973c0.459,0,0.832-0.372,0.832-0.832v-1.654h4.331v1.655c0,0.459,0.372,0.831,0.831,0.831h7.878v1.755
+            c0,0.459,0.372,0.831,0.831,0.831h12.272c0.459,0,0.831-0.372,0.831-0.831v-2.586V71.991v-2.586
+            C100.19,68.946,99.818,68.574,99.359,68.574z"/>
+        <path fill="#27AAE1" d="M23.583,74.187"/>
+    </g>
+</g>
+<script><![CDATA[
+//!export-start
+var _pn_setState=0;
+var _pb_boolState=false;
+var _pn_setInterval=500;
+var _pc_state0Colour='#808080';
+var _pc_state1Colour='#22c55e';
+var _pc_state2Colour='#eab308';
+var _pc_state3Colour='#ef4444';
+var _pc_state4Colour='#a855f7';
+var _pc_state5Colour='#3b82f6';
+//!export-end
+function postValue(id,v){console.log('FUXA post:',id,'=',v);}
+function putValue(id,v){v=Number(v);switch(id){
+  case '_pn_setState':
+    _pn_setState=v;
+    var colors=[_pc_state0Colour,_pc_state1Colour,_pc_state2Colour,_pc_state3Colour,_pc_state4Colour,_pc_state5Colour];
+    var c=colors[Math.min(v,5)]||'#808080';
+    var els=document.querySelectorAll('#shape path,#shape circle,#shape rect');
+    for(var k=0;k<els.length;k++){els[k].setAttribute('fill',c);}
+    break;
+  case '_pb_boolState':
+    _pb_boolState=v!==0;
+    var c2=_pb_boolState?_pc_state1Colour:_pc_state0Colour;
+    var els2=document.querySelectorAll('#shape path,#shape circle,#shape rect');
+    for(var j=0;j<els2.length;j++){els2[j].setAttribute('fill',c2);}
+    break;
+}}
+var o=new MutationObserver(function(m){m.forEach(function(mu){mu.removedNodes.forEach(function(n){if(n.id==='fuxa-dyn-solenoidvalve'){o.disconnect();}});});});
+o.observe(document.body,{childList:true,subtree:true});
+]]></script>
+</svg>

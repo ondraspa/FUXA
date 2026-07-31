@@ -1,0 +1,50 @@
+<svg id="fuxa-dyn-hopper_woutfeed" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+<defs>
+<linearGradient id="gs" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#f1f5f9"/><stop offset="30%" stop-color="#cbd5e1"/><stop offset="70%" stop-color="#94a3b8"/><stop offset="100%" stop-color="#64748b"/></linearGradient>
+<linearGradient id="gi" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#94a3b8"/><stop offset="50%" stop-color="#64748b"/><stop offset="100%" stop-color="#334155"/></linearGradient>
+<linearGradient id="gc" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#fca5a5"/><stop offset="40%" stop-color="#dc2626"/><stop offset="100%" stop-color="#991b1b"/></linearGradient>
+<linearGradient id="gb" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#7dd3fc"/><stop offset="40%" stop-color="#0284c7"/><stop offset="100%" stop-color="#0369a1"/></linearGradient>
+<filter id="s"><feDropShadow dx="2" dy="3" stdDeviation="3" flood-color="#0f172a" flood-opacity="0.35"/></filter>
+<style>.bkg{fill:#dbeafe}.frm{fill:#0f172a;rx:10;filter:url(#s)}</style>
+
+</defs>
+<rect width="200" height="200" class="bkg"/><rect x="6" y="6" width="188" height="188" class="frm"/>
+<g transform="translate(50,50)">
+<circle cx="15" cy="80" r="0" data-port-id="pipe" data-port-dir="left" data-port-type="pipe"/>
+<circle cx="185" cy="80" r="0" data-port-id="pipe" data-port-dir="right" data-port-type="pipe"/>
+<g transform="translate(11.92484 0) scale(0.34454)"><g id="shape">
+        <path d="M217.787,158.036c.146-.061.279-.144.417-.219.115-.063.235-.114.345-.188.485-.324.902-.741,1.226-1.226.073-.11.124-.229.186-.343.076-.139.159-.272.22-.419s.096-.3.14-.452c.037-.125.085-.245.111-.375.057-.286.087-.576.087-.867s-.031-.581-.087-.867c-.026-.13-.074-.25-.111-.375-.044-.151-.079-.305-.14-.452s-.145-.28-.22-.419c-.062-.115-.113-.233-.186-.343-.162-.243-.346-.469-.551-.675l-2.147-2.147v-1.553l-.906-.906h-1.552l-9.514-9.514c-.865-.865-1.998-1.297-3.131-1.297h-3.614v-7l-.906-.906h-15.134v-57.035h0v-12.384L124.745.5H.568v12.316h-.068v219.283l2.89,2.89h7.774V39.382l6.904,17.267,37.186,37.186v193.019l2.89,2.89h7.774V104.498l10.113,10.113,40.941,10.923v1.961h-19.139v7.986c-.842.16-1.646.565-2.298,1.217-.865.865-1.297,1.998-1.297,3.131s.432,2.266,1.297,3.131l14.119,14.119s.004.003.006.005c.204.203.428.386.669.546.111.074.232.125.348.189.137.075.269.158.415.218.147.061.301.096.453.141.125.037.244.085.374.111.286.057.576.087.867.087h3.765v1.578l.422.422v71.725l2.89,2.89h7.774v-74.13h44.022v125.995l2.89,2.89h7.774v-128.884h34.757v-2.602c.089-.02.171-.055.258-.08.151-.044.305-.079.452-.14l-.003-.004ZM171.343,127.495l.314-1.632v1.632s-.314,0-.314,0Z" fill="#a6b4a3"/>
+      </g></g>
+</g>
+<script><![CDATA[
+//!export-start
+var _pn_setState=0;
+var _pb_boolState=false;
+var _pn_setInterval=500;
+var _pc_state0Colour='#808080';
+var _pc_state1Colour='#22c55e';
+var _pc_state2Colour='#eab308';
+var _pc_state3Colour='#ef4444';
+var _pc_state4Colour='#a855f7';
+var _pc_state5Colour='#3b82f6';
+//!export-end
+function postValue(id,v){console.log('FUXA post:',id,'=',v);}
+function putValue(id,v){v=Number(v);switch(id){
+  case '_pn_setState':
+    _pn_setState=v;
+    var colors=[_pc_state0Colour,_pc_state1Colour,_pc_state2Colour,_pc_state3Colour,_pc_state4Colour,_pc_state5Colour];
+    var c=colors[Math.min(v,5)]||'#808080';
+    var els=document.querySelectorAll('#shape path,#shape circle,#shape rect');
+    for(var k=0;k<els.length;k++){els[k].setAttribute('fill',c);}
+    break;
+  case '_pb_boolState':
+    _pb_boolState=v!==0;
+    var c2=_pb_boolState?_pc_state1Colour:_pc_state0Colour;
+    var els2=document.querySelectorAll('#shape path,#shape circle,#shape rect');
+    for(var j=0;j<els2.length;j++){els2[j].setAttribute('fill',c2);}
+    break;
+}}
+var o=new MutationObserver(function(m){m.forEach(function(mu){mu.removedNodes.forEach(function(n){if(n.id==='fuxa-dyn-hopper_woutfeed'){o.disconnect();}});});});
+o.observe(document.body,{childList:true,subtree:true});
+]]></script>
+</svg>

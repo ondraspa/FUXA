@@ -1,0 +1,49 @@
+<svg id="fuxa-dyn-verticalpump_nooutflow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+<defs>
+<linearGradient id="gs" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#f1f5f9"/><stop offset="30%" stop-color="#cbd5e1"/><stop offset="70%" stop-color="#94a3b8"/><stop offset="100%" stop-color="#64748b"/></linearGradient>
+<linearGradient id="gi" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#94a3b8"/><stop offset="50%" stop-color="#64748b"/><stop offset="100%" stop-color="#334155"/></linearGradient>
+<linearGradient id="gc" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#fca5a5"/><stop offset="40%" stop-color="#dc2626"/><stop offset="100%" stop-color="#991b1b"/></linearGradient>
+<linearGradient id="gb" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#7dd3fc"/><stop offset="40%" stop-color="#0284c7"/><stop offset="100%" stop-color="#0369a1"/></linearGradient>
+<filter id="s"><feDropShadow dx="2" dy="3" stdDeviation="3" flood-color="#0f172a" flood-opacity="0.35"/></filter>
+<style>.bkg{fill:#dbeafe}.frm{fill:#0f172a;rx:10;filter:url(#s)}</style>
+
+</defs>
+<rect width="200" height="200" class="bkg"/><rect x="6" y="6" width="188" height="188" class="frm"/>
+<g transform="translate(50,50)">
+<circle cx="50" cy="30" r="0" data-port-id="pipe" data-port-dir="right" data-port-type="pipe"/>
+<g transform="translate(31.25 0) scale(0.3125)"><g id="shape">
+      <path d="M47.671,296.795c0,1.542,5.587,2.791,12.479,2.791s12.479-1.25,12.479-2.791v-2.161c0-.351-.302-.686-.832-.996v-8.161c0-2.445-.9-6.567-1.518-9.109,1.473-.458,2.349-1.019,2.349-1.626v-4.849c0-.913-1.97-1.722-5.002-2.231v-8.912c.8-.298,1.269-.645,1.269-1.018v-3.4c0-.373-.469-.72-1.269-1.018V113.854c11.519-.74,19.95-3.113,19.95-5.928v-2.85c0-.991-1.05-1.926-2.906-2.756v-22.491c1.856-.83,2.906-1.765,2.906-2.756v-2.427c0-.106-.012-.212-.036-.317.024-.105.036-.211.036-.317v-2.85c0-1.006-1.084-1.956-2.995-2.795,1.45-.738,2.261-1.554,2.261-2.412v-.397c1.473-.779,2.288-1.636,2.288-2.535V14.024s0,0,0,0c0-.11-.013-.219-.037-.327-.022-.1-.057-.2-.1-.298-.003-.006-.004-.013-.006-.019-.111-.252-.289-.499-.524-.742-.27-.287-.899-.935-1.175-1.16-2.224-1.81-7.269-3.313-13.856-4.191-.286-2.935-6.181-5.279-13.432-5.279s-13.148,2.346-13.432,5.281c-6.444.859-11.415,2.315-13.709,4.073-.269.206-.839.773-1.227,1.184-.132.127-.248.255-.346.385-.008.009-.021.025-.027.033,0,.001-.001.003-.002.004-.117.16-.206.322-.269.486-.011.027-.018.054-.028.081-.054.162-.09.325-.09.49v49c0,.899.815,1.756,2.288,2.535v.397c0,.858.811,1.674,2.261,2.412-1.911.839-2.995,1.788-2.995,2.795v2.85c0,.106.012.212.036.317-.024.105-.036.211-.036.317v2.427c0,.991,1.05,1.926,2.906,2.756v22.491c-1.856.83-2.906,1.765-2.906,2.756v2.85c0,2.822,8.474,5.199,20.037,5.933v139.456c-.8.298-1.269.645-1.269,1.018v3.4c0,.373.469.72,1.269,1.018v8.948c-2.911.511-4.788,1.303-4.788,2.195v4.849c0,.607.877,1.168,2.349,1.626-.617,2.543-1.518,6.665-1.518,9.109v8.161c-.529.31-.832.644-.832.996,0,0,0,2.161,0,2.161ZM55.987,83.177v6.024c-2.812.274-4.945.829-5.715,1.505-.218.058-.42.119-.616.18-.014.004-.029.008-.042.013-.184.058-.353.119-.517.18-.029.011-.059.021-.087.032-.156.06-.3.123-.437.186-.027.012-.054.024-.079.037-.133.064-.255.129-.367.195-.02.012-.039.024-.059.036-.11.068-.211.138-.298.208-.011.009-.021.018-.031.027-.089.075-.167.15-.229.227h0s-5.472,0-5.472,0v-10.276c3.867.744,8.663,1.252,13.949,1.424ZM77.962,92.028h-5.472c-.062-.077-.14-.152-.229-.227-.011-.009-.02-.018-.031-.027-.087-.071-.188-.14-.298-.208-.019-.012-.038-.024-.058-.035-.112-.066-.234-.132-.367-.196-.026-.012-.053-.025-.079-.037-.137-.063-.28-.125-.437-.186-.028-.011-.059-.021-.087-.032-.164-.062-.334-.122-.518-.18-.013-.004-.027-.008-.04-.012-.197-.062-.4-.123-.618-.181-.77-.677-2.903-1.231-5.715-1.505v-6.024c5.286-.172,10.082-.681,13.949-1.424v10.276Z" fill="#009245" stroke="#000" stroke-miterlimit="10"/>
+    </g></g>
+</g>
+<script><![CDATA[
+//!export-start
+var _pn_setState=0;
+var _pb_boolState=false;
+var _pn_setInterval=500;
+var _pc_state0Colour='#808080';
+var _pc_state1Colour='#22c55e';
+var _pc_state2Colour='#eab308';
+var _pc_state3Colour='#ef4444';
+var _pc_state4Colour='#a855f7';
+var _pc_state5Colour='#3b82f6';
+//!export-end
+function postValue(id,v){console.log('FUXA post:',id,'=',v);}
+function putValue(id,v){v=Number(v);switch(id){
+  case '_pn_setState':
+    _pn_setState=v;
+    var colors=[_pc_state0Colour,_pc_state1Colour,_pc_state2Colour,_pc_state3Colour,_pc_state4Colour,_pc_state5Colour];
+    var c=colors[Math.min(v,5)]||'#808080';
+    var els=document.querySelectorAll('#shape path,#shape circle,#shape rect');
+    for(var k=0;k<els.length;k++){els[k].setAttribute('fill',c);}
+    break;
+  case '_pb_boolState':
+    _pb_boolState=v!==0;
+    var c2=_pb_boolState?_pc_state1Colour:_pc_state0Colour;
+    var els2=document.querySelectorAll('#shape path,#shape circle,#shape rect');
+    for(var j=0;j<els2.length;j++){els2[j].setAttribute('fill',c2);}
+    break;
+}}
+var o=new MutationObserver(function(m){m.forEach(function(mu){mu.removedNodes.forEach(function(n){if(n.id==='fuxa-dyn-verticalpump_nooutflow'){o.disconnect();}});});});
+o.observe(document.body,{childList:true,subtree:true});
+]]></script>
+</svg>

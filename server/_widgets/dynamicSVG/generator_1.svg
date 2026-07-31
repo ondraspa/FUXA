@@ -1,0 +1,74 @@
+<svg id="fuxa-dyn-generator_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+<defs>
+<linearGradient id="gs" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#f1f5f9"/><stop offset="30%" stop-color="#cbd5e1"/><stop offset="70%" stop-color="#94a3b8"/><stop offset="100%" stop-color="#64748b"/></linearGradient>
+<linearGradient id="gi" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#94a3b8"/><stop offset="50%" stop-color="#64748b"/><stop offset="100%" stop-color="#334155"/></linearGradient>
+<linearGradient id="gc" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#fca5a5"/><stop offset="40%" stop-color="#dc2626"/><stop offset="100%" stop-color="#991b1b"/></linearGradient>
+<linearGradient id="gb" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#7dd3fc"/><stop offset="40%" stop-color="#0284c7"/><stop offset="100%" stop-color="#0369a1"/></linearGradient>
+<filter id="s"><feDropShadow dx="2" dy="3" stdDeviation="3" flood-color="#0f172a" flood-opacity="0.35"/></filter>
+<style>.bkg{fill:#dbeafe}.frm{fill:#0f172a;rx:10;filter:url(#s)}</style>
+
+</defs>
+<rect width="200" height="200" class="bkg"/><rect x="6" y="6" width="188" height="188" class="frm"/>
+<g transform="translate(50,50)">
+<circle cx="50" cy="30" r="0" data-port-id="shaft" data-port-dir="left" data-port-type="shaft"/>
+<g id="shape">
+	<rect y="74.984" fill="#CCCCCC" width="100" height="7.374"/>
+	<polygon fill="#CCCCCC" points="54.545,72.951 42.02,72.951 37.71,69.921 18.855,69.921 18.855,44.87 47.475,44.87 54.545,51.066 	
+		"/>
+	<rect x="12.929" y="46.474" fill="#CCCCCC" width="12.391" height="15.097"/>
+	<rect x="48.754" y="52.4" fill="#CCCCCC" width="12.391" height="18.329"/>
+	<rect x="10.774" y="50.783" fill="#CCCCCC" width="14.545" height="6.478"/>
+	<rect x="55.421" y="51.066" fill="#CCCCCC" width="10.168" height="21.818"/>
+	<rect x="65.387" y="52.646" fill="#CCCCCC" width="32.727" height="18.419"/>
+	<rect x="81.919" y="46.756" fill="#CCCCCC" width="15.286" height="5.891"/>
+	<polygon fill="#CCCCCC" points="97.205,45.476 81.919,45.476 81.919,33.086 99.226,33.086 	"/>
+	<circle fill="#CCCCCC" cx="54.141" cy="41.773" r="6.061"/>
+	<rect x="2.694" y="71.537" fill="#CCCCCC" width="7.407" height="4.848"/>
+	<rect x="17.576" y="69.921" fill="#CCCCCC" width="6.195" height="6.465"/>
+	<rect x="49.562" y="69.921" fill="#CCCCCC" width="6.195" height="6.465"/>
+	<rect x="67.475" y="69.921" fill="#CCCCCC" width="6.195" height="6.465"/>
+	<rect x="83.367" y="69.921" fill="#CCCCCC" width="6.195" height="6.465"/>
+	<rect x="26.465" y="32.21" fill="#CCCCCC" width="4.579" height="12.929"/>
+	<rect x="25.589" y="37.867" fill="#CCCCCC" width="6.33" height="1.616"/>
+	<path fill="#CCCCCC" d="M23.501,45.679h-2.828v-3.502c0-1.003-0.816-1.818-1.818-1.818h-8.081V37.53h8.081
+		c2.562,0,4.646,2.084,4.646,4.646V45.679z"/>
+	<path fill="#CCCCCC" d="M44.579,49.113h-2.828v-3.502c0-2.563,2.084-4.646,4.646-4.646h8.889v2.828h-8.889
+		c-1.002,0-1.818,0.815-1.818,1.818V49.113z"/>
+	<polygon fill="#CCCCCC" points="53.434,49.82 47.172,49.82 47.172,44.702 58.485,44.702 	"/>
+	<path fill="#CCCCCC" d="M36.162,45.409h-2.828v-3.098c0-2.488,2.084-4.512,4.646-4.512h15.892v2.828H37.98
+		c-1.002,0-1.818,0.755-1.818,1.684V45.409z"/>
+	<path fill="#CCCCCC" d="M24.444,33.692c0-1.339,1.93-2.424,4.31-2.424s4.31,1.085,4.31,2.424"/>
+</g>
+</g>
+<script><![CDATA[
+//!export-start
+var _pn_setState=0;
+var _pb_boolState=false;
+var _pn_setInterval=500;
+var _pc_state0Colour='#808080';
+var _pc_state1Colour='#22c55e';
+var _pc_state2Colour='#eab308';
+var _pc_state3Colour='#ef4444';
+var _pc_state4Colour='#a855f7';
+var _pc_state5Colour='#3b82f6';
+//!export-end
+function postValue(id,v){console.log('FUXA post:',id,'=',v);}
+function putValue(id,v){v=Number(v);switch(id){
+  case '_pn_setState':
+    _pn_setState=v;
+    var colors=[_pc_state0Colour,_pc_state1Colour,_pc_state2Colour,_pc_state3Colour,_pc_state4Colour,_pc_state5Colour];
+    var c=colors[Math.min(v,5)]||'#808080';
+    var els=document.querySelectorAll('#shape path,#shape circle,#shape rect');
+    for(var k=0;k<els.length;k++){els[k].setAttribute('fill',c);}
+    break;
+  case '_pb_boolState':
+    _pb_boolState=v!==0;
+    var c2=_pb_boolState?_pc_state1Colour:_pc_state0Colour;
+    var els2=document.querySelectorAll('#shape path,#shape circle,#shape rect');
+    for(var j=0;j<els2.length;j++){els2[j].setAttribute('fill',c2);}
+    break;
+}}
+var o=new MutationObserver(function(m){m.forEach(function(mu){mu.removedNodes.forEach(function(n){if(n.id==='fuxa-dyn-generator_1'){o.disconnect();}});});});
+o.observe(document.body,{childList:true,subtree:true});
+]]></script>
+</svg>

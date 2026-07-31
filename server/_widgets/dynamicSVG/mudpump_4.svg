@@ -1,0 +1,71 @@
+<svg id="fuxa-dyn-mudpump_4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+<defs>
+<linearGradient id="gs" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#f1f5f9"/><stop offset="30%" stop-color="#cbd5e1"/><stop offset="70%" stop-color="#94a3b8"/><stop offset="100%" stop-color="#64748b"/></linearGradient>
+<linearGradient id="gi" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#94a3b8"/><stop offset="50%" stop-color="#64748b"/><stop offset="100%" stop-color="#334155"/></linearGradient>
+<linearGradient id="gc" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#fca5a5"/><stop offset="40%" stop-color="#dc2626"/><stop offset="100%" stop-color="#991b1b"/></linearGradient>
+<linearGradient id="gb" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#7dd3fc"/><stop offset="40%" stop-color="#0284c7"/><stop offset="100%" stop-color="#0369a1"/></linearGradient>
+<filter id="s"><feDropShadow dx="2" dy="3" stdDeviation="3" flood-color="#0f172a" flood-opacity="0.35"/></filter>
+<style>.bkg{fill:#dbeafe}.frm{fill:#0f172a;rx:10;filter:url(#s)}</style>
+
+</defs>
+<rect width="200" height="200" class="bkg"/><rect x="6" y="6" width="188" height="188" class="frm"/>
+<g transform="translate(50,50)">
+<circle cx="50" cy="30" r="0" data-port-id="pipe" data-port-dir="right" data-port-type="pipe"/>
+<g id="shape">
+	<path fill="#29ABE2" d="M10.622,45.193c-0.608,0.238-1.105,0.891-1.431,1.791l-0.735,0.045c-0.876,0.031-1.539,1.384-1.481,3.022
+		c0.058,1.638,0.815,2.94,1.691,2.909l0.853-0.084c0.537,1.1,1.307,1.795,2.129,1.743l1.163-0.044l3.562,1.015
+		c0.027,0.027,0.056,0.049,0.083,0.075l-0.675,0.041V57.4c-0.358,0.076-0.693,0.228-1,0.449l-0.017,0.001l-0.004,0.012l0.003,0
+		c-1.384,1.009-2.193,3.37-1.897,6.013c0.165,1.472,0.644,2.785,1.308,3.777c0.854,1.275,2.013,2.019,3.203,1.886
+		c0,0,0.001,0,0.001,0l1.624-0.232c1.553-0.174,2.723-1.797,3.087-3.979c0.029,0.012,0.059,0.023,0.088,0.035
+		c-0.104,1.149-0.489,1.693-0.489,1.693l4.827-0.585c1.153-0.001,2.416-0.315,3.608-0.963c3.611-1.96,3.611-5.881,3.611-5.881
+		s0.009-0.004,0.016-0.008c0.424-0.032,2.212-0.137,2.666,0.317c0.375,0.375,0.882,0.733,1.133,0.903
+		c0.052,0.061,0.104,0.115,0.156,0.181l0.232,0.552l3.929,9.326c0.076,0.18,0.231,0.313,0.42,0.36l2.68,0.67
+		c0.076,0.019,0.155,0.023,0.232,0.013l4.992-0.669c0.36-0.048,0.601-0.394,0.522-0.748l-1.092-4.913l7.145-5.984l8.744-0.825
+		l8.873,3.508l2.476,1.838v0.741l0.026-0.722l-0.026,1.444c0,0,3.508,1.238,4.333,1.444c0.825,0.206,2.683-0.619,2.683-0.619
+		l9.286-1.238l1.651-0.825l2.683-0.825c3.921-1.032,2.064-5.365,2.064-5.365l-2.683-3.353V41.053c0-8.873-6.397-10.111-6.397-10.111
+		l-9.518-0.129l-0.041,0c-0.646-0.562-1.413-0.917-2.256-0.985l-26.361-1.078c-0.665-0.054-1.304,0.115-1.895,0.427l-0.03-0.001
+		c-0.049,0.026-0.094,0.064-0.143,0.093c-0.113,0.067-0.222,0.137-0.33,0.215c-0.107,0.077-0.209,0.163-0.311,0.251
+		c-0.093,0.081-0.186,0.159-0.274,0.248c-0.12,0.121-0.23,0.254-0.34,0.39c-0.061,0.075-0.126,0.143-0.183,0.223
+		c-0.164,0.225-0.318,0.463-0.454,0.72l0.002,0c-0.036,0.067-0.061,0.143-0.095,0.212l-3.055-0.231
+		c-0.829-0.068-1.573,0.767-1.663,1.863c-0.089,1.096,0.51,2.04,1.339,2.108l0.406,0.04l-4.84,4.302l-3.843-0.501
+		c-0.531-2.351-2.188-4.22-4.375-4.731c-0.195-0.046-0.394-0.08-0.597-0.104l-1.857-0.155l-1.714-0.206
+		c-2.074-0.24-4.029,0.818-5.234,2.589l-1.983-0.265v-3.282c0-0.255-1.409-0.461-3.147-0.461s-3.147,0.206-3.147,0.461v2.44
+		l-2.617-0.35c-0.64-1.652-2.005-2.878-3.721-3.076L6.758,31.77c-0.238-0.028-0.474-0.028-0.707-0.015L5.17,31.668
+		c-2.505-0.29-4.802,1.777-5.13,4.615c-0.328,2.839,1.437,5.374,3.942,5.664l0.496,0.111c0.337,0.134,0.687,0.237,1.06,0.281
+		l1.437,0.279c1.591,0.184,3.099-0.552,4.108-1.825l2.121,0.397v3.216l-2.013,0.081c-0.564,0.076-0.595,0.576-0.595,0.576
+		L10.622,45.193z M21.243,59.075c-1.072-0.986-0.846-2.082-0.846-2.082l1.485,0.361C21.881,57.354,22.193,58.701,21.243,59.075z
+		 M27.133,60.914c-1.319-0.983-1.138-2.218-1.138-2.218l1.96,0.516C27.956,60.157,27.556,60.648,27.133,60.914z"/>
+</g>
+</g>
+<script><![CDATA[
+//!export-start
+var _pn_setState=0;
+var _pb_boolState=false;
+var _pn_setInterval=500;
+var _pc_state0Colour='#808080';
+var _pc_state1Colour='#22c55e';
+var _pc_state2Colour='#eab308';
+var _pc_state3Colour='#ef4444';
+var _pc_state4Colour='#a855f7';
+var _pc_state5Colour='#3b82f6';
+//!export-end
+function postValue(id,v){console.log('FUXA post:',id,'=',v);}
+function putValue(id,v){v=Number(v);switch(id){
+  case '_pn_setState':
+    _pn_setState=v;
+    var colors=[_pc_state0Colour,_pc_state1Colour,_pc_state2Colour,_pc_state3Colour,_pc_state4Colour,_pc_state5Colour];
+    var c=colors[Math.min(v,5)]||'#808080';
+    var els=document.querySelectorAll('#shape path,#shape circle,#shape rect');
+    for(var k=0;k<els.length;k++){els[k].setAttribute('fill',c);}
+    break;
+  case '_pb_boolState':
+    _pb_boolState=v!==0;
+    var c2=_pb_boolState?_pc_state1Colour:_pc_state0Colour;
+    var els2=document.querySelectorAll('#shape path,#shape circle,#shape rect');
+    for(var j=0;j<els2.length;j++){els2[j].setAttribute('fill',c2);}
+    break;
+}}
+var o=new MutationObserver(function(m){m.forEach(function(mu){mu.removedNodes.forEach(function(n){if(n.id==='fuxa-dyn-mudpump_4'){o.disconnect();}});});});
+o.observe(document.body,{childList:true,subtree:true});
+]]></script>
+</svg>
