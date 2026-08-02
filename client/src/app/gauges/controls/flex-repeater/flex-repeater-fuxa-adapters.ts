@@ -15,7 +15,6 @@
  */
 import { GaugeSettings } from '../../../_models/hmi';
 import { EndPointApi } from '../../../_helpers/endpointapi';
-import { Utils } from '../../../_helpers/utils';
 import { SvgUtils } from '../../../_helpers/svg-utils';
 import type {
   FlexRepeaterWidgetModule,
@@ -65,18 +64,28 @@ export class FuxaAssetDataSourceLoader implements AssetDataSourceLoader {
 
 /**
  * Turns each instance's raw widget <script> into a FUXA module, exactly like
- * HtmlImageComponent does for a single widget. A unique module id per instance
- * keeps `window[moduleId].putValue` isolated between cloned pumps.
+ * HtmlImageComponent does for a single widget.
+ *
+ * Module ids are deterministic per gauge + instance index
+ * (`wModule_<seed>_<i>`) so re-renders reuse the same globals and the control
+ * can skip re-injecting already-registered scripts (see F10 in ASSUMPTIONS.md).
  */
 export class FuxaWidgetScriptProcessor implements FlexRepeaterScriptProcessor {
-  process(args: { scriptText: string; idMap: Record<string, string>; index: number }): FlexRepeaterWidgetModule | null {
-    const moduleId = `wModule_${Utils.getShortGUID('', '_')}`;
-    if (!args.scriptText) {
-      return null;
+    constructor(private readonly seed: string = 'w') {}
+
+    process(args: { scriptText: string; idMap: Record<string, string>; index: number }): FlexRepeaterWidgetModule | null {
+        if (!args.scriptText) {
+            return null;
+        }
+        const moduleId = `wModule_${sanitizeSeed(this.seed)}_${args.index}`;
+        const result = SvgUtils.processWidget(args.scriptText, moduleId, args.idMap, []);
+        return { moduleId, content: result.content, vars: result.vars };
     }
-    const result = SvgUtils.processWidget(args.scriptText, moduleId, args.idMap, []);
-    return { moduleId, content: result.content, vars: result.vars };
-  }
+}
+
+function sanitizeSeed(seed: string): string {
+    const cleaned = seed.replace(/[^A-Za-z0-9_-]/g, '_');
+    return cleaned || 'w';
 }
 
 /**

@@ -103,9 +103,16 @@ export class FlexRepeaterComponent extends GaugeBaseComponent {
             dataSourceLoader: new FuxaAssetDataSourceLoader(),
             widgetLibrary: new FuxaWidgetLibrary(),
             svg,
-            scriptProcessor: new FuxaWidgetScriptProcessor(),
+            scriptProcessor: new FuxaWidgetScriptProcessor(ga.id),
         });
         const coordinator = new FlexRepeaterBindingCoordinator(new FuxaTagBindingRegistry(ga));
+
+        // Namespace instance DOM ids with the gauge id so multiple repeaters in
+        // one view never collide (ids stay deterministic across re-renders).
+        const renderProperties: FlexRepeaterProperties = {
+            ...properties,
+            instanceIdPrefix: `${ga.id}_${properties.instanceIdPrefix ?? 'fr'}`,
+        };
 
         ga.property = {
             ...(ga.property || {}),
@@ -115,10 +122,10 @@ export class FlexRepeaterComponent extends GaugeBaseComponent {
         };
 
         void engine
-            .renderInto(svgHost as unknown as SVGGElement, properties)
+            .renderInto(svgHost as unknown as SVGGElement, renderProperties)
             .then((instances) => {
                 this.injectInstanceScripts(instances);
-                const bindings = instances.flatMap((instance) => evaluateBindings(properties, instance));
+                const bindings = instances.flatMap((instance) => evaluateBindings(renderProperties, instance));
                 coordinator.register(ga.id, bindings);
                 ga.property.repeaterBindings = bindings;
                 ga.property.svgContent = container.innerHTML;
@@ -131,15 +138,24 @@ export class FlexRepeaterComponent extends GaugeBaseComponent {
         return container;
     }
 
-    /** Each instance's module script is injected once into the HTML document (FUXA pattern). */
+    /**
+     * Each instance's module script is injected into the HTML document (FUXA
+     * pattern). Module ids are deterministic per gauge + instance index, so a
+     * re-render reuses the same global and we skip re-injecting — this keeps
+     * `document.body` from accumulating scripts across repeated view renders.
+     */
     private static injectInstanceScripts(instances: BuiltInstance[]): void {
         for (const instance of instances) {
             const module = instance.widgetModule;
-            if (module?.content) {
-                const script = document.createElement('script');
-                script.textContent = SvgUtils.initWidget(module.content, module.vars);
-                document.body.appendChild(script);
+            if (!module?.content) {
+                continue;
             }
+            if ((window as any)[module.moduleId]) {
+                continue;
+            }
+            const script = document.createElement('script');
+            script.textContent = SvgUtils.initWidget(module.content, module.vars);
+            document.body.appendChild(script);
         }
     }
 
