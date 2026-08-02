@@ -94,6 +94,7 @@ import { LazyForDirective } from './_directives/lazyFor.directive';
 import { GaugesManager } from './gauges/gauges.component';
 import { GaugeBaseComponent } from './gauges/gauge-base/gauge-base.component';
 import { ValueComponent } from './gauges/controls/value/value.component';
+import { FLEX_REPEATER_PROVIDERS } from './gauges/controls/flex-repeater/flex-repeater.tokens';
 
 import { FlexVariablesMappingComponent } from './gauges/gauge-property/flex-variables-mapping/flex-variables-mapping.component';
 import { FlexVariableMapComponent } from './gauges/gauge-property/flex-variable-map/flex-variable-map.component';
@@ -498,6 +499,7 @@ export const myCustomTooltipDefaults: MatTooltipDefaultOptions = {
         MapsLocationsService,
         LanguageService,
         DeviceAdapterService,
+        ...FLEX_REPEATER_PROVIDERS,
         { provide: MAT_TOOLTIP_DEFAULT_OPTIONS, useValue: myCustomTooltipDefaults },
         provideHttpClient(withInterceptorsFromDi())
     ] })

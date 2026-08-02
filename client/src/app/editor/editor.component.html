@@ -195,6 +195,10 @@
                                 <span class="material-icon-tool material-icons">photo_size_select_actual</span>
                                 <input #imageLink type="file" style="display: none;" (change)="onSetImageAsLink($event)" accept="image/png|jpg|svg" />
                             </div>
+                            <div class="svg-tool-button" matTooltip="{{'editor.controls-flex-repeater' | translate}}" [ngClass]="{'svg-tool-active': isModeActive('own_ctrl-flex_repeater')}"
+                                (click)="onAddFlexRepeater()">
+                                <span class="material-icon-tool material-icons" style="font-size: 25px;">view_repeater</span>
+                            </div>
                             <div class="svg-tool-button" matTooltip="{{'editor.controls-panel' | translate}}" [ngClass]="{'svg-tool-active': isModeActive('own_ctrl-panel')}"
                                 (click)="setMode('own_ctrl-panel')">
                                 <span class="material-icon-tool material-icons" style="font-size: 25px;">web_asset</span>

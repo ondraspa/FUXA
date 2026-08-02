@@ -38,6 +38,7 @@ import { FuxaViewComponent } from '../fuxa-view/fuxa-view.component';
 import { AuthService } from '../_services/auth.service';
 import { DevicesUtils, Tag } from '../_models/device';
 import { HtmlVideoComponent } from './controls/html-video/html-video.component';
+import { FlexRepeaterComponent } from './controls/flex-repeater/flex-repeater.component';
 
 @Injectable()
 export class GaugesManager {
@@ -75,12 +76,12 @@ export class GaugesManager {
     HtmlImageComponent.TypeTag, HtmlInputComponent.TypeTag, PanelComponent.TypeTag, HtmlSelectComponent.TypeTag, HtmlSwitchComponent.TypeTag];
     // list of gauges tags to check who as events like mouse click
     static GaugeWithActions = [ApeShapesComponent, PipeComponent, ProcEngComponent, ShapesComponent, HtmlButtonComponent, HtmlSelectComponent,
-        ValueComponent, HtmlInputComponent, GaugeSemaphoreComponent, HtmlImageComponent, PanelComponent, HtmlVideoComponent];
+        ValueComponent, HtmlInputComponent, GaugeSemaphoreComponent, HtmlImageComponent, PanelComponent, HtmlVideoComponent, FlexRepeaterComponent];
     // list of gauges components
     static Gauges = [ValueComponent, HtmlInputComponent, HtmlButtonComponent, HtmlBagComponent,
         HtmlSelectComponent, HtmlChartComponent, GaugeProgressComponent, GaugeSemaphoreComponent, ShapesComponent, ProcEngComponent, ApeShapesComponent,
         PipeComponent, SliderComponent, HtmlSwitchComponent, HtmlGraphComponent, HtmlIframeComponent, HtmlTableComponent,
-        HtmlImageComponent, PanelComponent, HtmlVideoComponent, HtmlSchedulerComponent];
+        HtmlImageComponent, PanelComponent, HtmlVideoComponent, HtmlSchedulerComponent, FlexRepeaterComponent];
 
     constructor(private hmiService: HmiService,
         private authService: AuthService,
@@ -236,6 +237,8 @@ export class GaugesManager {
             this.mapGauges[ga.id] = gauge;
         } else if (ga.type.startsWith(HtmlImageComponent.TypeTag)) {
             HtmlImageComponent.detectChange(ga, true);
+        } else if (ga.type.startsWith(FlexRepeaterComponent.TypeTag)) {
+            FlexRepeaterComponent.detectChange(ga, true);
         } else if (ga.type.startsWith(HtmlVideoComponent.TypeTag)) {
             HtmlVideoComponent.initElement(ga);
         } else if (elementWithLanguageText) {
@@ -817,6 +820,8 @@ export class GaugesManager {
             return 'table_';
         } else if (type.startsWith(HtmlSchedulerComponent.TypeTag)) {
             return 'scheduler_';
+        } else if (type.startsWith(FlexRepeaterComponent.TypeTag)) {
+            return 'repeater_';
         }
         return 'shape_';
     }
@@ -930,6 +935,10 @@ export class GaugesManager {
             return gauge || true;
         } else if (ga.type.startsWith(HtmlImageComponent.TypeTag)) {
             let gauge = HtmlImageComponent.initElement(ga, isview);
+            this.mapGauges[ga.id] = gauge;
+            return gauge;
+        } else if (ga.type.startsWith(FlexRepeaterComponent.TypeTag)) {
+            let gauge = FlexRepeaterComponent.initElement(ga, isview);
             this.mapGauges[ga.id] = gauge;
             return gauge;
         } else if (ga.type.startsWith(PanelComponent.TypeTag)) {

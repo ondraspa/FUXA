@@ -13,6 +13,7 @@ import { GaugePropertyComponent, GaugeDialogType, GaugePropertyData } from '../g
 
 import { GaugesManager } from '../gauges/gauges.component';
 import { GaugeBaseComponent } from '../gauges/gauge-base/gauge-base.component';
+import { DEFAULT_FLEX_REPEATER_PROPERTIES } from '../gauges/controls/flex-repeater/flex-repeater.defaults';
 import { Utils } from '../_helpers/utils';
 import { Define } from '../_helpers/define';
 import { LibImagesComponent } from '../resources/lib-images/lib-images.component';
@@ -421,7 +422,17 @@ export class EditorComponent implements OnInit, AfterViewInit, OnDestroy {
             let gs = this.gaugesManager.createSettings(ele.id, ele.type);
             if (initParams) {
                 gs.property = new GaugeProperty();
-                gs.property.address = initParams;
+                if (typeof initParams === 'string' && initParams.trim().startsWith('{')) {
+                    // Flex Repeater: initParams carries the repeater configuration JSON.
+                    try {
+                        gs.property.repeater = JSON.parse(initParams);
+                    } catch (err) {
+                        console.error('Invalid flex-repeater configuration', err);
+                        gs.property.address = initParams;
+                    }
+                } else {
+                    gs.property.address = initParams;
+                }
             }
             return gs;
         }
@@ -893,6 +904,15 @@ export class EditorComponent implements OnInit, AfterViewInit, OnDestroy {
                 });
             }
         }
+    }
+
+    /**
+     * Place a Flex Repeater into the view with the default configuration
+     * (static mock UNS pumps + bundled pump widget).
+     */
+    onAddFlexRepeater() {
+        this.ctrlInitParams = JSON.stringify(DEFAULT_FLEX_REPEATER_PROPERTIES);
+        this.setMode('own_ctrl-flex_repeater');
     }
 
     /**

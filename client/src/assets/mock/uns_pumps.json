@@ -1,0 +1,6 @@
+[
+  { "asset_path": "Enterprise/Site/Area/Line1/Pumps/PUMP_001", "name": "Booster Pump 1", "rated_power_kw": 45 },
+  { "asset_path": "Enterprise/Site/Area/Line1/Pumps/PUMP_002", "name": "Booster Pump 2", "rated_power_kw": 45 },
+  { "asset_path": "Enterprise/Site/Area/Line2/Pumps/PUMP_003", "name": "Transfer Pump", "rated_power_kw": 75 },
+  { "asset_path": "Enterprise/Site/Area/Line3/Pumps/PUMP_004", "name": "Utility Pump", "rated_power_kw": 30 }
+]
