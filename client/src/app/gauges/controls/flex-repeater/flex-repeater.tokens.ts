@@ -43,6 +43,8 @@ export const FLEX_REPEATER_SCRIPT_PROCESSOR = new InjectionToken<FlexRepeaterScr
 export const FLEX_REPEATER_PROVIDERS: Provider[] = [
     { provide: FLEX_REPEATER_WIDGET_LIBRARY, useClass: FuxaWidgetLibrary },
     { provide: FLEX_REPEATER_ASSET_DATA_SOURCE_LOADER, useClass: FuxaAssetDataSourceLoader },
-    { provide: FLEX_REPEATER_TAG_BINDING_REGISTRY, useClass: FuxaTagBindingRegistry },
-    { provide: FLEX_REPEATER_SCRIPT_PROCESSOR, useClass: FuxaWidgetScriptProcessor },
+    // useFactory (not useClass) for classes with constructor params: plain
+    // classes can't be constructor-injected by Angular (NG0204 at bootstrap).
+    { provide: FLEX_REPEATER_TAG_BINDING_REGISTRY, useFactory: () => new FuxaTagBindingRegistry() },
+    { provide: FLEX_REPEATER_SCRIPT_PROCESSOR, useFactory: () => new FuxaWidgetScriptProcessor() },
 ];

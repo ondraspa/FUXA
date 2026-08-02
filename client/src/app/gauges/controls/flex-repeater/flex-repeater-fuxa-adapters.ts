@@ -84,7 +84,10 @@ export class FuxaWidgetScriptProcessor implements FlexRepeaterScriptProcessor {
 }
 
 function sanitizeSeed(seed: string): string {
-    const cleaned = seed.replace(/[^A-Za-z0-9_-]/g, '_');
+    // Module ids become JS identifiers, so hyphens (present in svg-editor GUID
+    // ids like `OXC_xxxx-yyyy`) must be replaced — `var a-b` would parse as a
+    // subtraction and throw "Unexpected token '-'".
+    const cleaned = seed.replace(/[^A-Za-z0-9_]/g, '_');
     return cleaned || 'w';
 }
 
