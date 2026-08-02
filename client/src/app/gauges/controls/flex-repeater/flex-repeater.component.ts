@@ -45,6 +45,12 @@ export class FlexRepeaterComponent extends GaugeBaseComponent {
     static prefixD = 'D-OXC_';
     static propertyWidgetType = 'widget';
 
+    /**
+     * Set by GaugesManager so the static control can re-register + resubscribe
+     * its async-resolved bindings with the owning view (see F7 fix).
+     */
+    static rebind: ((ga: GaugeSettings, gauge: any) => void) | null = null;
+
     constructor() {
         super();
     }
@@ -129,6 +135,10 @@ export class FlexRepeaterComponent extends GaugeBaseComponent {
                 coordinator.register(ga.id, bindings);
                 ga.property.repeaterBindings = bindings;
                 ga.property.svgContent = container.innerHTML;
+                // F7 fix: register + subscribe these freshly resolved bindings
+                // for the current view (idempotent; no-op if the gauge was not
+                // bound to a view, e.g. in the editor).
+                FlexRepeaterComponent.rebind?.(ga, container);
                 return container;
             })
             .catch((err) => {

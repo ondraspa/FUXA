@@ -69,6 +69,10 @@ export class GaugesManager {
     // list of gauges tags to speed up the check
     static gaugesTags = [];
 
+    // domViewId per repeater gauge id, so the control can re-register its
+    // async-resolved bindings with the correct view after render
+    private gaugeDomViews: { [gaId: string]: string } = {};
+
     // list of gauges with input
     static GaugeWithProperty = [HtmlInputComponent.prefix, HtmlSelectComponent.prefix, HtmlSwitchComponent.prefix];
     // list of gauges tags to check who as events like mouse click
@@ -86,6 +90,10 @@ export class GaugesManager {
     constructor(private hmiService: HmiService,
         private authService: AuthService,
         private winRef: WindowRef) {
+        // The static Flex Repeater control reaches back here after its async
+        // render resolves, to (re)register + resubscribe the freshly derived
+        // bindings for the current view (see rebindSignals).
+        FlexRepeaterComponent.rebind = (ga, gauge) => this.rebindSignals(ga, gauge);
         // subscription to the change of variable value, then emit to the gauges of fuxa-view
         this.hmiService.onVariableChanged.subscribe(sig => {
             try {
@@ -289,6 +297,11 @@ export class GaugesManager {
      * @param bindhtmlevent
      */
     bindGauge(gauge: any, domViewId: string, ga: GaugeSettings, sourceDeviceTags: Tag[], bindMouseEvent: any, bindhtmlevent: any) {
+        // remember the view that owns this gauge, so the Flex Repeater can
+        // re-register its async-resolved bindings with the correct domViewId
+        if (ga.type.startsWith(FlexRepeaterComponent.TypeTag)) {
+            this.gaugeDomViews[ga.id] = domViewId;
+        }
         let sigsId: string[] = this.getBindSignals(ga, sourceDeviceTags);
         if (sigsId) {
             for (let i = 0; i < sigsId.length; i++) {
@@ -333,6 +346,29 @@ export class GaugesManager {
 
 
     /**
+     * Re-register + resubscribe the Flex Repeater's tag bindings after its
+     * async render has resolved the (mock) data source. This makes mock-sourced
+     * bindings subscribe correctly on EVERY view load, not just after a prior
+     * render persisted them. Falls back to the persisted bindings when the
+     * fresh resolve is still in flight.
+     * @param ga repeater gauge settings
+     * @param gauge the repeater container element
+     */
+    rebindSignals(ga: GaugeSettings, gauge: any) {
+        const domViewId = this.gaugeDomViews[ga.id];
+        if (!domViewId) {
+            return;
+        }
+        // re-run signal registration: getBindSignals() now returns the freshly
+        // resolved property.repeaterBindings (or the persisted fallback)
+        this.bindGauge(gauge, domViewId, ga, null, null, null);
+        // subscribe the full current signal set to the backend
+        this.hmiService.viewsTagsSubscribe(this.getBindedSignalsId(), true);
+        // push the last known values through processValue for this view
+        this.hmiService.emitMappedSignalsGauge(domViewId);
+    }
+
+    /**
      * @param domViewId
      * called from fuxa-view, remove bind of dom view gauge
      */
@@ -375,6 +411,13 @@ export class GaugesManager {
                     g.myComRef.destroy();
                 }
                 delete val[domViewId];
+            }
+        });
+
+        // drop domViewId bookkeeping for repeater gauges of this view
+        Object.keys(this.gaugeDomViews).forEach(gaId => {
+            if (this.gaugeDomViews[gaId] === domViewId) {
+                delete this.gaugeDomViews[gaId];
             }
         });
     }
