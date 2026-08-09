@@ -17,6 +17,72 @@
 		c-3.109-1.132-6.559,0.477-7.69,3.586c-1.132,3.109,0.477,6.559,3.586,7.69l83.633,30.44c3.109,1.132,6.559-0.477,7.69-3.586
 		s-0.477-6.559-3.586-7.69L10.236,29.142z"/>
 </g>
+<g id="dark">
+	<circle cx="91.816" cy="65.22" r="5.775"/>
+	<circle cx="8.184" cy="34.78" r="5.775"/>
+</g>
+<g id="light">
+<circle class="oc-belt" fill="#CCCCCC" cx="13.954" cy="36.525" r="2.375"/>
+<circle class="oc-belt" fill="#CCCCCC" cx="21.383" cy="39.229" r="2.375"/>
+<circle class="oc-belt" fill="#CCCCCC" cx="28.812" cy="41.933" r="2.375"/>
+<circle class="oc-belt" fill="#CCCCCC" cx="36.243" cy="44.637" r="2.375"/>
+<circle class="oc-belt" fill="#CCCCCC" cx="43.672" cy="47.341" r="2.375"/>
+<circle class="oc-belt" fill="#CCCCCC" cx="51.101" cy="50.045" r="2.375"/>
+<circle class="oc-belt" fill="#CCCCCC" cx="58.530" cy="52.749" r="2.375"/>
+<circle class="oc-belt" fill="#CCCCCC" cx="65.960" cy="55.454" r="2.375"/>
+<circle class="oc-belt" fill="#CCCCCC" cx="73.390" cy="58.158" r="2.375"/>
+<circle class="oc-belt" fill="#CCCCCC" cx="13.954" cy="36.525" r="2.375"/>
+<circle class="oc-belt" fill="#CCCCCC" cx="21.383" cy="39.229" r="2.375"/>
+<circle class="oc-belt" fill="#CCCCCC" cx="28.812" cy="41.933" r="2.375"/>
+<circle class="oc-belt" fill="#CCCCCC" cx="36.243" cy="44.637" r="2.375"/>
+<circle class="oc-belt" fill="#CCCCCC" cx="43.672" cy="47.341" r="2.375"/>
+<circle class="oc-belt" fill="#CCCCCC" cx="51.101" cy="50.045" r="2.375"/>
+<circle class="oc-belt" fill="#CCCCCC" cx="58.530" cy="52.749" r="2.375"/>
+<circle class="oc-belt" fill="#CCCCCC" cx="65.960" cy="55.454" r="2.375"/>
+<circle class="oc-belt" fill="#CCCCCC" cx="73.390" cy="58.158" r="2.375"/>
+<circle class="oc-belt" fill="#CCCCCC" cx="21.383" cy="36.525" r="2.375"/>
+<circle class="oc-belt" fill="#CCCCCC" cx="28.812" cy="39.229" r="2.375"/>
+<circle class="oc-belt" fill="#CCCCCC" cx="36.241" cy="41.933" r="2.375"/>
+<circle class="oc-belt" fill="#CCCCCC" cx="43.672" cy="44.637" r="2.375"/>
+<circle class="oc-belt" fill="#CCCCCC" cx="51.101" cy="47.341" r="2.375"/>
+<circle class="oc-belt" fill="#CCCCCC" cx="58.53" cy="50.045" r="2.375"/>
+<circle class="oc-belt" fill="#CCCCCC" cx="65.959" cy="52.749" r="2.375"/>
+<circle class="oc-belt" fill="#CCCCCC" cx="73.389" cy="55.454" r="2.375"/>
+<circle class="oc-belt" fill="#CCCCCC" cx="80.819" cy="58.158" r="2.375"/>
+<circle class="oc-belt" fill="#CCCCCC" cx="21.383" cy="36.525" r="2.375"/>
+<circle class="oc-belt" fill="#CCCCCC" cx="28.812" cy="39.229" r="2.375"/>
+<circle class="oc-belt" fill="#CCCCCC" cx="36.241" cy="41.933" r="2.375"/>
+<circle class="oc-belt" fill="#CCCCCC" cx="43.672" cy="44.637" r="2.375"/>
+<circle class="oc-belt" fill="#CCCCCC" cx="51.101" cy="47.341" r="2.375"/>
+<circle class="oc-belt" fill="#CCCCCC" cx="58.53" cy="50.045" r="2.375"/>
+<circle class="oc-belt" fill="#CCCCCC" cx="65.959" cy="52.749" r="2.375"/>
+<circle class="oc-belt" fill="#CCCCCC" cx="73.389" cy="55.454" r="2.375"/>
+<circle class="oc-belt" fill="#CCCCCC" cx="80.819" cy="58.158" r="2.375"/>
+<circle class="oc-belt" fill="#CCCCCC" cx="28.812" cy="36.525" r="2.375"/>
+<circle class="oc-belt" fill="#CCCCCC" cx="36.241" cy="39.229" r="2.375"/>
+<circle class="oc-belt" fill="#CCCCCC" cx="43.670" cy="41.933" r="2.375"/>
+<circle class="oc-belt" fill="#CCCCCC" cx="51.101" cy="44.637" r="2.375"/>
+<circle class="oc-belt" fill="#CCCCCC" cx="58.530" cy="47.341" r="2.375"/>
+<circle class="oc-belt" fill="#CCCCCC" cx="65.959" cy="50.045" r="2.375"/>
+<circle class="oc-belt" fill="#CCCCCC" cx="73.388" cy="52.749" r="2.375"/>
+<circle class="oc-belt" fill="#CCCCCC" cx="80.818" cy="55.454" r="2.375"/>
+<circle class="oc-belt" fill="#CCCCCC" cx="88.248" cy="58.158" r="2.375"/>
+<circle class="oc-belt" fill="#CCCCCC" cx="28.812" cy="36.525" r="2.375"/>
+<circle class="oc-belt" fill="#CCCCCC" cx="36.241" cy="39.229" r="2.375"/>
+<circle class="oc-belt" fill="#CCCCCC" cx="43.670" cy="41.933" r="2.375"/>
+<circle class="oc-belt" fill="#CCCCCC" cx="51.101" cy="44.637" r="2.375"/>
+<circle class="oc-belt" fill="#CCCCCC" cx="58.530" cy="47.341" r="2.375"/>
+<circle class="oc-belt" fill="#CCCCCC" cx="65.959" cy="50.045" r="2.375"/>
+<circle class="oc-belt" fill="#CCCCCC" cx="73.388" cy="52.749" r="2.375"/>
+<circle class="oc-belt" fill="#CCCCCC" cx="80.818" cy="55.454" r="2.375"/>
+<circle class="oc-belt" fill="#CCCCCC" cx="88.248" cy="58.158" r="2.375"/>
+</g>
+<g id="hlight">
+</g>
+<g id="shadow">
+</g>
+<g id="linear">
+</g>
 </g>
 <script><![CDATA[
 //!export-start
@@ -29,9 +95,11 @@ var _pc_state2Colour='#eab308';
 var _pc_state3Colour='#ef4444';
 var _pc_state4Colour='#a855f7';
 var _pc_state5Colour='#3b82f6';
+var _pb_running=false;
+var _pn_speed=100;
 //!export-end
 function postValue(id,v){console.log('FUXA post:',id,'=',v);}
-function putValue(id,v){v=Number(v);switch(id){
+function putValue(id,v){v=Number(v);switch(id){case '_pb_running':_pb_running=v!==0;break;case '_pn_speed':_pn_speed=v;break;
   case '_pn_setState':
     _pn_setState=v;
     var colors=[_pc_state0Colour,_pc_state1Colour,_pc_state2Colour,_pc_state3Colour,_pc_state4Colour,_pc_state5Colour];
@@ -46,6 +114,15 @@ function putValue(id,v){v=Number(v);switch(id){
     for(var j=0;j<els2.length;j++){els2[j].setAttribute('fill',c2);}
     break;
 }}
+var __ocBeltOffset = 0;
+setInterval(function(){
+  if(!_pb_running) return;
+  var __ocBelt = document.querySelectorAll('.oc-belt');
+  if(!__ocBelt.length) return;
+  __ocBeltOffset = (__ocBeltOffset + _pn_speed * 0.02) % 7.429;
+  var t = 'translate(' + (-__ocBeltOffset).toFixed(3) + ' 0)';
+  for(var i=0;i<__ocBelt.length;i++){ __ocBelt[i].setAttribute('transform', t); }
+}, 40);
 var o=new MutationObserver(function(m){m.forEach(function(mu){mu.removedNodes.forEach(function(n){if(n.id==='fuxa-dyn-conveyor_20degdecline'){o.disconnect();}});});});
 o.observe(document.body,{childList:true,subtree:true});
 ]]></script>

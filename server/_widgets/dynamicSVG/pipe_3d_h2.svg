@@ -15,6 +15,15 @@
 <g id="shape">
 		<rect y="44.343" fill="#006837" width="100" height="11.314"/>
 </g>
+<g id="dark">
+	<rect y="45.05" fill="#009245" width="100" height="9.9"/>
+</g>
+<g id="light">
+	<rect y="46.464" fill="#96D48D" width="100" height="7.071"/>
+</g>
+<g id="hlight">
+	<rect y="47.525" fill="#FFFFFF" width="100" height="4.95"/>
+</g>
 </g>
 <script><![CDATA[
 //!export-start

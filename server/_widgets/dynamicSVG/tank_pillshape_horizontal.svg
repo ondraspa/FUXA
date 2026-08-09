@@ -6,7 +6,11 @@
 <linearGradient id="gb" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#7dd3fc"/><stop offset="40%" stop-color="#0284c7"/><stop offset="100%" stop-color="#0369a1"/></linearGradient>
 <filter id="s"><feDropShadow dx="2" dy="3" stdDeviation="3" flood-color="#0f172a" flood-opacity="0.35"/></filter>
 <style>.bkg{fill:#dbeafe}.frm{fill:#0f172a;rx:10;filter:url(#s)}</style>
-
+<linearGradient id="linear-gradient" x1="207.40883" y1="30.98247" x2="207.40883" y2="62.28229" gradientTransform="translate(0 30.83848) scale(0.28798) translate(-1131.779) scale(1.812 1)" gradientUnits="userSpaceOnUse">
+      <stop offset=".356" stop-color="#fff"/>
+      <stop offset=".846" stop-color="#9ea9ad"/>
+      <stop offset="1" stop-color="#000"/>
+    </linearGradient>
 </defs>
 <rect width="200" height="200" class="bkg"/><rect x="6" y="6" width="188" height="188" class="frm"/>
 <g transform="translate(50,50)">
@@ -17,6 +21,9 @@
         <polyline points="97.134 98.299 97.134 132.576 72.369 132.576 72.369 98.299" fill="#99a7b0" stroke="#000" stroke-miterlimit="10"/>
         <polyline points="277.379 98.299 277.379 132.576 252.615 132.576 252.615 98.299" fill="#99a7b0" stroke="#000" stroke-miterlimit="10"/>
       </g>
+    </g>
+<g id="linear">
+      <path d="M45.528.5C20.66.5.5,24.831.5,54.844s20.16,54.344,45.028,54.344h256.193c24.868,0,45.028-24.331,45.028-54.344S326.589.5,301.72.5H45.528Z" fill="url(#linear-gradient)" stroke="#000" stroke-miterlimit="10"/>
     </g></g>
 </g>
 <script><![CDATA[

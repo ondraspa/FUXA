@@ -6,7 +6,14 @@
 <linearGradient id="gb" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#7dd3fc"/><stop offset="40%" stop-color="#0284c7"/><stop offset="100%" stop-color="#0369a1"/></linearGradient>
 <filter id="s"><feDropShadow dx="2" dy="3" stdDeviation="3" flood-color="#0f172a" flood-opacity="0.35"/></filter>
 <style>.bkg{fill:#dbeafe}.frm{fill:#0f172a;rx:10;filter:url(#s)}</style>
-
+<linearGradient id="linear-gradient" x1="88.694" y1="378.553" x2="88.694" y2="371.053" gradientTransform="translate(0 15) scale(0.5) translate(0 -650)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff"/>
+      <stop offset="1" stop-color="#000"/>
+    </linearGradient>
+<linearGradient id="linear-gradient-2" x1="89.9885" y1="371.053" x2="89.9885" y2="378.553" gradientTransform="translate(0 15) scale(0.5) translate(0 -650)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff"/>
+      <stop offset="1" stop-color="#000"/>
+    </linearGradient>
 </defs>
 <rect width="200" height="200" class="bkg"/><rect x="6" y="6" width="188" height="188" class="frm"/>
 <g transform="translate(50,50)">
@@ -14,6 +21,23 @@
 <circle cx="185" cy="50" r="0" data-port-id="pipe" data-port-dir="right" data-port-type="pipe"/>
 <g transform="translate(0 15) scale(0.5)"><g id="shape">
       <path d="M183.487,77.606h-2c-.98,0-1.909-.621-2.645-1.76-1.12.323-2.2.731-2.959,1.04-.551.478-1.143.72-1.762.72-2.345,0-4.182-3.515-4.182-8s1.837-8,4.182-8c.619,0,1.212.242,1.763.719.76.309,1.84.717,2.958,1.041.735-1.138,1.664-1.76,2.645-1.76h2c2.345,0,4.182,3.514,4.182,8s-1.837,8-4.182,8Z"/>
+    </g>
+<g id="dark">
+      <path d="M175.992,69.606c0,1.729.578,3.17,1.359,3.603.288-1.07.453-2.297.453-3.603s-.164-2.534-.453-3.603c-.781.433-1.359,1.874-1.359,3.603Z"/>
+    </g>
+<g id="light">
+      <path d="M183.487,62.106h-2c-.923,0-1.765.698-2.412,1.841.953.257,1.902.44,2.7.44,1.415,0,2.562,2.337,2.562,5.219s-1.147,5.219-2.562,5.219c-.797,0-1.746.183-2.7.44.646,1.144,1.488,1.841,2.412,1.841h2c2.034,0,3.682-3.358,3.682-7.5s-1.648-7.5-3.682-7.5Z" fill="#d4d4d4"/>
+    </g>
+<g id="linear">
+      <g id="Layer_1">
+        <g id="right">
+          <g>
+            <path d="M174.122,62.106c-2.034,0-3.682,3.358-3.682,7.5s1.648,7.5,3.682,7.5c0,0,4.802-2.281,7.653-2.281,1.415,0,2.562-2.337,2.562-5.219s-1.147-5.219-2.562-5.219c-2.851,0-7.653-2.281-7.653-2.281Z" fill="url(#linear-gradient)"/>
+            <ellipse cx="177.832" cy="69.606" rx="1.84" ry="3.749"/>
+            <path d="M181.775,64.387c-1.848,0-4.51-.957-6.158-1.631,1.288,1.168,2.187,3.793,2.187,6.85s-.9,5.682-2.188,6.85c1.648-.674,4.31-1.631,6.159-1.631,1.415,0,2.562-2.337,2.562-5.219s-1.147-5.219-2.562-5.219Z" fill="url(#linear-gradient-2)"/>
+          </g>
+        </g>
+      </g>
     </g></g>
 </g>
 <script><![CDATA[

@@ -15,6 +15,9 @@
 	<rect x="42.722" y="73.984" width="13.1" height="13.1"/>
 	<rect x="42.722" y="30.318" width="13.1" height="37.115"/>
 </g>
+<g id="shadow">
+	<polygon fill="#F7931E" points="0,93.633 100,93.633 50,7.03 	"/>
+</g>
 </g>
 <script><![CDATA[
 //!export-start

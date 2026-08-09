@@ -15,6 +15,15 @@
 <g id="shape">
 		<polygon fill="#006837" points="58,58 100,58 100,42 58,42 58,0 42,0 42,100 58,100 		"/>
 	</g>
+<g id="dark">
+		<polygon fill="#009245" points="57,57 100,57 100,43 57,43 57,0 43,0 43,100 57,100 		"/>
+	</g>
+<g id="light">
+		<polygon fill="#96D48D" points="55,55 100,55 100,45 55,45 55,0 45,0 45,100 55,100 		"/>
+	</g>
+<g id="hlight">
+		<polygon fill="#FFFFFF" points="53.5,53.5 100,53.5 100,46.5 53.5,46.5 53.5,0 46.5,0 46.5,100 53.5,100 		"/>
+	</g>
 </g>
 <script><![CDATA[
 //!export-start

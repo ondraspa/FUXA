@@ -6,7 +6,18 @@
 <linearGradient id="gb" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#7dd3fc"/><stop offset="40%" stop-color="#0284c7"/><stop offset="100%" stop-color="#0369a1"/></linearGradient>
 <filter id="s"><feDropShadow dx="2" dy="3" stdDeviation="3" flood-color="#0f172a" flood-opacity="0.35"/></filter>
 <style>.bkg{fill:#dbeafe}.frm{fill:#0f172a;rx:10;filter:url(#s)}</style>
-
+<linearGradient class="linear" id="SVGID_1_valve" gradientUnits="userSpaceOnUse" x1="23.924" y1="95.8639" x2="23.924" y2="58.4035">
+			<stop  offset="0" style="stop-color:#FFFFFF"/>
+			<stop  offset="1" style="stop-color:#000000"/>
+		</linearGradient>
+<linearGradient class="linear" id="SVGID_2_valve" gradientUnits="userSpaceOnUse" x1="75.826" y1="95.8639" x2="75.826" y2="58.4035">
+			<stop  offset="0" style="stop-color:#FFFFFF"/>
+			<stop  offset="1" style="stop-color:#000000"/>
+		</linearGradient>
+<linearGradient class="linear" id="SVGID_3_valve" gradientUnits="userSpaceOnUse" x1="42.25" y1="77.1337" x2="54.75" y2="77.1337">
+		<stop  offset="0" style="stop-color:#CCCCCC"/>
+		<stop  offset="1" style="stop-color:#666666"/>
+	</linearGradient>
 </defs>
 <rect width="200" height="200" class="bkg"/><rect x="6" y="6" width="188" height="188" class="frm"/>
 <g transform="translate(50,50)">
@@ -20,6 +31,31 @@
 		v-9.427h13.104c4.04,5.264,10.391,8.661,17.54,8.661h27.3c7.148,0,13.5-3.397,17.54-8.661h13.492V100H100v-9.427V88.3V65.967
 		v-2.272v-9.427H94.488z M63.69,48.265h-8.573v-6.677h2.333v-3.585h6.239V48.265z M35.922,38.002h6.239v3.585h2.333v6.677h-8.572
 		V38.002z"/>
+</g>
+<g id="dark">
+	<rect fill="#4D4D4D" x="13" y="33" width="2.306" height="3.5"/>
+	<rect fill="#4D4D4D" x="84.306" y="33" width="2.194" height="3.5"/>
+	<path fill="#4D4D4D" d="M15.306,7.048h-1.416c-1.833,0-3.334,1.5-3.334,3.333V27.79c0,1.833,1.5,3.334,3.334,3.334h1.416V7.048z"/>
+	<path fill="#4D4D4D" d="M85.722,7.048h-1.416v24.076h1.416c1.833,0,3.334-1.5,3.334-3.334V10.381
+		C89.056,8.548,87.555,7.048,85.722,7.048z"/>
+	<rect x="13" y="1.75" fill="#4D4D4D" width="2.306" height="3.5"/>
+	<rect x="84.306" y="1.75" fill="#4D4D4D" width="2.194" height="3.5"/>
+</g>
+<g id="light">
+	<path fill="#B3B3B3" d="M51,58.3c-0.428,0-2.072,0-2.5,0c-3.452,0-6.25,8.432-6.25,18.833s2.798,18.833,6.25,18.833
+		c0.428,0,2.072,0,2.5,0c3.452,0,6.25-8.432,6.25-18.833S54.452,58.3,51,58.3z"/>
+	<polygon fill="#CCCCCC" points="63.69,38.002 63.69,48.265 35.922,48.265 35.922,38.002 33.422,38.002 33.422,51.004 66.19,51.004 
+		66.19,38.002 	"/>
+</g>
+<g id="linear">
+		
+		<path class="linear" fill="url(#SVGID_1_valve)" d="M42.25,77.134c0-9.738,2.453-17.748,5.598-18.73c-5.426,0.547-10.164,3.401-13.239,7.564H0V88.3
+			h34.609c3.075,4.162,7.813,7.016,13.239,7.564C44.703,94.881,42.25,86.872,42.25,77.134z"/>
+		
+		<path class="linear" fill="url(#SVGID_2_valve)" d="M64.891,65.967c-3.075-4.162-7.813-7.016-13.239-7.564c3.145,0.983,5.598,8.992,5.598,18.73
+			s-2.453,17.748-5.598,18.73c5.426-0.547,10.164-3.401,13.239-7.564H100V65.967H64.891z"/>
+	
+	<ellipse class="linear" fill="url(#SVGID_3_valve)" cx="48.5" cy="77.134" rx="6.25" ry="18.833"/>
 </g>
 </g>
 <script><![CDATA[

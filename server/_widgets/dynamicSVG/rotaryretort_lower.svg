@@ -6,13 +6,27 @@
 <linearGradient id="gb" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#7dd3fc"/><stop offset="40%" stop-color="#0284c7"/><stop offset="100%" stop-color="#0369a1"/></linearGradient>
 <filter id="s"><feDropShadow dx="2" dy="3" stdDeviation="3" flood-color="#0f172a" flood-opacity="0.35"/></filter>
 <style>.bkg{fill:#dbeafe}.frm{fill:#0f172a;rx:10;filter:url(#s)}</style>
-
+<linearGradient id="linear-gradient" x1="47.43389" y1="58.96389" x2="47.43389" y2="41.16864" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff"/>
+      <stop offset=".13" stop-color="#fbfbfb"/>
+      <stop offset=".256" stop-color="#efefef"/>
+      <stop offset=".381" stop-color="#dbdbdb"/>
+      <stop offset=".505" stop-color="silver"/>
+      <stop offset=".628" stop-color="#9d9d9d"/>
+      <stop offset=".75" stop-color="#717171"/>
+      <stop offset=".872" stop-color="#3e3e3e"/>
+      <stop offset=".991" stop-color="#040404"/>
+      <stop offset="1" stop-color="#000"/>
+    </linearGradient>
 </defs>
 <rect width="200" height="200" class="bkg"/><rect x="6" y="6" width="188" height="188" class="frm"/>
 <g transform="translate(50,50)">
 <circle cx="50" cy="30" r="0" data-port-id="shaft" data-port-dir="left" data-port-type="shaft"/>
 <g transform="translate(0 32.49519) scale(0.10386)"><g id="shape">
       <path d="M848.301,257.856h-23.069c-7.072,0-13.147-6.813-18.067-20.259h-73.035c3.631,9.104,7.813,14.259,11.644,14.259h2v6H54.148c-8.048,0-15.024-9.178-20.174-26.542-4.855-16.372-7.529-38.438-7.529-62.13s2.674-45.758,7.529-62.13c5.15-17.363,12.126-26.542,20.174-26.542h794.153c10.824,0,20.771,9.567,28.01,26.939,6.891,16.538,10.686,38.461,10.686,61.732s-3.795,45.194-10.686,61.733c-7.238,17.371-17.186,26.938-28.01,26.938Z" fill="#1a1a1a"/>
+    </g>
+<g id="linear">
+      <path d="M54.148,254.856c-13.643,0-24.704-38.357-24.704-85.672s11.06-85.672,24.704-85.672h794.153c19.714,0,35.696,38.356,35.696,85.672s-15.982,85.672-35.696,85.672h-23.068c-6.079,0-11.642-7.629-15.945-20.258h-79.458c4.304,12.629,9.866,20.258,15.945,20.258H54.148Z" fill="url(#linear-gradient)"/>
     </g></g>
 </g>
 <script><![CDATA[

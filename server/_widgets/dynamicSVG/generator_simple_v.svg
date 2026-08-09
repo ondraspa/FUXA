@@ -6,7 +6,18 @@
 <linearGradient id="gb" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#7dd3fc"/><stop offset="40%" stop-color="#0284c7"/><stop offset="100%" stop-color="#0369a1"/></linearGradient>
 <filter id="s"><feDropShadow dx="2" dy="3" stdDeviation="3" flood-color="#0f172a" flood-opacity="0.35"/></filter>
 <style>.bkg{fill:#dbeafe}.frm{fill:#0f172a;rx:10;filter:url(#s)}</style>
-
+<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="15.2545" y1="534.509" x2="15.2545" y2="561.491" gradientTransform="translate(20 0) scale(1) matrix(6.123234e-17 -1 1 6.123234e-17 -517.999 79.999)">
+		<stop  offset="0" style="stop-color:#009245"/>
+		<stop  offset="1" style="stop-color:#006837"/>
+	</linearGradient>
+<linearGradient id="SVGID_00000004529533063874010180000015484678469243756703_" gradientUnits="userSpaceOnUse" x1="84.746" y1="534.509" x2="84.746" y2="561.491" gradientTransform="translate(20 0) scale(1) matrix(6.123234e-17 -1 1 6.123234e-17 -517.999 79.999)">
+		<stop  offset="0" style="stop-color:#009245"/>
+		<stop  offset="1" style="stop-color:#006837"/>
+	</linearGradient>
+<linearGradient id="SVGID_00000173877398186115879270000002079420188107751866_" gradientUnits="userSpaceOnUse" x1="50.0005" y1="527.046" x2="50.0005" y2="568.953" gradientTransform="translate(20 0) scale(1) matrix(6.123234e-17 -1 1 6.123234e-17 -517.999 79.999)">
+		<stop  offset="0" style="stop-color:#009245"/>
+		<stop  offset="1" style="stop-color:#006837"/>
+	</linearGradient>
 </defs>
 <rect width="200" height="200" class="bkg"/><rect x="6" y="6" width="188" height="188" class="frm"/>
 <g transform="translate(50,50)">
@@ -17,6 +28,35 @@
 		c0.827,0,1.5-0.673,1.5-1.5v-7.43h8.604c0.827,0,1.5-0.673,1.5-1.5V81.28h5.962c0.827,0,1.5-0.673,1.5-1.5V20.217
 		c0-0.827-0.673-1.5-1.5-1.5h-5.962v-6.428c0-0.827-0.673-1.5-1.5-1.5h-8.604V3.36c0-0.827-0.673-1.5-1.5-1.5h-5.773
 		C26.288,1.86,25.615,2.533,25.615,3.36z"/>
+</g>
+<g id="dark">
+	<path fill="#1A1A1A" d="M33.388,10.789V3.36c0-0.276-0.225-0.5-0.5-0.5h-5.773c-0.275,0-0.5,0.224-0.5,0.5v7.429"/>
+	<path fill="#1A1A1A" d="M26.614,89.208v7.43c0,0.276,0.225,0.5,0.5,0.5h5.773c0.275,0,0.5-0.224,0.5-0.5v-7.43"/>
+</g>
+<g id="light" display="none">
+</g>
+<g id="hlight">
+	<line fill="none" stroke="#FFFFFF" stroke-miterlimit="10" x1="12.19" y1="78.98" x2="12.19" y2="21.018"/>
+	<line fill="none" stroke="#FFFFFF" stroke-miterlimit="10" x1="18.322" y1="17.49" x2="18.322" y2="12.357"/>
+	<line fill="none" stroke="#FFFFFF" stroke-width="0.5" stroke-miterlimit="10" x1="27.529" y1="9.641" x2="27.529" y2="4.508"/>
+	<line fill="none" stroke="#FFFFFF" stroke-width="0.5" stroke-miterlimit="10" x1="27.529" y1="95.225" x2="27.529" y2="90.093"/>
+	<line fill="none" stroke="#FFFFFF" stroke-miterlimit="10" x1="18.322" y1="87.424" x2="18.322" y2="82.291"/>
+</g>
+<g id="shadow" display="none">
+</g>
+<g id="linear">
+	
+		
+	<path fill="url(#SVGID_1_)" d="M16.51,81.28v6.429c0,0.276,0.225,0.5,0.5,0.5h25.982c0.275,0,0.5-0.224,0.5-0.5v-6.428L16.51,81.28
+		L16.51,81.28z"/>
+	
+		
+	<path fill="url(#SVGID_00000004529533063874010180000015484678469243756703_)" d="M16.51,12.289v6.428h26.982v-6.428
+		c0-0.276-0.225-0.5-0.5-0.5H17.01C16.734,11.789,16.51,12.013,16.51,12.289z"/>
+	
+		
+	<path fill="url(#SVGID_00000173877398186115879270000002079420188107751866_)" d="M9.047,79.78c0,0.276,0.225,0.5,0.5,0.5h40.907
+		c0.275,0,0.5-0.224,0.5-0.5V20.217c0-0.276-0.225-0.5-0.5-0.5H9.547c-0.275,0-0.5,0.224-0.5,0.5V79.78z"/>
 </g></g>
 </g>
 <script><![CDATA[

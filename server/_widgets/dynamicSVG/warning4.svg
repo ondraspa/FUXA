@@ -14,6 +14,9 @@
 <g id="light">
 		<path d="M50,6.7L0,93.3h100L50,6.7z M50,25.5l34,58.9H16L50,25.5z"/>
 	</g>
+<g id="hlight">
+		<path d="M54.3,67h-9V41h9V67z M54.3,71h-9v9h9V71z"/>
+	</g>
 </g>
 <script><![CDATA[
 //!export-start

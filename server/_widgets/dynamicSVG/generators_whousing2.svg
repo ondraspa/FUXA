@@ -6,7 +6,18 @@
 <linearGradient id="gb" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#7dd3fc"/><stop offset="40%" stop-color="#0284c7"/><stop offset="100%" stop-color="#0369a1"/></linearGradient>
 <filter id="s"><feDropShadow dx="2" dy="3" stdDeviation="3" flood-color="#0f172a" flood-opacity="0.35"/></filter>
 <style>.bkg{fill:#dbeafe}.frm{fill:#0f172a;rx:10;filter:url(#s)}</style>
-
+<linearGradient class="linear" id="SVGID_1_generators" gradientUnits="userSpaceOnUse" x1="15.199" y1="65.491" x2="15.199" y2="38.509" gradientTransform="translate(0 20) scale(1) matrix(1 0 0 -1 0 62)">
+		<stop  offset="0" style="stop-color:#009245"/>
+		<stop  offset="1" style="stop-color:#006837"/>
+	</linearGradient>
+<linearGradient class="linear" id="SVGID_generators1" gradientUnits="userSpaceOnUse" x1="84.69" y1="65.491" x2="84.69" y2="38.509" gradientTransform="translate(0 20) scale(1) matrix(1 0 0 -1 0 62)">
+		<stop  offset="0" style="stop-color:#009245"/>
+		<stop  offset="1" style="stop-color:#006837"/>
+	</linearGradient>
+<linearGradient class="linear" id="SVGID_generators2" gradientUnits="userSpaceOnUse" x1="49.9445" y1="72.954" x2="49.9445" y2="31.047" gradientTransform="translate(0 20) scale(1) matrix(1 0 0 -1 0 62)">
+		<stop  offset="0" style="stop-color:#009245"/>
+		<stop  offset="1" style="stop-color:#006837"/>
+	</linearGradient>
 </defs>
 <rect width="200" height="200" class="bkg"/><rect x="6" y="6" width="188" height="188" class="frm"/>
 <g transform="translate(50,50)">
@@ -24,6 +35,36 @@
 		c0,0.827,0.673,1.5,1.5,1.5h7.43v8.604c0,0.827,0.673,1.5,1.5,1.5h6.428v5.962c0,0.827,0.673,1.5,1.5,1.5h59.563
 		c0.827,0,1.5-0.673,1.5-1.5V44.49h6.428c0.827,0,1.5-0.673,1.5-1.5v-8.604h7.429c0.827,0,1.5-0.673,1.5-1.5v-5.773
 		C98.083,26.287,97.411,25.614,96.583,25.614z"/>
+</g>
+<g id="dark">
+	<path fill="#1A1A1A" d="M89.154,33.387h7.429c0.276,0,0.5-0.225,0.5-0.5v-5.773c0-0.275-0.224-0.5-0.5-0.5h-7.429"/>
+	<path fill="#1A1A1A" d="M10.735,26.613h-7.43c-0.276,0-0.5,0.225-0.5,0.5v5.773c0,0.275,0.224,0.5,0.5,0.5h7.43"/>
+</g>
+<g id="light" display="none">
+</g>
+<g id="hlight">
+	<path fill="#FFFFFF" d="M78.981,12.688H21.019c-0.276,0-0.5-0.224-0.5-0.5s0.224-0.5,0.5-0.5h57.962c0.276,0,0.5,0.224,0.5,0.5
+	S79.257,12.688,78.981,12.688z"/>
+	<rect x="90.358" y="27.278" fill="#FFFFFF" width="5.132" height="0.5"/>
+	<rect x="4.773" y="27.278" fill="#FFFFFF" width="5.132" height="0.5"/>
+	<path fill="#FFFFFF" d="M87.392,18.82h-5.132c-0.276,0-0.5-0.224-0.5-0.5s0.224-0.5,0.5-0.5h5.132c0.276,0,0.5,0.224,0.5,0.5
+	S87.668,18.82,87.392,18.82z"/>
+	<path fill="#FFFFFF" d="M17.958,18.82h-5.132c-0.276,0-0.5-0.224-0.5-0.5s0.224-0.5,0.5-0.5h5.132c0.276,0,0.5,0.224,0.5,0.5
+	S18.234,18.82,17.958,18.82z"/>
+</g>
+<g id="shadow" display="none">
+</g>
+<g id="linear">
+		
+	<path class="linear" fill="url(#SVGID_1_generators)" d="M18.663,16.509h-6.428c-0.276,0-0.5,0.225-0.5,0.5v25.982c0,0.275,0.224,0.5,0.5,0.5h6.428V16.509z"
+		/>
+		
+	<path class="linear" fill="url(#SVGID_generators1)" d="M87.654,16.509h-6.428v26.982h6.428
+		c0.276,0,0.5-0.225,0.5-0.5V17.009C88.154,16.733,87.93,16.509,87.654,16.509z"/>
+	
+		
+	<path class="linear" fill="url(#SVGID_generators2)" d="M20.163,9.046c-0.276,0-0.5,0.225-0.5,0.5v40.907
+		c0,0.275,0.224,0.5,0.5,0.5h59.563c0.276,0,0.5-0.225,0.5-0.5V9.546c0-0.275-0.224-0.5-0.5-0.5H20.163z"/>
 </g></g>
 </g>
 <script><![CDATA[

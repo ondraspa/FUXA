@@ -3754,6 +3754,189 @@
         },
         "generator_anim": {
           "description": "Auto-imported from Opto22 Image Library: generator_anim"
+        },
+        "alternatingcurrent_symbol": {
+          "description": "Auto-imported from Opto22 Image Library: alternatingcurrent_symbol"
+        },
+        "amps": {
+          "description": "Auto-imported from Opto22 Image Library: amps"
+        },
+        "baggingmachine": {
+          "description": "Auto-imported from Opto22 Image Library: baggingmachine"
+        },
+        "battery": {
+          "description": "Auto-imported from Opto22 Image Library: battery"
+        },
+        "battery_symbol_charged": {
+          "description": "Auto-imported from Opto22 Image Library: battery_symbol_charged"
+        },
+        "battery_symbol_charged_stencil": {
+          "description": "Auto-imported from Opto22 Image Library: battery_symbol_charged_stencil"
+        },
+        "battery_symbol_empty": {
+          "description": "Auto-imported from Opto22 Image Library: battery_symbol_empty"
+        },
+        "battery_symbol_empty_stencil": {
+          "description": "Auto-imported from Opto22 Image Library: battery_symbol_empty_stencil"
+        },
+        "battery_symbol_outline": {
+          "description": "Auto-imported from Opto22 Image Library: battery_symbol_outline"
+        },
+        "battery_symbol_outline_charged": {
+          "description": "Auto-imported from Opto22 Image Library: battery_symbol_outline_charged"
+        },
+        "battery_symbol_outline_dn": {
+          "description": "Auto-imported from Opto22 Image Library: battery_symbol_outline_dn"
+        },
+        "battery_symbol_outline_r": {
+          "description": "Auto-imported from Opto22 Image Library: battery_symbol_outline_r"
+        },
+        "battery_symbol_outline_up": {
+          "description": "Auto-imported from Opto22 Image Library: battery_symbol_outline_up"
+        },
+        "dcvoltage_lr": {
+          "description": "Auto-imported from Opto22 Image Library: dcvoltage_lr"
+        },
+        "dcvoltage_td": {
+          "description": "Auto-imported from Opto22 Image Library: dcvoltage_td"
+        },
+        "directcurrent": {
+          "description": "Auto-imported from Opto22 Image Library: directcurrent"
+        },
+        "electricmetersymbol": {
+          "description": "Auto-imported from Opto22 Image Library: electricmetersymbol"
+        },
+        "flarestake": {
+          "description": "Auto-imported from Opto22 Image Library: flarestake"
+        },
+        "flarestake_wflame": {
+          "description": "Auto-imported from Opto22 Image Library: flarestake_wflame"
+        },
+        "groundsymbol": {
+          "description": "Auto-imported from Opto22 Image Library: groundsymbol"
+        },
+        "invertersymbol": {
+          "description": "Auto-imported from Opto22 Image Library: invertersymbol"
+        },
+        "lineheater": {
+          "description": "Auto-imported from Opto22 Image Library: lineheater"
+        },
+        "mudmixer": {
+          "description": "Auto-imported from Opto22 Image Library: mudmixer"
+        },
+        "oiljack": {
+          "description": "Auto-imported from Opto22 Image Library: oiljack"
+        },
+        "powersupply": {
+          "description": "Auto-imported from Opto22 Image Library: powersupply"
+        },
+        "powersymbol": {
+          "description": "Auto-imported from Opto22 Image Library: powersymbol"
+        },
+        "resistance": {
+          "description": "Auto-imported from Opto22 Image Library: resistance"
+        },
+        "solarpanel": {
+          "description": "Auto-imported from Opto22 Image Library: solarpanel"
+        },
+        "solarpanel1": {
+          "description": "Auto-imported from Opto22 Image Library: solarpanel1"
+        },
+        "solarpanel2": {
+          "description": "Auto-imported from Opto22 Image Library: solarpanel2"
+        },
+        "solarpanel3": {
+          "description": "Auto-imported from Opto22 Image Library: solarpanel3"
+        },
+        "solarpanel4": {
+          "description": "Auto-imported from Opto22 Image Library: solarpanel4"
+        },
+        "solarpanel5": {
+          "description": "Auto-imported from Opto22 Image Library: solarpanel5"
+        },
+        "solarpanels": {
+          "description": "Auto-imported from Opto22 Image Library: solarpanels"
+        },
+        "solarpanels_trackable": {
+          "description": "Auto-imported from Opto22 Image Library: solarpanels_trackable"
+        },
+        "solarpanels_trackable2": {
+          "description": "Auto-imported from Opto22 Image Library: solarpanels_trackable2"
+        },
+        "solarpanels_wtranslines": {
+          "description": "Auto-imported from Opto22 Image Library: solarpanels_wtranslines"
+        },
+        "solarpaneltracking_00": {
+          "description": "Auto-imported from Opto22 Image Library: solarpaneltracking_00"
+        },
+        "solarpaneltracking_l10": {
+          "description": "Auto-imported from Opto22 Image Library: solarpaneltracking_l10"
+        },
+        "solarpaneltracking_l20": {
+          "description": "Auto-imported from Opto22 Image Library: solarpaneltracking_l20"
+        },
+        "solarpaneltracking_l30": {
+          "description": "Auto-imported from Opto22 Image Library: solarpaneltracking_l30"
+        },
+        "solarpaneltracking_l40": {
+          "description": "Auto-imported from Opto22 Image Library: solarpaneltracking_l40"
+        },
+        "solarpaneltracking_l50": {
+          "description": "Auto-imported from Opto22 Image Library: solarpaneltracking_l50"
+        },
+        "solarpaneltracking_l60": {
+          "description": "Auto-imported from Opto22 Image Library: solarpaneltracking_l60"
+        },
+        "solarpaneltracking_l70": {
+          "description": "Auto-imported from Opto22 Image Library: solarpaneltracking_l70"
+        },
+        "solarpaneltracking_l80": {
+          "description": "Auto-imported from Opto22 Image Library: solarpaneltracking_l80"
+        },
+        "solarpaneltracking_l90": {
+          "description": "Auto-imported from Opto22 Image Library: solarpaneltracking_l90"
+        },
+        "solarpaneltracking_r10": {
+          "description": "Auto-imported from Opto22 Image Library: solarpaneltracking_r10"
+        },
+        "solarpaneltracking_r20": {
+          "description": "Auto-imported from Opto22 Image Library: solarpaneltracking_r20"
+        },
+        "solarpaneltracking_r30": {
+          "description": "Auto-imported from Opto22 Image Library: solarpaneltracking_r30"
+        },
+        "solarpaneltracking_r40": {
+          "description": "Auto-imported from Opto22 Image Library: solarpaneltracking_r40"
+        },
+        "solarpaneltracking_r50": {
+          "description": "Auto-imported from Opto22 Image Library: solarpaneltracking_r50"
+        },
+        "solarpaneltracking_r60": {
+          "description": "Auto-imported from Opto22 Image Library: solarpaneltracking_r60"
+        },
+        "solarpaneltracking_r70": {
+          "description": "Auto-imported from Opto22 Image Library: solarpaneltracking_r70"
+        },
+        "solarpaneltracking_r80": {
+          "description": "Auto-imported from Opto22 Image Library: solarpaneltracking_r80"
+        },
+        "solarpaneltracking_r90": {
+          "description": "Auto-imported from Opto22 Image Library: solarpaneltracking_r90"
+        },
+        "transmissiontower_1": {
+          "description": "Auto-imported from Opto22 Image Library: transmissiontower_1"
+        },
+        "transmissiontower_2": {
+          "description": "Auto-imported from Opto22 Image Library: transmissiontower_2"
+        },
+        "volts": {
+          "description": "Auto-imported from Opto22 Image Library: volts"
+        },
+        "wallsockets": {
+          "description": "Auto-imported from Opto22 Image Library: wallsockets"
+        },
+        "waterturbine": {
+          "description": "Auto-imported from Opto22 Image Library: waterturbine"
         }
       }
     },

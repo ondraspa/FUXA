@@ -1,4 +1,4 @@
-<svg id="fuxa-dyn-smartmeter" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+<svg id="fuxa-dyn-smartmeter" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 200 200" width="100%" height="100%">
 <defs>
 <linearGradient id="gs" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#f1f5f9"/><stop offset="30%" stop-color="#cbd5e1"/><stop offset="70%" stop-color="#94a3b8"/><stop offset="100%" stop-color="#64748b"/></linearGradient>
 <linearGradient id="gi" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#94a3b8"/><stop offset="50%" stop-color="#64748b"/><stop offset="100%" stop-color="#334155"/></linearGradient>
@@ -6,13 +6,35 @@
 <linearGradient id="gb" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#7dd3fc"/><stop offset="40%" stop-color="#0284c7"/><stop offset="100%" stop-color="#0369a1"/></linearGradient>
 <filter id="s"><feDropShadow dx="2" dy="3" stdDeviation="3" flood-color="#0f172a" flood-opacity="0.35"/></filter>
 <style>.bkg{fill:#dbeafe}.frm{fill:#0f172a;rx:10;filter:url(#s)}</style>
-
+<linearGradient id="Linear_Gradient_1" data-name="Linear Gradient 1" x1="44.656" y1="87.288" x2="55.344" y2="87.288" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff"/>
+      <stop offset="1" stop-color="#000"/>
+    </linearGradient>
+<linearGradient id="Linear_Gradient_1-2" data-name="Linear Gradient 1" x1="38.6" y1="76.208" x2="61.4" y2="76.208" xlink:href="#Linear_Gradient_1"/>
 </defs>
 <rect width="200" height="200" class="bkg"/><rect x="6" y="6" width="188" height="188" class="frm"/>
 <g transform="translate(50,50)">
 <circle cx="100" cy="170" r="0" data-port-id="wire" data-port-dir="bottom" data-port-type="wire"/>
 <g id="shape">
       <rect x="17.431" y="2.396" width="65.137" height="68.27" rx="4.721" ry="4.721" fill="#4d4d4d"/>
+    </g>
+<g id="dark">
+      <path d="M36.551,56.912v-11.124c0-1.211-1.311-1.968-2.36-1.363l-9.634,5.562c-1.049.606-1.049,2.12,0,2.725l9.634,5.562c1.049.606,2.36-.151,2.36-1.363Z" fill="#1a1a1a"/>
+      <path d="M63.805,45.787v11.124c0,1.211,1.311,1.968,2.36,1.363l9.634-5.562c1.049-.606,1.049-2.12,0-2.725l-9.634-5.562c-1.049-.606-2.36.151-2.36,1.363Z" fill="#1a1a1a"/>
+      <rect x="41.301" y="44.584" width="17.101" height="14.481" rx="1.574" ry="1.574" fill="#1a1a1a"/>
+    </g>
+<g id="hlight">
+      <rect x="22.152" y="3.773" width="55.697" height=".393" fill="#fff"/>
+      <rect x="21.114" y="35.911" width="57.772" height=".393" fill="#fff"/>
+      <polygon points="24.655 50.158 24.458 49.816 34.093 44.254 34.289 44.595 24.655 50.158" fill="#fff"/>
+      <rect x="42.875" y="44.387" width="13.954" height=".393" fill="#fff"/>
+    </g>
+<g id="shadow">
+      <rect x="21.114" y="8.245" width="57.772" height="27.863" fill="#1a1a1a"/>
+    </g>
+<g id="linear">
+      <rect x="44.656" y="76.6" width="10.688" height="21.376" fill="url(#Linear_Gradient_1)"/>
+      <rect x="38.6" y="70.827" width="22.801" height="10.761" fill="url(#Linear_Gradient_1-2)"/>
     </g>
 </g>
 <script><![CDATA[

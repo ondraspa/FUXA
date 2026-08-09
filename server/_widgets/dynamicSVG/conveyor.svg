@@ -15,6 +15,66 @@
 	<path fill="#808080" d="M91,59H9.5c-4.411,0-8-3.589-8-8s3.589-8,8-8H91c4.411,0,8,3.589,8,8S95.411,59,91,59z M9.5,45
 		c-3.309,0-6,2.691-6,6s2.691,6,6,6H91c3.309,0,6-2.691,6-6s-2.691-6-6-6H9.5z"/>
 </g>
+<g id="dark">
+	<circle cx="9.5" cy="51" r="5.775"/>
+	<circle cx="91" cy="51" r="5.775"/>
+</g>
+<g id="light">
+<circle class="oc-belt" fill="#CCCCCC" cx="73.844" cy="48.125" r="2.375"/>
+<circle class="oc-belt" fill="#CCCCCC" cx="65.938" cy="48.125" r="2.375"/>
+<circle class="oc-belt" fill="#CCCCCC" cx="58.032" cy="48.125" r="2.375"/>
+<circle class="oc-belt" fill="#CCCCCC" cx="50.125" cy="48.125" r="2.375"/>
+<circle class="oc-belt" fill="#CCCCCC" cx="42.219" cy="48.125" r="2.375"/>
+<circle class="oc-belt" fill="#CCCCCC" cx="34.313" cy="48.125" r="2.375"/>
+<circle class="oc-belt" fill="#CCCCCC" cx="26.407" cy="48.125" r="2.375"/>
+<circle class="oc-belt" fill="#CCCCCC" cx="18.500" cy="48.125" r="2.375"/>
+<circle class="oc-belt" fill="#CCCCCC" cx="10.594" cy="48.125" r="2.375"/>
+<circle class="oc-belt" fill="#CCCCCC" cx="73.844" cy="48.125" r="2.375"/>
+<circle class="oc-belt" fill="#CCCCCC" cx="65.938" cy="48.125" r="2.375"/>
+<circle class="oc-belt" fill="#CCCCCC" cx="58.032" cy="48.125" r="2.375"/>
+<circle class="oc-belt" fill="#CCCCCC" cx="50.125" cy="48.125" r="2.375"/>
+<circle class="oc-belt" fill="#CCCCCC" cx="42.219" cy="48.125" r="2.375"/>
+<circle class="oc-belt" fill="#CCCCCC" cx="34.313" cy="48.125" r="2.375"/>
+<circle class="oc-belt" fill="#CCCCCC" cx="26.407" cy="48.125" r="2.375"/>
+<circle class="oc-belt" fill="#CCCCCC" cx="18.500" cy="48.125" r="2.375"/>
+<circle class="oc-belt" fill="#CCCCCC" cx="10.594" cy="48.125" r="2.375"/>
+<circle class="oc-belt" fill="#CCCCCC" cx="81.75" cy="48.125" r="2.375"/>
+<circle class="oc-belt" fill="#CCCCCC" cx="73.844" cy="48.125" r="2.375"/>
+<circle class="oc-belt" fill="#CCCCCC" cx="65.938" cy="48.125" r="2.375"/>
+<circle class="oc-belt" fill="#CCCCCC" cx="58.031" cy="48.125" r="2.375"/>
+<circle class="oc-belt" fill="#CCCCCC" cx="50.125" cy="48.125" r="2.375"/>
+<circle class="oc-belt" fill="#CCCCCC" cx="42.219" cy="48.125" r="2.375"/>
+<circle class="oc-belt" fill="#CCCCCC" cx="34.313" cy="48.125" r="2.375"/>
+<circle class="oc-belt" fill="#CCCCCC" cx="26.406" cy="48.125" r="2.375"/>
+<circle class="oc-belt" fill="#CCCCCC" cx="18.5" cy="48.125" r="2.375"/>
+<circle class="oc-belt" fill="#CCCCCC" cx="81.75" cy="48.125" r="2.375"/>
+<circle class="oc-belt" fill="#CCCCCC" cx="73.844" cy="48.125" r="2.375"/>
+<circle class="oc-belt" fill="#CCCCCC" cx="65.938" cy="48.125" r="2.375"/>
+<circle class="oc-belt" fill="#CCCCCC" cx="58.031" cy="48.125" r="2.375"/>
+<circle class="oc-belt" fill="#CCCCCC" cx="50.125" cy="48.125" r="2.375"/>
+<circle class="oc-belt" fill="#CCCCCC" cx="42.219" cy="48.125" r="2.375"/>
+<circle class="oc-belt" fill="#CCCCCC" cx="34.313" cy="48.125" r="2.375"/>
+<circle class="oc-belt" fill="#CCCCCC" cx="26.406" cy="48.125" r="2.375"/>
+<circle class="oc-belt" fill="#CCCCCC" cx="18.5" cy="48.125" r="2.375"/>
+<circle class="oc-belt" fill="#CCCCCC" cx="89.656" cy="48.125" r="2.375"/>
+<circle class="oc-belt" fill="#CCCCCC" cx="81.750" cy="48.125" r="2.375"/>
+<circle class="oc-belt" fill="#CCCCCC" cx="73.844" cy="48.125" r="2.375"/>
+<circle class="oc-belt" fill="#CCCCCC" cx="65.937" cy="48.125" r="2.375"/>
+<circle class="oc-belt" fill="#CCCCCC" cx="58.031" cy="48.125" r="2.375"/>
+<circle class="oc-belt" fill="#CCCCCC" cx="50.125" cy="48.125" r="2.375"/>
+<circle class="oc-belt" fill="#CCCCCC" cx="42.219" cy="48.125" r="2.375"/>
+<circle class="oc-belt" fill="#CCCCCC" cx="34.312" cy="48.125" r="2.375"/>
+<circle class="oc-belt" fill="#CCCCCC" cx="26.406" cy="48.125" r="2.375"/>
+<circle class="oc-belt" fill="#CCCCCC" cx="89.656" cy="48.125" r="2.375"/>
+<circle class="oc-belt" fill="#CCCCCC" cx="81.750" cy="48.125" r="2.375"/>
+<circle class="oc-belt" fill="#CCCCCC" cx="73.844" cy="48.125" r="2.375"/>
+<circle class="oc-belt" fill="#CCCCCC" cx="65.937" cy="48.125" r="2.375"/>
+<circle class="oc-belt" fill="#CCCCCC" cx="58.031" cy="48.125" r="2.375"/>
+<circle class="oc-belt" fill="#CCCCCC" cx="50.125" cy="48.125" r="2.375"/>
+<circle class="oc-belt" fill="#CCCCCC" cx="42.219" cy="48.125" r="2.375"/>
+<circle class="oc-belt" fill="#CCCCCC" cx="34.312" cy="48.125" r="2.375"/>
+<circle class="oc-belt" fill="#CCCCCC" cx="26.406" cy="48.125" r="2.375"/>
+</g>
 </g>
 <script><![CDATA[
 //!export-start
@@ -27,9 +87,11 @@ var _pc_state2Colour='#eab308';
 var _pc_state3Colour='#ef4444';
 var _pc_state4Colour='#a855f7';
 var _pc_state5Colour='#3b82f6';
+var _pb_running=false;
+var _pn_speed=100;
 //!export-end
 function postValue(id,v){console.log('FUXA post:',id,'=',v);}
-function putValue(id,v){v=Number(v);switch(id){
+function putValue(id,v){v=Number(v);switch(id){case '_pb_running':_pb_running=v!==0;break;case '_pn_speed':_pn_speed=v;break;
   case '_pn_setState':
     _pn_setState=v;
     var colors=[_pc_state0Colour,_pc_state1Colour,_pc_state2Colour,_pc_state3Colour,_pc_state4Colour,_pc_state5Colour];
@@ -44,6 +106,15 @@ function putValue(id,v){v=Number(v);switch(id){
     for(var j=0;j<els2.length;j++){els2[j].setAttribute('fill',c2);}
     break;
 }}
+var __ocBeltOffset = 0;
+setInterval(function(){
+  if(!_pb_running) return;
+  var __ocBelt = document.querySelectorAll('.oc-belt');
+  if(!__ocBelt.length) return;
+  __ocBeltOffset = (__ocBeltOffset + _pn_speed * 0.02) % 7.906;
+  var t = 'translate(' + (-__ocBeltOffset).toFixed(3) + ' 0)';
+  for(var i=0;i<__ocBelt.length;i++){ __ocBelt[i].setAttribute('transform', t); }
+}, 40);
 var o=new MutationObserver(function(m){m.forEach(function(mu){mu.removedNodes.forEach(function(n){if(n.id==='fuxa-dyn-conveyor'){o.disconnect();}});});});
 o.observe(document.body,{childList:true,subtree:true});
 ]]></script>

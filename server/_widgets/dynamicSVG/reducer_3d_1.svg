@@ -17,6 +17,17 @@
 	<polygon fill="#006837" points="25,55.657 25,44.343 75,48 75,52 	"/>
 	<rect x="71" y="45" fill="#006838" width="4" height="10"/>
 </g>
+<g id="dark">
+	<polygon fill="#009245" points="25,54.95 25,45.05 75,48.25 75,51.75 	"/>
+</g>
+<g id="light">
+	<polygon fill="#96D48D" points="25,53.535 25,46.464 75,48.75 75,51.25 	"/>
+</g>
+<g id="hlight">
+
+		<polygon fill="#FFFFFF" points="75,50.875 75,49.125 25,47.525 25,52.475 		"/>
+
+</g>
 </g>
 <script><![CDATA[
 //!export-start
